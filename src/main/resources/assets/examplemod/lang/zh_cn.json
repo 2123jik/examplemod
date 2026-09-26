@@ -1,0 +1,100 @@
+{
+  "key.categories.examplemod": "Example Mod",
+  "examplemod.tooltip.enchantment_cap": "At maximum level",
+  "examplemod.tooltip.map": "Map ID: %s",
+  "examplemod.tooltip.container.summary": "Contents: %s stacks, %s items",
+  "examplemod.tooltip.container.truncated": "Additional stacks hidden: %s",
+  "examplemod.tooltip.pinned": "Pinned tooltip page %s / %s",
+  "examplemod.target.item": "%s x%s",
+  "examplemod.target.living": "Health: %s / %s, Armor: %s",
+  "examplemod.target.block": "Block at %s",
+  "examplemod.tooltip.attributes": "Attributes: %s",
+  "examplemod.tooltip.compare": "Compared %s: %s",
+  "examplemod.tooltip.attribute": "%s: %s",
+  "key.examplemod.toggle_details": "Toggle tooltip details",
+  "key.examplemod.pin_tooltip": "Pin tooltip",
+  "examplemod.tooltip.version": "Added in: %s",
+  "examplemod.tooltip.durability": "Durability: %s / %s",
+  "examplemod.tooltip.durability_percent": "Durability: %s%%",
+  "examplemod.tooltip.food_effect": "Food effect: %s (%s%%)",
+  "examplemod.tooltip.effect": "Effect: %s, level %s, %s",
+  "examplemod.tooltip.custom_data": "Custom data entries: %s",
+  "examplemod.tooltip.custom_data_keys": "Custom data keys: %s",
+  "examplemod.tooltip.tool": "Tool rules: %s, damage per block: %s",
+  "examplemod.tooltip.food": "Food: %s nutrition, %s saturation",
+  "examplemod.tooltip.effects": "Effects: %s",
+  "examplemod.tooltip.fuel": "Fuel: %s ticks (%s seconds)",
+  "examplemod.tooltip.compost": "Compost chance: %s%%",
+  "examplemod.tooltip.cooldown": "Cooldown remaining: %s%%",
+  "examplemod.tooltip.enchantments": "Enchantments: %s",
+  "examplemod.tooltip.enchantment": "%s level %s",
+  "examplemod.tooltip.components": "Data components: %s",
+  "examplemod.tooltip.registry": "Registry: %s",
+  "examplemod.tooltip.tag": "Tag: %s",
+  "examplemod.tooltip.container.item": "  %s x%s",
+  "examplemod.slot_debug.item": "Slot %s: occupied",
+  "examplemod.slot_debug.empty": "Slot %s: empty",
+
+
+
+
+
+    "gui.ldlib.editor.nav.gem": "宝石编辑器",
+    "gui.ldlib.editor.nav.affix": "词缀编辑器",
+
+    "gui.ldlib.editor.gem.title": "神化宝石配置",
+    "gui.ldlib.editor.gem.preview_tooltip": "§a宝石实例预览\n§7将鼠标悬停查看渲染效果",
+    "gui.ldlib.editor.gem.weight": "生成权重:",
+    "gui.ldlib.editor.gem.quality": "品质系数:",
+    "gui.ldlib.editor.gem.unique": "唯一宝石 (单件装备限插一颗)",
+    "gui.ldlib.editor.gem.purity_values": "各阶纯度数值设定:",
+
+    "gui.ldlib.editor.gem.purity.cracked": "碎裂",
+    "gui.ldlib.editor.gem.purity.chipped": "瑕疵",
+    "gui.ldlib.editor.gem.purity.flawed": "残缺",
+    "gui.ldlib.editor.gem.purity.normal": "普通",
+    "gui.ldlib.editor.gem.purity.flawless": "无瑕",
+    "gui.ldlib.editor.gem.purity.perfect": "完美",
+
+    "gui.ldlib.editor.affix.title": "神化词缀配置",
+    "gui.ldlib.editor.affix.categories": "适用装备类型 (多选):",
+    "gui.ldlib.editor.affix.min": "基础最小值:",
+    "gui.ldlib.editor.affix.max": "基础最大值:",
+    "gui.ldlib.editor.affix.step": "每步增量:",
+    "gui.ldlib.editor.affix.steps": "最大步数:",
+
+    "gui.ldlib.editor.category.sword": "剑",
+    "gui.ldlib.editor.category.shield": "盾牌",
+    "gui.ldlib.editor.category.helmet": "头盔",
+    "gui.ldlib.editor.category.chestplate": "胸甲",
+    "gui.ldlib.editor.category.leggings": "护腿",
+    "gui.ldlib.editor.category.boots": "靴子",
+    "gui.ldlib.editor.category.ring": "戒指",
+    "gui.ldlib.editor.category.necklace": "项链",
+
+    "gui.ldlib.editor.rarity.common": "普通",
+    "gui.ldlib.editor.rarity.uncommon": "罕见",
+    "gui.ldlib.editor.rarity.rare": "稀有",
+    "gui.ldlib.editor.rarity.epic": "史诗",
+    "gui.ldlib.editor.rarity.mythic": "神话",
+
+    "gui.ldlib.editor.btn.save": "保存并生成数据包",
+
+  "gui.ldlib.editor.true": "§a是",
+  "gui.ldlib.editor.false": "§c否",
+
+    "gui.ldlib.editor.export.namespace": "命名空间:",
+    "gui.ldlib.editor.export.filename": "文件名:",
+
+  "examplemod.button.open_shop": "商店",
+
+
+  "spell.examplemod.summon_cave_spider": "召唤洞穴蜘蛛",
+  "examplemod.button.sleep": "睡觉",
+  "examplemod.message.bed_explodes": "你不能在这个维度使用床。",
+  "examplemod.message.cannot_sleep_now": "现在不能睡觉。",
+  "examplemod.message.woke_up": "你设置了重生点，并睡到了早晨。",
+
+  "spell.examplemod.yakunitatazumaho": "和菓子を出す魔法",
+  "spell.examplemod.yakunitatazumaho.desc": "§7『想いの力をどういう風にマッピングしていくかで、どんな魔法になるのかが変わってくる。\nできれば、簡単な魔法にしたいな。そんなに想いの力を擦り減らさなくても済むような。\n魔法っていうのは効果を限定すればするほど、簡単になっていく。漠然としたものよりは、具体的であればあるほど、より小さな力で『現実を調律』できるようになる。\nでき上がるものは和菓子限定。術者が食べたことのあるものだけ。\n術者の熱量を触媒にして──\n食べた人が、ほんのちょっぴり笑顔になれるような、そんな効果をトッピング。』§r\n\n§e消耗自身的饥饿与饱食度（热量）作为触媒，具现化曾经品尝过的美味。§r"
+}

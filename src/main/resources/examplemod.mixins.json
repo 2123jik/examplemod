@@ -1,0 +1,50 @@
+{
+  "required": true,
+  "package": "com.example.examplemod.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "apothic.AllStatsBonusMixin",
+    "apothic.AttributeBonusMixin",
+    "apothic.DamageReductionBonusMixin",
+    "apothic.LootCategoryMixin",
+    "apothic.MageSlayerBonusMixin",
+    "apothic.MixinGemItem",
+    "apothic.MixinLootTable",
+    "apothic.MixinWorldTier",
+    "apothic.MultiAttrBonusMixin",
+    "ironsspellbooks.ISSMobEffectBalanceMixin",
+    "ironsspellbooks.MixinRandomizeSpellFunction",
+    "ironsspellbooks.MixinScroll",
+    "l2artifacts.AugmentMenuScreenMixin",
+    "l2artifacts.BaseArtifactMixin",
+    "l2artifacts.L2HostilityCompatMixin",
+    "villna.AbstractArrowMixin",
+    "villna.ChestBlockEntityMixin",
+    "villna.CompassItemMixin",
+    "villna.CreeperMixin",
+    "villna.FoodDataMixin",
+    "villna.HealOrHarmMobEffectMixin",
+    "villna.LootTableMixin",
+    "villna.MixinLivingEntity",
+    "villna.MixinPoisonMobEffect",
+    "villna.MixinWitherMobEffect",
+    "villna.MobEffectsMixin",
+    "villna.PlayerMixin",
+    "villna.RangedAttributeMixin",
+    "villna.RegenerationMobEffectMixin",
+    "viScriptShop.ViScriptShopServerUtilMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "apothic.MixinWorldTierSelectScreen",
+    "l2artifacts.UpgradeScreenMixin",
+    "villna.GameRendererMixin",
+    "villna.ModernContainerScreenMixin",
+    "villna.MutableSpriteSetMixin"
+  ],
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
