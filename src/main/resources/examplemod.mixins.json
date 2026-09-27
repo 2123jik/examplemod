@@ -30,8 +30,10 @@
     "villna.MobEffectsMixin",
     "villna.PathfinderMobMixin",
     "villna.PlayerMixin",
+    "villna.RandomSpreadPlacementMixin",
     "villna.RangedAttributeMixin",
     "villna.RegenerationMobEffectMixin",
+    "villna.StructureBiomeMixin",
     "villna.StructureMixin",
     "viScriptShop.ViScriptShopServerUtilMixin"
   ],
