@@ -1,7 +1,8 @@
 package com.example.examplemod.registry;
 
 import com.example.examplemod.ExampleMod;
-import com.example.examplemod.spell.SummonedCaveSpider;
+import com.example.examplemod.content.spell.SummonedCaveSpider;
+import com.example.examplemod.content.spell.SummonedSupportDragon;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -20,7 +21,17 @@ public class ModEntities {
                             .clientTrackingRange(8)
                             .build("summoned_cave_spider")
             );
+// ModEntities.java 中追加
 
+    public static final DeferredHolder<EntityType<?>, EntityType<SummonedSupportDragon>> SUMMONED_SUPPORT_DRAGON =
+            ENTITIES.register("summoned_support_dragon", () ->
+                    EntityType.Builder.<SummonedSupportDragon>of(
+                                    SummonedSupportDragon::new, MobCategory.MISC)
+                            .sized(16.0F, 8.0F)              // 末影龙尺寸
+                            .clientTrackingRange(20)          // 大实体需要更大追踪范围
+                            .updateInterval(3)
+                            .build("summoned_support_dragon")
+            );
     public static void register(IEventBus modEventBus) {
         ENTITIES.register(modEventBus);
     }

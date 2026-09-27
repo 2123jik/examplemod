@@ -1,10 +1,11 @@
 package com.example.examplemod;
 
 import com.example.examplemod.registry.ModEntities;
-import com.example.examplemod.tooltip.*;
+import com.example.examplemod.client.tooltip.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.entity.CaveSpiderRenderer;
+import net.minecraft.client.renderer.entity.EnderDragonRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.Slot;
 import net.neoforged.api.distmarker.Dist;
@@ -41,6 +42,12 @@ public final class ExampleModClient {
     }
 
     private void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        // ExampleModClient.registerRenderers 中追加
+
+        event.registerEntityRenderer(
+                ModEntities.SUMMONED_SUPPORT_DRAGON.get(),
+                EnderDragonRenderer::new   // 直接复用原版，零资源文件
+        );
         event.registerEntityRenderer(ModEntities.SUMMONED_CAVE_SPIDER.get(), CaveSpiderRenderer::new);
     }
 

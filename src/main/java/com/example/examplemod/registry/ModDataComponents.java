@@ -1,7 +1,7 @@
 package com.example.examplemod.registry;
 
-import com.example.examplemod.item.PortableBrewingData;
-import com.example.examplemod.item.PortableFurnaceData;
+import com.example.examplemod.content.item.PortableBrewingData;
+import com.example.examplemod.content.item.PortableFurnaceData;
 import net.minecraft.core.UUIDUtil;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;

@@ -28,6 +28,7 @@
     "villna.MixinPoisonMobEffect",
     "villna.MixinWitherMobEffect",
     "villna.MobEffectsMixin",
+    "villna.PathfinderMobMixin",
     "villna.PlayerMixin",
     "villna.RangedAttributeMixin",
     "villna.RegenerationMobEffectMixin",

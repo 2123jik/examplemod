@@ -1,13 +1,14 @@
 package com.example.examplemod;
 
-import com.example.examplemod.compat.curios.ModLootCategories;
+import com.example.examplemod.compat.ModLootCategories;
+import com.example.examplemod.content.spell.SummonedSupportDragon;
 import com.example.examplemod.event.MobEquipmentHandler;
 import com.example.examplemod.registry.ModDataComponents;
 import com.example.examplemod.registry.ModEntities;
 import com.example.examplemod.registry.ModMenus; // 导入菜单注册
 import com.example.examplemod.registry.WeaponReplacementModifier;
-import com.example.examplemod.spell.ModSpells;
-import com.example.examplemod.spell.SummonedCaveSpider;
+import com.example.examplemod.content.spell.ModSpells;
+import com.example.examplemod.content.spell.SummonedCaveSpider;
 import com.example.examplemod.util.WeaponReplacer;
 import com.mojang.serialization.MapCodec;
 import net.neoforged.bus.api.IEventBus;
@@ -54,7 +55,11 @@ public final class ExampleMod {
     }
 
     private void registerEntityAttributes(EntityAttributeCreationEvent event) {
-        event.put(ModEntities.SUMMONED_CAVE_SPIDER.get(), SummonedCaveSpider.createAttributes().build());
+        event.put(ModEntities.SUMMONED_CAVE_SPIDER.get(),
+                SummonedCaveSpider.createAttributes().build());
+        // 新增
+        event.put(ModEntities.SUMMONED_SUPPORT_DRAGON.get(),
+                SummonedSupportDragon.createAttributes().build());
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

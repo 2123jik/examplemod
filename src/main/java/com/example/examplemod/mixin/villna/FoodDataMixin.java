@@ -64,7 +64,7 @@ public abstract class FoodDataMixin {
 
     // 这里定义默认的新上限，你可以将其连接到你的 Config 文件
     @Unique
-    private int maxFoodLevel = 40;
+    private int maxFoodLevel = 20;
 
     /**
      * 1. 修改 add 方法中的 clamp 上限

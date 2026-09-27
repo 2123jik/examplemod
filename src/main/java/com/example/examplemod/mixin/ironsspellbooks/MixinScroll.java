@@ -1,5 +1,6 @@
 package com.example.examplemod.mixin.ironsspellbooks;
 
+import com.example.examplemod.util.UnidentifiedItemHelper;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
@@ -8,14 +9,11 @@ import io.redspace.ironsspellbooks.api.spells.SchoolType;
 import io.redspace.ironsspellbooks.api.spells.SpellRarity;
 import io.redspace.ironsspellbooks.item.Scroll;
 import io.redspace.ironsspellbooks.registries.ItemRegistry;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -35,16 +33,35 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Mixin(value = Scroll.class, remap = false)
 public abstract class MixinScroll extends Item {
 
-    public MixinScroll(Properties properties) {
-        super(properties);
+    public MixinScroll(Properties properties) { super(properties); }
+
+    // =========================================================================
+    // 【缓存】按稀有度缓存的候选法术列表，避免每次右键都 stream 全注册表
+    // =========================================================================
+    @Unique
+    private static final Map<SpellRarity, List<AbstractSpell>> SPELLS_BY_RARITY =
+            new ConcurrentHashMap<>();
+
+    @Unique
+    private static List<AbstractSpell> yourMod$spellsFor(SpellRarity rarity) {
+        return SPELLS_BY_RARITY.computeIfAbsent(rarity, r ->
+                SpellRegistry.REGISTRY.stream()
+                        .filter(s -> s.isEnabled()
+                                && s != SpellRegistry.none()
+                                && s.allowLooting()
+                                && r.getValue() >= s.getMinRarity()
+                                && r.getValue() <= s.getMaxRarity())
+                        .toList());
     }
 
     // =========================================================================
-    // 【底层安全盾】：杜绝空串崩溃，保证任何脏数据都不闪退
+    // 【安全盾】脏数据不闪退
     // =========================================================================
     @Unique
     private static SpellRarity yourMod$safeGetRarity(CompoundTag tag) {
@@ -56,154 +73,115 @@ public abstract class MixinScroll extends Item {
                 } catch (IllegalArgumentException ignored) {}
             }
         }
-        return SpellRarity.COMMON; // 遇空值/非法值安全兜底为普通
+        return SpellRarity.COMMON;
     }
 
+    /** 只读视图，不做 NBT 深拷贝。 */
+    @Unique
+    private static CompoundTag yourMod$readTag(ItemStack stack) {
+        CustomData data = stack.get(DataComponents.CUSTOM_DATA);
+        return data == null ? new CompoundTag() : data.getUnsafe();
+    }
+
+    // =========================================================================
+    // use：鉴定入口
+    // =========================================================================
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
-    private void handleScrollUse(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
+    private void handleScrollUse(Level level, Player player, InteractionHand hand,
+                                 CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
         ItemStack heldStack = player.getItemInHand(hand);
-        CustomData customData = heldStack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
-        CompoundTag tag = customData.copyTag();
+        CompoundTag tag = yourMod$readTag(heldStack);
 
-        if (tag.getBoolean("is_unidentified")) {
-            if (level.isClientSide) {
-                cir.setReturnValue(InteractionResultHolder.sidedSuccess(heldStack, true));
-                return;
-            }
+        if (!tag.getBoolean("is_unidentified")) return;
 
-            // 【防误放锁 1】：前置背包空间检测
-            int freeSlot = player.getInventory().getFreeSlot();
-            if (freeSlot == -1 && heldStack.getCount() > 1) {
-                player.sendSystemMessage(Component.literal("背包已满，无法鉴定！请腾出空间后再试。").withStyle(ChatFormatting.RED));
-                cir.setReturnValue(InteractionResultHolder.fail(heldStack));
-                return;
-            }
-
-            // 1. 安全读取官方品质
-            SpellRarity targetRarity = yourMod$safeGetRarity(tag);
-            String schoolFilter = tag.contains("school_filter") ? tag.getString("school_filter") : null;
-
-            // 2. 根据官方稀有度生成真实卷轴
-            ItemStack identifiedScroll = yourMod$createIdentifiedScroll(targetRarity, schoolFilter, player.getRandom());
-            if (identifiedScroll.isEmpty()) {
-                return;
-            }
-
-            // 3. 扣除 1 个未鉴定卷轴
-            if (!player.isCreative()) {
-                heldStack.shrink(1);
-            }
-
-            // 【防误放锁 2】：手持位隔离放入 + 双端网络同步
-            boolean inserted = false;
-            for (int i = 0; i < player.getInventory().items.size(); i++) {
-                if (hand == InteractionHand.MAIN_HAND && i == player.getInventory().selected) {
-                    continue; // 跳过当前交互手
-                }
-                ItemStack slotStack = player.getInventory().items.get(i);
-                if (ItemStack.isSameItemSameComponents(slotStack, identifiedScroll) && slotStack.getCount() < slotStack.getMaxStackSize()) {
-                    slotStack.grow(1);
-                    inserted = true;
-                    break;
-                } else if (slotStack.isEmpty()) {
-                    player.getInventory().items.set(i, identifiedScroll);
-                    inserted = true;
-                    break;
-                }
-            }
-
-            if (!inserted) {
-                if (heldStack.isEmpty()) {
-                    player.setItemInHand(hand, identifiedScroll);
-                } else {
-                    player.drop(identifiedScroll, false);
-                }
-            }
-
-            if (player instanceof ServerPlayer serverPlayer) {
-                serverPlayer.containerMenu.broadcastChanges();
-            }
-
-            // 【防误放锁 3】：12 tick 底层冷却
-            player.getCooldowns().addCooldown(this, 12);
-
-            level.playSound(null, player.getX(), player.getY(), player.getZ(),
-                    SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 0.6f, 1.2f);
-            player.sendSystemMessage(Component.literal("鉴定出卷轴: ").withStyle(ChatFormatting.GOLD)
-                    .append(identifiedScroll.getHoverName()));
-
-            cir.setReturnValue(InteractionResultHolder.consume(heldStack));
+        if (level.isClientSide) {
+            cir.setReturnValue(InteractionResultHolder.sidedSuccess(heldStack, true));
+            return;
         }
+
+        // 背包空间前置检测
+        if (!UnidentifiedItemHelper.hasRoomForIdentify(player, heldStack)) {
+            player.sendSystemMessage(UnidentifiedItemHelper.fullMessage());
+            cir.setReturnValue(InteractionResultHolder.fail(heldStack));
+            return;
+        }
+
+        SpellRarity targetRarity = yourMod$safeGetRarity(tag);
+        String schoolFilter = tag.contains("school_filter") ? tag.getString("school_filter") : null;
+
+        ItemStack identifiedScroll = yourMod$createIdentifiedScroll(
+                targetRarity, schoolFilter, player.getRandom());
+        if (identifiedScroll.isEmpty()) return;
+
+        UnidentifiedItemHelper.deliver(
+                player, hand, heldStack, identifiedScroll,
+                12, SoundEvents.PLAYER_LEVELUP, 0.6f, 1.2f, "鉴定出卷轴: ");
+
+        cir.setReturnValue(InteractionResultHolder.consume(heldStack));
     }
 
     @Unique
-    private ItemStack yourMod$createIdentifiedScroll(SpellRarity targetRarity, String schoolFilter, RandomSource random) {
-        List<AbstractSpell> validSpells = SpellRegistry.REGISTRY.stream()
-                .filter(s -> s.isEnabled() && s != SpellRegistry.none() && s.allowLooting())
-                .filter(s -> targetRarity.getValue() >= s.getMinRarity() && targetRarity.getValue() <= s.getMaxRarity())
-                .filter(s -> {
-                    if (schoolFilter == null) return true;
-                    return s.getSchoolType().getId().toString().equals(schoolFilter);
-                })
+    private ItemStack yourMod$createIdentifiedScroll(SpellRarity targetRarity,
+                                                     String schoolFilter,
+                                                     RandomSource random) {
+        List<AbstractSpell> pool = yourMod$spellsFor(targetRarity).stream()
+                .filter(s -> schoolFilter == null
+                        || s.getSchoolType().getId().toString().equals(schoolFilter))
                 .toList();
 
-        if (validSpells.isEmpty()) {
-            return ItemStack.EMPTY;
-        }
+        if (pool.isEmpty()) return ItemStack.EMPTY;
 
-        AbstractSpell chosenSpell = validSpells.get(random.nextInt(validSpells.size()));
+        AbstractSpell chosen = pool.get(random.nextInt(pool.size()));
 
+        // 收集所有匹配该稀有度的等级
         List<Integer> matchingLevels = new ArrayList<>();
-        for (int lvl = chosenSpell.getMinLevel(); lvl <= chosenSpell.getMaxLevel(); lvl++) {
-            if (chosenSpell.getRarity(lvl) == targetRarity) {
-                matchingLevels.add(lvl);
-            }
+        for (int lvl = chosen.getMinLevel(); lvl <= chosen.getMaxLevel(); lvl++) {
+            if (chosen.getRarity(lvl) == targetRarity) matchingLevels.add(lvl);
         }
-
-        int chosenLevel = matchingLevels.isEmpty()
-                ? chosenSpell.getMinLevelForRarity(targetRarity)
+        int level = matchingLevels.isEmpty()
+                ? chosen.getMinLevelForRarity(targetRarity)
                 : matchingLevels.get(random.nextInt(matchingLevels.size()));
 
         ItemStack result = new ItemStack(ItemRegistry.SCROLL.get());
-        ISpellContainer.createScrollContainer(chosenSpell, chosenLevel, result);
+        ISpellContainer.createScrollContainer(chosen, level, result);
         return result;
     }
 
     // =========================================================================
-    // 3. 拦截未鉴定名字显示
+    // getName：每帧都调，用 getUnsafe()
     // =========================================================================
     @Inject(method = "getName", at = @At("HEAD"), cancellable = true)
     private void overrideUnidentifiedName(ItemStack stack, CallbackInfoReturnable<Component> cir) {
-        CustomData data = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
-        if (data.copyTag().getBoolean("is_unidentified")) {
-            SpellRarity rarity = yourMod$safeGetRarity(data.copyTag());
-            cir.setReturnValue(Component.literal("未鉴定的")
-                    .append(rarity.getDisplayName())
-                    .append(Component.literal("法术卷轴")));
-        }
+        CompoundTag tag = yourMod$readTag(stack);
+        if (!tag.getBoolean("is_unidentified")) return;
+
+        SpellRarity rarity = yourMod$safeGetRarity(tag);   // 复用同一份 tag，不再拷贝
+        cir.setReturnValue(Component.literal("未鉴定的")
+                .append(rarity.getDisplayName())
+                .append(Component.literal("法术卷轴")));
     }
 
     // =========================================================================
-    // 4. 拦截 Tooltip：保持你喜欢的自然语序（[品质]品质，[学派]学派限定）
+    // appendHoverText：同样每帧都调
     // =========================================================================
     @Inject(method = "appendHoverText", at = @At("HEAD"), cancellable = true)
-    private void overrideUnidentifiedTooltip(ItemStack stack, Item.TooltipContext context, List<Component> lines, TooltipFlag flag, CallbackInfo ci) {
-        CustomData data = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
-        if (data.copyTag().getBoolean("is_unidentified")) {
-            CompoundTag tag = data.copyTag();
+    private void overrideUnidentifiedTooltip(ItemStack stack, Item.TooltipContext ctx,
+                                             List<Component> lines, TooltipFlag flag,
+                                             CallbackInfo ci) {
+        CompoundTag tag = yourMod$readTag(stack);
+        if (!tag.getBoolean("is_unidentified")) return;
 
-            // 你喜欢的语序：[火焰]学派限定
-            if (tag.contains("school_filter")) {
-                SchoolType school = SchoolRegistry.getSchool(ResourceLocation.parse(tag.getString("school_filter")));
-                if (school != null) {
-                    lines.add(Component.literal("")
-                            .append(school.getDisplayName())
-                            .append(Component.literal("学派限定")));
-                }
+        if (tag.contains("school_filter")) {
+            SchoolType school = SchoolRegistry.getSchool(
+                    ResourceLocation.parse(tag.getString("school_filter")));
+            if (school != null) {
+                lines.add(Component.empty()
+                        .append(school.getDisplayName())
+                        .append(Component.literal("学派限定")));
             }
-
-            lines.add(Component.literal("右键解读法术"));
-            ci.cancel();
         }
+
+        lines.add(Component.literal("右键解读法术"));
+        ci.cancel();
     }
 }

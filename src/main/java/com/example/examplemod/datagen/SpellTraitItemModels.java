@@ -1,7 +1,7 @@
 package com.example.examplemod.datagen;
 
 import com.example.examplemod.ExampleMod;
-import com.example.examplemod.compat.l2hostility.traits.SpellTraitRegistrar;
+import com.example.examplemod.compat.l2hostility.SpellTraitRegistrar;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;

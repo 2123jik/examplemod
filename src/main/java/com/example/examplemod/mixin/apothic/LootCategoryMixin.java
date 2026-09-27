@@ -1,6 +1,6 @@
 package com.example.examplemod.mixin.apothic;
 
-import com.example.examplemod.compat.curios.ModLootCategories;
+import com.example.examplemod.compat.ModLootCategories;
 import com.example.examplemod.registry.ModDataComponents;
 import com.example.examplemod.util.CurioMimicHelper;
 import dev.shadowsoffire.apotheosis.Apoth;
