@@ -1,5 +1,6 @@
 {
   "key.categories.examplemod": "Example Mod",
+
   "examplemod.tooltip.enchantment_cap": "At maximum level",
   "examplemod.tooltip.map": "Map ID: %s",
   "examplemod.tooltip.container.summary": "Contents: %s stacks, %s items",
@@ -11,8 +12,10 @@
   "examplemod.tooltip.attributes": "Attributes: %s",
   "examplemod.tooltip.compare": "Compared %s: %s",
   "examplemod.tooltip.attribute": "%s: %s",
+
   "key.examplemod.toggle_details": "Toggle tooltip details",
   "key.examplemod.pin_tooltip": "Pin tooltip",
+
   "examplemod.tooltip.version": "Added in: %s",
   "examplemod.tooltip.durability": "Durability: %s / %s",
   "examplemod.tooltip.durability_percent": "Durability: %s%%",
@@ -32,74 +35,69 @@
   "examplemod.tooltip.registry": "Registry: %s",
   "examplemod.tooltip.tag": "Tag: %s",
   "examplemod.tooltip.container.item": "  %s x%s",
+
   "examplemod.slot_debug.item": "Slot %s: occupied",
   "examplemod.slot_debug.empty": "Slot %s: empty",
 
+  "gui.ldlib.editor.nav.gem": "Gem Editor",
+  "gui.ldlib.editor.nav.affix": "Affix Editor",
 
+  "gui.ldlib.editor.gem.title": "Apotheosis Gem Configuration",
+  "gui.ldlib.editor.gem.preview_tooltip": "§aGem Instance Preview\n§7Hover to view the rendered effect",
+  "gui.ldlib.editor.gem.weight": "Spawn Weight:",
+  "gui.ldlib.editor.gem.quality": "Quality Multiplier:",
+  "gui.ldlib.editor.gem.unique": "Unique Gem (only one socketed per item)",
+  "gui.ldlib.editor.gem.purity_values": "Per-Purity Value Settings:",
 
+  "gui.ldlib.editor.gem.purity.cracked": "Cracked",
+  "gui.ldlib.editor.gem.purity.chipped": "Chipped",
+  "gui.ldlib.editor.gem.purity.flawed": "Flawed",
+  "gui.ldlib.editor.gem.purity.normal": "Normal",
+  "gui.ldlib.editor.gem.purity.flawless": "Flawless",
+  "gui.ldlib.editor.gem.purity.perfect": "Perfect",
 
+  "gui.ldlib.editor.affix.title": "Apotheosis Affix Configuration",
+  "gui.ldlib.editor.affix.categories": "Applicable Equipment Types (multi-select):",
+  "gui.ldlib.editor.affix.min": "Base Minimum:",
+  "gui.ldlib.editor.affix.max": "Base Maximum:",
+  "gui.ldlib.editor.affix.step": "Step Increment:",
+  "gui.ldlib.editor.affix.steps": "Max Steps:",
 
-  "gui.ldlib.editor.nav.gem": "宝石编辑器",
-  "gui.ldlib.editor.nav.affix": "词缀编辑器",
+  "gui.ldlib.editor.category.sword": "Sword",
+  "gui.ldlib.editor.category.shield": "Shield",
+  "gui.ldlib.editor.category.helmet": "Helmet",
+  "gui.ldlib.editor.category.chestplate": "Chestplate",
+  "gui.ldlib.editor.category.leggings": "Leggings",
+  "gui.ldlib.editor.category.boots": "Boots",
+  "gui.ldlib.editor.category.ring": "Ring",
+  "gui.ldlib.editor.category.necklace": "Necklace",
 
-  "gui.ldlib.editor.gem.title": "神化宝石配置",
-  "gui.ldlib.editor.gem.preview_tooltip": "§a宝石实例预览\n§7将鼠标悬停查看渲染效果",
-  "gui.ldlib.editor.gem.weight": "生成权重:",
-  "gui.ldlib.editor.gem.quality": "品质系数:",
-  "gui.ldlib.editor.gem.unique": "唯一宝石 (单件装备限插一颗)",
-  "gui.ldlib.editor.gem.purity_values": "各阶纯度数值设定:",
+  "gui.ldlib.editor.rarity.common": "Common",
+  "gui.ldlib.editor.rarity.uncommon": "Uncommon",
+  "gui.ldlib.editor.rarity.rare": "Rare",
+  "gui.ldlib.editor.rarity.epic": "Epic",
+  "gui.ldlib.editor.rarity.mythic": "Mythic",
 
-  "gui.ldlib.editor.gem.purity.cracked": "碎裂",
-  "gui.ldlib.editor.gem.purity.chipped": "瑕疵",
-  "gui.ldlib.editor.gem.purity.flawed": "残缺",
-  "gui.ldlib.editor.gem.purity.normal": "普通",
-  "gui.ldlib.editor.gem.purity.flawless": "无瑕",
-  "gui.ldlib.editor.gem.purity.perfect": "完美",
+  "gui.ldlib.editor.btn.save": "Save & Generate Datapack",
 
-  "gui.ldlib.editor.affix.title": "神化词缀配置",
-  "gui.ldlib.editor.affix.categories": "适用装备类型 (多选):",
-  "gui.ldlib.editor.affix.min": "基础最小值:",
-  "gui.ldlib.editor.affix.max": "基础最大值:",
-  "gui.ldlib.editor.affix.step": "每步增量:",
-  "gui.ldlib.editor.affix.steps": "最大步数:",
+  "gui.ldlib.editor.true": "§aYes",
+  "gui.ldlib.editor.false": "§cNo",
 
-  "gui.ldlib.editor.category.sword": "剑",
-  "gui.ldlib.editor.category.shield": "盾牌",
-  "gui.ldlib.editor.category.helmet": "头盔",
-  "gui.ldlib.editor.category.chestplate": "胸甲",
-  "gui.ldlib.editor.category.leggings": "护腿",
-  "gui.ldlib.editor.category.boots": "靴子",
-  "gui.ldlib.editor.category.ring": "戒指",
-  "gui.ldlib.editor.category.necklace": "项链",
+  "gui.ldlib.editor.export.namespace": "Namespace:",
+  "gui.ldlib.editor.export.filename": "Filename:",
 
-  "gui.ldlib.editor.rarity.common": "普通",
-  "gui.ldlib.editor.rarity.uncommon": "罕见",
-  "gui.ldlib.editor.rarity.rare": "稀有",
-  "gui.ldlib.editor.rarity.epic": "史诗",
-  "gui.ldlib.editor.rarity.mythic": "神话",
+  "examplemod.button.open_shop": "Shop",
+  "examplemod.button.sleep": "Sleep",
 
-  "gui.ldlib.editor.btn.save": "保存并生成数据包",
+  "spell.examplemod.summon_cave_spider": "Summon Cave Spider",
 
-  "gui.ldlib.editor.true": "§a是",
-  "gui.ldlib.editor.false": "§c否",
+  "examplemod.message.bed_explodes": "You cannot use a bed in this dimension.",
+  "examplemod.message.cannot_sleep_now": "You cannot sleep right now.",
+  "examplemod.message.woke_up": "Respawn point set. You slept until morning.",
 
-  "gui.ldlib.editor.export.namespace": "命名空间:",
-  "gui.ldlib.editor.export.filename": "文件名:",
+  "spell.examplemod.yakunitatazumaho": "Wagashi Conjuring Magic",
+  "spell.examplemod.yakunitatazumaho.desc": "§7『Depending on how you map the power of thought, the kind of magic it becomes will change.\nIf I could, I'd make it simple magic — something that doesn't wear down so much of one's thought-force.\nThe more you limit a spell's effects, the simpler it becomes. The more concrete rather than vague, the more you can \"attune reality\" with only a little power.\nThe output is limited to wagashi — only sweets the caster has tasted before.\nUsing the caster's own passion as a catalyst — topped with an effect that makes whoever eats it smile just a little.』§r\n\n§eConsumes your own hunger and saturation (calories) as a catalyst to materialize a delicious treat you have tasted before.§r",
 
-
-  "examplemod.button.open_shop": "open_shop",
-
-
-  "spell.examplemod.summon_cave_spider": "召唤洞穴蜘蛛",
-  "examplemod.button.sleep": "睡觉",
-  "examplemod.message.bed_explodes": "你不能在这个维度使用床。",
-  "examplemod.message.cannot_sleep_now": "现在不能睡觉。",
-  "examplemod.message.woke_up": "你设置了重生点，并睡到了早晨。",
-
-  "spell.examplemod.yakunitatazumaho": "和菓子を出す魔法",
-  "spell.examplemod.yakunitatazumaho.desc": "§7『想いの力をどういう風にマッピングしていくかで、どんな魔法になるのかが変わってくる。\nできれば、簡単な魔法にしたいな。そんなに想いの力を擦り減らさなくても済むような。\n魔法っていうのは効果を限定すればするほど、簡単になっていく。漠然としたものよりは、具体的であればあるほど、より小さな力で『現実を調律』できるようになる。\nでき上がるものは和菓子限定。術者が食べたことのあるものだけ。\n術者の熱量を触媒にして──\n食べた人が、ほんのちょっぴり笑顔になれるような、そんな効果をトッピング。』§r\n\n§e消耗自身的饥饿与饱食度（热量）作为触媒，具现化曾经品尝过的美味。§r",
-
-  "trait.examplemod.firebolt": "火焰弹",
-  "trait.examplemod.firebolt.desc": "怪物会定期朝目标喷射火焰弹法术。"
-
+  "trait.examplemod.firebolt": "Firebolt",
+  "trait.examplemod.firebolt.desc": "Mobs periodically launch a Firebolt spell at their target."
 }
