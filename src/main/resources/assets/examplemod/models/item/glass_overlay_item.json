@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:block/glass",
+    "layer1": "apotheosis:items/diamond_upgrade_smithing_template"
+  },
+  "render_type": "minecraft:translucent"
+}

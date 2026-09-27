@@ -21,4 +21,6 @@ public class ModItems {
     public static final DeferredHolder<Item, Item> PORTABLE_BREWING_STAND =
             ITEMS.register("portable_brewing_stand", () -> new PortableBrewingStandItem(new Item.Properties().stacksTo(1)));
 
+    public static final DeferredHolder<Item,Item> GLASS_OVERLAY_ITEM =
+            ITEMS.register("glass_overlay_item", () -> new Item(new Item.Properties()));
 }

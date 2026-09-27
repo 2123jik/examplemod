@@ -1,0 +1,526 @@
+{
+  "values": {
+    "examplemod:irons_spellbooks_blaze_storm_spelltrait": {
+      "cost": 23,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_firebolt_spelltrait": {
+      "cost": 7,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_shadow_slash_spelltrait": {
+      "cost": 10,
+      "weight": 100,
+      "max_rank": 5,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_heat_surge_spelltrait": {
+      "cost": 14,
+      "weight": 100,
+      "max_rank": 6,
+      "min_level": 20
+    },
+    "examplemod:iss_magicfromtheeast_nephrite_slash_spelltrait": {
+      "cost": 12,
+      "weight": 100,
+      "max_rank": 5,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_counterspell_spelltrait": {
+      "cost": 18,
+      "weight": 70,
+      "max_rank": 1,
+      "min_level": 100
+    },
+    "examplemod:irons_spellbooks_lightning_bolt_spelltrait": {
+      "cost": 43,
+      "weight": 55,
+      "max_rank": 10,
+      "min_level": 200
+    },
+    "examplemod:irons_spellbooks_poison_breath_spelltrait": {
+      "cost": 23,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_root_spelltrait": {
+      "cost": 21,
+      "weight": 85,
+      "max_rank": 10,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_icicle_spelltrait": {
+      "cost": 7,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:iss_magicfromtheeast_bone_hands_spelltrait": {
+      "cost": 18,
+      "weight": 85,
+      "max_rank": 7,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_fire_breath_spelltrait": {
+      "cost": 23,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_chain_lightning_spelltrait": {
+      "cost": 16,
+      "weight": 85,
+      "max_rank": 10,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_scorch_spelltrait": {
+      "cost": 22,
+      "weight": 85,
+      "max_rank": 10,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_ray_of_siphoning_spelltrait": {
+      "cost": 29,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_earthquake_spelltrait": {
+      "cost": 22,
+      "weight": 85,
+      "max_rank": 10,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_poison_splash_spelltrait": {
+      "cost": 20,
+      "weight": 85,
+      "max_rank": 10,
+      "min_level": 50
+    },
+    "examplemod:iss_magicfromtheeast_sword_dance_spelltrait": {
+      "cost": 16,
+      "weight": 85,
+      "max_rank": 8,
+      "min_level": 50
+    },
+    "examplemod:iss_magicfromtheeast_underworld_aid_spelltrait": {
+      "cost": 43,
+      "weight": 70,
+      "max_rank": 4,
+      "min_level": 100
+    },
+    "examplemod:irons_spellbooks_echoing_strikes_spelltrait": {
+      "cost": 24,
+      "weight": 70,
+      "max_rank": 5,
+      "min_level": 100
+    },
+    "examplemod:iss_magicfromtheeast_spirit_challenging_spelltrait": {
+      "cost": 27,
+      "weight": 70,
+      "max_rank": 5,
+      "min_level": 100
+    },
+    "examplemod:iss_magicfromtheeast_splitting_shuriken_spelltrait": {
+      "cost": 9,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_fang_ward_spelltrait": {
+      "cost": 14,
+      "weight": 100,
+      "max_rank": 8,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_charge_spelltrait": {
+      "cost": 22,
+      "weight": 70,
+      "max_rank": 3,
+      "min_level": 100
+    },
+    "examplemod:irons_spellbooks_black_hole_spelltrait": {
+      "cost": 89,
+      "weight": 40,
+      "max_rank": 6,
+      "min_level": 400
+    },
+    "examplemod:irons_spellbooks_firecracker_spelltrait": {
+      "cost": 10,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:iss_magicfromtheeast_soul_catalyst_spelltrait": {
+      "cost": 13,
+      "weight": 100,
+      "max_rank": 8,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_devour_spelltrait": {
+      "cost": 16,
+      "weight": 85,
+      "max_rank": 10,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_guiding_bolt_spelltrait": {
+      "cost": 10,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_divine_smite_spelltrait": {
+      "cost": 10,
+      "weight": 100,
+      "max_rank": 5,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_eldritch_blast_spelltrait": {
+      "cost": 47,
+      "weight": 40,
+      "max_rank": 5,
+      "min_level": 400
+    },
+    "examplemod:irons_spellbooks_volt_strike_spelltrait": {
+      "cost": 12,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:iss_magicfromtheeast_anchoring_kunai_spelltrait": {
+      "cost": 13,
+      "weight": 85,
+      "max_rank": 8,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_blizzard_spelltrait": {
+      "cost": 24,
+      "weight": 70,
+      "max_rank": 8,
+      "min_level": 100
+    },
+    "examplemod:irons_spellbooks_firefly_swarm_spelltrait": {
+      "cost": 20,
+      "weight": 85,
+      "max_rank": 10,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_stomp_spelltrait": {
+      "cost": 19,
+      "weight": 85,
+      "max_rank": 5,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_gravity_fissure_spelltrait": {
+      "cost": 51,
+      "weight": 55,
+      "max_rank": 5,
+      "min_level": 200
+    },
+    "examplemod:iss_magicfromtheeast_dragon_glide_spelltrait": {
+      "cost": 13,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_blight_spelltrait": {
+      "cost": 30,
+      "weight": 70,
+      "max_rank": 8,
+      "min_level": 100
+    },
+    "examplemod:irons_spellbooks_spider_aspect_spelltrait": {
+      "cost": 23,
+      "weight": 70,
+      "max_rank": 8,
+      "min_level": 100
+    },
+    "examplemod:iss_magicfromtheeast_bagua_array_circle_spelltrait": {
+      "cost": 25,
+      "weight": 85,
+      "max_rank": 8,
+      "min_level": 50
+    },
+    "examplemod:iss_magicfromtheeast_jade_bullet_spelltrait": {
+      "cost": 7,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:iss_magicfromtheeast_soul_burst_spelltrait": {
+      "cost": 14,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_burning_dash_spelltrait": {
+      "cost": 10,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_wither_skull_spelltrait": {
+      "cost": 14,
+      "weight": 85,
+      "max_rank": 10,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_cone_of_cold_spelltrait": {
+      "cost": 23,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_snowball_spelltrait": {
+      "cost": 17,
+      "weight": 85,
+      "max_rank": 5,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_gust_spelltrait": {
+      "cost": 17,
+      "weight": 85,
+      "max_rank": 10,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_sculk_tentacles_spelltrait": {
+      "cost": 57,
+      "weight": 40,
+      "max_rank": 4,
+      "min_level": 400
+    },
+    "examplemod:irons_spellbooks_magma_bomb_spelltrait": {
+      "cost": 16,
+      "weight": 85,
+      "max_rank": 8,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_electrocute_spelltrait": {
+      "cost": 18,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_arcane_shackle_spelltrait": {
+      "cost": 24,
+      "weight": 70,
+      "max_rank": 8,
+      "min_level": 100
+    },
+    "examplemod:irons_spellbooks_fireball_spelltrait": {
+      "cost": 26,
+      "weight": 70,
+      "max_rank": 5,
+      "min_level": 100
+    },
+    "examplemod:irons_spellbooks_fire_arrow_spelltrait": {
+      "cost": 26,
+      "weight": 70,
+      "max_rank": 10,
+      "min_level": 100
+    },
+    "examplemod:irons_spellbooks_dragon_breath_spelltrait": {
+      "cost": 23,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_ray_of_frost_spelltrait": {
+      "cost": 9,
+      "weight": 100,
+      "max_rank": 5,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_starfall_spelltrait": {
+      "cost": 32,
+      "weight": 85,
+      "max_rank": 10,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_telekinesis_spelltrait": {
+      "cost": 110,
+      "weight": 40,
+      "max_rank": 5,
+      "min_level": 400
+    },
+    "examplemod:irons_spellbooks_wisp_spelltrait": {
+      "cost": 9,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_ice_block_spelltrait": {
+      "cost": 23,
+      "weight": 70,
+      "max_rank": 6,
+      "min_level": 100
+    },
+    "examplemod:irons_spellbooks_slow_spelltrait": {
+      "cost": 28,
+      "weight": 55,
+      "max_rank": 4,
+      "min_level": 200
+    },
+    "examplemod:irons_spellbooks_acupuncture_spelltrait": {
+      "cost": 20,
+      "weight": 70,
+      "max_rank": 10,
+      "min_level": 100
+    },
+    "examplemod:irons_spellbooks_frostwave_spelltrait": {
+      "cost": 15,
+      "weight": 100,
+      "max_rank": 8,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_heartstop_spelltrait": {
+      "cost": 34,
+      "weight": 70,
+      "max_rank": 5,
+      "min_level": 100
+    },
+    "examplemod:irons_spellbooks_sunbeam_spelltrait": {
+      "cost": 20,
+      "weight": 85,
+      "max_rank": 10,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_poison_arrow_spelltrait": {
+      "cost": 14,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_oakskin_spelltrait": {
+      "cost": 11,
+      "weight": 100,
+      "max_rank": 8,
+      "min_level": 20
+    },
+    "examplemod:iss_magicfromtheeast_jade_judgement_spelltrait": {
+      "cost": 29,
+      "weight": 70,
+      "max_rank": 6,
+      "min_level": 100
+    },
+    "examplemod:irons_spellbooks_blood_slash_spelltrait": {
+      "cost": 17,
+      "weight": 70,
+      "max_rank": 5,
+      "min_level": 100
+    },
+    "examplemod:irons_spellbooks_sonic_boom_spelltrait": {
+      "cost": 46,
+      "weight": 40,
+      "max_rank": 3,
+      "min_level": 400
+    },
+    "examplemod:iss_magicfromtheeast_calamity_cut_spelltrait": {
+      "cost": 10,
+      "weight": 100,
+      "max_rank": 5,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_ice_spikes_spelltrait": {
+      "cost": 12,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_lob_creeper_spelltrait": {
+      "cost": 14,
+      "weight": 85,
+      "max_rank": 10,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_ball_lightning_spelltrait": {
+      "cost": 10,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_fang_swirl_spelltrait": {
+      "cost": 35,
+      "weight": 55,
+      "max_rank": 8,
+      "min_level": 200
+    },
+    "examplemod:irons_spellbooks_arrow_volley_spelltrait": {
+      "cost": 18,
+      "weight": 85,
+      "max_rank": 6,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_acid_orb_spelltrait": {
+      "cost": 13,
+      "weight": 100,
+      "max_rank": 8,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_lightning_lance_spelltrait": {
+      "cost": 22,
+      "weight": 85,
+      "max_rank": 10,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_magic_arrow_spelltrait": {
+      "cost": 26,
+      "weight": 70,
+      "max_rank": 10,
+      "min_level": 100
+    },
+    "examplemod:irons_spellbooks_magic_missile_spelltrait": {
+      "cost": 7,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_flaming_strike_spelltrait": {
+      "cost": 10,
+      "weight": 100,
+      "max_rank": 5,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_raise_hell_spelltrait": {
+      "cost": 47,
+      "weight": 40,
+      "max_rank": 5,
+      "min_level": 400
+    },
+    "examplemod:irons_spellbooks_blood_needles_spelltrait": {
+      "cost": 16,
+      "weight": 85,
+      "max_rank": 10,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_shockwave_spelltrait": {
+      "cost": 18,
+      "weight": 100,
+      "max_rank": 8,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_healing_circle_spelltrait": {
+      "cost": 14,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    },
+    "examplemod:irons_spellbooks_chain_creeper_spelltrait": {
+      "cost": 18,
+      "weight": 85,
+      "max_rank": 6,
+      "min_level": 50
+    },
+    "examplemod:irons_spellbooks_fang_strike_spelltrait": {
+      "cost": 12,
+      "weight": 100,
+      "max_rank": 10,
+      "min_level": 20
+    }
+  }
+}

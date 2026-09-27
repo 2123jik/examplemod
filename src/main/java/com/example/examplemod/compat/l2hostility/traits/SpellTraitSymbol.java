@@ -10,11 +10,6 @@ public class SpellTraitSymbol extends TraitSymbol {
         super(props);
     }
 
-    /**
-     * 让物品名直接用 trait 的名字（也就是 AutoSpellTrait 重写后的 spell.getComponentId()）。
-     * 这个方法只在第一次需要 translation key 时调用（tooltip / 创造栏渲染），
-     * 那时注册已完成，get() 必然非 null。
-     */
     @Override
     protected String getOrCreateDescriptionId() {
         MobTrait trait = this.get();
