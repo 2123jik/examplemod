@@ -1,10 +1,7 @@
 package com.example.examplemod.registry;
 
 import com.example.examplemod.ExampleMod;
-import com.example.examplemod.content.item.PortableAnvilItem;
-import com.example.examplemod.content.item.PortableBrewingStandItem;
-import com.example.examplemod.content.item.PortableFurnaceItem;
-import com.example.examplemod.content.item.PortableStonecutterItem;
+import com.example.examplemod.content.item.*;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -22,5 +19,6 @@ public class ModItems {
             ITEMS.register("portable_brewing_stand", () -> new PortableBrewingStandItem(new Item.Properties().stacksTo(1)));
 
     public static final DeferredHolder<Item,Item> GLASS_OVERLAY_ITEM =
+
             ITEMS.register("glass_overlay_item", () -> new Item(new Item.Properties()));
 }

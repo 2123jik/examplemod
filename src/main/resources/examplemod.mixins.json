@@ -32,6 +32,7 @@
     "villna.PlayerMixin",
     "villna.RangedAttributeMixin",
     "villna.RegenerationMobEffectMixin",
+    "villna.StructureMixin",
     "viScriptShop.ViScriptShopServerUtilMixin"
   ],
   "injectors": {

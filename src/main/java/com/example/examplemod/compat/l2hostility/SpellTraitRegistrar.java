@@ -19,7 +19,7 @@ public class SpellTraitRegistrar {
 
     public static final Set<String> WHITELIST = Set.of(
 
-            "null",
+            "iss_magicfromtheeast:bagua_array_circle",
             "iss_magicfromtheeast:dragon_glide",
             "iss_magicfromtheeast:jade_bullet",
             "iss_magicfromtheeast:jade_judgement",
@@ -27,7 +27,7 @@ public class SpellTraitRegistrar {
             "iss_magicfromtheeast:sword_dance",
             "iss_magicfromtheeast:underworld_aid",
 
-            "null",
+            "irons_spellbooks:blizzard",
             "irons_spellbooks:cone_of_cold",
             "irons_spellbooks:frostwave",
             "irons_spellbooks:ice_block",
@@ -36,7 +36,7 @@ public class SpellTraitRegistrar {
             "irons_spellbooks:ray_of_frost",
             "irons_spellbooks:snowball",
 
-            "null",
+            "irons_spellbooks:arrow_volley",
             "irons_spellbooks:chain_creeper",
             "irons_spellbooks:fang_strike",
             "irons_spellbooks:fang_swirl",
@@ -46,7 +46,7 @@ public class SpellTraitRegistrar {
             "irons_spellbooks:lob_creeper",
             "irons_spellbooks:slow",
 
-            "null",
+            "irons_spellbooks:arcane_shackle",
             "irons_spellbooks:black_hole",
             "irons_spellbooks:counterspell",
             "irons_spellbooks:dragon_breath",
@@ -57,7 +57,7 @@ public class SpellTraitRegistrar {
             "irons_spellbooks:shadow_slash",
             "irons_spellbooks:starfall",
 
-            "null",
+            "irons_spellbooks:blaze_storm",
             "irons_spellbooks:fire_arrow",
             "irons_spellbooks:fire_breath",
             "irons_spellbooks:fireball",
@@ -69,7 +69,7 @@ public class SpellTraitRegistrar {
             "irons_spellbooks:scorch",
             "irons_spellbooks:burning_dash",
 
-            "null",
+            "irons_spellbooks:acupuncture",
             "irons_spellbooks:blood_needles",
             "irons_spellbooks:blood_slash",
             "irons_spellbooks:devour",
@@ -77,13 +77,13 @@ public class SpellTraitRegistrar {
             "irons_spellbooks:wither_skull",
             "irons_spellbooks:heartstop",
 
-            "null",
+            "irons_spellbooks:divine_smite",
             "irons_spellbooks:guiding_bolt",
             "irons_spellbooks:healing_circle",
             "irons_spellbooks:sunbeam",
             "irons_spellbooks:wisp",
 
-            "null",
+            "irons_spellbooks:acid_orb",
             "irons_spellbooks:blight",
             "irons_spellbooks:earthquake",
             "irons_spellbooks:firefly_swarm",
@@ -94,12 +94,12 @@ public class SpellTraitRegistrar {
             "irons_spellbooks:stomp",
             "irons_spellbooks:oakskin",
             "irons_spellbooks:spider_aspect",
-            "null",
+            "irons_spellbooks:eldritch_blast",
             "irons_spellbooks:sculk_tentacles",
             "irons_spellbooks:sonic_boom",
             "irons_spellbooks:telekinesis",
 
-            "null",
+            "irons_spellbooks:ball_lightning",
             "irons_spellbooks:chain_lightning",
             "irons_spellbooks:electrocute",
             "irons_spellbooks:lightning_bolt",
@@ -108,7 +108,7 @@ public class SpellTraitRegistrar {
             "irons_spellbooks:charge",
             "irons_spellbooks:volt_strike",
 
-            "null",
+            "iss_magicfromtheeast:anchoring_kunai",
             "iss_magicfromtheeast:bone_hands",
             "iss_magicfromtheeast:calamity_cut",
             "iss_magicfromtheeast:soul_burst",

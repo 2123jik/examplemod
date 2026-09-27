@@ -24,6 +24,7 @@ public final class Network {
                     }
                 }
         );
+
         registrar.playToServer(
                 SleepButtonPayload.TYPE,
                 SleepButtonPayload.STREAM_CODEC,
