@@ -1,11 +1,7 @@
 package com.example.examplemod.mixin.villna;
 
-import artifacts.equipment.EquipmentHelper;
-import artifacts.registry.ModDataComponents;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.client.renderer.GameRenderer;
-import net.minecraft.core.component.DataComponentType;
-import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;

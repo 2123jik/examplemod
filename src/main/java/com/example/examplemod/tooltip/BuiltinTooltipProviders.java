@@ -1,13 +1,9 @@
 package com.example.examplemod.tooltip;
-import com.mojang.logging.LogUtils;
-import net.minecraft.advancements.critereon.BlockPredicate;
-import org.slf4j.Logger;
-
-import java.lang.reflect.Modifier;
-import java.lang.reflect.ParameterizedType;
 
 import com.example.examplemod.Config;
+import com.mojang.logging.LogUtils;
 import net.minecraft.ChatFormatting;
+import net.minecraft.advancements.critereon.BlockPredicate;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -36,9 +32,15 @@ import net.minecraft.world.level.block.entity.PotDecorations;
 import net.minecraft.world.level.saveddata.maps.MapId;
 import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
 import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
+import org.slf4j.Logger;
 
 import java.lang.reflect.Field;
-import java.util.*;
+import java.lang.reflect.Modifier;
+import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 
 public final class BuiltinTooltipProviders {
     private BuiltinTooltipProviders() {}

@@ -2,7 +2,6 @@ package com.example.examplemod.event;
 
 import com.example.examplemod.ExampleMod;
 import com.example.examplemod.util.ItemGiveHelper;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;

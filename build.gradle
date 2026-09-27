@@ -121,6 +121,8 @@ dependencies {
                                          'kubejs-neoforge-2101.7.2-build.321.jar',
                                          'rhino-2101.2.7-build.81.jar',
                                          'examplemod-1.0.0.jar',
+            'iris-neoforge-1.8.14-beta.1+mc1.21.1.jar',
+            'EuphoriaPatcher-1.10.5-r5.9.3-neoforge.jar','MouseTweaks-neoforge-mc1.21-2.26.1.jar'
     ])
     compileOnly files("libs/l2core-3.0.8+12.jar")
     // Optional integrations belong here as explicit compileOnly/localRuntime dependencies.

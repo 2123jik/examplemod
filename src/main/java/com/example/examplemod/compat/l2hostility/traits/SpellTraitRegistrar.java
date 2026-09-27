@@ -1,0 +1,224 @@
+package com.example.examplemod.compat.l2hostility.traits;
+
+import dev.xkmc.l2hostility.init.registrate.LHTraits;
+import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
+import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.registries.RegisterEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.Set;
+
+@EventBusSubscriber(modid = "examplemod")
+public class SpellTraitRegistrar {
+    private static final Logger LOGGER = LogManager.getLogger();
+
+    /**
+     * 白名单：所有适合给敌对怪物使用的法术。
+     * 排除规则：
+     *   1. 自增益/自治疗类（怪物会变得过强）
+     *   2. 自位移类（AI 会跑偏、脱战）
+     *   3. 需要玩家交互类（怪物无法触发）
+     *   4. 自伤延迟类（无敌期间玩家无法反制，体验极差）
+     */
+    public static final Set<String> WHITELIST = Set.of(
+
+            // ============================================================
+            // 🔮 两仪（iss_magicfromtheeast）
+            // 排除：cloud_ride（召唤专属坐骑）、drapes_of_reflection（纯自护盾）
+            // ============================================================
+            "iss_magicfromtheeast:bagua_array_circle",
+            "iss_magicfromtheeast:dragon_glide",
+            "iss_magicfromtheeast:jade_bullet",
+            "iss_magicfromtheeast:jade_judgement",
+            "iss_magicfromtheeast:nephrite_slash",
+            "iss_magicfromtheeast:sword_dance",
+            "iss_magicfromtheeast:underworld_aid",
+
+            // ============================================================
+            // 🔮 冰霜
+            // 排除：ice_tomb（需要潜行键离开，怪物无法触发）
+            // ============================================================
+            "irons_spellbooks:blizzard",
+            "irons_spellbooks:cone_of_cold",
+            "irons_spellbooks:frostwave",
+            "irons_spellbooks:ice_block",
+            "irons_spellbooks:ice_spikes",
+            "irons_spellbooks:icicle",
+            "irons_spellbooks:ray_of_frost",
+            "irons_spellbooks:snowball",
+
+            // ============================================================
+            // 🔮 唤魔
+            // 排除：summon_horse（只允许施法者骑乘，怪物召唤无意义）
+            // ============================================================
+            "irons_spellbooks:arrow_volley",
+            "irons_spellbooks:chain_creeper",
+            "irons_spellbooks:fang_strike",
+            "irons_spellbooks:fang_swirl",
+            "irons_spellbooks:fang_ward",
+            "irons_spellbooks:firecracker",
+            "irons_spellbooks:gust",
+            "irons_spellbooks:lob_creeper",
+            "irons_spellbooks:slow",
+
+            // ============================================================
+            // 🔮 末影
+            // 排除：evasion（受伤时被动触发，怪物用来规避玩家伤害，体验差）
+            // ============================================================
+            "irons_spellbooks:arcane_shackle",
+            "irons_spellbooks:black_hole",
+            "irons_spellbooks:counterspell",
+            "irons_spellbooks:dragon_breath",
+            "irons_spellbooks:echoing_strikes",
+            "irons_spellbooks:gravity_fissure",
+            "irons_spellbooks:magic_arrow",
+            "irons_spellbooks:magic_missile",
+            "irons_spellbooks:shadow_slash",
+            "irons_spellbooks:starfall",
+
+            // ============================================================
+            // 🔮 炽焰
+            //
+            // ============================================================
+            "irons_spellbooks:blaze_storm",
+            "irons_spellbooks:fire_arrow",
+            "irons_spellbooks:fire_breath",
+            "irons_spellbooks:fireball",
+            "irons_spellbooks:firebolt",
+            "irons_spellbooks:flaming_strike",
+            "irons_spellbooks:heat_surge",
+            "irons_spellbooks:magma_bomb",
+            "irons_spellbooks:raise_hell",
+            "irons_spellbooks:scorch",
+            "irons_spellbooks:burning_dash",
+
+            // ============================================================
+            // 🔮 猩红
+            //
+            // ============================================================
+            "irons_spellbooks:acupuncture",
+            "irons_spellbooks:blood_needles",
+            "irons_spellbooks:blood_slash",
+            "irons_spellbooks:devour",
+            "irons_spellbooks:ray_of_siphoning",
+            "irons_spellbooks:wither_skull",
+            "irons_spellbooks:heartstop",
+
+            // ============================================================
+            // 🔮 神圣
+            //
+            // ============================================================
+            "irons_spellbooks:divine_smite",
+            "irons_spellbooks:guiding_bolt",
+            "irons_spellbooks:healing_circle",
+            "irons_spellbooks:sunbeam",
+            "irons_spellbooks:wisp",
+
+            // ============================================================
+            // 🔮 自然
+            //
+            // ============================================================
+            "irons_spellbooks:acid_orb",
+            "irons_spellbooks:blight",
+            "irons_spellbooks:earthquake",
+            "irons_spellbooks:firefly_swarm",
+            "irons_spellbooks:poison_arrow",
+            "irons_spellbooks:poison_breath",
+            "irons_spellbooks:poison_splash",
+            "irons_spellbooks:root",
+            "irons_spellbooks:stomp",
+            "irons_spellbooks:oakskin",
+            "irons_spellbooks:spider_aspect",
+            // ============================================================
+            // 🔮 邪术（全部保留）
+            // ============================================================
+            "irons_spellbooks:eldritch_blast",
+            "irons_spellbooks:sculk_tentacles",
+            "irons_spellbooks:sonic_boom",
+            "irons_spellbooks:telekinesis",
+
+            // ============================================================
+            // 🔮 雷霆
+            //
+            // ============================================================
+            "irons_spellbooks:ball_lightning",
+            "irons_spellbooks:chain_lightning",
+            "irons_spellbooks:electrocute",
+            "irons_spellbooks:lightning_bolt",
+            "irons_spellbooks:lightning_lance",
+            "irons_spellbooks:shockwave",
+            "irons_spellbooks:charge",
+            "irons_spellbooks:volt_strike",
+
+            // ============================================================
+            // 🔮 魂灵（iss_magicfromtheeast，全部保留）
+            // ============================================================
+            "iss_magicfromtheeast:anchoring_kunai",
+            "iss_magicfromtheeast:bone_hands",
+            "iss_magicfromtheeast:calamity_cut",
+            "iss_magicfromtheeast:soul_burst",
+            "iss_magicfromtheeast:soul_catalyst",
+            "iss_magicfromtheeast:spirit_challenging",
+            "iss_magicfromtheeast:splitting_shuriken"
+    );
+    public static ResourceLocation traitIdOf(String idStr) {
+        ResourceLocation spellId = ResourceLocation.tryParse(idStr);
+        if (spellId == null) return null;
+        return ResourceLocation.fromNamespaceAndPath(
+                "examplemod",
+                spellId.getNamespace() + "_" + spellId.getPath() + "_spelltrait"
+        );
+    }
+    @SubscribeEvent
+    public static void onRegisterTraits(RegisterEvent event) {
+        if (!event.getRegistryKey().equals(LHTraits.TRAITS.key())) {
+            return;
+        }
+
+        LOGGER.info("[ExampleMod] 开始扫描铁魔法法术并注入 L2Hostility 词条（白名单模式）...");
+
+        Registry<AbstractSpell> spellRegistry = SpellRegistry.REGISTRY;
+        if (spellRegistry == null) {
+            LOGGER.error("[ExampleMod] 铁魔法法术注册表为空或尚未初始化！");
+            return;
+        }
+
+        int registered = 0;
+        int missing = 0;
+
+        for (String idStr : WHITELIST) {
+            ResourceLocation spellId = ResourceLocation.tryParse(idStr);
+            if (spellId == null) {
+                LOGGER.warn("[ExampleMod] 白名单中存在非法 ID: {}", idStr);
+                continue;
+            }
+
+            AbstractSpell spell = spellRegistry.get(spellId);
+            if (spell == null) {
+                LOGGER.warn("[ExampleMod] 白名单中的法术不存在（可能是版本差异或拼写错误）: {}", idStr);
+                missing++;
+                continue;
+            }
+
+            if (!spell.isEnabled()) {
+                LOGGER.warn("[ExampleMod] 白名单中的法术已被铁魔法配置禁用，跳过: {}", idStr);
+                continue;
+            }
+            event.register(
+                    LHTraits.TRAITS.key(),
+                    traitIdOf(idStr),
+                    () -> new AutoSpellTrait(() -> spell)
+            );
+            registered++;
+        }
+
+        LOGGER.info("[ExampleMod] 白名单注册完成：成功 {} 个，缺失 {} 个。", registered, missing);
+    }
+
+
+}

@@ -28,18 +28,18 @@ public class MixinWorldTierSelectScreen {
 
         int hostilityRequirement = switch (tier) {
             case HAVEN -> 0;
-            case FRONTIER -> 50;
-            case ASCENT -> 150;
-            case SUMMIT -> 300;
-            case PINNACLE -> 500;
+            case FRONTIER -> 30;
+            case ASCENT -> 90;
+            case SUMMIT -> 150;
+            case PINNACLE -> 210;
         };
 
         int experienceRequirement = switch (tier) {
             case HAVEN -> 0;
-            case FRONTIER -> 100;
-            case ASCENT -> 200;
-            case SUMMIT -> 300;
-            case PINNACLE -> 400;
+            case FRONTIER -> 80;
+            case ASCENT -> 160;
+            case SUMMIT -> 240;
+            case PINNACLE -> 320;
         };
 
         if (tier != WorldTier.HAVEN) {

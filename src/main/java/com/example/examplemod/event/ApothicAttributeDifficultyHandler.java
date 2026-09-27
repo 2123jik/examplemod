@@ -1,6 +1,5 @@
 package com.example.examplemod.event;
 
-import com.example.examplemod.ExampleMod;
 import com.example.examplemod.registry.ModDataComponents;
 import dev.shadowsoffire.apothic_attributes.modifiers.StackAttributeModifiers;
 import dev.shadowsoffire.apothic_attributes.modifiers.StackAttributeModifiersEvent;

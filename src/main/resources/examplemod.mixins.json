@@ -25,7 +25,6 @@
     "villna.FoodDataMixin",
     "villna.HealOrHarmMobEffectMixin",
     "villna.LootTableMixin",
-    "villna.MixinLivingEntity",
     "villna.MixinPoisonMobEffect",
     "villna.MixinWitherMobEffect",
     "villna.MobEffectsMixin",
@@ -41,8 +40,7 @@
     "apothic.MixinWorldTierSelectScreen",
     "l2artifacts.UpgradeScreenMixin",
     "villna.GameRendererMixin",
-    "villna.ModernContainerScreenMixin",
-    "villna.MutableSpriteSetMixin"
+    "villna.ModernContainerScreenMixin"
   ],
   "overwrites": {
     "requireAnnotations": true

@@ -20,7 +20,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.armortrim.ArmorTrim;
-import net.minecraft.world.item.component.FireworkExplosion;
 import net.minecraft.world.level.saveddata.maps.MapId;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
 import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactoriesEvent;

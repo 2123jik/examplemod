@@ -1,12 +1,10 @@
 package com.example.examplemod.tooltip;
-import com.mojang.logging.LogUtils;
-import org.slf4j.Logger;
 
 import com.example.examplemod.Config;
 import com.example.examplemod.compat.jei.CuriosCompat;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.player.RemotePlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -25,6 +23,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 import org.joml.Quaternionf;
+import org.slf4j.Logger;
 
 import java.util.Collections;
 import java.util.Map;

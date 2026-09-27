@@ -11,7 +11,6 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 

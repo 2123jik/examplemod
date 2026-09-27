@@ -1,7 +1,6 @@
 package com.example.examplemod;
 
 import com.example.examplemod.registry.ModEntities;
-import com.example.examplemod.registry.ModMenus;
 import com.example.examplemod.tooltip.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;

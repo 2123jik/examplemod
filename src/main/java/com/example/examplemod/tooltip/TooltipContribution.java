@@ -1,10 +1,11 @@
 package com.example.examplemod.tooltip;
 
 import com.mojang.datafixers.util.Either;
-import java.util.Objects;
-import java.util.function.BooleanSupplier;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
+
+import java.util.Objects;
+import java.util.function.BooleanSupplier;
 
 public record TooltipContribution(
         TooltipCategory category,

@@ -1,8 +1,6 @@
 package com.example.examplemod.mixin.ironsspellbooks;
 
-import io.redspace.ironslib.registry.IronsLibRegistries;
 import io.redspace.ironsspellbooks.IronsSpellbooks;
-import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;

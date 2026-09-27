@@ -29,13 +29,13 @@ public class MixinWorldTier {
         boolean valid = switch (tier) {
             case HAVEN -> true;
             case FRONTIER ->
-                    hostilityLevel >= 50 && player.experienceLevel >= 100;
+                    hostilityLevel >= 60 && player.experienceLevel >= 80;
             case ASCENT ->
-                    hostilityLevel >= 150 && player.experienceLevel >= 200;
+                    hostilityLevel >= 120 && player.experienceLevel >= 160;
             case SUMMIT ->
-                    hostilityLevel >= 300 && player.experienceLevel >= 300;
+                    hostilityLevel >= 180 && player.experienceLevel >= 240;
             case PINNACLE ->
-                    hostilityLevel >= 500 && player.experienceLevel >= 400;
+                    hostilityLevel >= 300 && player.experienceLevel >= 320;
         };
         cir.setReturnValue(valid);
     }
