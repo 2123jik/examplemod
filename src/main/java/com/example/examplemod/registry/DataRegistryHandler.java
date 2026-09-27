@@ -37,36 +37,36 @@ public class DataRegistryHandler {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onModifyDefaultComponents(ModifyDefaultComponentsEvent event) {
 
-        // 1. 指定的单个物品
+
         for (Item item : SPECIFIC_ITEMS) {
-            // 同样确保没有被其他奇葩模组魔改出耐久
+
             if (!item.components().has(DataComponents.MAX_DAMAGE)) {
                 event.modify(item, SET_MAX_STACK_64);
             }
         }
 
-        // 2. 批量匹配
+
         event.modifyMatching(item -> {
             var components = item.components();
 
-            // 核心熔断：原版底层铁律——凡是带耐久度的物品，绝不能堆叠，直接跳过！
+
             if (components.has(DataComponents.MAX_DAMAGE)) {
                 return false;
             }
 
-            // A. 潜影盒
+
             if (item instanceof BlockItem blockItem && blockItem.getBlock() instanceof ShulkerBoxBlock) {
                 return true;
             }
 
-            // B. 类型树匹配
+
             for (Class<? extends Item> type : STACKABLE_TYPES) {
                 if (type.isInstance(item)) {
                     return true;
                 }
             }
 
-            // C. 唱片检测（避开单例污染）
+
             if (components.has(DataComponents.JUKEBOX_PLAYABLE)
                     && components.getOrDefault(DataComponents.RARITY, Rarity.COMMON) == Rarity.RARE) {
                 return true;

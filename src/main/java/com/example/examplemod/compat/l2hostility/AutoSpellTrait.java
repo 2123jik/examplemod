@@ -38,28 +38,28 @@ public class AutoSpellTrait extends MobTrait {
     public void tick(LivingEntity entity, int traitLevel) {
         if (entity.level().isClientSide()) return;
         if (!(entity instanceof Mob mob)) return;
-        // 只有被 PathfinderMobMixin 注入过的实体才具备施法能力
+
         if (!(mob instanceof IMagicEntity magicMob)) return;
 
-        // 施法状态机完全交给 IMagicEntity，正在施法就什么都不做
+
         if (magicMob.isCasting()) return;
 
         AbstractSpell spell = spellSupplier.get();
         if (spell == null || !spell.isEnabled()) return;
 
-        // 冷却
+
         Integer last = lastCastPerMob.get(mob);
         if (last != null && mob.tickCount < last + Math.max(40, getCooldownTicks())) return;
 
-        // 目标
+
         LivingEntity target = mob.getTarget();
         if (target == null || !target.isAlive()) return;
 
-        // Trait 等级 → 法术等级
+
         int maxTraitLv = this.getMaxLevel(mob.level().registryAccess());
         int spellLevel = SpellTraitHelper.scaleSpellLevel(traitLevel, maxTraitLv, spell);
 
-        // 起手。剩下的 windup / 引导 / onCast / 同步 / 瞄准全部由 Mixin 处理
+
         magicMob.initiateCastSpell(spell, spellLevel);
         lastCastPerMob.put(mob, mob.tickCount);
     }

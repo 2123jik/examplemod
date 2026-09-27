@@ -4,7 +4,6 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-//删除暴击箭粒子//
 @Mixin(AbstractArrow.class)
 public abstract class AbstractArrowMixin   {
     @Redirect(

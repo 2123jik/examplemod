@@ -19,7 +19,6 @@ import java.util.function.BiConsumer;
 @Mixin(MobEffect.class)
 public abstract class ISSMobEffectBalanceMixin {
 
-    // 预存各效果对应的修饰符 ResourceLocation
     @Unique private static final ResourceLocation FORTIFY_ID = IronsSpellbooks.id("mobeffect_fortify");
     @Unique private static final ResourceLocation VIGOR_ID = IronsSpellbooks.id("mobeffect_vigor");
 
@@ -32,12 +31,9 @@ public abstract class ISSMobEffectBalanceMixin {
             return;
         }
 
-        int level = amplifier + 1; // 药水等级（I 级为 1，II 级为 2 ...）
-
+        int level = amplifier + 1; 
         switch (effectKey.getPath()) {
             case "fortify" -> {
-                // 原版：每级 +1.0 点黄心 (ADD_VALUE)
-                // 整合包改动：改为每级固定 +20.0 点（10颗心），或者按需求改成百分比
                 consumer.accept(Attributes.MAX_ABSORPTION, new AttributeModifier(
                     FORTIFY_ID,
                     level * 20.0D, 
@@ -47,8 +43,6 @@ public abstract class ISSMobEffectBalanceMixin {
             }
 
             case "vigor" -> {
-                // 原版：每级 +2.0 点生命 (ADD_VALUE)
-                // 整合包改动：直接改成百分比生命上限提升（每级 +25% 基础生命）
                 consumer.accept(Attributes.MAX_HEALTH, new AttributeModifier(
                     VIGOR_ID,
                     level * 0.1D,

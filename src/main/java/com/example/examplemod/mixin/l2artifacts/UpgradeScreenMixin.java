@@ -22,7 +22,6 @@ public class UpgradeScreenMixin {
     private void modifyAddEntry(boolean main, StatEntry entry, @Nullable StatEntry old, CallbackInfoReturnable<Component[]> cir) {
         Component[] ans = cir.getReturnValue();
         if (ans != null && ans.length >= 2 && this.current != null) {
-            // ans[1] 是原版显示数值的组件（如 +14.0%）
             ans[1] = ArtifactStatFormatter.format(ans[1], entry, this.current.level(), main);
             cir.setReturnValue(ans);
         }

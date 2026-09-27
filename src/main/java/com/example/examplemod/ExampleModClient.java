@@ -20,18 +20,18 @@ import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.common.NeoForge;
 
 @Mod(value = ExampleMod.MODID, dist = Dist.CLIENT)
-@EventBusSubscriber(modid = ExampleMod.MODID, value = Dist.CLIENT) // 此注解管理本类中的游戏运行期事件(Key, Tooltip等)
+@EventBusSubscriber(modid = ExampleMod.MODID, value = Dist.CLIENT) 
 public final class ExampleModClient {
 
     public ExampleModClient(IEventBus modBus, ModContainer container) {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
 
-        // 统一在 MOD 总线上注册生命周期事件
+
         modBus.addListener(this::registerKeys);
         modBus.addListener(this::registerTooltipComponents);
         modBus.addListener(this::registerReloadListeners);
         modBus.addListener(this::registerRenderers);
-        modBus.addListener(this::registerScreens); // 核心添加：绑定工具包界面！
+        modBus.addListener(this::registerScreens); 
 
         TooltipHandler.register();
         NeoForge.EVENT_BUS.register(ModelStageRenderer.class);
@@ -42,11 +42,11 @@ public final class ExampleModClient {
     }
 
     private void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        // ExampleModClient.registerRenderers 中追加
+
 
         event.registerEntityRenderer(
                 ModEntities.SUMMONED_SUPPORT_DRAGON.get(),
-                EnderDragonRenderer::new   // 直接复用原版，零资源文件
+                EnderDragonRenderer::new   
         );
         event.registerEntityRenderer(ModEntities.SUMMONED_CAVE_SPIDER.get(), CaveSpiderRenderer::new);
     }
@@ -63,7 +63,7 @@ public final class ExampleModClient {
         event.registerReloadListener(TooltipRules.INSTANCE);
     }
 
-    // ================= 下方为游戏运行期事件（GAME Bus） =================
+
 
     @SubscribeEvent
     public static void onClientCommandRegister(RegisterClientCommandsEvent event) {

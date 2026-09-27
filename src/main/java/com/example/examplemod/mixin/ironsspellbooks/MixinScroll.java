@@ -41,9 +41,6 @@ public abstract class MixinScroll extends Item {
 
     public MixinScroll(Properties properties) { super(properties); }
 
-    // =========================================================================
-    // 【缓存】按稀有度缓存的候选法术列表，避免每次右键都 stream 全注册表
-    // =========================================================================
     @Unique
     private static final Map<SpellRarity, List<AbstractSpell>> SPELLS_BY_RARITY =
             new ConcurrentHashMap<>();
@@ -60,9 +57,6 @@ public abstract class MixinScroll extends Item {
                         .toList());
     }
 
-    // =========================================================================
-    // 【安全盾】脏数据不闪退
-    // =========================================================================
     @Unique
     private static SpellRarity yourMod$safeGetRarity(CompoundTag tag) {
         if (tag.contains("spell_rarity")) {
@@ -76,16 +70,12 @@ public abstract class MixinScroll extends Item {
         return SpellRarity.COMMON;
     }
 
-    /** 只读视图，不做 NBT 深拷贝。 */
     @Unique
     private static CompoundTag yourMod$readTag(ItemStack stack) {
         CustomData data = stack.get(DataComponents.CUSTOM_DATA);
         return data == null ? new CompoundTag() : data.getUnsafe();
     }
 
-    // =========================================================================
-    // use：鉴定入口
-    // =========================================================================
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
     private void handleScrollUse(Level level, Player player, InteractionHand hand,
                                  CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
@@ -99,7 +89,6 @@ public abstract class MixinScroll extends Item {
             return;
         }
 
-        // 背包空间前置检测
         if (!UnidentifiedItemHelper.hasRoomForIdentify(player, heldStack)) {
             player.sendSystemMessage(UnidentifiedItemHelper.fullMessage());
             cir.setReturnValue(InteractionResultHolder.fail(heldStack));
@@ -133,7 +122,6 @@ public abstract class MixinScroll extends Item {
 
         AbstractSpell chosen = pool.get(random.nextInt(pool.size()));
 
-        // 收集所有匹配该稀有度的等级
         List<Integer> matchingLevels = new ArrayList<>();
         for (int lvl = chosen.getMinLevel(); lvl <= chosen.getMaxLevel(); lvl++) {
             if (chosen.getRarity(lvl) == targetRarity) matchingLevels.add(lvl);
@@ -147,23 +135,16 @@ public abstract class MixinScroll extends Item {
         return result;
     }
 
-    // =========================================================================
-    // getName：每帧都调，用 getUnsafe()
-    // =========================================================================
     @Inject(method = "getName", at = @At("HEAD"), cancellable = true)
     private void overrideUnidentifiedName(ItemStack stack, CallbackInfoReturnable<Component> cir) {
         CompoundTag tag = yourMod$readTag(stack);
         if (!tag.getBoolean("is_unidentified")) return;
 
-        SpellRarity rarity = yourMod$safeGetRarity(tag);   // 复用同一份 tag，不再拷贝
-        cir.setReturnValue(Component.literal("未鉴定的")
+        SpellRarity rarity = yourMod$safeGetRarity(tag);           cir.setReturnValue(Component.literal("未鉴定的")
                 .append(rarity.getDisplayName())
                 .append(Component.literal("法术卷轴")));
     }
 
-    // =========================================================================
-    // appendHoverText：同样每帧都调
-    // =========================================================================
     @Inject(method = "appendHoverText", at = @At("HEAD"), cancellable = true)
     private void overrideUnidentifiedTooltip(ItemStack stack, Item.TooltipContext ctx,
                                              List<Component> lines, TooltipFlag flag,

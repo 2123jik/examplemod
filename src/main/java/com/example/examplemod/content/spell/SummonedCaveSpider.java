@@ -36,16 +36,16 @@ public class SummonedCaveSpider extends CaveSpider implements IMagicSummon {
 
     @Override
     protected void registerGoals() {
-        // 动作 AI
+
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F)); // 蜘蛛经典扑咬
+        this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F)); 
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.2, true));
-        // 跟随主人：0.9速度，最远20格开始追，5格内停下，瞬移距离25格
+
         this.goalSelector.addGoal(6, new GenericFollowOwnerGoal(this, this::getSummoner, 1.0, 15.0F, 3.0F, false, 25.0F));
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 0.8));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 6.0F));
 
-        // 目标仇恨 AI（完全受主人控制）
+
         this.targetSelector.addGoal(1, new GenericOwnerHurtByTargetGoal(this, this::getSummoner));
         this.targetSelector.addGoal(2, new GenericOwnerHurtTargetGoal(this, this::getSummoner));
         this.targetSelector.addGoal(3, new GenericCopyOwnerTargetGoal(this, this::getSummoner));
@@ -55,11 +55,11 @@ public class SummonedCaveSpider extends CaveSpider implements IMagicSummon {
 
     @Override
     public boolean doHurtTarget(Entity target) {
-        // 采用法术伤害源（受法强加成，触发主人击杀与法术伤害监听）
+
         AbstractSpell spell = ModSpells.SUMMON_CAVE_SPIDER.get();
         boolean flag = Utils.doMeleeAttack(this, target, spell.getDamageSource(this, this.getSummoner()));
         if (flag && target instanceof LivingEntity livingTarget) {
-            // 继承洞穴蜘蛛特有的毒素攻击
+
             livingTarget.addEffect(new MobEffectInstance(MobEffects.POISON, 140, 0), this);
         }
         return flag;
@@ -95,7 +95,7 @@ public class SummonedCaveSpider extends CaveSpider implements IMagicSummon {
         }
     }
 
-    // 默认基础属性（会被法术等级覆盖）
+
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 12.0)

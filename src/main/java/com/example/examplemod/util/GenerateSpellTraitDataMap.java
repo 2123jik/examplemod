@@ -13,26 +13,13 @@ public class GenerateSpellTraitDataMap {
     private static final Path DEBUG_FILE =
             Paths.get("run", "spelltrait_debug.txt").toAbsolutePath();
 
-    /**
-     * data_maps 目录规则（NeoForge 1.21）：
-     *   data/<datapack_namespace>/data_maps/<registry_namespace>/<registry_path>/<任意名>.json
-     *
-     * LHTraits.DATA 挂的 registry = l2hostility:trait
-     * → data/examplemod/data_maps/l2hostility/trait/<name>.json
-     */
     private static final Path OUTPUT_DIR =
             Paths.get("src", "main", "resources", "data", "examplemod",
                     "data_maps", "l2hostility", "trait").toAbsolutePath();
 
     private static final String SUFFIX = "_spelltrait";
 
-    // ============ 每个 trait 的默认值，自己调 ============
-    private static final int COST      = 30;   // 选择这个 trait 消耗的等级
-    private static final int WEIGHT    = 100;  // 随机权重，越大越常见
-    private static final int MAX_RANK  = 5;    // 最大等级（traitLevel 上限）
-    private static final int MIN_LEVEL = 20;   // 怪物最低等级才能出这个 trait
-    // ====================================================
-
+    private static final int COST      = 30;       private static final int WEIGHT    = 100;      private static final int MAX_RANK  = 5;        private static final int MIN_LEVEL = 20;   
     public static void main(String[] args) throws IOException {
 
         if (!Files.exists(DEBUG_FILE)) {
@@ -41,7 +28,6 @@ public class GenerateSpellTraitDataMap {
         }
         Files.createDirectories(OUTPUT_DIR);
 
-        // 1) 从 debug 文件读 item id（每个 id 同时就是 trait 的 id）
         List<String> traitIds = new ArrayList<>();
         for (String line : Files.readAllLines(DEBUG_FILE, StandardCharsets.UTF_8)) {
             int i = line.indexOf("[OK-REG] 注册成功: ");
@@ -53,7 +39,6 @@ public class GenerateSpellTraitDataMap {
         }
         System.out.println("[Gen] 读到 " + traitIds.size() + " 个 trait id");
 
-        // 2) 拼一个包含全部条目的 datapack JSON
         StringBuilder sb = new StringBuilder();
         sb.append("{\n");
         sb.append("  \"replace\": false,\n");

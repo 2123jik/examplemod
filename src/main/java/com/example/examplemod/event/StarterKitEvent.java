@@ -14,7 +14,7 @@ public class StarterKitEvent {
 
     private static final String GIVEN_TAG = "examplemod:has_received_portable_tools";
 
-    // 你想根据 ID 发放的物品清单
+
     private static final List<String> STARTER_ITEMS = List.of(
             "examplemod:portable_furnace",
             "minecraft:crafting_table",

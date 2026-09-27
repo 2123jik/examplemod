@@ -10,7 +10,6 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class SpellTraitItemModels extends ItemModelProvider {
 
-    /** 从 LH jar 借用的背景层 */
     private static final ResourceLocation BG =
             ResourceLocation.fromNamespaceAndPath("l2hostility", "item/bg");
 
@@ -26,7 +25,6 @@ public class SpellTraitItemModels extends ItemModelProvider {
 
             String itemPath = spellId.getNamespace() + "_" + spellId.getPath() + "_spelltrait";
 
-            // 铁魔法 / 两仪统一走 gui/spell_icons/<path>
             ResourceLocation icon = ResourceLocation.fromNamespaceAndPath(
                     spellId.getNamespace(),
                     "gui/spell_icons/" + spellId.getPath()

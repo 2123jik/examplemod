@@ -7,9 +7,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.Map;
 
-/**
- * 将弑法者宝石（MageSlayerBonus）的魔法吸收与回血比例降低为 1/4
- */
+
 @Mixin(value = MageSlayerBonus.class, remap = false)
 public class MageSlayerBonusMixin {
 
@@ -23,7 +21,7 @@ public class MageSlayerBonusMixin {
     private Object scaleMageSlayer(Map<?, ?> map, Object key) {
         Object val = map.get(key);
         if (val instanceof Float f) {
-            return f * 0.25F; // 魔法减免与治疗效果同步降低至 1/4
+            return f * 0.25F; 
         }
         return val;
     }

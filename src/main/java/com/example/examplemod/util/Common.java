@@ -94,14 +94,6 @@ public class Common {
                 gem.getMinPurity()
         );
     }
-    /**
-     * 枚举越接近中间位置，概率越高。
-     * 最低和最高枚举值始终保留非零概率。
-     *
-     * 权重示例：
-     * 3 个枚举：1、2、1
-     * 5 个枚举：1、4、5、4、1
-     */
     public static <E extends Enum<E>> boolean roll(
             RandomSource random,
             E value
@@ -113,10 +105,6 @@ public class Common {
 
         int currentWeight = getWeight(index, count);
 
-        /*
-         * sum(1 + i * (count - 1 - i))
-         * = count + count * (count - 1) * (count - 2) / 6
-         */
         int totalWeight =
                 count + count * (count - 1) * (count - 2) / 6;
 

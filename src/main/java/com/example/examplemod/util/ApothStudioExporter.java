@@ -39,7 +39,6 @@ public class ApothStudioExporter {
                         .then(Commands.literal("export").executes(ctx -> {
                             try {
                                 Files.createDirectories(STUDIO_DIR);
-                                // 【核心修复点 1】：传入当前世界命令上下文的注册表提供者 (registryAccess)
                                 exportStudioPackage(
                                         ctx.getSource().registryAccess(),
                                         STUDIO_DIR.resolve("apoth_studio_data.json").toFile()
@@ -58,10 +57,8 @@ public class ApothStudioExporter {
     private static void exportStudioPackage(HolderLookup.Provider registries, File file) throws Exception {
         JsonObject studioRoot = new JsonObject();
 
-        // 【核心修复点 2】：用当前游戏注册表包装 JsonOps，使其具备方块、实体、附魔等全部注册表访问权！
         DynamicOps<JsonElement> ops = registries.createSerializationContext(JsonOps.INSTANCE);
 
-        // 1. 导出全部合法分类
         JsonArray categoriesArr = new JsonArray();
         for (LootCategory cat : Apoth.BuiltInRegs.LOOT_CATEGORY) {
             if (!cat.isNone()) {
@@ -73,7 +70,6 @@ public class ApothStudioExporter {
         }
         studioRoot.add("categories", categoriesArr);
 
-        // 2. 导出所有词缀（带有注册表环境的序列化 + 容错机制）
         JsonObject affixesObj = new JsonObject();
         int affixSuccess = 0;
         for (Affix affix : AffixRegistry.INSTANCE.getValues()) {
@@ -92,7 +88,6 @@ public class ApothStudioExporter {
         }
         studioRoot.add("affixes", affixesObj);
 
-        // 3. 导出所有宝石（带有注册表环境的序列化 + 容错机制）
         JsonObject gemsObj = new JsonObject();
         int gemSuccess = 0;
         for (Gem gem : GemRegistry.INSTANCE.getValues()) {

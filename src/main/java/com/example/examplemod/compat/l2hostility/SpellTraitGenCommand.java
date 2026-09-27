@@ -25,7 +25,7 @@ import java.nio.file.Paths;
 @EventBusSubscriber(modid = "examplemod")
 public class SpellTraitGenCommand {
 
-    /** 开发环境默认路径：项目根/src/main/resources/data/examplemod/data_maps/l2hostility/trait */
+    
     private static final String DEFAULT_OUT =
             "../src/main/resources/data/l2hostility/data_maps/l2hostility/trait";
 
@@ -94,7 +94,7 @@ public class SpellTraitGenCommand {
     private static JsonObject buildConfig(AbstractSpell spell) {
         int rarity = spell.getRarity(1).getValue();
 
-        // —— 数值算法：想改平衡就改这里 ——
+
         int minLevel = switch (rarity) {
             case 0 -> 20;
             case 1 -> 50;

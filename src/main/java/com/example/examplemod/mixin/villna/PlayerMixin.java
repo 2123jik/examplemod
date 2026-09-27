@@ -16,20 +16,16 @@ public class PlayerMixin {
     ) {
         Player player = (Player) (Object) this;
 
-        // 只让服务端修改，避免客户端和服务端各执行一次
         if (player.level().isClientSide()) {
             return;
         }
 
-        // 被 LivingDeathEvent 取消等情况下，不处理经验
         if (!player.isDeadOrDying()) {
             return;
         }
 
-        // 清空当前等级经验条
         player.experienceProgress = 0.0F;
 
-        // 等级降低一级，但不低于 0
         player.experienceLevel = Math.max(0, player.experienceLevel - 1);
     }
 }

@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import java.util.List;
 
 public record PortableFurnaceData(
-        List<ItemStack> items, // size 3: 0=原料, 1=燃料, 2=产物
+        List<ItemStack> items, 
         int litTime,
         int litDuration,
         int cookingProgress,

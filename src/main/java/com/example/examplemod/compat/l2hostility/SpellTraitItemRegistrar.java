@@ -29,9 +29,6 @@ public class SpellTraitItemRegistrar {
 
     private static final Map<ResourceLocation, Item> REGISTERED = new LinkedHashMap<>();
 
-    // ============================================================
-    // 调试文件路径：<项目根>/run/spelltrait_debug.txt
-    // ============================================================
     private static final Path DEBUG_FILE =
             Paths.get("spelltrait_debug.txt").toAbsolutePath();
 
@@ -39,8 +36,7 @@ public class SpellTraitItemRegistrar {
 
 
     private static void dbg(String line) {
-        if (!DEBUG) return;                 // 默认关闭，仅 -D 开启时输出
-        DEBUG_LINES.add(line);
+        if (!DEBUG) return;                         DEBUG_LINES.add(line);
     }
 
     private static void flushDebug() {
@@ -58,9 +54,6 @@ public class SpellTraitItemRegistrar {
         }
     }
 
-    // ============================================================
-    // 1) item 注册
-    // ============================================================
     @SubscribeEvent
     public static void onRegisterItems(RegisterEvent event) {
         if (!event.getRegistryKey().equals(Registries.ITEM)) return;
@@ -80,7 +73,6 @@ public class SpellTraitItemRegistrar {
                 continue;
             }
 
-            // 检查是否已经注册过（重复 id 检测）
             if (REGISTERED.containsKey(itemId)) {
                 dbg("  [DUP] itemId 已被注册过: " + itemId);
                 fail++;
@@ -123,9 +115,6 @@ public class SpellTraitItemRegistrar {
         flushDebug();
     }
 
-    // ============================================================
-    // 2) 创造栏
-    // ============================================================
     @SubscribeEvent
     public static void onBuildCreativeTab(BuildCreativeModeTabContentsEvent event) {
         if (!event.getTabKey().equals(LHBlocks.TAB.key())) return;

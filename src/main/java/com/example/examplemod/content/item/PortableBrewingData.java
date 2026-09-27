@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import java.util.List;
 
 public record PortableBrewingData(
-        List<ItemStack> items, // size 5: 0,1,2=药水, 3=材料, 4=烈焰粉
+        List<ItemStack> items, 
         int brewTime,
         int fuel
 ) {

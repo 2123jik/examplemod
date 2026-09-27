@@ -43,7 +43,7 @@ public class PortableFurnaceItem extends Item {
             serverPlayer.openMenu(new SimpleMenuProvider((id, inv, p) -> new PortableFurnaceMenu(
                     id, inv, container, syncData, p.level(),
                     () -> {
-                        // 关闭界面保存
+
                         List<ItemStack> newItems = List.of(container.getItem(0), container.getItem(1), container.getItem(2));
                         held.set(ModDataComponents.FURNACE_DATA.get(), new PortableFurnaceData(
                                 newItems, syncData.get(0), syncData.get(1), syncData.get(2), syncData.get(3)
@@ -54,7 +54,7 @@ public class PortableFurnaceItem extends Item {
         return InteractionResultHolder.sidedSuccess(held, level.isClientSide);
     }
 
-    // 背包后台离线烧炼
+
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         if (level.isClientSide || !(entity instanceof Player)) return;

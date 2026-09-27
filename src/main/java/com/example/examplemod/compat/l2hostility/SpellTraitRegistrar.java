@@ -17,21 +17,9 @@ import java.util.Set;
 public class SpellTraitRegistrar {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    /**
-     * 白名单：所有适合给敌对怪物使用的法术。
-     * 排除规则：
-     *   1. 自增益/自治疗类（怪物会变得过强）
-     *   2. 自位移类（AI 会跑偏、脱战）
-     *   3. 需要玩家交互类（怪物无法触发）
-     *   4. 自伤延迟类（无敌期间玩家无法反制，体验极差）
-     */
     public static final Set<String> WHITELIST = Set.of(
 
-            // ============================================================
-            // 🔮 两仪（iss_magicfromtheeast）
-            // 排除：cloud_ride（召唤专属坐骑）、drapes_of_reflection（纯自护盾）
-            // ============================================================
-            "iss_magicfromtheeast:bagua_array_circle",
+            "null",
             "iss_magicfromtheeast:dragon_glide",
             "iss_magicfromtheeast:jade_bullet",
             "iss_magicfromtheeast:jade_judgement",
@@ -39,11 +27,7 @@ public class SpellTraitRegistrar {
             "iss_magicfromtheeast:sword_dance",
             "iss_magicfromtheeast:underworld_aid",
 
-            // ============================================================
-            // 🔮 冰霜
-            // 排除：ice_tomb（需要潜行键离开，怪物无法触发）
-            // ============================================================
-            "irons_spellbooks:blizzard",
+            "null",
             "irons_spellbooks:cone_of_cold",
             "irons_spellbooks:frostwave",
             "irons_spellbooks:ice_block",
@@ -52,11 +36,7 @@ public class SpellTraitRegistrar {
             "irons_spellbooks:ray_of_frost",
             "irons_spellbooks:snowball",
 
-            // ============================================================
-            // 🔮 唤魔
-            // 排除：summon_horse（只允许施法者骑乘，怪物召唤无意义）
-            // ============================================================
-            "irons_spellbooks:arrow_volley",
+            "null",
             "irons_spellbooks:chain_creeper",
             "irons_spellbooks:fang_strike",
             "irons_spellbooks:fang_swirl",
@@ -66,11 +46,7 @@ public class SpellTraitRegistrar {
             "irons_spellbooks:lob_creeper",
             "irons_spellbooks:slow",
 
-            // ============================================================
-            // 🔮 末影
-            // 排除：evasion（受伤时被动触发，怪物用来规避玩家伤害，体验差）
-            // ============================================================
-            "irons_spellbooks:arcane_shackle",
+            "null",
             "irons_spellbooks:black_hole",
             "irons_spellbooks:counterspell",
             "irons_spellbooks:dragon_breath",
@@ -81,11 +57,7 @@ public class SpellTraitRegistrar {
             "irons_spellbooks:shadow_slash",
             "irons_spellbooks:starfall",
 
-            // ============================================================
-            // 🔮 炽焰
-            //
-            // ============================================================
-            "irons_spellbooks:blaze_storm",
+            "null",
             "irons_spellbooks:fire_arrow",
             "irons_spellbooks:fire_breath",
             "irons_spellbooks:fireball",
@@ -97,11 +69,7 @@ public class SpellTraitRegistrar {
             "irons_spellbooks:scorch",
             "irons_spellbooks:burning_dash",
 
-            // ============================================================
-            // 🔮 猩红
-            //
-            // ============================================================
-            "irons_spellbooks:acupuncture",
+            "null",
             "irons_spellbooks:blood_needles",
             "irons_spellbooks:blood_slash",
             "irons_spellbooks:devour",
@@ -109,21 +77,13 @@ public class SpellTraitRegistrar {
             "irons_spellbooks:wither_skull",
             "irons_spellbooks:heartstop",
 
-            // ============================================================
-            // 🔮 神圣
-            //
-            // ============================================================
-            "irons_spellbooks:divine_smite",
+            "null",
             "irons_spellbooks:guiding_bolt",
             "irons_spellbooks:healing_circle",
             "irons_spellbooks:sunbeam",
             "irons_spellbooks:wisp",
 
-            // ============================================================
-            // 🔮 自然
-            //
-            // ============================================================
-            "irons_spellbooks:acid_orb",
+            "null",
             "irons_spellbooks:blight",
             "irons_spellbooks:earthquake",
             "irons_spellbooks:firefly_swarm",
@@ -134,19 +94,12 @@ public class SpellTraitRegistrar {
             "irons_spellbooks:stomp",
             "irons_spellbooks:oakskin",
             "irons_spellbooks:spider_aspect",
-            // ============================================================
-            // 🔮 邪术（全部保留）
-            // ============================================================
-            "irons_spellbooks:eldritch_blast",
+            "null",
             "irons_spellbooks:sculk_tentacles",
             "irons_spellbooks:sonic_boom",
             "irons_spellbooks:telekinesis",
 
-            // ============================================================
-            // 🔮 雷霆
-            //
-            // ============================================================
-            "irons_spellbooks:ball_lightning",
+            "null",
             "irons_spellbooks:chain_lightning",
             "irons_spellbooks:electrocute",
             "irons_spellbooks:lightning_bolt",
@@ -155,10 +108,7 @@ public class SpellTraitRegistrar {
             "irons_spellbooks:charge",
             "irons_spellbooks:volt_strike",
 
-            // ============================================================
-            // 🔮 魂灵（iss_magicfromtheeast，全部保留）
-            // ============================================================
-            "iss_magicfromtheeast:anchoring_kunai",
+            "null",
             "iss_magicfromtheeast:bone_hands",
             "iss_magicfromtheeast:calamity_cut",
             "iss_magicfromtheeast:soul_burst",

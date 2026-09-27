@@ -48,7 +48,6 @@ public class PathfinderMobMixin extends Mob implements IMagicEntity {
         super(entityType, level);
     }
 
-    // 换成你自己的 modid，避免和 irons_spells_js 同时安装时属性 modifier 撞名
     private static final ResourceLocation SLOWDOWN_ID =
             ResourceLocation.fromNamespaceAndPath("examplemodid", "potion_slowdown");
 
@@ -64,7 +63,6 @@ public class PathfinderMobMixin extends Mob implements IMagicEntity {
     @Unique private int drinkTime;
     @Unique private boolean hasUsedSingleAttack;
 
-    /** 当前正在施放的法术。null 表示不在施法。 */
     @Unique public @Nullable SpellData castingSpell;
 
     @Unique
@@ -72,13 +70,9 @@ public class PathfinderMobMixin extends Mob implements IMagicEntity {
         return (PathfinderMob) (Object) this;
     }
 
-    // ------------------------------------------------------------------
-    // 初始化 / 数据同步
-    // ------------------------------------------------------------------
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void examplemod$init(EntityType<? extends PathfinderMob> type, Level level, CallbackInfo ci) {
-        // 只对“非 Iron's Spells 自带施法 Mob”生效，避免双重初始化
         if (!(examplemod$self() instanceof AbstractSpellCastingMob)) {
             playerMagicData.setSyncedData(new SyncedSpellData(examplemod$self()));
             this.lookControl = new LookControl(this) {
@@ -127,9 +121,6 @@ public class PathfinderMobMixin extends Mob implements IMagicEntity {
         }
     }
 
-    // ------------------------------------------------------------------
-    // IMagicEntity 实现
-    // ------------------------------------------------------------------
 
     @Override public MagicData getMagicData() { return playerMagicData; }
     @Override public boolean isCasting()    { return playerMagicData.isCasting(); }
@@ -143,10 +134,8 @@ public class PathfinderMobMixin extends Mob implements IMagicEntity {
 
         if (this.castingSpell != null) {
             if (!playerMagicData.isCasting() && wasCasting) {
-                // 服务端停止了施法 → 客户端清理
                 castComplete();
             } else if (playerMagicData.isCasting() && !wasCasting) {
-                // 服务端开始了施法 → 客户端重建
                 AbstractSpell spell = playerMagicData.getCastingSpell().getSpell();
                 this.initiateCastSpell(spell, playerMagicData.getCastingSpellLevel());
                 if (this.castingSpell.getSpell().getCastType() == CastType.INSTANT) {
@@ -175,7 +164,6 @@ public class PathfinderMobMixin extends Mob implements IMagicEntity {
             return;
         }
 
-        // 传送 / 冲刺类法术的 CastData 由这里注入
         if (spell == SpellRegistry.TELEPORT_SPELL.get()
                 || spell == SpellRegistry.FROST_STEP_SPELL.get()) {
             setTeleportLocationBehindTarget(10);
@@ -216,7 +204,6 @@ public class PathfinderMobMixin extends Mob implements IMagicEntity {
                         this.level(), this.castingSpell.getLevel(),
                         examplemod$self(), playerMagicData, false);
             }
-            // 修：服务端也 reset，否则 isCasting() 会一直是 true，永远无法再次施法
             playerMagicData.resetCastingState();
         } else {
             playerMagicData.resetCastingState();
@@ -228,15 +215,11 @@ public class PathfinderMobMixin extends Mob implements IMagicEntity {
     @Override public boolean getHasUsedSingleAttack() { return hasUsedSingleAttack; }
     @Override public void setHasUsedSingleAttack(boolean v) { hasUsedSingleAttack = v; }
 
-    // ------------------------------------------------------------------
-    // 每 tick 推进施法状态
-    // ------------------------------------------------------------------
 
     @Override
     protected void customServerAiStep() {
         super.customServerAiStep();
 
-        // 存档重载：恢复中断的施法
         if (recreateSpell) {
             recreateSpell = false;
             var synced = playerMagicData.getSyncedData();
@@ -244,7 +227,6 @@ public class PathfinderMobMixin extends Mob implements IMagicEntity {
             this.initiateCastSpell(spell, synced.getCastingSpellLevel());
         }
 
-        // 喝药逻辑（魔导生物用来回血，可保留）
         if (isDrinkingPotion()) {
             if (drinkTime-- <= 0) {
                 finishDrinkingPotion();
@@ -271,7 +253,6 @@ public class PathfinderMobMixin extends Mob implements IMagicEntity {
             }
             castComplete();
         } else if (castingSpell.getSpell().getCastType() == CastType.CONTINUOUS) {
-            // 每 10 tick 触发一次效果（Ray of Siphoning 就靠这里出光束）
             if ((playerMagicData.getCastDurationRemaining() + 1) % 10 == 0) {
                 castingSpell.getSpell().onCast(
                         level(), castingSpell.getLevel(), this, CastSource.MOB, playerMagicData);
@@ -279,9 +260,6 @@ public class PathfinderMobMixin extends Mob implements IMagicEntity {
         }
     }
 
-    // ------------------------------------------------------------------
-    // 辅助
-    // ------------------------------------------------------------------
 
     @Unique
     private void forceLookAtTarget(LivingEntity target) {

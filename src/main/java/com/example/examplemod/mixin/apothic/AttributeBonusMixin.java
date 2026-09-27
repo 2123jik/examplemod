@@ -5,9 +5,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-/**
- * 将神化所有单属性宝石（AttributeBonus）的数值强制降低至原版的 1/4 (0.25x)
- */
 @Mixin(value = AttributeBonus.class, remap = false)
 public class AttributeBonusMixin {
 
@@ -20,7 +17,6 @@ public class AttributeBonusMixin {
         index = 1
     )
     private double scaleGemAttributeValueToQuarter(double originalValue) {
-        // 将宝石提供的属性数值直接缩减为 1/4
         return originalValue * 0.25D;
     }
 }

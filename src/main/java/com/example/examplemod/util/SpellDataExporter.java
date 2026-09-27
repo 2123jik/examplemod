@@ -49,7 +49,6 @@ public class SpellDataExporter {
         if (!dir.exists()) dir.mkdirs();
         File outputFile = new File(dir, "00_铁魔法法术大表.md");
 
-        // 按学派分组
         Map<String, List<AbstractSpell>> bySchool = new TreeMap<>();
         for (AbstractSpell spell : registry) {
             if (spell == null) continue;
@@ -71,14 +70,12 @@ public class SpellDataExporter {
             w.write("> **白名单用 ID 列**（反引号内即 ID）。\n\n");
             w.write("> 总法术数：" + registry.size() + "\n\n");
 
-            // 学派索引
             w.write("## 📖 学派索引\n\n");
             for (String school : bySchool.keySet()) {
                 w.write("- **" + school + "** （" + bySchool.get(school).size() + " 个）\n");
             }
             w.write("\n---\n\n");
 
-            // 明细表
             for (Map.Entry<String, List<AbstractSpell>> entry : bySchool.entrySet()) {
                 String school = entry.getKey();
                 List<AbstractSpell> spells = entry.getValue();
@@ -95,11 +92,8 @@ public class SpellDataExporter {
                     String nameKey = "";
                     try { nameKey = spell.getComponentId(); } catch (Throwable ignored) {}
 
-                    // ⭐ 名称：从 lang 读（en_us 或 zh_cn）
                     String name = nameKey.isEmpty() ? "?" : Component.translatable(nameKey).getString();
-                    if (name.equals(nameKey)) name = "⚠️ " + nameKey;  // 没翻译
-
-                    // ⭐ 描述：nameKey + ".guide"
+                    if (name.equals(nameKey)) name = "⚠️ " + nameKey;  
                     String desc = "-";
                     if (!nameKey.isEmpty()) {
                         String guideKey = nameKey + ".guide";
@@ -127,7 +121,6 @@ public class SpellDataExporter {
                 w.write("\n---\n\n");
             }
 
-            // 纯 ID 块
             w.write("## 📋 全部法术 ID（每行一个，直接复制）\n\n```\n");
             List<String> ids = registry.stream()
                     .filter(Objects::nonNull)
@@ -137,7 +130,6 @@ public class SpellDataExporter {
             for (String id : ids) { w.write(id); w.write("\n"); }
             w.write("```\n\n");
 
-            // .guide 键块
             w.write("## 🌐 全部 .guide 描述键\n\n```\n");
             List<String> guides = registry.stream()
                     .filter(Objects::nonNull)

@@ -14,7 +14,6 @@ import top.theillusivec4.curios.api.type.inventory.IDynamicStackHandler;
 
 import java.util.Map;
 
-// 1. 显式声明仅客户端使用，防止服务端意外加载崩溃
 @OnlyIn(Dist.CLIENT)
 public final class CuriosCompat {
     private static final boolean LOADED = ModList.get().isLoaded("curios");
@@ -41,7 +40,6 @@ public final class CuriosCompat {
         }
 
         private static boolean tryEquip(Player player, ItemStack stack) {
-            // 2. 核心修正：优先使用传入实体自带的世界对象
             Level level = player.level();
 
             Map<String, ISlotType> slotTypes = CuriosApi.getItemStackSlots(stack, level);
@@ -52,21 +50,17 @@ public final class CuriosCompat {
 
             ICuriosItemHandler handler = curiosOpt.get();
 
-            // 3. 彻底清空假人残留：同时清空装备栏与时装外观栏
             handler.getCurios().forEach((slotId, stacksHandler) -> {
-                // 清空装备栏
                 IDynamicStackHandler stacks = stacksHandler.getStacks();
                 for (int i = 0; i < stacks.getSlots(); i++) {
                     stacks.setStackInSlot(i, ItemStack.EMPTY);
                 }
-                // 清空时装栏（防止残留外观遮挡新饰品）
                 IDynamicStackHandler cosmeticStacks = stacksHandler.getCosmeticStacks();
                 for (int i = 0; i < cosmeticStacks.getSlots(); i++) {
                     cosmeticStacks.setStackInSlot(i, ItemStack.EMPTY);
                 }
             });
 
-            // 4. 将饰品放入第一个可用槽位
             for (String slotId : slotTypes.keySet()) {
                 var stacksHandler = handler.getCurios().get(slotId);
                 if (stacksHandler != null && stacksHandler.getStacks().getSlots() > 0) {

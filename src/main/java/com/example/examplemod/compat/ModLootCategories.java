@@ -30,7 +30,6 @@ public class ModLootCategories {
 
     public static void onRegister(RegisterEvent event) {
 
-        // 1. 注册每个 Curios 槽位对应的 EntityEquipmentSlot
         if (event.getRegistryKey().equals(BuiltInRegs.ENTITY_EQUIPMENT_SLOT.key())) {
             event.register(BuiltInRegs.ENTITY_EQUIPMENT_SLOT.key(), helper -> {
                 for (String slotType : SLOTS) {
@@ -42,7 +41,6 @@ public class ModLootCategories {
             });
         }
 
-        // 2. 注册对应的 EntitySlotGroup（持有刚才的 slotHolder！）
         if (event.getRegistryKey().equals(BuiltInRegs.ENTITY_SLOT_GROUP.key())) {
             event.register(BuiltInRegs.ENTITY_SLOT_GROUP.key(), helper -> {
                 for (String slotType : SLOTS) {
@@ -58,7 +56,6 @@ public class ModLootCategories {
             });
         }
 
-        // 3. 注册自定义 LootCategory
         if (event.getRegistryKey().equals(Apoth.BuiltInRegs.LOOT_CATEGORY.key())) {
             event.register(Apoth.BuiltInRegs.LOOT_CATEGORY.key(), helper -> {
                 for (String slotType : SLOTS) {
@@ -78,9 +75,6 @@ public class ModLootCategories {
         }
     }
 
-    /**
-     * 根据物品实际支持的 Curios 槽位，获取对应的 EntitySlotGroup
-     */
     public static EntitySlotGroup getGroupForStack(ItemStack stack) {
         var slots = CuriosApi.getItemStackSlots(stack, true);
         if (!slots.isEmpty()) {
@@ -89,7 +83,6 @@ public class ModLootCategories {
                 return REGISTERED_GROUPS.get(firstSlot);
             }
         }
-        // 兜底返回通用 curio 组，或者默认项链组
         return REGISTERED_GROUPS.getOrDefault("curio", REGISTERED_GROUPS.get("necklace"));
     }
 }

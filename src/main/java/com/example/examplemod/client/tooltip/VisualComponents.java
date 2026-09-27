@@ -49,7 +49,7 @@ public final class VisualComponents {
         event.register(BookSummary.class, ClientBookSummary::new);
     }
 
-    // 1. 原生高清地图 (静态渲染)
+
     public record MapPreview(MapId mapId) implements TooltipComponent {
     }
 
@@ -114,7 +114,7 @@ public final class VisualComponents {
                 : font.plainSubstrByWidth(text, remaining) + suffix;
     }
 
-    // 2. 实体捕获 (静态坐标)
+
     public record EntityEntry(String entityId, int timeInHive, int minTime) {
     }
 
@@ -192,7 +192,7 @@ public final class VisualComponents {
         }
     }
 
-    // 3. 方块流网格 (静态渲染)
+
     public record BlockGridPreview(
             List<ItemStack> blocks,
             String label,
@@ -234,7 +234,7 @@ public final class VisualComponents {
         }
     }
 
-    // 4. 盔甲纹饰 (静态渲染)
+
     public record TrimPreview(ArmorTrim trim) implements TooltipComponent {
     }
 
@@ -270,7 +270,7 @@ public final class VisualComponents {
 
 
 
-    // 6. 饱食度 (纯静态图标，绝无弹跳动画)
+
     public record FoodComponent(FoodProperties food) implements TooltipComponent {
     }
 
@@ -318,7 +318,7 @@ public final class VisualComponents {
         }
     }
 
-    // 7. 耐久度条
+
     public record DurabilityBar(int current, int max) implements TooltipComponent {
     }
 
@@ -364,7 +364,7 @@ public final class VisualComponents {
         }
     }
 
-    // 8. 药水效果
+
     public record PotionEffects(
             List<MobEffectInstance> effects,
             float tickRate
@@ -408,7 +408,7 @@ public final class VisualComponents {
         }
     }
 
-    // 9. 燃料量表 (静态煤炭图标)
+
     public record FuelGauge(int burnTicks) implements TooltipComponent {
     }
 
@@ -438,7 +438,7 @@ public final class VisualComponents {
         }
     }
 
-    // 10. 容器网格
+
     public record ContainerGrid(List<ItemStack> items) implements TooltipComponent {
         public ContainerGrid {
             items = TooltipUtil.copyStacks(items);
@@ -480,7 +480,7 @@ public final class VisualComponents {
         }
     }
 
-    // 11. 灾厄等级徽章
+
     public record OminousBottleBadge(int amplifier) implements TooltipComponent {
     }
 
@@ -511,7 +511,7 @@ public final class VisualComponents {
         }
     }
 
-    // 12. 冷却条
+
     public record CooldownGauge(float percent) implements TooltipComponent {
     }
 
@@ -545,7 +545,7 @@ public final class VisualComponents {
         }
     }
 
-    // 13. 唱片卡片
+
     public record JukeboxCard(Component title, int lengthSeconds, int comparatorOutput) implements TooltipComponent {
     }
 
@@ -582,7 +582,7 @@ public final class VisualComponents {
         }
     }
 
-    // 14. 染色拾色板
+
     public record ColorSwatch(int rgb) implements TooltipComponent {
     }
 
@@ -611,7 +611,7 @@ public final class VisualComponents {
         }
     }
 
-    // 15. 磁石卡片
+
     public record LodestoneCard(ResourceLocation dim, BlockPos pos, double distance) implements TooltipComponent {
     }
 
@@ -642,7 +642,7 @@ public final class VisualComponents {
         }
     }
 
-    // 16. 成书预览
+
     public record BookSummary(String author, int pages, String snippet) implements TooltipComponent {
     }
 

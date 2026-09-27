@@ -34,18 +34,18 @@ public class SummonedSupportDragon extends EnderDragon implements IMagicSummon {
     private int spellLevel = 1;
 
     public SummonedSupportDragon(EntityType<? extends EnderDragon> type, Level level) {
-        super(type, level);   // 参数会被原版忽略，用 getType() 修正
+        super(type, level);   
         this.xpReward = 0;
         this.setNoGravity(true);
     }
 
-    // ★ 坑 1 修复：原版 EnderDragon 硬编码了 EntityType.ENDER_DRAGON
+
     @Override
     public EntityType<?> getType() {
         return ModEntities.SUMMONED_SUPPORT_DRAGON.get();
     }
 
-    // ★ 已修复：不再覆写 defineSynchedData
+
 
     public void setSpellPower(float damage, int level) {
         this.spellDamage = damage;
@@ -53,7 +53,7 @@ public class SummonedSupportDragon extends EnderDragon implements IMagicSummon {
     }
 
     @Override
-    protected void registerGoals() { /* 清空 */ }
+    protected void registerGoals() {  }
 
     @Override
     public void aiStep() {
@@ -64,7 +64,7 @@ public class SummonedSupportDragon extends EnderDragon implements IMagicSummon {
     public void tick() {
         super.baseTick();
 
-        // ★ 坑 2 修复：hurt 会把相位切到 TAKEOFF，拉回来
+
         if (!this.level().isClientSide
                 && this.getPhaseManager().getCurrentPhase().getPhase() != EnderDragonPhase.HOVERING) {
             this.getPhaseManager().setPhase(EnderDragonPhase.HOVERING);
@@ -76,7 +76,7 @@ public class SummonedSupportDragon extends EnderDragon implements IMagicSummon {
             return;
         }
 
-        // 悬浮跟随
+
         Vec3 target = new Vec3(owner.getX(), owner.getY() + HOVER_HEIGHT, owner.getZ());
         Vec3 delta = target.subtract(position());
         Vec3 motion = delta.scale(0.08);
@@ -84,7 +84,7 @@ public class SummonedSupportDragon extends EnderDragon implements IMagicSummon {
         this.setDeltaMovement(motion);
         this.move(MoverType.SELF, getDeltaMovement());
 
-        // 敌人搜索 + 攻击
+
         LivingEntity enemy = findNearestEnemy(owner);
         if (enemy != null) {
             faceEntity(enemy);
@@ -93,7 +93,7 @@ public class SummonedSupportDragon extends EnderDragon implements IMagicSummon {
             faceEntity(owner);
         }
 
-        // 翅膀动画 + 粒子
+
         this.flapTime += 0.1F;
         if (this.flapTime > 1.0F) this.flapTime = 0.0F;
 
@@ -174,7 +174,7 @@ public class SummonedSupportDragon extends EnderDragon implements IMagicSummon {
         }
         this.setHealth(0.0F);
         this.remove(RemovalReason.KILLED);
-        this.gameEvent(GameEvent.ENTITY_DIE);   // 补上，通知其他模组
+        this.gameEvent(GameEvent.ENTITY_DIE);   
     }
 
     @Override

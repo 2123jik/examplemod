@@ -37,7 +37,7 @@ public class MixinRandomizeSpellFunction {
                 return;
             }
 
-            // 1. 100% 走官方原版的加权算法抽取一次法术与计算等级
+
             NavigableMap<Integer, AbstractSpell> spellList = new TreeMap<>();
             int total = 0;
             for (AbstractSpell entry : pool) {
@@ -56,22 +56,22 @@ public class MixinRandomizeSpellFunction {
                 return;
             }
 
-            // 2. 官方等级公式：计算真实等级
+
             float quality = this.qualityRange.getFloat(context);
             int spellLevel = 1 + Math.round(quality * (float) (sampleSpell.getMaxLevel() - 1));
 
-            // 3. 【核心】：直接调用官方方法获取该法术在该等级下的真实官方稀有度！
+
             SpellRarity officialRarity = sampleSpell.getRarity(spellLevel);
 
-            // 4. 强制 64 堆叠
+
             stack.set(DataComponents.MAX_STACK_SIZE, 64);
 
-            // 5. 写入官方稀有度与学派过滤（如果有）
+
             CustomData.update(DataComponents.CUSTOM_DATA, stack, tag -> {
                 tag.putBoolean("is_unidentified", true);
                 tag.putString("spell_rarity", officialRarity.name());
 
-                // 兼容学派箱子
+
                 int totalEnabled = SpellRegistry.getEnabledSpells().size();
                 if (pool.size() < totalEnabled && !pool.isEmpty()) {
                     SchoolType firstSchool = pool.get(0).getSchoolType();

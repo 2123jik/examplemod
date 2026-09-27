@@ -25,13 +25,13 @@ public class PortableFurnaceMenu extends FurnaceMenu {
         this.onClose = onClose;
     }
 
-    // 核心：打开界面期间，服务端每 tick 都会执行这里！
+
     @Override
     public void broadcastChanges() {
         if (!level.isClientSide && level instanceof ServerLevel serverLevel) {
             tickSmelting(serverLevel);
         }
-        super.broadcastChanges(); // 自动向客户端同步槽位物品与火苗、进度条
+        super.broadcastChanges(); 
     }
 
     private void tickSmelting(ServerLevel level) {
@@ -59,7 +59,7 @@ public class PortableFurnaceMenu extends FurnaceMenu {
                 boolean canInsert = output.isEmpty() || (ItemStack.isSameItemSameComponents(output, result) && output.getCount() + result.getCount() <= output.getMaxStackSize());
 
                 if (canInsert) {
-                    // 火灭了且有燃料，自动点火
+
                     if (litTime <= 0 && !fuel.isEmpty()) {
                         int burn = fuel.getBurnTime(RecipeType.SMELTING);
                         if (burn > 0) {
@@ -68,7 +68,7 @@ public class PortableFurnaceMenu extends FurnaceMenu {
                             data.set(0, litTime);
                             data.set(1, litDuration);
                             
-                            // 消耗燃料（如岩浆桶返还空桶）
+
                             ItemStack remainder = fuel.getCraftingRemainingItem();
                             fuel.shrink(1);
                             if (fuel.isEmpty() && !remainder.isEmpty()) {
@@ -78,7 +78,7 @@ public class PortableFurnaceMenu extends FurnaceMenu {
                         }
                     }
 
-                    // 正在燃烧，推进度条
+
                     if (litTime > 0) {
                         cookingProgress++;
                         if (cookingProgress >= cookingTotal) {
@@ -104,7 +104,7 @@ public class PortableFurnaceMenu extends FurnaceMenu {
         }
     }
 
-    // 关掉界面时，把最新物品和进度写回 ItemStack
+
     @Override
     public void removed(Player player) {
         super.removed(player);

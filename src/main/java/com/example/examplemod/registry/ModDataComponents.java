@@ -15,7 +15,6 @@ public class ModDataComponents {
     public static final DeferredRegister<DataComponentType<?>> COMPONENTS =
             DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, "examplemod");
 
-    // 存储分类的 ResourceLocation（例如 "apotheosis:helmet"）
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<ResourceLocation>> MIMIC_CATEGORY =
             COMPONENTS.register("mimic_cat", () -> DataComponentType.<ResourceLocation>builder()
                     .persistent(ResourceLocation.CODEC)
@@ -34,7 +33,6 @@ public class ModDataComponents {
                     .build());
 
 
-    // 3. 酿造台物品与数据组件
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<PortableBrewingData>> BREWING_DATA =
             COMPONENTS.register("brewing_data", () -> DataComponentType.<PortableBrewingData>builder()
                     .persistent(PortableBrewingData.CODEC)

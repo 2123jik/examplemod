@@ -87,11 +87,7 @@ public class SummonDragonSpell extends AbstractSpell {
         }
     }
 
-    // =========================================================================
-    // 数值阶梯
-    // =========================================================================
 
-    /** 支援时长（tick）：Lv1 = 7 分钟，Lv5 = 15 分钟 */
     public int getSupportDuration(int level) {
         return 20 * 60 * (5 + level * 2);
     }
@@ -116,9 +112,6 @@ public class SummonDragonSpell extends AbstractSpell {
         );
     }
 
-    // =========================================================================
-    // 施法核心
-    // =========================================================================
 
     @Override
     public void onCast(Level world, int spellLevel, LivingEntity entity,
@@ -149,7 +142,6 @@ public class SummonDragonSpell extends AbstractSpell {
             }
             dragon.setSpellPower(dmg, spellLevel);
 
-            // 触发铁魔法召唤事件，允许其他模组拦截/修改
             SpellSummonEvent event = new SpellSummonEvent(
                     entity, dragon, this.spellId, spellLevel);
             NeoForge.EVENT_BUS.post(event);

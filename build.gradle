@@ -171,7 +171,12 @@ idea {
 
 tasks.register('removeComments') {
     description = '使用 JavaParser 删除 src/main/java 下所有 Java 文件的注释'
+
+    // ✅ 在配置阶段就获取目录路径，赋值给变量
+    def srcDir = file('src/main/java/com/example/examplemod')
+
     doLast {
-        RemoveComments.process(file('src/main/java'))
+        // 执行阶段只使用变量，不再调用 file() 方法
+        RemoveComments.process(srcDir)
     }
 }

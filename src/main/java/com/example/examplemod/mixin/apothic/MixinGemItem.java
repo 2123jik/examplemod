@@ -32,7 +32,6 @@ public abstract class MixinGemItem extends Item {
 
     public MixinGemItem(Properties properties) { super(properties); }
 
-    /** 只读视图，避免 NBT 深拷贝。 */
     @Unique
     private static CompoundTag examplemod$readTag(ItemStack stack) {
         CustomData data = stack.get(DataComponents.CUSTOM_DATA);
@@ -52,7 +51,6 @@ public abstract class MixinGemItem extends Item {
             return InteractionResultHolder.sidedSuccess(heldStack, true);
         }
 
-        // 背包空间前置检测
         if (!UnidentifiedItemHelper.hasRoomForIdentify(player, heldStack)) {
             player.sendSystemMessage(UnidentifiedItemHelper.fullMessage());
             return InteractionResultHolder.fail(heldStack);
@@ -61,7 +59,6 @@ public abstract class MixinGemItem extends Item {
         Purity purity = GemItem.getPurity(heldStack);
         RandomSource random = player.getRandom();
 
-        // 筛选支持该纯度的宝石
         List<Gem> validGems = GemRegistry.INSTANCE.getValues().stream()
                 .filter(g -> purity.isAtLeast(g.getMinPurity()))
                 .toList();
@@ -79,9 +76,6 @@ public abstract class MixinGemItem extends Item {
         return InteractionResultHolder.consume(heldStack);
     }
 
-    // =========================================================================
-    // getName
-    // =========================================================================
     @Inject(method = "getName", at = @At("HEAD"), cancellable = true)
     private void overrideUnidentifiedName(ItemStack stack, CallbackInfoReturnable<Component> cir) {
         CompoundTag tag = examplemod$readTag(stack);
@@ -93,9 +87,6 @@ public abstract class MixinGemItem extends Item {
                 .append(Component.literal("宝石")));
     }
 
-    // =========================================================================
-    // appendHoverText
-    // =========================================================================
     @Inject(method = "appendHoverText", at = @At("HEAD"), cancellable = true)
     private void overrideUnidentifiedTooltip(ItemStack stack, Item.TooltipContext ctx,
                                              List<Component> lines, TooltipFlag flag,

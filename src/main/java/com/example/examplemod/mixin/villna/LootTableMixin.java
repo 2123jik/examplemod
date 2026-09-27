@@ -15,10 +15,7 @@ import java.util.*;
 public class LootTableMixin
 {
 
-    /**
-     * @author
-     * @reason
-     */
+    
     @Overwrite
     public List<Integer> getAvailableSlots(Container inventory, RandomSource random)
     {
@@ -33,13 +30,10 @@ public class LootTableMixin
         return objectarraylist;
     }
 
-    /**
-     * @author
-     * @reason
-     */
+    
     @Overwrite
     public void shuffleAndSplitItems(ObjectArrayList<ItemStack> stacks, int emptySlotsCount, RandomSource random) {
-        // 用 HashMap 分组，O(n) 索引
+
         Map<ItemStackKey, List<ItemStack>> groups = new LinkedHashMap<>(stacks.size());
         for (ItemStack s : stacks) {
             if (s.isEmpty()) continue;
@@ -53,7 +47,7 @@ public class LootTableMixin
             int total = 0;
             for (ItemStack s : group) total += s.getCount();
 
-            // 重新分配：前面的堆满，最后一个存余数
+
             int idx = 0;
             while (total > 0 && idx < group.size()) {
                 int give = Math.min(maxStack, total);
@@ -61,12 +55,12 @@ public class LootTableMixin
                 total -= give;
                 idx++;
             }
-            // 清空多余槽位
+
             for (; idx < group.size(); idx++) group.get(idx).setCount(0);
         }
     }
 
-    // 轻量级 key，只包含 item + 组件 hash（ItemStack.isSameItemSameComponents 的语义）
+
     private static final class ItemStackKey {
         private final Item item;
         private final int componentsHash;
@@ -86,7 +80,7 @@ public class LootTableMixin
             if (!(o instanceof ItemStackKey other)) return false;
             return item == other.item
                     && componentsHash == other.componentsHash;
-            // 注意：极低概率 hash 冲突会误合并，如需 100% 精确可保存 ItemStack 引用
+
         }
     }
 }

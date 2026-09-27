@@ -5,10 +5,8 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public final class Config {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
-    // 核心开关
     public static final ModConfigSpec.BooleanValue ENABLED;
 
-    // 提示框内容模块开关 (已彻底剔除战斗看板与比对)
     public static final ModConfigSpec.BooleanValue SHOW_DURABILITY;
     public static final ModConfigSpec.BooleanValue SHOW_TOOL_SPEED;
     public static final ModConfigSpec.BooleanValue SHOW_FOOD;
@@ -19,14 +17,11 @@ public final class Config {
     public static final ModConfigSpec.BooleanValue SHOW_CONTAINER_PREVIEW;
     public static final ModConfigSpec.BooleanValue SHOW_MODEL_STAGE;
 
-    // 数据驱动规则
     public static final ModConfigSpec.BooleanValue SHOW_CUSTOM_RULES;
 
-    // HUD 与功能
     public static final ModConfigSpec.BooleanValue SHOW_HELD_HUD;
     public static final ModConfigSpec.BooleanValue SHOW_SLOT_DEBUG;
 
-    // 排版与样式
     public static final ModConfigSpec.BooleanValue RARITY_THEME;
     public static final ModConfigSpec.IntValue PINNED_PAGE_SIZE;
     public static final ModConfigSpec.IntValue MAX_LINES;

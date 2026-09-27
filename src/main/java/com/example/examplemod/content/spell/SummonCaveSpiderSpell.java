@@ -69,7 +69,6 @@ public class SummonCaveSpiderSpell extends AbstractSpell {
 
     @Override
     public int getRecastCount(int spellLevel, @Nullable LivingEntity entity) {
-        // 如果想让玩家在召唤持续时间内通过再次按键提前驱散/重新召回，可以像北极熊法术一样设置 recast
         return 1;
     }
 
@@ -80,7 +79,6 @@ public class SummonCaveSpiderSpell extends AbstractSpell {
         }
     }
 
-    // ====== 数量与属性阶梯计算 ======
     public int getSpiderCount(int level) {
         if (level <= 0) return 0;
         if (level < 3) return 1;
@@ -89,8 +87,7 @@ public class SummonCaveSpiderSpell extends AbstractSpell {
         if (level < 11) return 4;
         if (level < 15) return 5;
         if (level < 19) return 6;
-        return 7; // 最多 7 只
-    }
+        return 7;     }
 
     public int getBonusLevels(int level) {
         return Math.max(0, level - 19);
@@ -122,21 +119,18 @@ public class SummonCaveSpiderSpell extends AbstractSpell {
 
         if (!recasts.hasRecastForSpell(this)) {
             SummonedEntitiesCastData summonedCastData = new SummonedEntitiesCastData();
-            int summonTime = 12000; // 存活 10 分钟 (12000 ticks)
-            int count = getSpiderCount(spellLevel);
+            int summonTime = 12000;             int count = getSpiderCount(spellLevel);
             float hp = getSpiderHealth(spellLevel, entity);
             float dmg = getSpiderDamage(spellLevel, entity);
 
             for (int i = 0; i < count; i++) {
                 SummonedCaveSpider spider = new SummonedCaveSpider(ModEntities.SUMMONED_CAVE_SPIDER.get(), world);
 
-                // 环绕生成
                 double angle = (2 * Math.PI / Math.max(1, count)) * i;
                 double offsetX = 1.5 * Math.cos(angle);
                 double offsetZ = 1.5 * Math.sin(angle);
                 spider.moveTo(entity.getX() + offsetX, entity.getY(), entity.getZ() + offsetZ, entity.getYRot(), 0.0F);
 
-                // 设定基础属性
                 if (spider.getAttribute(Attributes.MAX_HEALTH) != null) {
                     spider.getAttribute(Attributes.MAX_HEALTH).setBaseValue(hp);
                     spider.setHealth(hp);
@@ -145,17 +139,14 @@ public class SummonCaveSpiderSpell extends AbstractSpell {
                     spider.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(dmg);
                 }
 
-                // 触发铁魔法召唤事件（支持其他附属模组拦截修改）
                 SpellSummonEvent event = new SpellSummonEvent(entity, spider, this.spellId, spellLevel);
                 NeoForge.EVENT_BUS.post(event);
                 LivingEntity finalCreature = event.getCreature();
 
                 world.addFreshEntity(finalCreature);
-                // 接入 SummonManager 自动生命周期与目标追踪管理
                 SummonManager.initSummon(entity, finalCreature, summonTime, summonedCastData);
             }
 
-            // 注册 Recast 实例
             RecastInstance recastInstance = new RecastInstance(
                     this.getSpellId(),
                     spellLevel,

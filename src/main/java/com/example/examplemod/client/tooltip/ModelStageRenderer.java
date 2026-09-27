@@ -37,7 +37,7 @@ public final class ModelStageRenderer {
     private static final int LEFT_MARGIN = 6;
     private static final int BOTTOM_MARGIN = 30;
     private static final Logger LOGGER = LogUtils.getLogger();
-    private static RemotePlayer dummyPlayer;           // 复用的假人
+    private static RemotePlayer dummyPlayer;           
     private static net.minecraft.client.multiplayer.ClientLevel activeLevel;
     private static net.minecraft.client.player.LocalPlayer activePlayer;
     private static final Map<EntityType<?>, LivingEntity> ARMOR_ENTITY_CACHE =
@@ -70,7 +70,7 @@ public final class ModelStageRenderer {
 
     @SubscribeEvent
     public static void onTooltipPre(RenderTooltipEvent.Pre event) {
-        // 总开关与防打扰
+
         if (!Config.ENABLED.get() || !Config.SHOW_MODEL_STAGE.get()) return;
 
         ItemStack stack = event.getItemStack();
@@ -304,7 +304,7 @@ public final class ModelStageRenderer {
                 Minecraft.getInstance().getEntityRenderDispatcher();
         MultiBufferSource.BufferSource buffers = graphics.bufferSource();
 
-        // 先提交之前的 GUI 绘制，避免混入实体渲染状态。
+
         graphics.flush();
 
         pose.pushPose();

@@ -40,10 +40,7 @@ public final class Network {
             return;
         }
 
-        /*
-         * 与原版床相同：
-         * 下界、末地等 bed_works=false 的维度不能使用床。
-         */
+        
         if (!level.dimensionType().bedWorks()) {
             player.sendSystemMessage(
                     Component.translatable(
@@ -55,11 +52,7 @@ public final class Network {
 
         long timeOfDay = level.getDayTime() % 24000L;
 
-        /*
-         * 原版床只能在夜间使用。
-         * 12542：夜晚开始
-         * 23460：夜晚结束
-         */
+        
         if (timeOfDay < 12542L || timeOfDay >= 23460L) {
             player.sendSystemMessage(
                     Component.translatable(
@@ -71,12 +64,7 @@ public final class Network {
 
         BlockPos respawnPos = player.blockPosition();
 
-        /*
-         * 设置玩家重生点。
-         *
-         * false：不是强制重生点
-         * true：向玩家发送重生点设置提示
-         */
+        
         player.setRespawnPosition(
                 level.dimension(),
                 respawnPos,
@@ -85,20 +73,13 @@ public final class Network {
                 true
         );
 
-        /*
-         * 推进到第二天早晨。
-         *
-         * 24000：下一天的开始
-         * 1000：原版睡醒后的清晨时间
-         */
+        
         long nextMorning =
                 ((level.getDayTime() / 24000L) + 1L) * 24000L + 1000L;
 
         level.setDayTime(nextMorning);
 
-        /*
-         * 关闭背包界面，模拟上床后关闭当前界面。
-         */
+        
         player.closeContainer();
 
         player.sendSystemMessage(

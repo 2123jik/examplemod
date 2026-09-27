@@ -79,9 +79,6 @@ public class ApothDataExporter {
 
                 writer.write(String.format("## 📌 部位分类: `%s`\n\n", cat.getKey()));
 
-                // ==========================================
-                // 1. 词缀导出
-                // ==========================================
                 writer.write("### ⚔️ 该部位可洗出的词缀 (Affixes):\n\n");
                 writer.write("| 词缀 ID | 类型 | 模拟 Tooltip 描述 (神话阶满值) |\n");
                 writer.write("| :--- | :--- | :--- |\n");
@@ -113,9 +110,6 @@ public class ApothDataExporter {
                 }
                 writer.write("\n");
 
-                // ==========================================
-                // 2. 宝石导出 (带唯一性标志)
-                // ==========================================
                 writer.write("### 💎 该部位可镶嵌的宝石 (Gems):\n\n");
                 writer.write("| 宝石 ID (含唯一性) | 最低纯度效果 | 完美纯度效果 (已受 1/4 Mixin 约束) |\n");
                 writer.write("| :--- | :--- | :--- |\n");
@@ -132,7 +126,6 @@ public class ApothDataExporter {
                         String minText = minInst.getSocketBonusTooltip(tooltipCtx).getString();
                         String perfectText = perfectInst.getSocketBonusTooltip(tooltipCtx).getString();
 
-                        // 【关键改动】：如果是唯一宝石，高亮追加 👑[唯一] 标识
                         String uniqueTag = gem.isUnique() ? " 👑`[唯一]`" : "";
                         String gemIdWithTag = String.format("`%s`%s", gem.getId(), uniqueTag);
 
