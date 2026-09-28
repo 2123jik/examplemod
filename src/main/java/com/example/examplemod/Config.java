@@ -28,7 +28,11 @@ public final class Config {
     public static final ModConfigSpec.IntValue MAX_TOOLTIP_WIDTH;
     public static final ModConfigSpec.LongValue BACKGROUND_COLOR;
     public static final ModConfigSpec.LongValue BORDER_COLOR;
-
+    // ==== L2Hostility 联动 ====
+    public static final ModConfigSpec.DoubleValue L2H_TRAIT_CHANCE_SOFT_CAP;
+    public static final ModConfigSpec.DoubleValue L2H_TRAIT_CHANCE_HALF_LEVEL;
+    public static final ModConfigSpec.DoubleValue L2H_TRAIT_CHANCE_FLOOR;
+    public static final ModConfigSpec.BooleanValue L2H_ENABLE_SOFT_SATURATION;
     static {
         BUILDER.push("general");
         ENABLED = BUILDER.comment("启用 Tooltip 增强层").define("enabled", true);
@@ -56,6 +60,28 @@ public final class Config {
         BUILDER.pop();
 
         BUILDER.push("appearance");
+        BUILDER.push("l2hostility");
+        L2H_TRAIT_CHANCE_SOFT_CAP = BUILDER
+                .comment("L2Hostility 词条概率的渐近上限 (软饱和)，必须落在 (0,1) 开区间")
+                .comment("原版 Math.min(1, lv*slope) 是硬截断，lv>=100 恒为 1.0")
+                .comment("设为 0.85 表示即使 Lv.10000 的怪也最多 85% 概率带词条")
+                .defineInRange("traitChanceSoftCap", 0.85, 0.01, 0.999);
+
+        L2H_TRAIT_CHANCE_HALF_LEVEL = BUILDER
+                .comment("达到 softCap 一半时所对应的怪物等级")
+                .comment("与原版 initialTraitChanceSlope 解耦，方便单独调曲线陡峭程度")
+                .comment("默认 200：Lv.200 时约为 42.5%")
+                .defineInRange("traitChanceHalfLevel", 200.0, 1.0, 100000.0);
+
+        L2H_TRAIT_CHANCE_FLOOR = BUILDER
+                .comment("词条概率的最小保底值，防止低等级怪永远不带词条")
+                .comment("设为 0 则完全按曲线走")
+                .defineInRange("traitChanceFloor", 0.0, 0.0, 0.9);
+
+        L2H_ENABLE_SOFT_SATURATION = BUILDER
+                .comment("总开关：关闭后恢复原版 Math.min(1, lv*slope) 硬截断行为")
+                .define("enableSoftSaturation", true);
+        BUILDER.pop();
         RARITY_THEME = BUILDER.comment("边框颜色跟随物品稀有度颜色").define("rarityTheme", true);
         PINNED_PAGE_SIZE = BUILDER.comment("固定 Tooltip 每页行数").defineInRange("pinnedPageSize", 12, 4, 64);
         MAX_LINES = BUILDER.comment("最大附加行数").defineInRange("maxLines", 32, 0, 128);

@@ -99,5 +99,9 @@
   "spell.examplemod.yakunitatazumaho.desc": "§7『Depending on how you map the power of thought, the kind of magic it becomes will change.\nIf I could, I'd make it simple magic — something that doesn't wear down so much of one's thought-force.\nThe more you limit a spell's effects, the simpler it becomes. The more concrete rather than vague, the more you can \"attune reality\" with only a little power.\nThe output is limited to wagashi — only sweets the caster has tasted before.\nUsing the caster's own passion as a catalyst — topped with an effect that makes whoever eats it smile just a little.』§r\n\n§eConsumes your own hunger and saturation (calories) as a catalyst to materialize a delicious treat you have tasted before.§r",
 
   "trait.examplemod.firebolt": "Firebolt",
-  "trait.examplemod.firebolt.desc": "Mobs periodically launch a Firebolt spell at their target."
+
+  "trait.examplemod.firebolt.desc": "Mobs periodically launch a Firebolt spell at their target.",
+
+  "jade.examplemod.attack_damage": "ad: %s"
+
 }

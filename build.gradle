@@ -4,7 +4,12 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.147'
     id 'idea'
 }
-
+configurations {
+    exporterRuntime {
+        canBeConsumed = false
+        canBeResolved = true
+    }
+}
 tasks.named('wrapper', Wrapper).configure {
     distributionType = Wrapper.DistributionType.BIN
 }
@@ -117,7 +122,8 @@ dependencies {
     // 编译时：全部 jar 参与，保证 IDE 索引正常
     compileOnly fileTree(dir: modsDir, include: ['*.jar'], exclude: baseExclude)
     compileOnly files("libs/l2core-3.0.8+12.jar")
-
+    exporterRuntime 'com.github.javaparser:javaparser-core:3.26.2'
+    compileOnly 'com.github.javaparser:javaparser-core:3.26.2'
     if (dataOnly) {
         runtimeOnly fileTree(dir: modsDir, include: ['*.jar'],
                 exclude: baseExclude + dataExtraExclude)
@@ -179,4 +185,14 @@ tasks.register('removeComments') {
         // 执行阶段只使用变量，不再调用 file() 方法
         RemoveComments.process(srcDir)
     }
+}
+tasks.register('runExporter', JavaExec) {
+    group = 'export'
+    classpath = sourceSets.main.output + configurations.exporterRuntime
+    mainClass = 'main.ExportAst'
+    // 直接写死路径也行
+    args = [
+            "C:\\mod\\ModularGolems-1.21\\src\\main\\java",
+            "C:\\mod\\ModularGolems-1.21\\src\\main\\java\\all_code_ast.txt"
+    ]
 }

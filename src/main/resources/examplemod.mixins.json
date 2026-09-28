@@ -12,6 +12,7 @@
     "apothic.MixinLootTable",
     "apothic.MixinWorldTier",
     "apothic.MultiAttrBonusMixin",
+    "hostility.MobDifficultyCollectorMixin",
     "ironsspellbooks.ISSMobEffectBalanceMixin",
     "ironsspellbooks.MixinRandomizeSpellFunction",
     "ironsspellbooks.MixinScroll",
