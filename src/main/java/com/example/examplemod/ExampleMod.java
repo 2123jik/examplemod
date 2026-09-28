@@ -9,23 +9,15 @@ import com.example.examplemod.registry.ModMenus; import com.example.examplemod.r
 import com.example.examplemod.content.spell.ModSpells;
 import com.example.examplemod.content.spell.SummonedCaveSpider;
 import com.example.examplemod.util.WeaponReplacer;
-import com.example.examplemod.worldgen.ModChunkGenerators;
-import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.serialization.MapCodec;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.Commands;
-import net.minecraft.network.chat.Component;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
-import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
-import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
@@ -48,7 +40,6 @@ public final class ExampleMod {
     public ExampleMod(IEventBus modEventBus, ModContainer modContainer) {
         modContainer.registerConfig(ModConfig.Type.CLIENT, Config.SPEC);
         ModSpells.register(modEventBus);
-        ModChunkGenerators.CHUNK_GENERATORS.register(modEventBus);
         ModEntities.register(modEventBus);
         ModDataComponents.COMPONENTS.register(modEventBus);
         ITEMS.register(modEventBus);
