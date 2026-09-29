@@ -188,11 +188,17 @@ tasks.register('removeComments') {
 }
 tasks.register('runExporter', JavaExec) {
     group = 'export'
+    description = 'Exports AST for the specified mod code'
+
     classpath = sourceSets.main.output + configurations.exporterRuntime
     mainClass = 'main.ExportAst'
-    // 直接写死路径也行
+
+    // 1. 必须使用 def 声明局部变量
+    def taskspath = "ModularGolems-1.21"
+
+    // 2. 推荐使用 GString 插值和正斜杠 /，更清晰且跨平台兼容
     args = [
-            "C:\\mod\\ModularGolems-1.21\\src\\main\\java",
-            "C:\\mod\\ModularGolems-1.21\\src\\main\\java\\all_code_ast.txt"
+            "C:/mod/${taskspath}/src/main/java/com/example/examplemod",
+            "C:/mod/${taskspath}/src/main/java/all_code_ast.txt"
     ]
 }

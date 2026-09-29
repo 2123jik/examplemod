@@ -102,6 +102,53 @@
 
   "trait.examplemod.firebolt.desc": "Mobs periodically launch a Firebolt spell at their target.",
 
-  "jade.examplemod.attack_damage": "ad: %s"
+  "jade.examplemod.attack_damage": "ad: %s",
+
+    "affix.apotheosis:armor/attribute/spell_resist": "Warding",
+    "affix.apotheosis:armor/attribute/spell_resist.suffix": "of Spell Warding",
+
+    "affix.apotheosis:armor/attribute/fire_magic_resist": "Flameproof",
+    "affix.apotheosis:armor/attribute/fire_magic_resist.suffix": "of Fire Warding",
+
+    "affix.apotheosis:armor/attribute/ice_magic_resist": "Frost-Warded",
+    "affix.apotheosis:armor/attribute/ice_magic_resist.suffix": "of Frost Warding",
+
+    "affix.apotheosis:armor/attribute/lightning_magic_resist": "Insulated",
+    "affix.apotheosis:armor/attribute/lightning_magic_resist.suffix": "of Grounding",
+
+    "affix.apotheosis:armor/attribute/holy_magic_resist": "Sun-Veiled",
+    "affix.apotheosis:armor/attribute/holy_magic_resist.suffix": "of Holy Warding",
+
+    "affix.apotheosis:armor/attribute/ender_magic_resist": "Anchored",
+    "affix.apotheosis:armor/attribute/ender_magic_resist.suffix": "of Void Anchoring",
+
+    "affix.apotheosis:armor/attribute/blood_magic_resist": "Coagulated",
+    "affix.apotheosis:armor/attribute/blood_magic_resist.suffix": "of Blood Warding",
+
+    "affix.apotheosis:armor/attribute/evocation_magic_resist": "Fang-Guarded",
+    "affix.apotheosis:armor/attribute/evocation_magic_resist.suffix": "of Evocation Warding",
+
+    "affix.apotheosis:armor/attribute/nature_magic_resist": "Nature-Shielded",
+    "affix.apotheosis:armor/attribute/nature_magic_resist.suffix": "of Nature Warding",
+
+    "affix.apotheosis:armor/attribute/eldritch_magic_resist": "Mind-Shielded",
+    "affix.apotheosis:armor/attribute/eldritch_magic_resist.suffix": "of Eldritch Warding",
+
+    "affix.apotheosis:armor/attribute/symmetry_magic_resist": "Harmonious",
+    "affix.apotheosis:armor/attribute/symmetry_magic_resist.suffix": "of Symmetry Warding",
+
+    "affix.apotheosis:armor/attribute/spirit_magic_resist": "Soul-Anchored",
+    "affix.apotheosis:armor/attribute/spirit_magic_resist.suffix": "of Spirit Warding",
+
+    "affix.apotheosis:armor/attribute/dune_magic_resist": "Sand-Sheltered",
+    "affix.apotheosis:armor/attribute/dune_magic_resist.suffix": "of Dune Warding",
+
+  "affix.apotheosis:armor/attribute/casting_movespeed": "Nimble",
+  "affix.apotheosis:armor/attribute/casting_movespeed.suffix": "of Fluid Casting",
+  "affix.apotheosis:armor/attribute/cooldown_reduction": "Mindful",
+  "affix.apotheosis:armor/attribute/cooldown_reduction.suffix": "of Alacrity",
+
+  "affix.apotheosis:armor/attribute/cast_time_reduction": "Quickened",
+  "affix.apotheosis:armor/attribute/cast_time_reduction.suffix": "of Incantation"
 
 }

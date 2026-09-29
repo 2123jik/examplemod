@@ -102,6 +102,52 @@
   "trait.examplemod.firebolt.desc": "怪物会定期朝目标喷射火焰弹法术。",
 
 
-    "jade.examplemod.attack_damage": "攻击力: %s"
+    "jade.examplemod.attack_damage": "攻击力: %s",
 
+    "affix.apotheosis:armor/attribute/spell_resist": "御法",
+    "affix.apotheosis:armor/attribute/spell_resist.suffix": "秘法消解",
+
+    "affix.apotheosis:armor/attribute/fire_magic_resist": "耐火",
+    "affix.apotheosis:armor/attribute/fire_magic_resist.suffix": "炽焰隔绝",
+
+    "affix.apotheosis:armor/attribute/ice_magic_resist": "御寒",
+    "affix.apotheosis:armor/attribute/ice_magic_resist.suffix": "霜冻消解",
+
+    "affix.apotheosis:armor/attribute/lightning_magic_resist": "绝缘",
+    "affix.apotheosis:armor/attribute/lightning_magic_resist.suffix": "雷霆导引",
+
+    "affix.apotheosis:armor/attribute/holy_magic_resist": "蔽光",
+    "affix.apotheosis:armor/attribute/holy_magic_resist.suffix": "圣辉折射",
+
+    "affix.apotheosis:armor/attribute/ender_magic_resist": "锚定",
+    "affix.apotheosis:armor/attribute/ender_magic_resist.suffix": "虚空稳固",
+
+    "affix.apotheosis:armor/attribute/blood_magic_resist": "凝血",
+    "affix.apotheosis:armor/attribute/blood_magic_resist.suffix": "逆血阻遏",
+
+    "affix.apotheosis:armor/attribute/evocation_magic_resist": "破妄",
+    "affix.apotheosis:armor/attribute/evocation_magic_resist.suffix": "獠牙抵御",
+
+    "affix.apotheosis:armor/attribute/nature_magic_resist": "辟毒",
+    "affix.apotheosis:armor/attribute/nature_magic_resist.suffix": "生息调和",
+
+    "affix.apotheosis:armor/attribute/eldritch_magic_resist": "清心",
+    "affix.apotheosis:armor/attribute/eldritch_magic_resist.suffix": "理智障壁",
+
+    "affix.apotheosis:armor/attribute/symmetry_magic_resist": "调谐",
+    "affix.apotheosis:armor/attribute/symmetry_magic_resist.suffix": "乱序辟易",
+
+    "affix.apotheosis:armor/attribute/spirit_magic_resist": "摄魂",
+    "affix.apotheosis:armor/attribute/spirit_magic_resist.suffix": "定魄凝神",
+
+    "affix.apotheosis:armor/attribute/dune_magic_resist": "避沙",
+    "affix.apotheosis:armor/attribute/dune_magic_resist.suffix": "狂沙偏斜",
+
+  "affix.apotheosis:armor/attribute/casting_movespeed": "灵动",
+  "affix.apotheosis:armor/attribute/casting_movespeed.suffix": "灵巧施法",
+  "affix.apotheosis:armor/attribute/cooldown_reduction": "凝思",
+  "affix.apotheosis:armor/attribute/cooldown_reduction.suffix": "迅捷思维",
+
+  "affix.apotheosis:armor/attribute/cast_time_reduction": "瞬颂",
+  "affix.apotheosis:armor/attribute/cast_time_reduction.suffix": "极速吟唱"
 }

@@ -1,0 +1,39 @@
+{
+  "type": "apotheosis:attribute",
+  "attribute": "irons_spellbooks:casting_movespeed",
+  "categories": [
+    "apotheosis:boots",
+    "apotheosis:leggings"
+  ],
+  "definition": {
+    "affix_type": "stat",
+    "exclusive_set": [],
+    "weights": {
+      "quality": 0.15,
+      "weight": 20
+    }
+  },
+  "operation": "add_value",
+  "values": {
+    "apotheosis:uncommon": {
+      "min": 0.10,
+      "max": 0.20,
+      "step": 0.05
+    },
+    "apotheosis:rare": {
+      "min": 0.20,
+      "max": 0.35,
+      "step": 0.05
+    },
+    "apotheosis:epic": {
+      "min": 0.35,
+      "max": 0.55,
+      "step": 0.05
+    },
+    "apotheosis:mythic": {
+      "min": 0.55,
+      "max": 0.80,
+      "step": 0.05
+    }
+  }
+}

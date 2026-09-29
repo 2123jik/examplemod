@@ -13,7 +13,7 @@ public enum MobAttackServerProvider implements IServerDataProvider<EntityAccesso
     @Override
     public void appendServerData(CompoundTag data, EntityAccessor accessor) {
         if (!(accessor.getEntity() instanceof LivingEntity living)) return;
-
+        if (!living.getAttributes().hasAttribute(Attributes.ATTACK_DAMAGE)) {return;}
         double base = living.getAttributeValue(Attributes.ATTACK_DAMAGE);
         if (base <= 0) return;
 
