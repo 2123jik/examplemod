@@ -1,7 +1,11 @@
 package com.example.examplemod;
 
+
 import com.example.examplemod.registry.ModEntities;
 import com.example.examplemod.client.tooltip.*;
+import com.mojang.blaze3d.platform.InputConstants;
+import icyllis.modernui.mc.MuiModApi;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.entity.CaveSpiderRenderer;
@@ -18,10 +22,12 @@ import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.common.NeoForge;
+import org.lwjgl.glfw.GLFW;
 
 @Mod(value = ExampleMod.MODID, dist = Dist.CLIENT)
 @EventBusSubscriber(modid = ExampleMod.MODID, value = Dist.CLIENT) 
 public final class ExampleModClient {
+
 
     public ExampleModClient(IEventBus modBus, ModContainer container) {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
@@ -71,6 +77,7 @@ public final class ExampleModClient {
 
     @SubscribeEvent
     public static void handleKey(InputEvent.Key event) {
+
     }
 
     @SubscribeEvent
@@ -114,4 +121,5 @@ public final class ExampleModClient {
         event.setBorderStart(border);
         event.setBorderEnd(border);
     }
+
 }

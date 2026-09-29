@@ -193,12 +193,10 @@ tasks.register('runExporter', JavaExec) {
     classpath = sourceSets.main.output + configurations.exporterRuntime
     mainClass = 'main.ExportAst'
 
-    // 1. 必须使用 def 声明局部变量
-    def taskspath = "ModularGolems-1.21"
-
-    // 2. 推荐使用 GString 插值和正斜杠 /，更清晰且跨平台兼容
     args = [
-            "C:/mod/${taskspath}/src/main/java/com/example/examplemod",
-            "C:/mod/${taskspath}/src/main/java/all_code_ast.txt"
+            // 扫描整个 src/main/java 目录下的所有 .java 文件
+            "C:\\mod\\Apotheosis-1.21\\src\\main\\java",
+            // 导出结果文件路径
+            "C:\\mod\\Apotheosis-1.21\\src\\main\\java\\all_code_ast.txt"
     ]
 }

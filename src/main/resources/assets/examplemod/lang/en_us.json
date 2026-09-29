@@ -1,6 +1,5 @@
 {
   "key.categories.examplemod": "Example Mod",
-
   "examplemod.tooltip.enchantment_cap": "At maximum level",
   "examplemod.tooltip.map": "Map ID: %s",
   "examplemod.tooltip.container.summary": "Contents: %s stacks, %s items",
@@ -12,10 +11,8 @@
   "examplemod.tooltip.attributes": "Attributes: %s",
   "examplemod.tooltip.compare": "Compared %s: %s",
   "examplemod.tooltip.attribute": "%s: %s",
-
   "key.examplemod.toggle_details": "Toggle tooltip details",
   "key.examplemod.pin_tooltip": "Pin tooltip",
-
   "examplemod.tooltip.version": "Added in: %s",
   "examplemod.tooltip.durability": "Durability: %s / %s",
   "examplemod.tooltip.durability_percent": "Durability: %s%%",
@@ -35,7 +32,6 @@
   "examplemod.tooltip.registry": "Registry: %s",
   "examplemod.tooltip.tag": "Tag: %s",
   "examplemod.tooltip.container.item": "  %s x%s",
-
   "examplemod.slot_debug.item": "Slot %s: occupied",
   "examplemod.slot_debug.empty": "Slot %s: empty",
 
@@ -43,11 +39,11 @@
   "gui.ldlib.editor.nav.affix": "Affix Editor",
 
   "gui.ldlib.editor.gem.title": "Apotheosis Gem Configuration",
-  "gui.ldlib.editor.gem.preview_tooltip": "§aGem Instance Preview\n§7Hover to view the rendered effect",
-  "gui.ldlib.editor.gem.weight": "Spawn Weight:",
-  "gui.ldlib.editor.gem.quality": "Quality Multiplier:",
-  "gui.ldlib.editor.gem.unique": "Unique Gem (only one socketed per item)",
-  "gui.ldlib.editor.gem.purity_values": "Per-Purity Value Settings:",
+  "gui.ldlib.editor.gem.preview_tooltip": "§aGem Instance Preview\n§7Hover to preview rendering",
+  "gui.ldlib.editor.gem.weight": "Weight:",
+  "gui.ldlib.editor.gem.quality": "Quality:",
+  "gui.ldlib.editor.gem.unique": "Unique Gem (Limit 1 per item)",
+  "gui.ldlib.editor.gem.purity_values": "Purity Values:",
 
   "gui.ldlib.editor.gem.purity.cracked": "Cracked",
   "gui.ldlib.editor.gem.purity.chipped": "Chipped",
@@ -57,10 +53,10 @@
   "gui.ldlib.editor.gem.purity.perfect": "Perfect",
 
   "gui.ldlib.editor.affix.title": "Apotheosis Affix Configuration",
-  "gui.ldlib.editor.affix.categories": "Applicable Equipment Types (multi-select):",
+  "gui.ldlib.editor.affix.categories": "Applicable Types (Multi-select):",
   "gui.ldlib.editor.affix.min": "Base Minimum:",
   "gui.ldlib.editor.affix.max": "Base Maximum:",
-  "gui.ldlib.editor.affix.step": "Step Increment:",
+  "gui.ldlib.editor.affix.step": "Step Value:",
   "gui.ldlib.editor.affix.steps": "Max Steps:",
 
   "gui.ldlib.editor.category.sword": "Sword",
@@ -78,7 +74,7 @@
   "gui.ldlib.editor.rarity.epic": "Epic",
   "gui.ldlib.editor.rarity.mythic": "Mythic",
 
-  "gui.ldlib.editor.btn.save": "Save & Generate Datapack",
+  "gui.ldlib.editor.btn.save": "Save and Generate Datapack",
 
   "gui.ldlib.editor.true": "§aYes",
   "gui.ldlib.editor.false": "§cNo",
@@ -87,68 +83,176 @@
   "gui.ldlib.editor.export.filename": "Filename:",
 
   "examplemod.button.open_shop": "Shop",
-  "examplemod.button.sleep": "Sleep",
 
   "spell.examplemod.summon_cave_spider": "Summon Cave Spider",
-
+  "examplemod.button.sleep": "Sleep",
   "examplemod.message.bed_explodes": "You cannot use a bed in this dimension.",
   "examplemod.message.cannot_sleep_now": "You cannot sleep right now.",
-  "examplemod.message.woke_up": "Respawn point set. You slept until morning.",
+  "examplemod.message.woke_up": "Your spawn point has been set, and you slept until morning.",
 
-  "spell.examplemod.yakunitatazumaho": "Wagashi Conjuring Magic",
-  "spell.examplemod.yakunitatazumaho.desc": "§7『Depending on how you map the power of thought, the kind of magic it becomes will change.\nIf I could, I'd make it simple magic — something that doesn't wear down so much of one's thought-force.\nThe more you limit a spell's effects, the simpler it becomes. The more concrete rather than vague, the more you can \"attune reality\" with only a little power.\nThe output is limited to wagashi — only sweets the caster has tasted before.\nUsing the caster's own passion as a catalyst — topped with an effect that makes whoever eats it smile just a little.』§r\n\n§eConsumes your own hunger and saturation (calories) as a catalyst to materialize a delicious treat you have tasted before.§r",
+  "spell.examplemod.yakunitatazumaho": "Magic to Conjure Wagashi",
+  "spell.examplemod.yakunitatazumaho.desc": "§7\"How magic takes shape depends on how you map the power of visualization.\nIf possible, I'd like to make it a simple spell. One that doesn't wear down your will so much.\nThe more limited the effect, the simpler magic becomes. The more concrete rather than vague, the less power needed to 'attune reality.'\nWhat it creates is limited to wagashi. Only ones the caster has tasted before.\nUsing the caster's caloric energy as a catalyst—\nTopped with an effect that brings just a tiny smile to whoever eats it.\"§r\n\n§eConsumes the caster's hunger and saturation (calories) as a catalyst to materialize delicacies tasted in the past.§r",
 
   "trait.examplemod.firebolt": "Firebolt",
+  "trait.examplemod.firebolt.desc": "Monsters periodically fire a Firebolt spell toward their target.",
 
-  "trait.examplemod.firebolt.desc": "Mobs periodically launch a Firebolt spell at their target.",
+  "jade.examplemod.attack_damage": "Attack Damage: %s",
 
-  "jade.examplemod.attack_damage": "ad: %s",
+  "affix.apotheosis:armor/attribute/spell_resist": "Warding",
+  "affix.apotheosis:armor/attribute/spell_resist.suffix": "of Spell Dissipation",
 
-    "affix.apotheosis:armor/attribute/spell_resist": "Warding",
-    "affix.apotheosis:armor/attribute/spell_resist.suffix": "of Spell Warding",
+  "affix.apotheosis:armor/attribute/fire_magic_resist": "Flameproof",
+  "affix.apotheosis:armor/attribute/fire_magic_resist.suffix": "of Infernal Insulation",
 
-    "affix.apotheosis:armor/attribute/fire_magic_resist": "Flameproof",
-    "affix.apotheosis:armor/attribute/fire_magic_resist.suffix": "of Fire Warding",
+  "affix.apotheosis:armor/attribute/ice_magic_resist": "Frostguard",
+  "affix.apotheosis:armor/attribute/ice_magic_resist.suffix": "of Frost Dissipation",
 
-    "affix.apotheosis:armor/attribute/ice_magic_resist": "Frost-Warded",
-    "affix.apotheosis:armor/attribute/ice_magic_resist.suffix": "of Frost Warding",
+  "affix.apotheosis:armor/attribute/lightning_magic_resist": "Insulating",
+  "affix.apotheosis:armor/attribute/lightning_magic_resist.suffix": "of Thunder Grounding",
 
-    "affix.apotheosis:armor/attribute/lightning_magic_resist": "Insulated",
-    "affix.apotheosis:armor/attribute/lightning_magic_resist.suffix": "of Grounding",
+  "affix.apotheosis:armor/attribute/holy_magic_resist": "Lightveiled",
+  "affix.apotheosis:armor/attribute/holy_magic_resist.suffix": "of Holy Refraction",
 
-    "affix.apotheosis:armor/attribute/holy_magic_resist": "Sun-Veiled",
-    "affix.apotheosis:armor/attribute/holy_magic_resist.suffix": "of Holy Warding",
+  "affix.apotheosis:armor/attribute/ender_magic_resist": "Anchoring",
+  "affix.apotheosis:armor/attribute/ender_magic_resist.suffix": "of Void Stability",
 
-    "affix.apotheosis:armor/attribute/ender_magic_resist": "Anchored",
-    "affix.apotheosis:armor/attribute/ender_magic_resist.suffix": "of Void Anchoring",
+  "affix.apotheosis:armor/attribute/blood_magic_resist": "Hemostatic",
+  "affix.apotheosis:armor/attribute/blood_magic_resist.suffix": "of Hematic Stoppage",
 
-    "affix.apotheosis:armor/attribute/blood_magic_resist": "Coagulated",
-    "affix.apotheosis:armor/attribute/blood_magic_resist.suffix": "of Blood Warding",
+  "affix.apotheosis:armor/attribute/evocation_magic_resist": "Illusionbreaker",
+  "affix.apotheosis:armor/attribute/evocation_magic_resist.suffix": "of Fang Warding",
 
-    "affix.apotheosis:armor/attribute/evocation_magic_resist": "Fang-Guarded",
-    "affix.apotheosis:armor/attribute/evocation_magic_resist.suffix": "of Evocation Warding",
+  "affix.apotheosis:armor/attribute/nature_magic_resist": "Antitoxin",
+  "affix.apotheosis:armor/attribute/nature_magic_resist.suffix": "of Vital Harmony",
 
-    "affix.apotheosis:armor/attribute/nature_magic_resist": "Nature-Shielded",
-    "affix.apotheosis:armor/attribute/nature_magic_resist.suffix": "of Nature Warding",
+  "affix.apotheosis:armor/attribute/eldritch_magic_resist": "Clear-Minded",
+  "affix.apotheosis:armor/attribute/eldritch_magic_resist.suffix": "of Sanity Barrier",
 
-    "affix.apotheosis:armor/attribute/eldritch_magic_resist": "Mind-Shielded",
-    "affix.apotheosis:armor/attribute/eldritch_magic_resist.suffix": "of Eldritch Warding",
+  "affix.apotheosis:armor/attribute/symmetry_magic_resist": "Attuned",
+  "affix.apotheosis:armor/attribute/symmetry_magic_resist.suffix": "of Chaos Nullification",
 
-    "affix.apotheosis:armor/attribute/symmetry_magic_resist": "Harmonious",
-    "affix.apotheosis:armor/attribute/symmetry_magic_resist.suffix": "of Symmetry Warding",
+  "affix.apotheosis:armor/attribute/spirit_magic_resist": "Spiritbound",
+  "affix.apotheosis:armor/attribute/spirit_magic_resist.suffix": "of Soul Calming",
 
-    "affix.apotheosis:armor/attribute/spirit_magic_resist": "Soul-Anchored",
-    "affix.apotheosis:armor/attribute/spirit_magic_resist.suffix": "of Spirit Warding",
-
-    "affix.apotheosis:armor/attribute/dune_magic_resist": "Sand-Sheltered",
-    "affix.apotheosis:armor/attribute/dune_magic_resist.suffix": "of Dune Warding",
+  "affix.apotheosis:armor/attribute/dune_magic_resist": "Dune-Sheltered",
+  "affix.apotheosis:armor/attribute/dune_magic_resist.suffix": "of Sand Deflection",
 
   "affix.apotheosis:armor/attribute/casting_movespeed": "Nimble",
-  "affix.apotheosis:armor/attribute/casting_movespeed.suffix": "of Fluid Casting",
-  "affix.apotheosis:armor/attribute/cooldown_reduction": "Mindful",
-  "affix.apotheosis:armor/attribute/cooldown_reduction.suffix": "of Alacrity",
+  "affix.apotheosis:armor/attribute/casting_movespeed.suffix": "of Agile Casting",
+  "affix.apotheosis:armor/attribute/cooldown_reduction": "Meditative",
+  "affix.apotheosis:armor/attribute/cooldown_reduction.suffix": "of Quick Thinking",
 
-  "affix.apotheosis:armor/attribute/cast_time_reduction": "Quickened",
-  "affix.apotheosis:armor/attribute/cast_time_reduction.suffix": "of Incantation"
+  "affix.apotheosis:armor/attribute/cast_time_reduction": "Chanted",
+  "affix.apotheosis:armor/attribute/cast_time_reduction.suffix": "of Swift Incantation",
 
+  "attribute.examplemod.blood_step_severance": "Transmutation: Blood Severance",
+  "attribute.examplemod.blood_step_severance.desc": "【Mechanic Rework】After teleporting, creates a blood blade line between the starting point and landing point.\n【Effect】Deals 12 (+3.5/lvl) magic damage and strong knockback to hostile targets within 1.2 blocks of the line.",
+
+  "attribute.examplemod.acupuncture_crucifixion": "Transmutation: Blood Crucifixion",
+  "attribute.examplemod.acupuncture_crucifixion.desc": "【Mechanic Rework】Completely suspends and binds the target in midair upon casting.\n【Effect】Target suffers Slowness VII and Levitation I for 2.25s (unable to move or jump), followed by Weakness II for 5s.",
+
+  "attribute.examplemod.blood_slash_cross": "Morph: Cross Blood Slash",
+  "attribute.examplemod.blood_slash_cross.desc": "【Morph】Restructures the single blood slash into two crossed boomerang blood blades (angled 20° left and right).\n【Values】Individual slash damage adjusted to 85%. Deals 170% overlapping damage when both blades hit the same target.",
+
+  "attribute.examplemod.siphon_chain": "Transmutation: Crimson Chain",
+  "attribute.examplemod.siphon_chain.desc": "【Mechanic Rework】The primary beam refracts blood chains upon hitting the first target.\n【Effect】Bounces and links up to 3 nearby enemies. Each refracted chain inherits 100% damage and lifesteal.",
+
+  "attribute.examplemod.wither_barrage": "Morph: Plagued Barrage",
+  "attribute.examplemod.wither_barrage.desc": "【Morph】Replaces the single skull with a 3-way fan volley (horizontal spread -15°/0°/+15°).\n【Values】Each blood skull's damage is reduced to 80%. Hitting all skulls in point-blank range deals 240% burst damage and inflicts Wither.",
+
+  "attribute.examplemod.eldritch_singularity": "Transmutation: Eldritch Singularity",
+  "attribute.examplemod.eldritch_singularity.desc": "【Mechanic Rework】Removes multi-stage charge volleys, replacing them with a single gravitational black hole.\n【Duration】Creates a gravitational field lasting 3s at the impact point, pulling all enemies within 8.5 blocks and dealing 25% damage every 0.5s.\n【Finisher】Detonates after 3s, dealing 150% AoE finisher damage to enemies in the core area.",
+
+  "attribute.examplemod.sonic_resonance_shatter": "Transmutation: Sonic Resonance",
+  "attribute.examplemod.sonic_resonance_shatter.desc": "【Mechanic Rework】Triggers an acoustic resonance burst upon hitting the primary target.\n【Primary Target】Inflicts Blindness and Slowness V for 2.5s.\n【Secondary AoE】Detonates a secondary sonic boom centered on the target across 4.5 blocks, dealing 45% AoE damage and knockback.",
+
+  "attribute.examplemod.kinetic_annihilation": "Transmutation: Kinetic Oblivion",
+  "attribute.examplemod.kinetic_annihilation.desc": "【Mechanic Rework】When continuous casting ends or is released, hurls the grabbed target forward at 3.2x initial velocity toward the crosshair.\n【Impact】The hurled target takes 25 (+own Attack Damage) kinetic impact damage upon colliding with blocks or enemies.",
+
+  "attribute.examplemod.sculk_hive_infestation": "Transmutation: Blind Hive",
+  "attribute.examplemod.sculk_hive_infestation.desc": "【Mechanic Rework】Tentacles inflict Sculk Infestation on hit.\n【Effect】After 0.75s, additional parasitic tentacles erupt from under the enemy's feet, dealing 120% tentacle damage and launching the target airborne.",
+
+  "attribute.examplemod.teleport_void_swap": "Transmutation: Void Swap",
+  "attribute.examplemod.teleport_void_swap.desc": "【Mechanic Rework】When aiming at an entity, swaps spatial coordinates between the caster and target.\n【Crowd Control】Target takes 6 (+2/lvl) spatial concussion damage, and suffers Blindness for 2s and Slowness V for 2.5s.\n【Note】Casting without targeting an entity performs standard self-teleportation.",
+
+  "attribute.examplemod.shadow_slash_omnislash": "Transmutation: Shadow Omnislash",
+  "attribute.examplemod.shadow_slash_omnislash.desc": "【Mechanic Rework】Turns into formless shadows upon dashing into enemies, gaining brief invulnerability.\n【Effect】Executes 5 rapid spatial slashes between enemies within 8 blocks, each dealing 70% damage and triggering weapon hit effects.",
+
+  "attribute.examplemod.magic_missile_swarm": "Morph: Floating Starlight",
+  "attribute.examplemod.magic_missile_swarm.desc": "【Morph】Instead of firing a straight missile, summons 5 autonomous Arcane Starlets around the caster.\n【Effect】For 10s, whenever an enemy enters within 20 blocks or the caster attacks, starlets dive and home in on targets, dealing 40% damage each.",
+
+  "attribute.examplemod.black_hole_supernova": "Transmutation: Collapsing Supernova",
+  "attribute.examplemod.black_hole_supernova.desc": "【Mechanic Rework】The black hole triggers a gravitational collapse supernova at the end of its duration (7s).\n【Effect】Deals a massive 350% AoE damage to all enemies within 14 blocks and inflicts a devastating outward repulsion knockback.",
+
+  "attribute.examplemod.scapegoat_soul_surrogate": "Mechanic Transmutation: Soul Surrogate",
+  "attribute.examplemod.scapegoat_soul_surrogate.desc": "【Mechanic Rework】Links life force between \"Scapegoat\" and the caster.\n【Fatal Transfer】Immune to death upon taking lethal damage, forcing 100% of the damage to be redirected to the Scapegoat.\n【Mana Feedback】When the Scapegoat takes spell damage, converts 30% of the damage (boosted by caster's [Spell Resistance]) into [True Mana] for the caster in real-time, and reduces current cooldowns of all Evocation spells by 1s.",
+
+  "attribute.examplemod.shield_deflection_overload": "Mechanic Transmutation: Deflection Overload",
+  "attribute.examplemod.shield_deflection_overload.desc": "【Mechanic Rework】\"Magical Shield\" resonates with the caster upon deployment.\n【Shield Conversion】The caster directly gains an Absorption shield equal to 250% of [Evocation Spell Power].\n【Pure Penetration】While the shield is active, the caster's next Evocation spell gains 100% [Spell Resistance Penetration], completely ignoring the target's Spell Resistance and Evocation Resistance.",
+
+  "attribute.examplemod.fang_ward_shred": "Mechanic Transmutation: Judgment Clamp",
+  "attribute.examplemod.fang_ward_shred.desc": "【Mechanic Rework】\"Fang Ward\" gains spell-breaking and casting suppression mechanics.\n【Resistance Shred】Enemies bitten by fangs have their [Spell Resistance] reduced by 40% for 6s.\n【Counter Backlash】Interrupts target's casting if they are channeling/incanting, dealing pure magic backlash damage equal to 150% [Evocation Spell Power].",
+
+  "attribute.examplemod.slow_chrono_stagnation": "Mechanic Transmutation: Chrono Stagnation",
+  "attribute.examplemod.slow_chrono_stagnation.desc": "【Mechanic Rework】Reworks \"Slow\" from a standard movement slow to full temporal stagnation.\n【Chant Delay】Marked target's [Spell Cast Time] is increased by 200%.\n【Clock Freeze】Freezes cooldown timers for all spells on the target (spell CD paused for 6s).",
+
+  "attribute.examplemod.blaze_storm_overheat": "Mechanic Transmutation: Overheated Core",
+  "attribute.examplemod.blaze_storm_overheat.desc": "【Mechanic Rework】\"Blaze Storm\" removes spread firing; compresses all energy during channeling into a single ultra-dense thermonuclear fireball.\n【Resistance Melt】The fireball shreds 50% of the first target's [Fire Resistance] and [Spell Resistance] for 6s.\n【Damage Accumulation】Inherits the total combined damage of all fireballs across the entire channel duration, plus bonus true penetration damage equal to 15% of the caster's current unspent mana.",
+
+  "attribute.examplemod.burning_dash_ignition": "Mechanic Transmutation: Ignition Surge",
+  "attribute.examplemod.burning_dash_ignition.desc": "【Mechanic Rework】Hitting enemies with \"Burning Dash\" grants [Ignition Mark] (stacks 1 layer per enemy hit, up to 5 stacks, lasts 8s).\n【Energy Release】Casting your next Fire spell consumes all marks: each stack provides +15% damage and clears the target's invulnerability frames (i-frames), while converting 25% of final damage dealt into [True Mana] and 15% into Absorption shield.",
+
+  "attribute.examplemod.fireball_supercritical": "Mechanic Transmutation: Supercritical Burst",
+  "attribute.examplemod.fireball_supercritical.desc": "【Mechanic Rework】\"Fireball\" triggers a supercritical detonation when hitting burning targets.\n【Burn Settlement】Instantly detonates remaining burn duration, dealing bonus burst damage equal to 50% [Fire Spell Power] per remaining second of burn.\n【Immunity Pierce】Supercritical burst forcibly deals 100% full magic damage even against targets naturally immune to fire.",
+
+  "attribute.examplemod.heat_surge_cinder_domain": "Mechanic Transmutation: Cinder Domain",
+  "attribute.examplemod.heat_surge_cinder_domain.desc": "【Mechanic Rework】Casting \"Heat Surge\" establishes a [Cinder Domain] on the ground lasting 10s.\n【Resistance Corrosion】All enemies within the domain lose 5% [Spell Resistance] and [Fire Resistance] per second (stacks up to 8 times, max 40% reduction).",
+
+  "attribute.examplemod.divine_smite_judgment": "Mechanic Transmutation: Divine Judgment",
+  "attribute.examplemod.divine_smite_judgment.desc": "【Mechanic Rework】\"Divine Smite\" applies [Judgment Brand] for 8s on hit.\n【Resistance Shred】Shreds 35% of the target's [Total Spell Resistance] and [Holy Resistance].\n【Combat Healing】Whenever the branded target takes damage, converts 20% of the damage dealt into an instant holy healing pulse radiating to allies within 8 blocks.",
+
+  "attribute.examplemod.blessing_overheal_aegis": "Mechanic Transmutation: Overheal Aegis",
+  "attribute.examplemod.blessing_overheal_aegis.desc": "【Mechanic Rework】Single-target Holy healing spells no longer waste excess healing.\n【Shield Conversion】When HP is full, 100% of overheal is converted 1:1 into Absorption shield (capped at 50% of target's max HP, lasts 15s).",
+
+  "attribute.examplemod.sunbeam_dawn_flare": "Mechanic Transmutation: Dawn Flare",
+  "attribute.examplemod.sunbeam_dawn_flare.desc": "【Mechanic Rework】\"Sunbeam\" detonates into a [Lightforged Domain] lasting 5s on impact.\n【True Judgment】Enemies inside take magic damage scaled with [Holy Spell Power] every 0.5s; undead targets suffer 200% absolute critical damage and i-frames are forcibly cleared.\n【Mana Resonance】Allies within recover True Mana equal to 15% of caster's Holy Spell Power per second.",
+
+  "attribute.examplemod.fortify_martyr_aegis": "Mechanic Transmutation: Martyr Aura",
+  "attribute.examplemod.fortify_martyr_aegis.desc": "【Mechanic Rework】Deploying \"Fortify\" links the lifelines of all protected allies to the caster.\n【Damage Share】When protected allies take damage, 40% of the incoming damage is redirected to the caster.\n【Mana Discount】Each time damage is successfully shared, the mana cost of the caster's next Holy spell is reduced by 20% (stacks up to 5 times for 0 mana cost).",
+
+  "attribute.examplemod.frost_step_avalanche": "Mechanic Transmutation: Absolute Avalanche",
+  "attribute.examplemod.frost_step_avalanche.desc": "【Mechanic Rework】\"Frost Step\" triggers a 6-block diameter [Polar Avalanche Shockwave] at destination.\n【Deep Freeze】Deals 120% [Frost Spell Power] magic damage to all enemies within the area, forcibly applying 7s Deep Freeze and clearing i-frames.\n【Frost Shield】Converts 35% of damage dealt per enemy hit into caster's Absorption shield.",
+
+  "attribute.examplemod.ice_spikes_shatter": "Mechanic Transmutation: Spikes Shatter",
+  "attribute.examplemod.ice_spikes_shatter.desc": "【Mechanic Rework】\"Ice Spikes\" and all frost damage gain the [Shatter Combo] mechanic.\n【Shatter Crit】Attacking [Frozen] or [Chilled] targets increases damage by 100% and bypasses hit i-frames.\n【Resistance Fracture】Shatter reduces the target's [Total Spell Resistance] by 30% for 6s.",
+
+  "attribute.examplemod.blizzard_permafrost": "Mechanic Transmutation: Permafrost Abyss",
+  "attribute.examplemod.blizzard_permafrost.desc": "【Mechanic Rework】\"Blizzard\" stops drifting forward and anchors into a stationary high-gravity permafrost ward.\n【Vortex Eye】The center continuously generates a freezing gravitational vortex, pulling surrounding enemies inward.\n【Spell Suppression】Enemies inside the ward have their [Spell Cast Time] increased by 150%.",
+
+  "attribute.examplemod.ice_tomb_absolute_zero": "Mechanic Transmutation: Glacial Nirvana",
+  "attribute.examplemod.ice_tomb_absolute_zero.desc": "【Mechanic Rework】The caster gains absolute invulnerability and rapid HP regeneration during \"Ice Tomb\".\n【Finisher Frostburst】When the tomb breaks or caster emerges, releases a catastrophic supernova ice blast across 8 blocks, dealing 20 (+200% Frost Spell Power) AoE damage, massive knockback, and a 9s freeze.",
+
+  "attribute.examplemod.chain_lightning_superconductor": "Mechanic Transmutation: Superconducting Ionization",
+  "attribute.examplemod.chain_lightning_superconductor.desc": "【Mechanic Rework】Removes the single-target hit limit for \"Chain Lightning\", allowing arcs to shuttle back and forth among enemies.\n【Escalating Shock】Damage increases by 20% per bounce and bypasses hit i-frames.\n【Resistance Ionization】Each shock shreds 10% of target's [Total Spell Resistance] and [Lightning Resistance] (stacks up to 5 times, max 50%).",
+
+  "attribute.examplemod.lightning_bolt_emp": "Mechanic Transmutation: EMP Detonator",
+  "attribute.examplemod.lightning_bolt_emp.desc": "【Mechanic Rework】\"Lightning Bolt\" detonates an 8-block diameter EMP on hit, implanting an [Electrified Fuse] lasting 4s on all targets.\n【Fuse Detonation】Targets with the fuse guarantee 100% critical damage on the next lightning hit, triggering a secondary strike and restoring 40% of damage dealt as True Mana to the caster.",
+
+  "attribute.examplemod.charge_overclock": "Mechanic Transmutation: Overclocked Convergence",
+  "attribute.examplemod.charge_overclock.desc": "【Mechanic Rework】Activating \"Charge\" puts the caster into an [Overclocked] state.\n【Instant Cast】All Lightning spell cast times are reduced to 0 (all instant cast) for the duration.\n【Rapid Cycle】Each successful spell cast immediately advances the cooldown of other Lightning spells on CD by 2s.",
+
+  "attribute.examplemod.thunder_step_shear": "Mechanic Transmutation: Azure Step Shear",
+  "attribute.examplemod.thunder_step_shear.desc": "【Mechanic Rework】\"Thunder Step\" no longer throws slow lightning orbs; instead teleports the caster up to 24 blocks toward the crosshair.\n【Plasma Shear】The warp leaves behind a plasma cutting line lasting 3s, dealing 200% [Lightning Spell Power] piercing damage and 80% heavy slow to enemies caught along the trail.",
+
+  "attribute.examplemod.acid_orb_corrosion": "Mechanic Transmutation: Acid Armor Rupture",
+  "attribute.examplemod.acid_orb_corrosion.desc": "【Mechanic Rework】\"Acid Orb\" explosion coats the impact area in an [Acid Corrosion Zone] lasting 6s.\n【Resistance Melt】Enemies stepping inside permanently lose 50% [Total Spell Resistance] and Armor Toughness.\n【Corrosive Follow-up】Enemies taking damage inside the zone take additional True Damage (lower armor results in higher True Damage).",
+
+  "attribute.examplemod.root_strangle_rupture": "Mechanic Transmutation: Strangle Thorns",
+  "attribute.examplemod.root_strangle_rupture.desc": "【Mechanic Rework】\"Root\" reshapes into a strangling cage, dealing 60% [Nature Spell Power] rending damage every second.\n【Rupture Detonation】Taking external damage detonates the roots early, dealing 150% of the triggering damage as an armor-shredding burst and inflicting 50% Slowness and Weakness II for 5s.",
+
+  "attribute.examplemod.blight_pestilence": "Mechanic Transmutation: Pestilence Resonance",
+  "attribute.examplemod.blight_pestilence.desc": "【Mechanic Rework】\"Blight\" gains a virulent contagious mechanic.\n【Plague Spread】When an afflicted target is struck, the pestilence automatically spreads to all uninfected enemies within 8 blocks.\n【Vitality Resonance】For each enemy afflicted with Blight, the caster gains +8% [Nature Spell Power] and +10% [Damage Reduction] (stacks up to 5 times).",
+
+  "attribute.examplemod.oakskin_ancient_thorns": "Mechanic Transmutation: Ancient Thorn Tree",
+  "attribute.examplemod.oakskin_ancient_thorns.desc": "【Mechanic Rework】\"Oakskin\" completely removes its Slowness penalty, increasing all damage reduction to 35%.\n【True Thorns】When struck, reflects 60% of unmitigated raw damage as True Nature Damage bypassing armor and resistance back to the attacker, heavily knocking back all melee units within 4 blocks."
 }

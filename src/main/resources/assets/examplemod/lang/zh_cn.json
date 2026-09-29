@@ -149,5 +149,115 @@
   "affix.apotheosis:armor/attribute/cooldown_reduction.suffix": "迅捷思维",
 
   "affix.apotheosis:armor/attribute/cast_time_reduction": "瞬颂",
-  "affix.apotheosis:armor/attribute/cast_time_reduction.suffix": "极速吟唱"
+  "affix.apotheosis:armor/attribute/cast_time_reduction.suffix": "极速吟唱",
+
+  "attribute.examplemod.blood_step_severance": "质变：血影断魂",
+  "attribute.examplemod.blood_step_severance.desc": "【机制重构】位移后在起点与落点间生成血刃切线。\n【效果】对切线 1.2 格路径内的敌对目标造成 12 (+3.5/级) 点魔法伤害与强力击退。",
+
+  "attribute.examplemod.acupuncture_crucifixion": "质变：血梏钉刑",
+  "attribute.examplemod.acupuncture_crucifixion.desc": "【机制重构】施法时将目标绝对禁锢在半空。\n【效果】目标获得 2.25 秒【缓慢 VII】与【漂浮 I】（无法位移与跳跃），并附加 5 秒【虚弱 II】。",
+
+  "attribute.examplemod.blood_slash_cross": "形态重塑：血月十字斩",
+  "attribute.examplemod.blood_slash_cross.desc": "【形态改变】单发血斩重构为双发交叉回旋血刃（左右各偏转 20°）。\n【数值】单发伤害调整为原来的 85%，双刃交叉命中同一目标时可造成 170% 重叠伤害。",
+
+  "attribute.examplemod.siphon_chain": "质变：猩红链锁",
+  "attribute.examplemod.siphon_chain.desc": "【机制重构】主射线命中首个目标后产生折射血链。\n【效果】最多弹射链接周围 3 个敌对目标，每条折射链均继承 100% 伤害与吸血效果。",
+
+  "attribute.examplemod.wither_barrage": "形态重塑：死疫齐射",
+  "attribute.examplemod.wither_barrage.desc": "【形态改变】单发重构为 3 发扇形齐射（水平偏转 -15°/0°/+15°）。\n【数值】单枚血颅伤害降为 80%，近战贴脸全中造成 240% 爆发伤害并叠加凋零。",
+
+  "attribute.examplemod.eldritch_singularity": "质变：异界奇点",
+  "attribute.examplemod.eldritch_singularity.desc": "【机制重构】移除多段充能连发，改为单发引力黑洞。\n【持续】在命中点生成持续 3 秒的引力场，强拉 8.5 格内的所有敌人，每 0.5 秒造成 25% 伤害。\n【终结】3 秒后引爆，对核心区敌人造成 150% 范围终结伤害。",
+
+  "attribute.examplemod.sonic_resonance_shatter": "质变：音爆裂解",
+  "attribute.examplemod.sonic_resonance_shatter.desc": "【机制重构】音波命中首个目标时触发声学共振爆发。\n【主目标】施加 2.5 秒【失明】与【缓慢 V】。\n【范围次生】以目标为中心向 4.5 格爆发次生音爆，造成 45% 范围伤害与击退。",
+
+  "attribute.examplemod.kinetic_annihilation": "质变：动能陨落",
+  "attribute.examplemod.kinetic_annihilation.desc": "【机制重构】持续施法结束或松开施法时，将抓取的目标以 3.2 倍初速朝准星方向强力掷出。\n【撞击】被掷出的目标在撞击方块或敌人时受到 25 点 (+自身攻击力) 动能撞击伤害。",
+
+  "attribute.examplemod.sculk_hive_infestation": "质变：盲目巢群",
+  "attribute.examplemod.sculk_hive_infestation.desc": "【机制重构】触手群命中敌人时对其施加幽匿寄生。\n【效果】0.75 秒后在敌人脚下破土钻出额外的寄生触手，造成 120% 触手伤害并击飞目标。",
+
+  "attribute.examplemod.teleport_void_swap": "质变：虚空置换",
+  "attribute.examplemod.teleport_void_swap.desc": "【机制重构】准星瞄准生物施法时，施法者与目标强行对调空间坐标。\n【控制】目标受到 6 (+2/级) 点空间震荡伤害，并陷入 2 秒【失明】与 2.5 秒【缓慢 V】。\n【说明】未瞄准生物施法时仍为常规自身传送。",
+
+  "attribute.examplemod.shadow_slash_omnislash": "质变：瞬狱影杀阵",
+  "attribute.examplemod.shadow_slash_omnislash.desc": "【机制重构】突进命中敌人后化为无形暗影，获得短暂伤害免疫。\n【效果】在 8 格范围的敌人之间执行 5 段极速空间穿梭斩击，每段造成 70% 伤害并触发武器特效。",
+
+  "attribute.examplemod.magic_missile_swarm": "形态重塑：浮游星芒",
+  "attribute.examplemod.magic_missile_swarm.desc": "【形态改变】取消单发直射，在自身周围召唤 5 枚自律奥术星弹。\n【效果】10 秒内当有敌人进入 20 格范围或自身攻击时，星弹自动俯冲追踪索敌，每枚造成 40% 伤害。",
+
+  "attribute.examplemod.black_hole_supernova": "质变：坍缩超新星",
+  "attribute.examplemod.black_hole_supernova.desc": "【机制重构】黑洞在生命周期结束（7 秒）的瞬间引发引力坍缩超新星爆发。\n【效果】对 14 格全域敌人造成 350% 巨额范围伤害与向外的毁灭性排斥击飞。",
+  "attribute.examplemod.scapegoat_soul_surrogate": "机制质变：命元代偿",
+  "attribute.examplemod.scapegoat_soul_surrogate.desc": "【机制重构】《替罪羊》与施法者建立命元链接。\n【致死转移】施法者受到致命伤害时免疫死亡，强制将 100% 伤害转由替罪羊承受。\n【法力反哺】替罪羊承受法术伤害时，将 30% 伤害量（受施法者【法术抗性】加成）实时转化为施法者的【真实法力】，并削减所有唤魔系法术 1 秒当前冷却。",
+
+  "attribute.examplemod.shield_deflection_overload": "机制质变：偏斜过载",
+  "attribute.examplemod.shield_deflection_overload.desc": "【机制重构】《魔法护盾》部署后与施法者产生共鸣。\n【护盾转化】施法者直接获得相当于 250%【唤魔学派法强】的过载生命护盾（Absorption）。\n【纯粹穿透】护盾持续期间，施法者下一次释放的唤魔系法术获得 100%【法术抗性穿透】，完全忽略目标的法术抗性与唤魔抗性减伤。",
+
+  "attribute.examplemod.fang_ward_shred": "机制质变：断罪咬合",
+  "attribute.examplemod.fang_ward_shred.desc": "【机制重构】《尖牙结界》附带破魔与施法压制机制。\n【抗性粉碎】被尖牙咬中的敌人削减 40%【法术抗性】，持续 6 秒。\n【反制回冲】若目标正在吟唱施法，则强制打断其动作，并对其造成 150%【唤魔学派法强】的纯粹魔法反噬伤害。",
+
+  "attribute.examplemod.slow_chrono_stagnation": "机制质变：时滞停滞",
+  "attribute.examplemod.slow_chrono_stagnation.desc": "【机制重构】《迟缓术》由常规减速重构为全时间轴停滞。\n【吟唱延滞】被标记的目标【施法吟唱时间】延长 200%。\n【时钟冻结】强行冻结目标所有法术的冷却计时（CD 暂停流逝 6 秒）。",
+  "attribute.examplemod.blaze_storm_overheat": "机制质变：过热超载",
+  "attribute.examplemod.blaze_storm_overheat.desc": "【机制重构】《烈焰风暴》取消单发散射，引导期间将所有能量压缩为单一发高密度核融火球。\n【抗性融解】核融火球击中首个敌人时粉碎其 50%【火焰抗性】与【法术抗性】，持续 6 秒。\n【伤害积蓄】核融火球直接承载整个引导时长火球的总伤，并额外附加施法者当前未消耗法力值 15% 的真实穿透伤害。",
+
+  "attribute.examplemod.burning_dash_ignition": "机制质变：劫火回旋充能",
+  "attribute.examplemod.burning_dash_ignition.desc": "【机制重构】《烈焰突进》命中敌人时生成【劫火印记】（每命中一名敌人叠加 1 层，至多 5 层，持续 8 秒）。\n【能量释放】释放下一个火焰学派法术时消耗所有印记：每层提供 15% 伤害增幅并清零目标受击无敌帧，同时将造成最终伤害的 25% 转化为施法者的【真实法力】，15% 转化为过载生命护盾。",
+
+  "attribute.examplemod.fireball_supercritical": "机制质变：超临界聚爆",
+  "attribute.examplemod.fireball_supercritical.desc": "【机制重构】《火球术》命中处于点燃状态的目标时触发超临界引爆。\n【点燃结算】瞬间清空目标剩余的燃烧时间，并按每秒剩余燃烧时长造成额外 50%【火焰学派法强】的瞬间聚合爆炸伤害。\n【破除免疫】聚爆伤害对天然免疫火焰伤害的目标依然强制造成 100% 满额法术伤害。",
+
+  "attribute.examplemod.heat_surge_cinder_domain": "机制质变：灰烬焦土领域",
+  "attribute.examplemod.heat_surge_cinder_domain.desc": "【机制重构】《热浪涌动》释放后在地面构筑持续 10 秒的【灰烬焦土领域】。\n【抗性腐蚀】领域内的所有敌对生物每秒被强行削减 5%【法术抗性】与【火焰抗性】（至多叠加 8 层，削减 40%）。",
+  "attribute.examplemod.divine_smite_judgment": "机制质变：圣裁审判",
+  "attribute.examplemod.divine_smite_judgment.desc": "【机制重构】《神圣重击》命中目标时施加持续 8 秒的【圣裁烙印】。\n【抗性粉碎】削减目标 35%【全法术抗性】与【神圣抗性】。\n【以战养疗】烙印期间目标受到任何伤害时，将伤害量的 20% 转化为向周围 8 格友军扩散的即时神圣治疗脉冲。",
+
+  "attribute.examplemod.blessing_overheal_aegis": "机制质变：过量光佑",
+  "attribute.examplemod.blessing_overheal_aegis.desc": "【机制重构】所有单体神圣治疗法术不再浪费溢出治疗量。\n【护盾转化】当生命值满溢时，100% 的过量治疗等额转化为真实生命护盾（Absorption），护盾上限为目标最大生命值的 50%，持续 15 秒。",
+
+  "attribute.examplemod.sunbeam_dawn_flare": "机制质变：黎明耀斑",
+  "attribute.examplemod.sunbeam_dawn_flare.desc": "【机制重构】《日光射线》落地后引爆持续 5 秒的【光铸领域】。\n【真实审判】领域内的敌对生物每 0.5 秒受到基于【神圣学派法强】的法术伤害；亡灵生物受到 200% 绝对暴击并强制清零受击无敌帧。\n【魔力共鸣】处于领域内的友方单位每秒恢复相当于施法者神圣法强 15% 的真实法力值。",
+
+  "attribute.examplemod.fortify_martyr_aegis": "机制质变：殉道光环",
+  "attribute.examplemod.fortify_martyr_aegis.desc": "【机制重构】《强化术》部署后将范围内所有受保护的友军与施法者命脉相连。\n【伤害分摊】受到保护的友军受击时，强制将 40% 的承受伤害分摊转移由施法者代为承担。\n【法力减免】施法者每成功分摊一次伤害，下一个施放的神圣法术法力消耗减少 20%（至多叠加 5 层，达到零蓝耗）。",
+
+
+  "attribute.examplemod.frost_step_avalanche": "机制质变：绝对零度雪崩",
+  "attribute.examplemod.frost_step_avalanche.desc": "【机制重构】《霜冻之踏》在落点引发直径 6 格的【极地雪崩冲击】。\n【深度冻结】对落点范围内所有敌人造成 120%【冰霜学派法强】的法术伤害，并强制施加 7 秒深度冰冻与无敌帧清零。\n【凝霜护盾】命中敌人时，按命中数量将伤害的 35% 转化为施法者的吸收生命护盾（Absorption）。",
+
+  "attribute.examplemod.ice_spikes_shatter": "机制质变：极冰穿刺碎裂",
+  "attribute.examplemod.ice_spikes_shatter.desc": "【机制重构】《冰刺术》及所有冰霜伤害附带【碎冰连击】机制。\n【碎冰暴击】攻击命中处于【冻结】或【寒颤】状态的目标时，伤害直接提升 100% 且强制移除受击无敌帧。\n【抗性碎解】碎冰同时粉碎目标 30%【全法术抗性】，持续 6 秒。",
+
+  "attribute.examplemod.blizzard_permafrost": "机制质变：永冻冰渊",
+  "attribute.examplemod.blizzard_permafrost.desc": "【机制重构】《暴风雪》取消向前游弋位移，重塑为定点强引力永冻结界。\n【极寒风眼】暴风雪中心持续产生强大的寒流引力旋涡，强行将周围敌人牵引至暴风雪核心无法脱离。\n【施法压制】处于结界内的敌对生物【施法吟唱时间】延长 150%。",
+
+  "attribute.examplemod.ice_tomb_absolute_zero": "机制质变：极寒涅槃",
+  "attribute.examplemod.ice_tomb_absolute_zero.desc": "【机制重构】《冰封之棺》期间施法者获得绝对无敌并加速恢复生命。\n【终结冰爆】冰棺破裂或施法者跃出时，向周围 8 格范围引发毁灭性极超新星冰爆，造成 20 (+200% 冰霜法强) 的高额范围伤害并产生超强力击飞与 9 秒冻结。",
+
+
+  "attribute.examplemod.chain_lightning_superconductor": "机制质变：高压电离超导",
+  "attribute.examplemod.chain_lightning_superconductor.desc": "【机制重构】《连锁闪电》取消单目标受击上限，转为在范围内敌人间交替折返穿梭电击。\n【伤害递增】电弧每弹跳一次伤害提升 20%，且强制移除目标受击无敌帧。\n【抗性电离】每次电击粉碎目标 10%【全法术抗性】与【雷电抗性】（至多叠加 5 层，削减 50%）。",
+
+  "attribute.examplemod.lightning_bolt_emp": "机制质变：电磁雷暴引信",
+  "attribute.examplemod.lightning_bolt_emp.desc": "【机制重构】《落雷术》命中时引爆直径 8 格的电磁脉冲（EMP），对范围内所有敌人植入持续 4 秒的【感电引信】。\n【引信核爆】带有引信的目标受到下一次雷电伤害时触发 100% 暴击并引爆二次落雷，同时为施法者返还 40% 伤害量的真实法力值。",
+
+  "attribute.examplemod.charge_overclock": "机制质变：超频聚能",
+  "attribute.examplemod.charge_overclock.desc": "【机制重构】《充能术》开启后施法者进入【超频过载】状态。\n【瞬间咏唱】持续期间所有雷电学派法术【施法吟唱时间】清零（全部瞬发）。\n【快速周转】期间每次施放法术成功，使其他处于冷却中的雷电法术冷却进度立即推进 2 秒。",
+
+  "attribute.examplemod.thunder_step_shear": "机制质变：苍雷闪烁突刺",
+  "attribute.examplemod.thunder_step_shear.desc": "【机制重构】《雷霆之踏》取消慢速投掷雷球，重构为朝准星方向 24 格极速空间瞬跃折跃。\n【等离子带】瞬跃路径拉扯出一道持续 3 秒的等离子切割线，对沿途敌人造成 200%【雷电学派法强】的穿透伤害并附加 80% 深度迟缓。",
+
+  "attribute.examplemod.acid_orb_corrosion": "机制质变：强酸蚀甲聚爆",
+  "attribute.examplemod.acid_orb_corrosion.desc": "【机制重构】《酸液法球》爆炸后在着弹点铺设持续 6 秒的【强酸腐蚀死区】。\n【抗性融解】踏入死区的敌人永久剥离 50%【全法术抗性】与护甲韧性。\n【腐蚀追击】死区内的敌人受到伤害时，追加额外真实伤害（受击者护甲越低，追加真实伤害越高）。",
+
+  "attribute.examplemod.root_strangle_rupture": "机制质变：绞杀荆棘断筋",
+  "attribute.examplemod.root_strangle_rupture.desc": "【机制重构】《缠绕术》重塑为绞杀牢笼，持续期间每秒对目标造成 60%【自然学派法强】的撕裂伤害。\n【断筋引爆】被缠绕目标受到外部攻击时提前引爆荆棘，追加本次伤害 150% 的破甲核爆，并施加 5 秒 50%【深度迟缓】与【虚弱 II】。",
+
+  "attribute.examplemod.blight_pestilence": "机制质变：疫病生息共振",
+  "attribute.examplemod.blight_pestilence.desc": "【机制重构】《枯萎术》获得恶性传染机制。\n【瘟疫扩散】带有枯萎状态的目标受击时，恶疾自动传染扩散至周围 8 格范围的所有未感染敌对生物。\n【生息共振】场上每存在一名受枯萎影响的敌人，施法者获得 8%【自然学派法强】与 10%【全伤害减免】（至多叠加 5 层）。",
+
+  "attribute.examplemod.oakskin_ancient_thorns": "机制质变：远古荆棘古树",
+  "attribute.examplemod.oakskin_ancient_thorns.desc": "【机制重构】《橡木之躯》完全移除自身的【缓慢 (Slowness)】减速负面状态，全伤害减免提升至 35%。\n【真视荆棘】受到任何攻击时，强制将未折减原始伤害的 60% 以无视护甲与抗性的真实自然伤害反弹给攻击者，并强力震退周围 4 格内的所有近战单位。"
 }

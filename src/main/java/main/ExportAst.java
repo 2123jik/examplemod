@@ -4,15 +4,19 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseResult;
 import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.Node;
-import com.github.javaparser.ast.body.BodyDeclaration;
-import com.github.javaparser.ast.expr.Expression;
-import com.github.javaparser.ast.expr.FieldAccessExpr;
-import com.github.javaparser.ast.expr.MethodCallExpr;
-import com.github.javaparser.ast.expr.NameExpr;
-import com.github.javaparser.ast.stmt.ExpressionStmt;
+import com.github.javaparser.ast.body.*;
+import com.github.javaparser.ast.stmt.BlockStmt;
+import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.ast.visitor.ModifierVisitor;
 import com.github.javaparser.ast.visitor.Visitable;
+import com.github.javaparser.printer.DefaultPrettyPrinter;
+import com.github.javaparser.printer.configuration.DefaultConfigurationOption;
+import com.github.javaparser.printer.configuration.DefaultPrinterConfiguration;
+import com.github.javaparser.printer.configuration.DefaultPrinterConfiguration.ConfigOption;
+import com.github.javaparser.printer.configuration.Indentation;
+import com.github.javaparser.printer.configuration.Indentation.IndentType;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -20,77 +24,41 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Stream;
 
 public class ExportAst {
 
-    // ====== 可裁剪的注解 ======
+    // 剔除开发提示性注解
     static final Set<String> STRIP_ANNOTATIONS = Set.of(
-        "Override", "SuppressWarnings", "Deprecated", "FunctionalInterface", "SafeVarargs"
+            "Override", "SuppressWarnings", "Deprecated", "FunctionalInterface",
+            "SafeVarargs", "Nullable", "NotNull", "Nonnull", "CheckForNull"
     );
 
-    // ====== 日志识别 ======
-    static final Set<String> LOG_METHODS = Set.of("trace", "debug", "info", "warn", "error");
-    static final Set<String> LOG_FIELDS  = Set.of("LOGGER", "LOG", "logger", "log");
-
-    // ====== 缩写表（顺序敏感：长组合在前） ======
-    static final Map<String, String> ABBR = new LinkedHashMap<>();
-    static {
-        ABBR.put("public static final", "psf");
-        ABBR.put("public static",       "ps");
-        ABBR.put("private static",      "prs");
-        ABBR.put("protected static",    "pts");
-        ABBR.put("public final",        "pf");
-        ABBR.put("private final",       "prf");
-        ABBR.put("protected final",     "ptf");
-        ABBR.put("public",              "p");
-        ABBR.put("private",             "pr");
-        ABBR.put("protected",           "pt");
-        ABBR.put("static",              "s");
-        ABBR.put("final",               "f");
-        ABBR.put("abstract",            "a");
-        ABBR.put("class",               "c");
-        ABBR.put("interface",           "i");
-        ABBR.put("enum",                "en");
-        ABBR.put("record",              "rec");
-        ABBR.put("extends",             "e");
-        ABBR.put("implements",          "im");
-        ABBR.put("void",                "v");
-        ABBR.put("return",              "r");
-        ABBR.put("new",                 "n");
-        ABBR.put("this",                "t");
-        ABBR.put("super",               "sup");
-        ABBR.put("true",                "T");
-        ABBR.put("false",               "F");
-        ABBR.put("else",                "el");
-        ABBR.put("while",               "wh");
-        ABBR.put("catch",               "cat");
-        ABBR.put("throw",               "thr");
-        ABBR.put("throws",              "ths");
-        ABBR.put("boolean",             "bool");
-        ABBR.put("String",              "Str");
-    }
-
-    static final boolean COMPRESS = true;
-    static final boolean DROP_BLANK_LINES = true;
-
     public static void main(String[] args) throws IOException {
-        String srcDir = args.length > 0 ? args[0]
-                : "C:\\mod\\Apotheosis-1.21\\src\\main\\java";
-        String outFile = args.length > 1 ? args[1]
-                : srcDir+"\\code.txt";
+        String srcDir = args.length > 0 ? args[0] : "C:\\mod\\ModernUI_Source\\icyllis\\modernui";
+        String outFile = args.length > 1 ? args[1] : srcDir + "\\all_code_ast.txt";
 
         Path src = Paths.get(srcDir);
         Path out = Paths.get(outFile);
 
         ParserConfiguration config = new ParserConfiguration()
                 .setLanguageLevel(ParserConfiguration.LanguageLevel.JAVA_21)
-                .setAttributeComments(false); // 不保留注释
+                .setCharacterEncoding(StandardCharsets.UTF_8)
+                .setAttributeComments(false);
 
         JavaParser parser = new JavaParser(config);
+
+        DefaultPrinterConfiguration printerConfig = new DefaultPrinterConfiguration();
+        printerConfig.addOption(new DefaultConfigurationOption(
+                ConfigOption.INDENTATION, new Indentation(IndentType.SPACES, 2)
+        ));
+        printerConfig.addOption(new DefaultConfigurationOption(ConfigOption.PRINT_COMMENTS, false));
+        printerConfig.addOption(new DefaultConfigurationOption(ConfigOption.PRINT_JAVADOC, false));
+        printerConfig.addOption(new DefaultConfigurationOption(ConfigOption.END_OF_LINE_CHARACTER, "\n"));
+
+        DefaultPrettyPrinter prettyPrinter = new DefaultPrettyPrinter(printerConfig);
 
         List<Path> files;
         try (Stream<Path> s = Files.walk(src)) {
@@ -103,80 +71,112 @@ public class ExportAst {
         int ok = 0, fail = 0;
 
         try (BufferedWriter w = Files.newBufferedWriter(out, StandardCharsets.UTF_8)) {
-            writeDict(w);
-
             for (Path f : files) {
                 String rel = src.relativize(f).toString().replace('\\', '/');
                 try {
                     ParseResult<CompilationUnit> result = parser.parse(f);
                     if (!result.isSuccessful() || result.getResult().isEmpty()) {
-                        w.write("// [PARSE FAILED] " + rel + "\n");
                         fail++;
                         continue;
                     }
+
                     CompilationUnit cu = result.getResult().get();
-
-                    // 1) 移除所有 import
                     cu.getImports().clear();
+                    cu.removePackageDeclaration();
 
-                    // 2) 遍历 AST，删注解 + 删日志语句
                     cu.accept(new ModifierVisitor<Void>() {
-                        @Override public Visitable visit(com.github.javaparser.ast.body.MethodDeclaration md, Void a) {
-                            stripAnn(md); return super.visit(md, a);
+
+                        // 1. 静态块/初始化块全部干掉（大量常量表、原生绑定）
+                        @Override
+                        public Visitable visit(InitializerDeclaration id, Void a) {
+                            return null;
                         }
-                        @Override public Visitable visit(com.github.javaparser.ast.body.ConstructorDeclaration cd, Void a) {
-                            stripAnn(cd); return super.visit(cd, a);
+
+                        // 2. 方法抽骨架
+                        @Override
+                        public Visitable visit(MethodDeclaration md, Void a) {
+                            if (md.isPrivate()) return null; // 私有方法干掉
+                            stripAnn(md);
+                            md.removeBody(); // 核心：移除方法体，直接变为 public void foo(); 形式
+                            return super.visit(md, a);
                         }
-                        @Override public Visitable visit(com.github.javaparser.ast.body.FieldDeclaration fd, Void a) {
-                            stripAnn(fd); return super.visit(fd, a);
+
+                        // 3. 构造器抽骨架
+                        @Override
+                        public Visitable visit(ConstructorDeclaration cd, Void a) {
+                            if (cd.isPrivate()) return null; // 私有构造器不关心
+                            stripAnn(cd);
+                            // 构造器保留为 {} 空实现
+                            cd.setBody(new BlockStmt());
+                            return super.visit(cd, a);
                         }
-                        @Override public Visitable visit(com.github.javaparser.ast.body.ClassOrInterfaceDeclaration cd, Void a) {
-                            stripAnn(cd); return super.visit(cd, a);
+
+                        // 4. 字段脱水
+                        @Override
+                        public Visitable visit(FieldDeclaration fd, Void a) {
+                            if (fd.isPrivate()) return null; // 私有字段干掉
+                            stripAnn(fd);
+                            // 清空初始值（例如巨型数组初始化、new 实例等），只保留类型和名字
+                            fd.getVariables().forEach(VariableDeclarator::removeInitializer);
+                            return super.visit(fd, a);
                         }
-                        @Override public Visitable visit(com.github.javaparser.ast.body.EnumDeclaration ed, Void a) {
-                            stripAnn(ed); return super.visit(ed, a);
+
+                        // 5. 类与接口过滤
+                        @Override
+                        public Visitable visit(ClassOrInterfaceDeclaration cd, Void a) {
+                            if (cd.isPrivate()) return null; // 私有内部类干掉
+                            stripAnn(cd);
+                            if (cd.isInterface()) {
+                                cd.getMethods().forEach(m -> {
+                                    m.removeModifier(Modifier.Keyword.PUBLIC);
+                                    m.removeModifier(Modifier.Keyword.ABSTRACT);
+                                });
+                            }
+                            return super.visit(cd, a);
                         }
-                        @Override public Visitable visit(com.github.javaparser.ast.body.RecordDeclaration rd, Void a) {
-                            stripAnn(rd); return super.visit(rd, a);
+
+                        // 6. 枚举项精简
+                        @Override
+                        public Visitable visit(EnumConstantDeclaration ecd, Void a) {
+                            stripAnn(ecd);
+                            ecd.getArguments().clear(); // 去除例如 RED(255, 0, 0) 的参数 -> RED
+                            ecd.getClassBody().clear(); // 去除枚举单项里的匿名类覆写
+                            return super.visit(ecd, a);
                         }
-                        @Override public Visitable visit(ExpressionStmt stmt, Void a) {
-                            if (isLogStatement(stmt)) return null;
-                            return super.visit(stmt, a);
+
+                        @Override
+                        public Visitable visit(RecordDeclaration rd, Void a) {
+                            if (rd.isPrivate()) return null;
+                            stripAnn(rd);
+                            return super.visit(rd, a);
+                        }
+
+                        // 7. 压扁类型限定名
+                        @Override
+                        public Visitable visit(ClassOrInterfaceType ct, Void a) {
+                            ct.removeScope();
+                            return super.visit(ct, a);
                         }
                     }, null);
 
-                    // 3) 打印
-                    String printed = cu.toString();
+                    String code = prettyPrinter.print(cu);
+                    code = postProcessWhitespace(code);
 
-                    // 4) 去空行 + 关键字压缩
-                    if (DROP_BLANK_LINES) {
-                        printed = printed.replaceAll("(?m)^[ \\t]*\\R", "");
+                    if (!code.isBlank()) {
+                        w.write("// === " + rel + " ===\n");
+                        w.write(code);
+                        w.write("\n\n");
+                        ok++;
                     }
-                    if (COMPRESS) {
-                        printed = compress(printed);
-                    }
-
-                    w.write("// ==================================================\n");
-                    w.write("// File: " + rel + "\n");
-                    w.write("// ==================================================\n");
-                    w.write(printed);
-                    if (!printed.endsWith("\n")) w.write("\n");
-                    w.write("\n");
-                    ok++;
-                } catch (Exception ex) {
-                    w.write("// [ERROR] " + rel + " -> " + ex + "\n");
+                } catch (Exception ignored) {
                     fail++;
                 }
             }
-
-            w.write("\n// Done. ok=" + ok + ", fail=" + fail + "\n");
         }
-
-        System.out.println("导出完成: " + out.toAbsolutePath());
-        System.out.println("ok=" + ok + ", fail=" + fail);
+        System.out.println("纯 API 骨架导出完成: " + out.toAbsolutePath());
+        System.out.println("成功: " + ok + ", 失败: " + fail);
     }
 
-    // ---- 注解裁剪 ----
     static void stripAnn(Node node) {
         if (!(node instanceof BodyDeclaration<?> bd)) return;
         bd.getAnnotations().removeIf(a -> {
@@ -187,72 +187,13 @@ public class ExportAst {
         });
     }
 
-    // ---- 日志识别 ----
-    static boolean isLogStatement(ExpressionStmt stmt) {
-        if (!(stmt.getExpression() instanceof MethodCallExpr call)) return false;
-        if (!LOG_METHODS.contains(call.getNameAsString())) return false;
-
-        Optional<Expression> scope = call.getScope();
-        if (scope.isEmpty()) return false;
-
-        Expression s = scope.get();
-        if (s instanceof NameExpr ne)  return LOG_FIELDS.contains(ne.getNameAsString());
-        if (s instanceof FieldAccessExpr fa) return LOG_FIELDS.contains(fa.getNameAsString());
-        return false;
-    }
-
-    // ---- 关键字压缩（保护字符串字面量） ----
-    static String compress(String printed) {
-        // 保护字符串
-        Pattern strPat = Pattern.compile("\"(?:\\\\.|[^\"\\\\])*\"");
-        Matcher m = strPat.matcher(printed);
-        List<String> strings = new ArrayList<>();
-        StringBuilder sb = new StringBuilder();
-        while (m.find()) {
-            strings.add(m.group());
-            m.appendReplacement(sb, Matcher.quoteReplacement("\u0000S" + (strings.size() - 1) + "\u0000"));
-        }
-        m.appendTail(sb);
-        String text = sb.toString();
-
-        // 组合在前，单字在后
-        for (Map.Entry<String, String> e : ABBR.entrySet()) {
-            String[] parts = e.getKey().split(" ");
-            String pat;
-            if (parts.length == 1) {
-                pat = "\\b" + Pattern.quote(parts[0]) + "\\b";
-            } else {
-                StringBuilder pb = new StringBuilder("\\b");
-                for (int i = 0; i < parts.length; i++) {
-                    if (i > 0) pb.append("\\s+");
-                    pb.append(Pattern.quote(parts[i]));
-                }
-                pb.append("\\b");
-                pat = pb.toString();
-            }
-            text = text.replaceAll(pat, Matcher.quoteReplacement(e.getValue()));
-        }
-
-        // 还原字符串
-        for (int i = 0; i < strings.size(); i++) {
-            text = text.replace("\u0000S" + i + "\u0000", strings.get(i));
-        }
-        return text;
-    }
-
-    // ---- 字典头 ----
-    static void writeDict(BufferedWriter w) throws IOException {
-        w.write("// === AST 压缩导出 ===\n");
-        w.write("// 缩写: p=public pr=private pt=protected s=static f=final a=abstract\n");
-        w.write("//       c=class i=interface en=enum rec=record e=extends im=implements\n");
-        w.write("//       v=void r=return n=new t=this sup=super T=true F=false\n");
-        w.write("//       el=else wh=while cat=catch thr=throw ths=throws\n");
-        w.write("//       bool=boolean Str=String\n");
-        w.write("// 组合: ps=public static  prs=private static  psf=public static final\n");
-        w.write("//       pf=public final  prf=private final  ptf=protected final\n");
-        w.write("//       pts=protected static\n");
-        w.write("// 已移除: import、注释、@Override、@SuppressWarnings、@Deprecated、\n");
-        w.write("//         LOGGER.debug/info/warn/error 等日志语句。\n");
-        w.write("// package 保留。\n\n");
+    static String postProcessWhitespace(String code) {
+        return code
+                // 移除空行
+                .replaceAll("(?m)^[ \\t]*\\R", "")
+                // 把空构造函数压成单行 "MyClass() {}"
+                .replaceAll("\\)\\s*\\{\\s*\\}", ") {}")
+                // 清理行尾空白
+                .replaceAll("(?m)[ \\t]+$", "");
     }
 }
