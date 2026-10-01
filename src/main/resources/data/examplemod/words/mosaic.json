@@ -1,0 +1,64 @@
+{
+  "id": "mosaic",
+  "name_en": "Mosaic",
+  "name_cn": "马赛克",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/claws"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 23,
+      "rune_name": "Mal (马尔)",
+      "pattern": "minecraft:dune",
+      "material": "twilightforest:steeleaf_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 25,
+      "rune_name": "Gul (古尔)",
+      "pattern": "minecraft:tide",
+      "material": "minecraft:diamond"
+    },
+    {
+      "step": 3,
+      "rune_id": 11,
+      "rune_name": "Amn (安姆)",
+      "pattern": "more_armor_trims:ram",
+      "material": "minecraft:iron_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 极速充能攻速"
+    },
+    {
+      "attribute": "irons_spellbooks:ice_spell_power",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "元素积蓄无消耗释放"
+    },
+    {
+      "attribute": "irons_spellbooks:lightning_spell_power",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 电系法强"
+    },
+    {
+      "attribute": "irons_spellbooks:fire_spell_power",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 火系法强"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.07,
+      "operation": "ADDITION",
+      "description": "7% 吸血"
+    }
+  ]
+}

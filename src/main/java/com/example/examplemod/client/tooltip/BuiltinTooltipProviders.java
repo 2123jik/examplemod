@@ -78,7 +78,6 @@ public final class BuiltinTooltipProviders {
             BuiltinTooltipProviders::appendBees,
             BuiltinTooltipProviders::appendEntities,
             BuiltinTooltipProviders::appendAdventureRestrictions,
-            BuiltinTooltipProviders::appendArmorTrim,
             BuiltinTooltipProviders::appendDurability,
             BuiltinTooltipProviders::appendFood,
             BuiltinTooltipProviders::appendJukebox,
@@ -325,13 +324,6 @@ public final class BuiltinTooltipProviders {
             AdventureAccess.readFailed = true;
             LOGGER.warn("读取冒险模式方块谓词失败，将使用文字提示", exception);
             return List.of();
-        }
-    }
-
-    private static void appendArmorTrim(TooltipContext ctx, List<TooltipContribution> sink) {
-        ArmorTrim trim = ctx.stack().get(DataComponents.TRIM);
-        if (trim != null) {
-            sink.add(TooltipContribution.visual(TooltipCategory.ATTRIBUTES, 5, "trim_visual", new VisualComponents.TrimPreview(trim)));
         }
     }
 
@@ -591,10 +583,6 @@ public final class BuiltinTooltipProviders {
         ItemStack stack = ctx.stack();
 
         Integer maxStack = stack.get(DataComponents.MAX_STACK_SIZE);
-        if (maxStack != null && maxStack != 64) {
-            sink.add(TooltipContribution.text(TooltipCategory.ATTRIBUTES, 35, "max_stack",
-                    Component.literal("📦 堆叠上限: " + maxStack).withStyle(ChatFormatting.DARK_GRAY)));
-        }
 
         ResourceLocation noteSound = stack.get(DataComponents.NOTE_BLOCK_SOUND);
         if (noteSound != null) {
@@ -624,14 +612,8 @@ public final class BuiltinTooltipProviders {
                     Component.literal("🔨 铁砧累加惩罚: +" + repairCost + (tooExpensive ? " (过于昂贵!)" : " 级"))
                             .withStyle(tooExpensive ? ChatFormatting.RED : ChatFormatting.GRAY)));
         }
-        if (stack.has(DataComponents.UNBREAKABLE)) {
-            sink.add(TooltipContribution.text(TooltipCategory.DURABILITY, -5, "unbreakable",
-                    Component.literal("🛡 永久无法破坏").withStyle(ChatFormatting.GOLD)));
-        }
-        if (stack.has(DataComponents.FIRE_RESISTANT)) {
-            sink.add(TooltipContribution.text(TooltipCategory.DURABILITY, -4, "fire_resistant",
-                    Component.literal("🔥 免疫岩浆与火焰焚毁").withStyle(ChatFormatting.YELLOW)));
-        }
+
+
         LockCode lock = stack.get(DataComponents.LOCK);
         if (lock != null && !lock.key().isEmpty()) {
             sink.add(TooltipContribution.text(TooltipCategory.CUSTOM, 0, "lock",

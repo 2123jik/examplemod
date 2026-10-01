@@ -1,0 +1,45 @@
+{
+  "id": "rhyme",
+  "name_en": "Rhyme",
+  "name_cn": "韵律",
+  "sockets_required": 2,
+  "valid_base_tags": [
+    "#examplemod:base/shields"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 13,
+      "rune_name": "Shael (夏勒)",
+      "pattern": "minecraft:flow",
+      "material": "minecraft:amethyst_shard"
+    },
+    {
+      "step": 2,
+      "rune_id": 5,
+      "rune_name": "Eth (爱斯)",
+      "pattern": "minecraft:flow",
+      "material": "minecraft:copper_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "l2weaponry:reflect_time",
+      "amount": 4.0,
+      "operation": "ADDITION",
+      "description": "+40% 格挡提速"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 全抗"
+    },
+    {
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.1,
+      "operation": "MULTIPLY_BASE",
+      "description": "绝对无法被冻结"
+    }
+  ]
+}

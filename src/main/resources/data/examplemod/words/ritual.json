@@ -1,0 +1,52 @@
+{
+  "id": "ritual",
+  "name_en": "Ritual",
+  "name_cn": "仪式",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/daggers"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 11,
+      "rune_name": "Amn (安姆)",
+      "pattern": "more_armor_trims:ram",
+      "material": "minecraft:iron_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 13,
+      "rune_name": "Shael (夏勒)",
+      "pattern": "minecraft:flow",
+      "material": "minecraft:amethyst_shard"
+    },
+    {
+      "step": 3,
+      "rune_id": 27,
+      "rune_name": "Ohm (欧姆)",
+      "pattern": "more_armor_trims:myth",
+      "material": "cataclysm:ancient_metal_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "+40% 极速刺杀"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 7.0,
+      "operation": "ADDITION",
+      "description": "+7 物理伤害"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.1,
+      "operation": "ADDITION",
+      "description": "10% 生命吸取"
+    }
+  ]
+}

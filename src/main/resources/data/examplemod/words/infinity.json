@@ -1,0 +1,65 @@
+{
+  "id": "infinity",
+  "name_en": "Infinity",
+  "name_cn": "无限",
+  "sockets_required": 4,
+  "valid_base_tags": [
+    "#examplemod:base/polearms_spears"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 30,
+      "rune_name": "Ber (贝)",
+      "pattern": "alexscaves:polarity",
+      "material": "cataclysm:witherite_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 23,
+      "rune_name": "Mal (马尔)",
+      "pattern": "minecraft:dune",
+      "material": "twilightforest:steeleaf_ingot"
+    },
+    {
+      "step": 3,
+      "rune_id": 30,
+      "rune_name": "Ber (贝)",
+      "pattern": "alexscaves:polarity",
+      "material": "cataclysm:witherite_ingot"
+    },
+    {
+      "step": 4,
+      "rune_id": 24,
+      "rune_name": "Ist (伊斯特)",
+      "pattern": "more_armor_trims:witness",
+      "material": "minecraft:diamond"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:lightning_spell_power",
+      "amount": 0.6,
+      "operation": "MULTIPLY_BASE",
+      "description": "12级信念破免光环"
+    },
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.08,
+      "operation": "ADDITION",
+      "description": "40% 压碎打击"
+    },
+    {
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 跑速"
+    },
+    {
+      "attribute": "apothic_attributes:armor_pierce",
+      "amount": 8.0,
+      "operation": "ADDITION",
+      "description": "+8 绝对护甲贯通"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "wealth",
+  "name_en": "Wealth",
+  "name_cn": "财富",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 20,
+      "rune_name": "Lem (蓝姆)",
+      "pattern": "more_armor_trims:greed",
+      "material": "minecraft:gold_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 18,
+      "rune_name": "Ko (科)",
+      "pattern": "minecraft:spire",
+      "material": "minecraft:emerald"
+    },
+    {
+      "step": 3,
+      "rune_id": 3,
+      "rune_name": "Tir (特尔)",
+      "pattern": "minecraft:wayfinder",
+      "material": "minecraft:copper_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:experience_gained",
+      "amount": 0.8,
+      "operation": "MULTIPLY_BASE",
+      "description": "300% 极品掉落增益"
+    },
+    {
+      "attribute": "l2hostility:extra_difficulty",
+      "amount": 5.0,
+      "operation": "ADDITION",
+      "description": "增加精英高爆率"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "examplemod:runeword_smithing",
+  "template": {
+    "item": "more_armor_trims:horizon_armor_trim_smithing_template"
+  },
+  "base": {
+    "tag": "examplemod:base/all"
+  },
+  "addition": {
+    "item": "minecraft:amethyst_shard"
+  }
+}

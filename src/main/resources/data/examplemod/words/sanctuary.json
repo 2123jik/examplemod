@@ -1,0 +1,52 @@
+{
+  "id": "sanctuary",
+  "name_en": "Sanctuary",
+  "name_cn": "圣堂",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/shields"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 18,
+      "rune_name": "Ko (科)",
+      "pattern": "minecraft:spire",
+      "material": "minecraft:emerald"
+    },
+    {
+      "step": 2,
+      "rune_id": 18,
+      "rune_name": "Ko (科)",
+      "pattern": "minecraft:spire",
+      "material": "minecraft:emerald"
+    },
+    {
+      "step": 3,
+      "rune_id": 23,
+      "rune_name": "Mal (马尔)",
+      "pattern": "minecraft:dune",
+      "material": "twilightforest:steeleaf_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.55,
+      "operation": "MULTIPLY_BASE",
+      "description": "+70% 极高全抗"
+    },
+    {
+      "attribute": "l2weaponry:shield_defense",
+      "amount": 16.0,
+      "operation": "ADDITION",
+      "description": "+16 盾防"
+    },
+    {
+      "attribute": "l2weaponry:reflect_time",
+      "amount": 3.0,
+      "operation": "ADDITION",
+      "description": "+3 弹反窗口"
+    }
+  ]
+}

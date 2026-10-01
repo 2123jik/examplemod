@@ -1,0 +1,52 @@
+{
+  "id": "flickering_flame",
+  "name_en": "Flickering Flame",
+  "name_cn": "摇曳焰火",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/helmets"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 4,
+      "rune_name": "Nef (那夫)",
+      "pattern": "minecraft:shaper",
+      "material": "minecraft:copper_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 21,
+      "rune_name": "Pul (普尔)",
+      "pattern": "minecraft:ward",
+      "material": "twilightforest:knightmetal_ingot"
+    },
+    {
+      "step": 3,
+      "rune_id": 26,
+      "rune_name": "Vex (伐克斯)",
+      "pattern": "minecraft:vex",
+      "material": "twilightforest:fiery_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:fire_spell_power",
+      "amount": 0.45,
+      "operation": "MULTIPLY_BASE",
+      "description": "火焰技能+3"
+    },
+    {
+      "attribute": "irons_spellbooks:fire_magic_resist",
+      "amount": 0.65,
+      "operation": "MULTIPLY_BASE",
+      "description": "抗火光环 +65% 火抗"
+    },
+    {
+      "attribute": "irons_spellbooks:mana_cost_reduction",
+      "amount": 0.2,
+      "operation": "MULTIPLY_BASE",
+      "description": "-20% 火系施法耗蓝"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "black",
+  "name_en": "Black",
+  "name_cn": "黑色",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/blunt"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 10,
+      "rune_name": "Thul (书尔)",
+      "pattern": "minecraft:coast",
+      "material": "minecraft:lapis_lazuli"
+    },
+    {
+      "step": 2,
+      "rune_id": 16,
+      "rune_name": "Io (艾欧)",
+      "pattern": "more_armor_trims:horizon",
+      "material": "minecraft:amethyst_shard"
+    },
+    {
+      "step": 3,
+      "rune_id": 4,
+      "rune_name": "Nef (那夫)",
+      "pattern": "minecraft:shaper",
+      "material": "minecraft:copper_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.08,
+      "operation": "ADDITION",
+      "description": "40% 压碎打击"
+    },
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.15,
+      "operation": "MULTIPLY_BASE",
+      "description": "+15% 攻速"
+    },
+    {
+      "attribute": "minecraft:generic.attack_knockback",
+      "amount": 1.5,
+      "operation": "ADDITION",
+      "description": "+1.5 击退"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "malice",
+  "name_en": "Malice",
+  "name_cn": "怨恨",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/melee"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 6,
+      "rune_name": "Ith (伊司)",
+      "pattern": "minecraft:rib",
+      "material": "minecraft:iron_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 1,
+      "rune_name": "El (艾尔)",
+      "pattern": "minecraft:sentry",
+      "material": "minecraft:iron_ingot"
+    },
+    {
+      "step": 3,
+      "rune_id": 5,
+      "rune_name": "Eth (爱斯)",
+      "pattern": "minecraft:flow",
+      "material": "minecraft:copper_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:armor_shred",
+      "amount": 0.3,
+      "operation": "ADDITION",
+      "description": "削减30%护甲"
+    },
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.04,
+      "operation": "ADDITION",
+      "description": "撕裂伤口"
+    },
+    {
+      "attribute": "l2damagetracker:regen",
+      "amount": -0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "抑制恢复"
+    }
+  ]
+}

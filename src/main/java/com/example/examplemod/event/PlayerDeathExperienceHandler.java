@@ -19,7 +19,7 @@ public class PlayerDeathExperienceHandler {
         ServerPlayer oldPlayer = (ServerPlayer) event.getOriginal();
         ServerPlayer newPlayer = (ServerPlayer) event.getEntity();
 
-        int newLevel = Math.max(0, oldPlayer.experienceLevel - 1);
+        int newLevel = Math.max(0, oldPlayer.experienceLevel - 10);
 
         newPlayer.experienceProgress = 0.0F;
         newPlayer.experienceLevel = newLevel;

@@ -1,0 +1,52 @@
+{
+  "id": "chaos",
+  "name_en": "Chaos",
+  "name_cn": "混沌",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/claws"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 19,
+      "rune_name": "Fal (法尔)",
+      "pattern": "more_armor_trims:beast",
+      "material": "twilightforest:ironwood_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 27,
+      "rune_name": "Ohm (欧姆)",
+      "pattern": "more_armor_trims:myth",
+      "material": "cataclysm:ancient_metal_ingot"
+    },
+    {
+      "step": 3,
+      "rune_id": 22,
+      "rune_name": "Um (乌姆)",
+      "pattern": "more_armor_trims:storm",
+      "material": "twilightforest:steeleaf_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:player.sweeping_damage_ratio",
+      "amount": 0.6,
+      "operation": "ADDITION",
+      "description": "白嫖刺客旋风斩 Whirlwind"
+    },
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 攻速"
+    },
+    {
+      "attribute": "apothic_attributes:armor_pierce",
+      "amount": 7.0,
+      "operation": "ADDITION",
+      "description": "+7 护甲贯通"
+    }
+  ]
+}

@@ -85,7 +85,10 @@ config="${mod_id}.mixins.json"
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
-
+[[dependencies.${mod_id}]]
+modId = "solcarrot"
+type = "optional"      # 设为 optional 即使不装 solcarrot 也能启动
+ordering = "AFTER"      # 关键：指定在 solcarrot 之后加载，这样语言文件一定会覆盖它
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't
 # stop your mod loading on the server for example.

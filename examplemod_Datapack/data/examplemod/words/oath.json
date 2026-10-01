@@ -1,0 +1,61 @@
+{
+  "id": "oath",
+  "name_en": "Oath",
+  "name_cn": "誓约",
+  "sockets_required": 4,
+  "valid_base_tags": [
+    "#examplemod:base/swords",
+    "#examplemod:base/axes",
+    "#examplemod:base/blunt"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 13,
+      "rune_name": "Shael (夏勒)",
+      "pattern": "minecraft:flow",
+      "material": "minecraft:amethyst_shard"
+    },
+    {
+      "step": 2,
+      "rune_id": 21,
+      "rune_name": "Pul (普尔)",
+      "pattern": "minecraft:ward",
+      "material": "twilightforest:knightmetal_ingot"
+    },
+    {
+      "step": 3,
+      "rune_id": 23,
+      "rune_name": "Mal (马尔)",
+      "pattern": "minecraft:dune",
+      "material": "twilightforest:steeleaf_ingot"
+    },
+    {
+      "step": 4,
+      "rune_id": 17,
+      "rune_name": "Lum (卢姆)",
+      "pattern": "minecraft:eye",
+      "material": "minecraft:lapis_lazuli"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.45,
+      "operation": "MULTIPLY_BASE",
+      "description": "+50% 爆发攻速"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 8.0,
+      "operation": "ADDITION",
+      "description": "+8 点伤"
+    },
+    {
+      "attribute": "apothic_attributes:crit_damage",
+      "amount": 0.45,
+      "operation": "MULTIPLY_BASE",
+      "description": "+45% 暴击伤害"
+    }
+  ]
+}

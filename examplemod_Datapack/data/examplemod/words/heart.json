@@ -1,0 +1,52 @@
+{
+  "id": "heart",
+  "name_en": "Heart",
+  "name_cn": "心灵",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/helmets"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 13,
+      "rune_name": "Shael (夏勒)",
+      "pattern": "minecraft:flow",
+      "material": "minecraft:amethyst_shard"
+    },
+    {
+      "step": 2,
+      "rune_id": 16,
+      "rune_name": "Io (艾欧)",
+      "pattern": "more_armor_trims:horizon",
+      "material": "minecraft:amethyst_shard"
+    },
+    {
+      "step": 3,
+      "rune_id": 10,
+      "rune_name": "Thul (书尔)",
+      "pattern": "minecraft:coast",
+      "material": "minecraft:lapis_lazuli"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:ice_magic_resist",
+      "amount": 0.5,
+      "operation": "MULTIPLY_BASE",
+      "description": "+50% 冰抗"
+    },
+    {
+      "attribute": "minecraft:generic.max_health",
+      "amount": 5.0,
+      "operation": "ADDITION",
+      "description": "+5 生命"
+    },
+    {
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.1,
+      "operation": "MULTIPLY_BASE",
+      "description": "无法冻结"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "spirit_shield",
+  "name_en": "Spirit (Shield)",
+  "name_cn": "精神 (盾牌)",
+  "sockets_required": 4,
+  "valid_base_tags": [
+    "#examplemod:base/shields"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 7,
+      "rune_name": "Tal (塔尔)",
+      "pattern": "minecraft:wild",
+      "material": "minecraft:emerald"
+    },
+    {
+      "step": 2,
+      "rune_id": 10,
+      "rune_name": "Thul (书尔)",
+      "pattern": "minecraft:coast",
+      "material": "minecraft:lapis_lazuli"
+    },
+    {
+      "step": 3,
+      "rune_id": 9,
+      "rune_name": "Ort (欧特)",
+      "pattern": "minecraft:bolt",
+      "material": "minecraft:copper_ingot"
+    },
+    {
+      "step": 4,
+      "rune_id": 11,
+      "rune_name": "Amn (安姆)",
+      "pattern": "more_armor_trims:ram",
+      "material": "minecraft:iron_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:spell_power",
+      "amount": 0.15,
+      "operation": "MULTIPLY_BASE",
+      "description": "+15% 法强"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "冰雷毒抗性+35%"
+    },
+    {
+      "attribute": "irons_spellbooks:max_mana",
+      "amount": 100.0,
+      "operation": "ADDITION",
+      "description": "+100 法力上限"
+    }
+  ]
+}

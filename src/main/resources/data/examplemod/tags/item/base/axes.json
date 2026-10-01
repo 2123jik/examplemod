@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#c:tools/axes",
+    "#minecraft:axes",
+    "#l2weaponry:battle_axe"
+  ]
+}

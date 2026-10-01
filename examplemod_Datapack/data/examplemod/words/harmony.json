@@ -1,0 +1,59 @@
+{
+  "id": "harmony",
+  "name_en": "Harmony",
+  "name_cn": "和谐",
+  "sockets_required": 4,
+  "valid_base_tags": [
+    "#examplemod:base/bows"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 3,
+      "rune_name": "Tir (特尔)",
+      "pattern": "minecraft:wayfinder",
+      "material": "minecraft:copper_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 6,
+      "rune_name": "Ith (伊司)",
+      "pattern": "minecraft:rib",
+      "material": "minecraft:iron_ingot"
+    },
+    {
+      "step": 3,
+      "rune_id": 12,
+      "rune_name": "Sol (索尔)",
+      "pattern": "minecraft:snout",
+      "material": "minecraft:gold_ingot"
+    },
+    {
+      "step": 4,
+      "rune_id": 18,
+      "rune_name": "Ko (科)",
+      "pattern": "minecraft:spire",
+      "material": "minecraft:emerald"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "10级活力光环 +30% 移速"
+    },
+    {
+      "attribute": "apothic_attributes:arrow_damage",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "+40% 远程增强"
+    },
+    {
+      "attribute": "apothic_attributes:projectile_damage",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 穿刺"
+    }
+  ]
+}

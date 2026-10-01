@@ -1,0 +1,12 @@
+{
+  "type": "examplemod:runeword_smithing",
+  "template": {
+    "item": "alexscaves:polarity_armor_trim_smithing_template"
+  },
+  "base": {
+    "tag": "examplemod:base/all"
+  },
+  "addition": {
+    "item": "cataclysm:witherite_ingot"
+  }
+}

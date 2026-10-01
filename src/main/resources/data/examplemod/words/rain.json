@@ -1,0 +1,52 @@
+{
+  "id": "rain",
+  "name_en": "Rain",
+  "name_cn": "雨云",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 9,
+      "rune_name": "Ort (欧特)",
+      "pattern": "minecraft:bolt",
+      "material": "minecraft:copper_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 23,
+      "rune_name": "Mal (马尔)",
+      "pattern": "minecraft:dune",
+      "material": "twilightforest:steeleaf_ingot"
+    },
+    {
+      "step": 3,
+      "rune_id": 6,
+      "rune_name": "Ith (伊司)",
+      "pattern": "minecraft:rib",
+      "material": "minecraft:iron_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:nature_spell_power",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "自然德鲁伊技能+35%"
+    },
+    {
+      "attribute": "irons_spellbooks:max_mana",
+      "amount": 150.0,
+      "operation": "ADDITION",
+      "description": "+150 法力"
+    },
+    {
+      "attribute": "irons_spellbooks:lightning_magic_resist",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "+40% 雷抗"
+    }
+  ]
+}

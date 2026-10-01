@@ -1,0 +1,52 @@
+{
+  "id": "ground",
+  "name_en": "Ground",
+  "name_cn": "大地",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/helmets"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 13,
+      "rune_name": "Shael (夏勒)",
+      "pattern": "minecraft:flow",
+      "material": "minecraft:amethyst_shard"
+    },
+    {
+      "step": 2,
+      "rune_id": 16,
+      "rune_name": "Io (艾欧)",
+      "pattern": "more_armor_trims:horizon",
+      "material": "minecraft:amethyst_shard"
+    },
+    {
+      "step": 3,
+      "rune_id": 9,
+      "rune_name": "Ort (欧特)",
+      "pattern": "minecraft:bolt",
+      "material": "minecraft:copper_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:lightning_magic_resist",
+      "amount": 0.5,
+      "operation": "MULTIPLY_BASE",
+      "description": "+50% 雷抗"
+    },
+    {
+      "attribute": "minecraft:generic.max_health",
+      "amount": 5.0,
+      "operation": "ADDITION",
+      "description": "+5 生命"
+    },
+    {
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 0.2,
+      "operation": "ADDITION",
+      "description": "+20% 防退"
+    }
+  ]
+}

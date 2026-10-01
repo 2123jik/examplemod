@@ -1,0 +1,52 @@
+{
+  "id": "bulwark",
+  "name_en": "Bulwark",
+  "name_cn": "壁垒",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/helmets"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 13,
+      "rune_name": "Shael (夏勒)",
+      "pattern": "minecraft:flow",
+      "material": "minecraft:amethyst_shard"
+    },
+    {
+      "step": 2,
+      "rune_id": 16,
+      "rune_name": "Io (艾欧)",
+      "pattern": "more_armor_trims:horizon",
+      "material": "minecraft:amethyst_shard"
+    },
+    {
+      "step": 3,
+      "rune_id": 12,
+      "rune_name": "Sol (索尔)",
+      "pattern": "minecraft:snout",
+      "material": "minecraft:gold_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "l2damagetracker:damage_reduction",
+      "amount": 0.15,
+      "operation": "MULTIPLY_BASE",
+      "description": "15% 物理硬免伤"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.06,
+      "operation": "ADDITION",
+      "description": "6% 击中偷取"
+    },
+    {
+      "attribute": "minecraft:generic.max_health",
+      "amount": 6.0,
+      "operation": "ADDITION",
+      "description": "+6 生命"
+    }
+  ]
+}

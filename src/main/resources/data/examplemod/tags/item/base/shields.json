@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#c:tools/shield",
+    "twilightforest:knightmetal_shield",
+    "cataclysm:black_steel_targe",
+    "cataclysm:azure_sea_shield"
+  ]
+}

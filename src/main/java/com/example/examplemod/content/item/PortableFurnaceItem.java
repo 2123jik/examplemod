@@ -2,6 +2,7 @@ package com.example.examplemod.content.item;
 
 import com.example.examplemod.content.menu.PortableFurnaceMenu;
 import com.example.examplemod.registry.ModDataComponents;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -13,6 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
@@ -52,6 +54,15 @@ public class PortableFurnaceItem extends Item {
             ), Component.translatable("container.furnace")));
         }
         return InteractionResultHolder.sidedSuccess(held, level.isClientSide);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        // 可以直接用翻译键，也可以用 Component.literal("自定义内容")
+        tooltipComponents.add(Component.translatable("item.examplemod.portable_stonecutter.tooltip")
+                .withStyle(ChatFormatting.GRAY));
+
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 
 

@@ -1,0 +1,52 @@
+{
+  "id": "gloom",
+  "name_en": "Gloom",
+  "name_cn": "幽暗",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 19,
+      "rune_name": "Fal (法尔)",
+      "pattern": "more_armor_trims:beast",
+      "material": "twilightforest:ironwood_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 22,
+      "rune_name": "Um (乌姆)",
+      "pattern": "more_armor_trims:storm",
+      "material": "twilightforest:steeleaf_ingot"
+    },
+    {
+      "step": 3,
+      "rune_id": 21,
+      "rune_name": "Pul (普尔)",
+      "pattern": "minecraft:ward",
+      "material": "twilightforest:knightmetal_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.45,
+      "operation": "MULTIPLY_BASE",
+      "description": "+45% 全抗"
+    },
+    {
+      "attribute": "minecraft:generic.armor",
+      "amount": 9.0,
+      "operation": "ADDITION",
+      "description": "+9 护甲"
+    },
+    {
+      "attribute": "apothic_attributes:dodge_chance",
+      "amount": 0.15,
+      "operation": "ADDITION",
+      "description": "+15% 闪避"
+    }
+  ]
+}

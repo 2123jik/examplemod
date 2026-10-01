@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#c:armor/chestplates",
+    "#irons_spellbooks:armors/chestplates",
+    "#minecraft:chest_armor",
+    "#minecraft:enchantable/chest_armor",
+    "#iss_magicfromtheeast:armors/chestplates"
+  ]
+}

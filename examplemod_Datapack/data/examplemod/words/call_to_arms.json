@@ -1,0 +1,72 @@
+{
+  "id": "call_to_arms",
+  "name_en": "Call to Arms",
+  "name_cn": "战争召唤",
+  "sockets_required": 5,
+  "valid_base_tags": [
+    "#examplemod:base/all_weapons"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 11,
+      "rune_name": "Amn (安姆)",
+      "pattern": "more_armor_trims:ram",
+      "material": "minecraft:iron_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 8,
+      "rune_name": "Ral (拉尔)",
+      "pattern": "more_armor_trims:fever",
+      "material": "minecraft:redstone"
+    },
+    {
+      "step": 3,
+      "rune_id": 23,
+      "rune_name": "Mal (马尔)",
+      "pattern": "minecraft:dune",
+      "material": "twilightforest:steeleaf_ingot"
+    },
+    {
+      "step": 4,
+      "rune_id": 24,
+      "rune_name": "Ist (伊斯特)",
+      "pattern": "more_armor_trims:witness",
+      "material": "minecraft:diamond"
+    },
+    {
+      "step": 5,
+      "rune_id": 27,
+      "rune_name": "Ohm (欧姆)",
+      "pattern": "more_armor_trims:myth",
+      "material": "cataclysm:ancient_metal_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.max_health",
+      "amount": 12.0,
+      "operation": "ADDITION",
+      "description": "战斗体质 BO +12 生命"
+    },
+    {
+      "attribute": "irons_spellbooks:max_mana",
+      "amount": 120.0,
+      "operation": "ADDITION",
+      "description": "+120 最大法力"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_power",
+      "amount": 0.15,
+      "operation": "MULTIPLY_BASE",
+      "description": "战斗指挥 全技能+1"
+    },
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 攻击速度"
+    }
+  ]
+}

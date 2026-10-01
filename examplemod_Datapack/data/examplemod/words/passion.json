@@ -1,0 +1,59 @@
+{
+  "id": "passion",
+  "name_en": "Passion",
+  "name_cn": "热情",
+  "sockets_required": 4,
+  "valid_base_tags": [
+    "#examplemod:base/melee"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 14,
+      "rune_name": "Dol (多尔)",
+      "pattern": "more_armor_trims:wraith",
+      "material": "minecraft:quartz"
+    },
+    {
+      "step": 2,
+      "rune_id": 9,
+      "rune_name": "Ort (欧特)",
+      "pattern": "minecraft:bolt",
+      "material": "minecraft:copper_ingot"
+    },
+    {
+      "step": 3,
+      "rune_id": 2,
+      "rune_name": "Eld (艾德)",
+      "pattern": "minecraft:raiser",
+      "material": "minecraft:iron_ingot"
+    },
+    {
+      "step": 4,
+      "rune_id": 20,
+      "rune_name": "Lem (蓝姆)",
+      "pattern": "more_armor_trims:greed",
+      "material": "minecraft:gold_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "触发热诚连击 +30% 攻速"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 5.0,
+      "operation": "ADDITION",
+      "description": "+5 点伤"
+    },
+    {
+      "attribute": "apothic_attributes:crit_chance",
+      "amount": 0.2,
+      "operation": "ADDITION",
+      "description": "+20% 暴击"
+    }
+  ]
+}

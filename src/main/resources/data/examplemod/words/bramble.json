@@ -1,0 +1,59 @@
+{
+  "id": "bramble",
+  "name_en": "Bramble",
+  "name_cn": "荆棘",
+  "sockets_required": 4,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 8,
+      "rune_name": "Ral (拉尔)",
+      "pattern": "more_armor_trims:fever",
+      "material": "minecraft:redstone"
+    },
+    {
+      "step": 2,
+      "rune_id": 27,
+      "rune_name": "Ohm (欧姆)",
+      "pattern": "more_armor_trims:myth",
+      "material": "cataclysm:ancient_metal_ingot"
+    },
+    {
+      "step": 3,
+      "rune_id": 29,
+      "rune_name": "Sur (瑟)",
+      "pattern": "minecraft:silence",
+      "material": "cataclysm:cursium_ingot"
+    },
+    {
+      "step": 4,
+      "rune_id": 5,
+      "rune_name": "Eth (爱斯)",
+      "pattern": "minecraft:flow",
+      "material": "minecraft:copper_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:nature_spell_power",
+      "amount": 0.55,
+      "operation": "MULTIPLY_BASE",
+      "description": "+55% 剧毒法强提升"
+    },
+    {
+      "attribute": "l2damagetracker:damage_reduction",
+      "amount": 0.15,
+      "operation": "MULTIPLY_BASE",
+      "description": "+15% 反伤免伤"
+    },
+    {
+      "attribute": "irons_spellbooks:mana_regen",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 回蓝"
+    }
+  ]
+}

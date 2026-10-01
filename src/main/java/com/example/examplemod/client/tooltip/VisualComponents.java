@@ -35,7 +35,7 @@ public final class VisualComponents {
         event.register(MapPreview.class, ClientMapPreview::new);
         event.register(DynamicEntityPreview.class, ClientDynamicEntityPreview::new);
         event.register(BlockGridPreview.class, ClientBlockGridPreview::new);
-        event.register(TrimPreview.class, ClientTrimPreview::new);
+
         event.register(FoodComponent.class, ClientFoodComponent::new);
         event.register(DurabilityBar.class, ClientDurabilityBar::new);
         event.register(PotionEffects.class, ClientPotionEffects::new);
@@ -233,41 +233,6 @@ public final class VisualComponents {
             }
         }
     }
-
-
-    public record TrimPreview(ArmorTrim trim) implements TooltipComponent {
-    }
-
-    public static class ClientTrimPreview implements ClientTooltipComponent {
-        private final TrimPreview data;
-
-        public ClientTrimPreview(TrimPreview data) {
-            this.data = data;
-        }
-
-        @Override
-        public int getWidth(Font font) {
-            return 130;
-        }
-
-        @Override
-        public int getHeight() {
-            return 14;
-        }
-
-        @Override
-        public void renderImage(Font font, int x, int y, GuiGraphics graphics) {
-            int trimColor = data.trim().material().value().description().getStyle().getColor() != null
-                    ? data.trim().material().value().description().getStyle().getColor().getValue() : 0xAAAAAA;
-            graphics.fill(x, y + 2, x + 8, y + 10, 0xFF000000 | trimColor);
-            graphics.renderOutline(x, y + 2, 8, 8, 0xFFFFFFFF);
-            String pattern = data.trim().pattern().value().description().getString();
-            String mat = data.trim().material().value().description().getString();
-            graphics.drawString(font, pattern + " (" + mat + ")", x + 12, y + 2, 0xFFDDDDDD, true);
-        }
-    }
-
-
 
 
 

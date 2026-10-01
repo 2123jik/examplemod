@@ -1,0 +1,52 @@
+{
+  "id": "wisdom",
+  "name_en": "Wisdom",
+  "name_cn": "智慧",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/helmets"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 21,
+      "rune_name": "Pul (普尔)",
+      "pattern": "minecraft:ward",
+      "material": "twilightforest:knightmetal_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 6,
+      "rune_name": "Ith (伊司)",
+      "pattern": "minecraft:rib",
+      "material": "minecraft:iron_ingot"
+    },
+    {
+      "step": 3,
+      "rune_id": 2,
+      "rune_name": "Eld (艾德)",
+      "pattern": "minecraft:raiser",
+      "material": "minecraft:iron_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:arrow_damage",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "33% 穿透箭矢增益"
+    },
+    {
+      "attribute": "irons_spellbooks:mana_regen",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 回蓝"
+    },
+    {
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.1,
+      "operation": "MULTIPLY_BASE",
+      "description": "无法冻结"
+    }
+  ]
+}

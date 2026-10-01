@@ -1,0 +1,45 @@
+{
+  "id": "smoke",
+  "name_en": "Smoke",
+  "name_cn": "烟雾",
+  "sockets_required": 2,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 4,
+      "rune_name": "Nef (那夫)",
+      "pattern": "minecraft:shaper",
+      "material": "minecraft:copper_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 17,
+      "rune_name": "Lum (卢姆)",
+      "pattern": "minecraft:eye",
+      "material": "minecraft:lapis_lazuli"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.45,
+      "operation": "MULTIPLY_BASE",
+      "description": "+50% 全元素抗性"
+    },
+    {
+      "attribute": "minecraft:generic.armor",
+      "amount": 6.0,
+      "operation": "ADDITION",
+      "description": "+6 护甲"
+    },
+    {
+      "attribute": "apothic_attributes:dodge_chance",
+      "amount": 0.1,
+      "operation": "ADDITION",
+      "description": "+10% 闪避率"
+    }
+  ]
+}

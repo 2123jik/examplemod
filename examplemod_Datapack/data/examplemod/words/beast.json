@@ -1,0 +1,73 @@
+{
+  "id": "beast",
+  "name_en": "Beast",
+  "name_cn": "狂暴",
+  "sockets_required": 5,
+  "valid_base_tags": [
+    "#examplemod:base/axes",
+    "#examplemod:base/blunt"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 30,
+      "rune_name": "Ber (贝)",
+      "pattern": "alexscaves:polarity",
+      "material": "cataclysm:witherite_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 3,
+      "rune_name": "Tir (特尔)",
+      "pattern": "minecraft:wayfinder",
+      "material": "minecraft:copper_ingot"
+    },
+    {
+      "step": 3,
+      "rune_id": 22,
+      "rune_name": "Um (乌姆)",
+      "pattern": "more_armor_trims:storm",
+      "material": "twilightforest:steeleaf_ingot"
+    },
+    {
+      "step": 4,
+      "rune_id": 23,
+      "rune_name": "Mal (马尔)",
+      "pattern": "minecraft:dune",
+      "material": "twilightforest:steeleaf_ingot"
+    },
+    {
+      "step": 5,
+      "rune_id": 17,
+      "rune_name": "Lum (卢姆)",
+      "pattern": "minecraft:eye",
+      "material": "minecraft:lapis_lazuli"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "9级狂热光环 +40% 攻速"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 8.0,
+      "operation": "ADDITION",
+      "description": "+8 物理点伤"
+    },
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.05,
+      "operation": "ADDITION",
+      "description": "20% 压碎打击"
+    },
+    {
+      "attribute": "minecraft:generic.max_health",
+      "amount": 12.0,
+      "operation": "ADDITION",
+      "description": "变身熊人 +12 生命"
+    }
+  ]
+}

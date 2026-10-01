@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#c:tools/bow",
+    "#c:tools/crossbow",
+    "#l2archery:bows",
+    "#minecraft:bows"
+  ]
+}

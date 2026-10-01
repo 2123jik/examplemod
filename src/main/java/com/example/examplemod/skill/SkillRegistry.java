@@ -53,11 +53,12 @@ public class SkillRegistry {
         SkillNodeData.saveAll(REGISTRY.values());
     }
 
-    private static void loadDefaults() {
+    private static void loadDefaults()
+    {
+
         // 根节点
-        register(new SkillNode("1", 1)
-                .setSpell(SpellRegistry.FORTIFY_SPELL.get())
-                .addBonus("minecraft:generic.max_health", 1, AttributeModifier.Operation.ADD_VALUE));
+        register(new SkillNode("1", 5)
+                .addBonus("minecraft:generic.max_health", 2, AttributeModifier.Operation.ADD_VALUE));
 
         register(new SkillNode("symmetry", 5, "1")
                 .addBonus("iss_magicfromtheeast:symmetry_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE));
@@ -258,13 +259,7 @@ public class SkillRegistry {
                 .setSpell(SpellRegistry.CHARGE_SPELL.get())
                 .addBonus("examplemod:charge_overclock", 1.0, AttributeModifier.Operation.ADD_VALUE));
 
-//// 4. 雷霆之踏：苍雷闪烁突刺
-//        register(new SkillNode("keystone_thunder_step_shear", 1, "lightning")
-//                .setSpell(SpellRegistry)
-//                .addBonus("examplemod:thunder_step_shear", 1.0, AttributeModifier.Operation.ADD_VALUE));
-//
 
-// ==================== 自然系（Nature）机制质变大点 ====================
 
 // 1. 酸液法球：强酸蚀甲聚爆
         register(new SkillNode("keystone_acid_orb_corrosion", 1, "nature")

@@ -1,0 +1,52 @@
+{
+  "id": "authority",
+  "name_en": "Authority",
+  "name_cn": "权威",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 15,
+      "rune_name": "Hel (海尔)",
+      "pattern": "more_armor_trims:origin",
+      "material": "minecraft:quartz"
+    },
+    {
+      "step": 2,
+      "rune_id": 13,
+      "rune_name": "Shael (夏勒)",
+      "pattern": "minecraft:flow",
+      "material": "minecraft:amethyst_shard"
+    },
+    {
+      "step": 3,
+      "rune_id": 8,
+      "rune_name": "Ral (拉尔)",
+      "pattern": "more_armor_trims:fever",
+      "material": "minecraft:redstone"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:blood_spell_power",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 鲜血法强"
+    },
+    {
+      "attribute": "minecraft:generic.armor",
+      "amount": 5.0,
+      "operation": "ADDITION",
+      "description": "+5 护甲"
+    },
+    {
+      "attribute": "irons_spellbooks:fire_magic_resist",
+      "amount": 0.2,
+      "operation": "MULTIPLY_BASE",
+      "description": "+20% 火抗"
+    }
+  ]
+}

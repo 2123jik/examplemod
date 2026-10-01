@@ -49,7 +49,7 @@ def baseExclude = [
         'iris-*.jar', 'Iris-*.jar',
         'EuphoriaPatcher-*.jar', 'euphoria*.jar',
         'MouseTweaks-*.jar', 'mousetweaks*.jar',
-        'sodium-*.jar', 'Sodium-*.jar',
+        'sodium-*.jar', 'Sodium-*.jar','chloride-NEOFORGE-mc1.21.1-v1.8.1.jar'
 ]
 
 // data 模式额外排除：纯客户端 / UI / 渲染 / 输入交互

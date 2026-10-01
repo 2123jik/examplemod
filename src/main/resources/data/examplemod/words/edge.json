@@ -1,0 +1,52 @@
+{
+  "id": "edge",
+  "name_en": "Edge",
+  "name_cn": "边缘",
+  "sockets_required": 3,
+  "valid_base_tags": [
+    "#examplemod:base/bows"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 3,
+      "rune_name": "Tir (特尔)",
+      "pattern": "minecraft:wayfinder",
+      "material": "minecraft:copper_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 7,
+      "rune_name": "Tal (塔尔)",
+      "pattern": "minecraft:wild",
+      "material": "minecraft:emerald"
+    },
+    {
+      "step": 3,
+      "rune_id": 11,
+      "rune_name": "Amn (安姆)",
+      "pattern": "more_armor_trims:ram",
+      "material": "minecraft:iron_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:draw_speed",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 拉弓提速"
+    },
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.04,
+      "operation": "ADDITION",
+      "description": "创口流血"
+    },
+    {
+      "attribute": "l2damagetracker:damage_reduction",
+      "amount": 0.1,
+      "operation": "MULTIPLY_BASE",
+      "description": "荆棘光环减免"
+    }
+  ]
+}

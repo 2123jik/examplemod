@@ -1,0 +1,17 @@
+{
+  "tooltip.solcarrot.hearty.eaten": "已食用: 用于获取技能点",
+  "tooltip.solcarrot.cheap": "该食物不足以提供技能点.",
+  "tooltip.solcarrot.disabled.blacklist": "该食物已被加入黑名单, 因此无法用于获取技能点.",
+  "tooltip.solcarrot.disabled.whitelist": "该食物未被加入白名单, 因此无法用于获取技能点.",
+
+  "command.solcarrot.foodlist.size.desc.milestone.max": "您无法从新食物中获得更多技能点.",
+  "command.solcarrot.foodlist.size.desc.milestone.more": "您还需要%s种食物来获取下一个技能点.",
+
+  "message.solcarrot.hearts.singular": "1个技能点",
+  "message.solcarrot.hearts.plural": "%s个技能点",
+  "message.solcarrot.milestone_achieved": "多么独特的味道! 您已经获得了%s!",
+
+  "gui.solcarrot.food_book.stats.hearts_gained": "获得技能点",
+  "gui.solcarrot.food_book.stats.tooltip.hearts_per_milestone.singular": "每个里程碑可获得1个技能点",
+  "gui.solcarrot.food_book.stats.tooltip.hearts_per_milestone.plural": "每个里程碑可获得%s个技能点"
+}

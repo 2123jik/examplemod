@@ -1,0 +1,47 @@
+{
+  "id": "steel",
+  "name_en": "Steel",
+  "name_cn": "钢铁",
+  "sockets_required": 2,
+  "valid_base_tags": [
+    "#examplemod:base/swords",
+    "#examplemod:base/axes",
+    "#examplemod:base/blunt"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 3,
+      "rune_name": "Tir (特尔)",
+      "pattern": "minecraft:wayfinder",
+      "material": "minecraft:copper_ingot"
+    },
+    {
+      "step": 2,
+      "rune_id": 1,
+      "rune_name": "El (艾尔)",
+      "pattern": "minecraft:sentry",
+      "material": "minecraft:iron_ingot"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 攻速"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2.0,
+      "operation": "ADDITION",
+      "description": "+2 物理点伤"
+    },
+    {
+      "attribute": "apothic_attributes:armor_pierce",
+      "amount": 3.0,
+      "operation": "ADDITION",
+      "description": "撕裂流血"
+    }
+  ]
+}

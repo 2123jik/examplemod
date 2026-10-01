@@ -1,0 +1,66 @@
+{
+  "id": "heart_of_the_oak",
+  "name_en": "Heart of the Oak",
+  "name_cn": "橡树之心",
+  "sockets_required": 4,
+  "valid_base_tags": [
+    "#examplemod:base/staves",
+    "#examplemod:base/blunt"
+  ],
+  "sequence": [
+    {
+      "step": 1,
+      "rune_id": 18,
+      "rune_name": "Ko (科)",
+      "pattern": "minecraft:spire",
+      "material": "minecraft:emerald"
+    },
+    {
+      "step": 2,
+      "rune_id": 26,
+      "rune_name": "Vex (伐克斯)",
+      "pattern": "minecraft:vex",
+      "material": "twilightforest:fiery_ingot"
+    },
+    {
+      "step": 3,
+      "rune_id": 21,
+      "rune_name": "Pul (普尔)",
+      "pattern": "minecraft:ward",
+      "material": "twilightforest:knightmetal_ingot"
+    },
+    {
+      "step": 4,
+      "rune_id": 10,
+      "rune_name": "Thul (书尔)",
+      "pattern": "minecraft:coast",
+      "material": "minecraft:lapis_lazuli"
+    }
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:spell_power",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "全法系技能+3"
+    },
+    {
+      "attribute": "irons_spellbooks:cooldown_reduction",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+40% 快速施法"
+    },
+    {
+      "attribute": "irons_spellbooks:max_mana",
+      "amount": 180.0,
+      "operation": "ADDITION",
+      "description": "+180 法力上限"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "+40% 全抗"
+    }
+  ]
+}

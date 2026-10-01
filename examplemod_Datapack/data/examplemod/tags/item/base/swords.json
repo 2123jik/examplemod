@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#c:tools/swords",
+    "#minecraft:swords",
+    "#simplyswords:diamond_gear",
+    "#simplyswords:netherite_gear",
+    "#simplyswords:iron_gear",
+    "#simplyswords:gold_gear"
+  ]
+}
