@@ -1,7 +1,7 @@
 package com.example.examplemod.registry;
 
 
-import com.example.examplemod.util.WeaponReplacer;
+import com.example.examplemod.util.FastWeaponReplacer;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
@@ -25,7 +25,7 @@ public class WeaponReplacementModifier extends LootModifier {
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
         for (int i = 0; i < generatedLoot.size(); i++) {
             ItemStack stack = generatedLoot.get(i);
-            ItemStack replaced = WeaponReplacer.tryReplace(stack, context.getRandom());
+            ItemStack replaced = FastWeaponReplacer.tryReplaceStack(stack, context.getRandom());
             if (replaced != stack) {
                 generatedLoot.set(i, replaced);
             }

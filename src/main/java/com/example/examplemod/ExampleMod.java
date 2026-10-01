@@ -5,7 +5,7 @@ import com.example.examplemod.compat.ModLootCategories;
 import com.example.examplemod.content.spell.ModSpells;
 import com.example.examplemod.content.spell.SummonedCaveSpider;
 import com.example.examplemod.content.spell.SummonedSupportDragon;
-import com.example.examplemod.event.MobEquipmentHandler;
+
 import com.example.examplemod.network.ArrowCritPayload;
 import com.example.examplemod.network.OpenShopSelectorPayload;
 import com.example.examplemod.network.SleepButtonPayload;
@@ -14,7 +14,7 @@ import com.example.examplemod.skill.SkillRegistry;
 import com.example.examplemod.skill.SyncSkillDataPayload;
 import com.example.examplemod.skill.UpgradeSkillPayload;
 import com.example.examplemod.trim.RunewordManager;
-import com.example.examplemod.util.WeaponReplacer;
+import com.example.examplemod.util.FastWeaponReplacer;
 import com.mojang.serialization.MapCodec;
 import com.viscriptshop.util.ViScriptShopServerUtil;
 import net.minecraft.core.BlockPos;
@@ -73,7 +73,7 @@ public final class ExampleMod {
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::registerPayloads);
         ModRecipes.SERIALIZERS.register(modEventBus);
-        NeoForge.EVENT_BUS.register(MobEquipmentHandler.class);
+
     }
 
     private void registerEntityAttributes(EntityAttributeCreationEvent event) {
@@ -82,7 +82,7 @@ public final class ExampleMod {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(WeaponReplacer::initWeaponPools);
+        event.enqueueWork(FastWeaponReplacer::init);
         event.enqueueWork(SkillRegistry::init);
     }
 

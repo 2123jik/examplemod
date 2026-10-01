@@ -13,6 +13,10 @@ import java.util.Optional;
 @Mixin(value = L2HostilityCompat.class, remap = false)
 public class L2HostilityCompatMixin {
 
+    /**
+     * @author
+     * @reason
+     */
     @Overwrite
     private static boolean validForDropForHostility(Mob e, int min, int max) {
         Optional<MobTraitCap> opt = ((GeneralCapabilityHolder) LHMiscs.MOB.type()).getExisting(e);

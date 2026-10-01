@@ -47,7 +47,7 @@ public class ContainerScreenOverlay {
             // --- 核心修改：食物属性渲染 (左上角: 饥饿值 / 右上角: 饱和度) ---
             FoodProperties foodProps = stack.get(DataComponents.FOOD);
             if (foodProps != null) {
-                float scale = 0.6f; // 缩放比例：0.75倍 (可根据需要调整为 0.5f 或 0.6f)
+                float scale = 0.5f; // 缩放比例：0.75倍 (可根据需要调整为 0.5f 或 0.6f)
 
                 // 1. 左上角：饥饿回复值 (Nutrition)
                 int nutrition = foodProps.nutrition();
@@ -62,9 +62,9 @@ public class ContainerScreenOverlay {
                 guiGraphics.drawString(font, hungerText, 0, 0, 0xFFEAA154, true);
                 guiGraphics.pose().popPose();
 
-                // 2. 右上角：实际饱和度回复值 (Saturation)
-                float saturation = foodProps.saturation();
-                String satText = String.format(Locale.ROOT, "%.1f", saturation);
+
+                int saturation =(int) foodProps.saturation();
+                String satText = String.valueOf(saturation);
 
                 // 计算文本在原版字号下的宽度，并乘上缩放比例得出实际渲染宽度
                 float satWidth = font.width(satText) * scale;
@@ -84,27 +84,46 @@ public class ContainerScreenOverlay {
             }
             ItemEnchantments storedEnchants = stack.get(DataComponents.STORED_ENCHANTMENTS);
             if (storedEnchants != null && !storedEnchants.isEmpty()) {
-                float enchantScale = 0.6f; // 与食物数字保持一致的 0.75 倍正常缩放
-                int yOffset = 1;
+                float enchantScale = 0.5f; // 缩放比例
+                // 格子有效宽度为 14px (16px 减去左右各 1px 边距)，换算到 font 的局部坐标宽度
+                int maxFontWidth = (int) (14.0f / enchantScale); // 0.5 缩放下为 28 像素宽度
+
+                // 缩放后的单行高度 (原版字高 9 * 缩放 0.5 = 4.5 像素，行距取 4.5f ~ 5.0f 均可)
+                float lineStep = font.lineHeight * enchantScale;
+                float currentY = y + 1.0f;
 
                 // 遍历附魔书内包含的所有附魔
                 for (var entry : storedEnchants.entrySet()) {
                     var enchantHolder = entry.getKey();
                     int level = entry.getIntValue();
 
-                    var c=Enchantment.getFullname(enchantHolder,level);
+                    // 1. 获取附魔译名并彻底去除空格 (例如 "火焰 附加" -> "火焰附加")
+                    String name = enchantHolder.value().description().getString().replace(" ", "");
 
-                    guiGraphics.pose().pushPose();
-                    guiGraphics.pose().translate(x + 1, y + yOffset, OVERLAY_Z);
-                    guiGraphics.pose().scale(enchantScale, enchantScale, 1.0f);
-                    guiGraphics.drawString(font, c, 0, 0, 0xFF55FFFF, true);
-                    guiGraphics.pose().popPose();
+                    // 2. 罗马数字改用阿拉伯数字：如果是多级附魔或等级大于1，则追加阿拉伯数字；单级附魔不追加
+                    int maxLevel = enchantHolder.value().getMaxLevel();
+                    String displayText = (maxLevel > 1 || level > 1) ? (name + level) : name;
 
-                    // 0.75倍缩放下的文字行高大约需要 7-8 像素
-                    yOffset += 7;
+                    // 3. 按像素宽度自动折行 (汉字/英文字符都会严格按像素宽度截断换行)
+                    var lines = font.split(Component.literal(displayText), maxFontWidth);
 
-                    // 如果附魔条数过多，超出 Slot 高度则停止渲染，防止溢出到格外面
-                    if (yOffset > 11) {
+                    for (var line : lines) {
+                        // 防止行渲染溢出 Slot 底部 (Slot 范围是 y 到 y + 16)
+                        if (currentY + lineStep > y + 15.5f) {
+                            break;
+                        }
+
+                        guiGraphics.pose().pushPose();
+                        guiGraphics.pose().translate(x + 1.0f, currentY, OVERLAY_Z);
+                        guiGraphics.pose().scale(enchantScale, enchantScale, 1.0f);
+                        guiGraphics.drawString(font, line, 0, 0, 0xFF55FFFF, true);
+                        guiGraphics.pose().popPose();
+
+                        currentY += lineStep;
+                    }
+
+                    // 如果格子空间已满，不再处理后续附魔
+                    if (currentY + lineStep > y + 15.5f) {
                         break;
                     }
                 }

@@ -10,8 +10,11 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.SlotAccess;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.SimpleContainerData;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -23,48 +26,90 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PortableFurnaceItem extends Item {
-    public PortableFurnaceItem(Properties properties) { super(properties); }
+    public PortableFurnaceItem(Properties properties) {
+        super(properties);
+    }
 
+    /**
+     * 1. 手持右键使用
+     */
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack held = player.getItemInHand(hand);
         if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
-            PortableFurnaceData data = held.getOrDefault(ModDataComponents.FURNACE_DATA.get(), PortableFurnaceData.EMPTY);
-
-            SimpleContainer container = new SimpleContainer(3);
-            for (int i = 0; i < 3; i++) {
-                if (i < data.items().size()) container.setItem(i, data.items().get(i));
-            }
-
-            SimpleContainerData syncData = new SimpleContainerData(4);
-            syncData.set(0, data.litTime());
-            syncData.set(1, data.litDuration());
-            syncData.set(2, data.cookingProgress());
-            syncData.set(3, data.cookingTotalTime() <= 0 ? 200 : data.cookingTotalTime());
-
-            serverPlayer.openMenu(new SimpleMenuProvider((id, inv, p) -> new PortableFurnaceMenu(
-                    id, inv, container, syncData, p.level(),
-                    () -> {
-
-                        List<ItemStack> newItems = List.of(container.getItem(0), container.getItem(1), container.getItem(2));
-                        held.set(ModDataComponents.FURNACE_DATA.get(), new PortableFurnaceData(
-                                newItems, syncData.get(0), syncData.get(1), syncData.get(2), syncData.get(3)
-                        ));
-                    }
-            ), Component.translatable("container.furnace")));
+            openFurnaceMenu(serverPlayer, held);
         }
         return InteractionResultHolder.sidedSuccess(held, level.isClientSide);
     }
 
+    /**
+     * 2. 容器界面内：光标悬停在熔炉槽位上时被调用
+     * （最常用的场景：鼠标为空，右键点击背包里的熔炉）
+     */
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        // 可以直接用翻译键，也可以用 Component.literal("自定义内容")
-        tooltipComponents.add(Component.translatable("item.examplemod.portable_stonecutter.tooltip")
-                .withStyle(ChatFormatting.GRAY));
-
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    public boolean overrideOtherStackedOnMe(ItemStack stack, ItemStack other, Slot slot, ClickAction action, Player player, SlotAccess access) {
+        if (action == ClickAction.SECONDARY && slot.allowModification(player)) {
+            // 光标没有抓取其他物品时才打开，防止想往格子里放物品时发生误触
+            if (other.isEmpty()) {
+                if (!player.level().isClientSide && player instanceof ServerPlayer serverPlayer) {
+                    openFurnaceMenu(serverPlayer, stack);
+                }
+                return true; // 返回 true 阻止原版右键拾取一半物品的逻辑
+            }
+        }
+        return super.overrideOtherStackedOnMe(stack, other, slot, action, player, access);
     }
 
+    /**
+     * 3. 容器界面内：光标抓着熔炉时，右键其他槽位
+     */
+    @Override
+    public boolean overrideStackedOnOther(ItemStack stack, Slot slot, ClickAction action, Player player) {
+        if (action == ClickAction.SECONDARY && slot.allowModification(player)) {
+            if (!player.level().isClientSide && player instanceof ServerPlayer serverPlayer) {
+                openFurnaceMenu(serverPlayer, stack);
+            }
+            return true;
+        }
+        return super.overrideStackedOnOther(stack, slot, action, player);
+    }
+
+    /**
+     * 抽取公共菜单打开逻辑
+     */
+    private void openFurnaceMenu(ServerPlayer serverPlayer, ItemStack furnaceStack) {
+        PortableFurnaceData data = furnaceStack.getOrDefault(ModDataComponents.FURNACE_DATA.get(), PortableFurnaceData.EMPTY);
+
+        SimpleContainer container = new SimpleContainer(3);
+        for (int i = 0; i < 3; i++) {
+            if (i < data.items().size()) {
+                container.setItem(i, data.items().get(i));
+            }
+        }
+
+        SimpleContainerData syncData = new SimpleContainerData(4);
+        syncData.set(0, data.litTime());
+        syncData.set(1, data.litDuration());
+        syncData.set(2, data.cookingProgress());
+        syncData.set(3, data.cookingTotalTime() <= 0 ? 200 : data.cookingTotalTime());
+
+        serverPlayer.openMenu(new SimpleMenuProvider((id, inv, p) -> new PortableFurnaceMenu(
+                id, inv, container, syncData, p.level(),
+                () -> {
+                    List<ItemStack> newItems = List.of(container.getItem(0), container.getItem(1), container.getItem(2));
+                    furnaceStack.set(ModDataComponents.FURNACE_DATA.get(), new PortableFurnaceData(
+                            newItems, syncData.get(0), syncData.get(1), syncData.get(2), syncData.get(3)
+                    ));
+                }
+        ), Component.translatable("container.furnace")));
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        tooltipComponents.add(Component.translatable("item.examplemod.portable_furnace.tooltip")
+                .withStyle(ChatFormatting.GRAY));
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    }
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
