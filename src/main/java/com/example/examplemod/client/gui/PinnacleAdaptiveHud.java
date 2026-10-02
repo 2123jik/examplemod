@@ -44,10 +44,7 @@ public final class PinnacleAdaptiveHud {
     public static void render(GuiGraphics g, Player player) {
         Minecraft mc = Minecraft.getInstance();
 
-        // =====================================================================
-        // 门禁系统：杜绝一切未就绪、死亡、睡觉及创造模式下的幽灵提前渲染
-        // =====================================================================
-        // 1. 世界未就绪或未完成连接握手，坚决不渲染
+
         if (mc.level == null || mc.gameMode == null) return;
 
         // 2. 旁观者、或既不能受伤也没有经验的模式（纯创造飞天），直接 0 运算退出

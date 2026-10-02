@@ -1,8 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#examplemod:base/melee",
-    "#examplemod:base/staves",
-    "#examplemod:base/bows"
-  ]
-}

@@ -14,7 +14,7 @@ import com.example.examplemod.skill.SkillRegistry;
 import com.example.examplemod.skill.SyncSkillDataPayload;
 import com.example.examplemod.skill.UpgradeSkillPayload;
 import com.example.examplemod.trim.RunewordManager;
-import com.example.examplemod.util.FastWeaponReplacer;
+import com.example.examplemod.util.WeaponReplacer;
 import com.mojang.serialization.MapCodec;
 import com.viscriptshop.util.ViScriptShopServerUtil;
 import net.minecraft.core.BlockPos;
@@ -82,7 +82,7 @@ public final class ExampleMod {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(FastWeaponReplacer::init);
+        event.enqueueWork(WeaponReplacer::initWeaponPools);
         event.enqueueWork(SkillRegistry::init);
     }
 

@@ -14,7 +14,6 @@
     "apothic.MultiAttrBonusMixin",
     "cataclysm.AllCataclysmBossDpsCapMixin",
     "cataclysm.CMCommonConfigMixin",
-    "hostility.MobDifficultyCollectorMixin",
     "ironsspellbooks.DamageSourcesFixMixin",
     "ironsspellbooks.FortifyEffectMixin",
     "ironsspellbooks.MixinRandomizeSpellFunction",
@@ -64,10 +63,10 @@
     "villna.LootTableMixin",
     "villna.MixinAbstractArrow",
     "villna.MixinPoisonMobEffect",
+    "villna.MixinStructureTemplateManager",
     "villna.MixinWitherMobEffect",
     "villna.MobEffectInstanceMixin",
     "villna.MobEffectsMixin",
-    "villna.MobMixin",
     "villna.PathfinderMobMixin",
     "villna.PlayerMixin",
     "villna.RandomSpreadPlacementMixin",
@@ -75,6 +74,8 @@
     "villna.RegenerationMobEffectMixin",
     "villna.SetItemDamageFunctionMixin",
     "villna.StructureMixin",
+    "villna.TreeFeatureMixin",
+    "villna.TrunkPlacerMixin",
     "viScriptShop.ViScriptShopServerUtilMixin"
   ],
   "injectors": {

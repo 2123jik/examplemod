@@ -1,5 +1,6 @@
 package com.example.examplemod.compat.l2hostility;
 
+import com.example.examplemod.util.IStructureScanner;
 import com.example.examplemod.util.TrimDataExporter;
 import com.google.gson.*;
 import com.mojang.brigadier.CommandDispatcher;
@@ -18,6 +19,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.loading.FMLPaths;
@@ -45,7 +47,28 @@ public class SpellTraitGenCommand {
     public static void onRegisterCommands(RegisterCommandsEvent event)
     {
         CommandDispatcher<CommandSourceStack> d = event.getDispatcher();
+        d.register(
+                Commands.literal("scan_structures")
+                        .requires(source -> source.hasPermission(2)) // 需要 OP 权限
+                        .executes(context -> {
+                            CommandSourceStack source = context.getSource();
+                            StructureTemplateManager manager = source.getServer().getStructureManager();
 
+                            source.sendSuccess(() -> Component.literal("§e[结构检测] 正在进行全量 NBT 解压与文件校验，请稍候..."), true);
+
+                            // 安全造型调用接口
+                            if (manager instanceof IStructureScanner scanner) {
+                                int corruptFound = scanner.scanAndCacheCorruptStructures();
+                                source.sendSuccess(() -> Component.literal(
+                                        String.format("§a[结构检测] 扫描完成！成功排查并拉黑了 §c%d §a个损坏结构！", corruptFound)
+                                ), true);
+                            } else {
+                                source.sendFailure(Component.literal("§c[错误] IStructureScanner Mixin 未能成功注入到 StructureTemplateManager！"));
+                            }
+
+                            return 1;
+                        })
+        );
         d.register(Commands.literal("spelltrait")
                 .requires(s -> s.hasPermission(2))
                 .then(Commands.literal("gen")
