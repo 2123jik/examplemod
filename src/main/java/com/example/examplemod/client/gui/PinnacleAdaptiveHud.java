@@ -11,9 +11,14 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PlayerRideableJumping;
 import net.minecraft.world.entity.player.Player;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.RenderGuiLayerEvent;
+import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import org.joml.Matrix4f;
-
-public final class PinnacleAdaptiveHud {
+@EventBusSubscriber(value = Dist.CLIENT)
+public class PinnacleAdaptiveHud {
 
     private PinnacleAdaptiveHud() {}
 
@@ -41,6 +46,32 @@ public final class PinnacleAdaptiveHud {
     private static final int COL_EXP        = 0xFF55FF55;
     private static final int COL_JUMP       = 0xFFFFAA00;
 
+    /* =================== 事件监听直接内聚 =================== */
+
+    @SubscribeEvent
+    public static void onRenderGuiLayerPre(RenderGuiLayerEvent.Pre event) {
+        var layer = event.getName();
+        if (layer.equals(VanillaGuiLayers.PLAYER_HEALTH)
+                || layer.equals(VanillaGuiLayers.ARMOR_LEVEL)
+                || layer.equals(VanillaGuiLayers.FOOD_LEVEL)
+                || layer.equals(VanillaGuiLayers.AIR_LEVEL)
+                || layer.equals(VanillaGuiLayers.EXPERIENCE_BAR)
+                || layer.equals(VanillaGuiLayers.JUMP_METER)
+                || layer.equals(VanillaGuiLayers.VEHICLE_HEALTH)) {
+            event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onRenderGuiLayerPost(RenderGuiLayerEvent.Post event) {
+        if (event.getName().equals(VanillaGuiLayers.HOTBAR)) {
+            Minecraft mc = Minecraft.getInstance();
+            Player player = mc.player;
+            if (player != null && !mc.options.hideGui) {
+                render(event.getGuiGraphics(), player);
+            }
+        }
+    }
     public static void render(GuiGraphics g, Player player) {
         Minecraft mc = Minecraft.getInstance();
 

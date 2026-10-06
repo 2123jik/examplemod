@@ -350,5 +350,19 @@
 
   "jei.examplemod.category.runeword_smithing": "纹饰之语",
 
-  "tooltip.examplemod.trims_header": "纹饰："
+  "tooltip.examplemod.trims_header": "纹饰：",
+
+
+
+  "item.examplemod.backstab_upgrade": "犬灵背刺升级",
+  "modifier.examplemod.backstab": "背刺",
+  "modifier.examplemod.backstab.desc": "从目标后方偷袭时造成 %s%% 伤害",
+
+  "message.examplemod.inventory_full": "背包已满，无法鉴定！请腾出空间后再试。",
+  "message.examplemod.identify_scroll": "鉴定出卷轴:",
+  "message.examplemod.identify_gem": "鉴定出宝石:",
+  "item.examplemod.unidentified_scroll": "未鉴定的%s法术卷轴",
+  "item.examplemod.unidentified_gem": "未鉴定的%s宝石",
+  "tooltip.examplemod.school_filter": "%s学派限定",
+  "tooltip.examplemod.right_click_to_identify": "右键进行鉴定"
 }

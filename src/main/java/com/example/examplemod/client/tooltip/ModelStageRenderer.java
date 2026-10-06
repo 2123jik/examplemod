@@ -1,7 +1,7 @@
 package com.example.examplemod.client.tooltip;
 
 import com.example.examplemod.Config;
-import com.example.examplemod.compat.CuriosCompat;
+import com.example.examplemod.compat.CuriosPreviewCompat;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -189,8 +189,8 @@ public final class ModelStageRenderer {
         RemotePlayer dummy = getOrCreateDummy(mc);
         resetDummyEquipment(dummy);
 
-        if (CuriosCompat.isCurio(stack)) {
-            if (CuriosCompat.tryEquipCurio(dummy, stack.copy())) {
+        if (CuriosPreviewCompat.isCurio(stack)) {
+            if (CuriosPreviewCompat.applySinglePreviewCurio(dummy, stack.copy())) {
                 currentTargetEntity = dummy;
                 return;
             }

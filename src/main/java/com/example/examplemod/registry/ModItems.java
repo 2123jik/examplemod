@@ -1,7 +1,10 @@
 package com.example.examplemod.registry;
 
 import com.example.examplemod.ExampleMod;
-import com.example.examplemod.content.item.*;
+import com.example.examplemod.item.PortableAnvilItem;
+import com.example.examplemod.item.PortableBrewingStandItem;
+import com.example.examplemod.item.PortableFurnaceItem;
+import com.example.examplemod.item.PortableStonecutterItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;

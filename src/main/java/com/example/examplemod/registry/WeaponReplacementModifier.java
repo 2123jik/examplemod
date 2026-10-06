@@ -1,7 +1,6 @@
 package com.example.examplemod.registry;
 
-
-import com.example.examplemod.util.WeaponReplacer;
+import com.example.examplemod.util.ChestWeaponReplacer;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
@@ -24,14 +23,16 @@ public class WeaponReplacementModifier extends LootModifier {
 
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        // 如果当前战利品上下文包含死亡的实体（说明是怪物掉落的战利品），直接跳过替换
-//        if (context.hasParam(LootContextParams.THIS_ENTITY)) {
-//            return generatedLoot;
-//        }
+        // 关键安全点 1：如果是实体死亡产生的战利品（打怪掉落），跳过！
+        // 只对地牢箱子、要塞、远古城市、下界要塞等箱子/容器生效
+        if (context.hasParam(LootContextParams.THIS_ENTITY)) {
+            return generatedLoot;
+        }
 
+        // 关键安全点 2：平级替换原版剑斧，保留原本战利品表的附魔和耐久属性
         for (int i = 0; i < generatedLoot.size(); i++) {
             ItemStack stack = generatedLoot.get(i);
-            ItemStack replaced = WeaponReplacer.tryReplace(stack, context.getRandom());
+            ItemStack replaced = ChestWeaponReplacer.tryReplaceChestWeapon(stack, context.getRandom());
             if (replaced != stack) {
                 generatedLoot.set(i, replaced);
             }

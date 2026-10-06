@@ -20,7 +20,6 @@ public class CurioMimicHelper {
 
     public static boolean isCurio(ItemStack stack) {
         if (stack.isEmpty()) return false;
-
         if (stack.is(CURIOS_TAG)) return true;
 
         Holder<Item> holder = stack.getItem().builtInRegistryHolder();
@@ -43,14 +42,14 @@ public class CurioMimicHelper {
                     if (key == null) return false;
                     String path = key.getPath();
                     String ns = key.getNamespace();
-                    return !"none".equals(path) && !"examplemod".equals(ns);
+                    // 仅从原版 Apotheosis 基础装备分类中抽取（胸甲、头盔、剑等），排除 none
+                    return "apotheosis".equals(ns) && !"none".equals(path) ;
                 })
                 .toList();
 
         if (pool.isEmpty()) return;
 
         LootCategory chosen = pool.get(ThreadLocalRandom.current().nextInt(pool.size()));
-
         stack.set(ModDataComponents.MIMIC_CATEGORY.get(), chosen.getKey());
     }
 }

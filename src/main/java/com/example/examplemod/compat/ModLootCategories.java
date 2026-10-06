@@ -1,7 +1,5 @@
 package com.example.examplemod.compat;
 
-import dev.shadowsoffire.apotheosis.Apoth;
-import dev.shadowsoffire.apotheosis.loot.LootCategory;
 import dev.shadowsoffire.apothic_attributes.api.ALObjects.BuiltInRegs;
 import dev.shadowsoffire.apothic_attributes.compat.CurioEquipmentSlot;
 import dev.shadowsoffire.apothic_attributes.modifiers.EntityEquipmentSlot;
@@ -9,7 +7,6 @@ import dev.shadowsoffire.apothic_attributes.modifiers.EntitySlotGroup;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -29,7 +26,7 @@ public class ModLootCategories {
     };
 
     public static void onRegister(RegisterEvent event) {
-
+        // 1. 注册 Curio 装备槽
         if (event.getRegistryKey().equals(BuiltInRegs.ENTITY_EQUIPMENT_SLOT.key())) {
             event.register(BuiltInRegs.ENTITY_EQUIPMENT_SLOT.key(), helper -> {
                 for (String slotType : SLOTS) {
@@ -41,6 +38,7 @@ public class ModLootCategories {
             });
         }
 
+        // 2. 注册槽位组（供属性修饰符生效）
         if (event.getRegistryKey().equals(BuiltInRegs.ENTITY_SLOT_GROUP.key())) {
             event.register(BuiltInRegs.ENTITY_SLOT_GROUP.key(), helper -> {
                 for (String slotType : SLOTS) {
@@ -51,24 +49,6 @@ public class ModLootCategories {
                         EntitySlotGroup group = new EntitySlotGroup(id, HolderSet.direct(slotHolder));
                         helper.register(id, group);
                         REGISTERED_GROUPS.put(slotType, group);
-                    }
-                }
-            });
-        }
-
-        if (event.getRegistryKey().equals(Apoth.BuiltInRegs.LOOT_CATEGORY.key())) {
-            event.register(Apoth.BuiltInRegs.LOOT_CATEGORY.key(), helper -> {
-                for (String slotType : SLOTS) {
-                    EntitySlotGroup group = REGISTERED_GROUPS.get(slotType);
-                    if (group != null) {
-                        helper.register(
-                                ResourceLocation.fromNamespaceAndPath(MODID, slotType),
-                                new LootCategory(
-                                        stack -> stack.is(ItemTags.create(ResourceLocation.parse("curios:" + slotType))),
-                                        group,
-                                        500
-                                )
-                        );
                     }
                 }
             });

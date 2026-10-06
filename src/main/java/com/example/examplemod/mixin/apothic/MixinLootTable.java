@@ -1,11 +1,12 @@
 package com.example.examplemod.mixin.apothic;
 
+import com.example.examplemod.registry.ModDataComponents;
 import dev.shadowsoffire.apotheosis.socket.gem.GemItem;
 import dev.shadowsoffire.apotheosis.socket.gem.Purity;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.util.Unit;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,22 +26,22 @@ public class MixinLootTable {
             ItemStack stack = lootList.get(i);
 
             if (stack.getItem() instanceof GemItem) {
-                CustomData data = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
-                if (!data.copyTag().getBoolean("is_unidentified_gem")) {
-                    
-                    Purity officialPurity = GemItem.getPurity(stack);
-
-                    ItemStack unidentified = new ItemStack(stack.getItem());
-                    unidentified.set(DataComponents.MAX_STACK_SIZE, 64);
-                    GemItem.setPurity(unidentified, officialPurity);
-
-                    CustomData.update(DataComponents.CUSTOM_DATA, unidentified, tag -> {
-                        tag.putBoolean("is_unidentified_gem", true);
-                        tag.putString("official_purity", officialPurity.name());
-                    });
-
-                    lootList.set(i, unidentified);
+                // 如果已经鉴定过或者是未鉴定宝石，直接放行
+                if (stack.has(ModDataComponents.ALREADY_IDENTIFIED.get()) || stack.has(ModDataComponents.IS_UNIDENTIFIED.get())) {
+                    continue;
                 }
+
+                Purity officialPurity = GemItem.getPurity(stack);
+
+                // 创建干净的宝石载体，不设具体的 GEM 数据
+                ItemStack unidentified = new ItemStack(stack.getItem());
+                unidentified.set(DataComponents.MAX_STACK_SIZE, 64);
+                GemItem.setPurity(unidentified, officialPurity);
+
+                // 挂上未鉴定标记
+                unidentified.set(ModDataComponents.IS_UNIDENTIFIED,true);
+
+                lootList.set(i, unidentified);
             }
         }
     }

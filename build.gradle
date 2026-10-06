@@ -23,7 +23,46 @@ sourceSets.main.resources {
     exclude("src/generated/**/.cache")
 }
 
-repositories { }
+repositories {
+    mavenCentral()
+    maven {
+        name = "Amadornes Maven"
+        url = "https://maven.amadornes.com/"
+    }
+    // 备用仓库（很多 1.21+ 的 Create 附属模组也会配置此镜像）
+    maven {
+        name = "ithundxr"
+        url = "https://maven.ithundxr.dev/snapshots"
+    }
+    maven {
+        name = "tterrag maven"
+        url = "https://maven.tterrag.com/"
+    }
+    maven {
+        url = "https://maven.theillusivec4.top/"
+    }
+    maven {
+        // Location of the maven for vazkii's mods
+        name 'blamejared'
+        url 'https://maven.blamejared.com'
+    }
+    maven {
+        url 'https://www.cursemaven.com'
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
+    mavenLocal();
+
+}
+
 
 base {
     archivesName = mod_id
@@ -122,6 +161,11 @@ dependencies {
     // 编译时：全部 jar 参与，保证 IDE 索引正常
     compileOnly fileTree(dir: modsDir, include: ['*.jar'], exclude: baseExclude)
     compileOnly files("libs/l2core-3.0.8+12.jar")
+    compileOnly files("libs/l2menustacker-3.0.10.jar")
+    compileOnly files("libs/l2damagetracker-3.0.5.jar")
+    compileOnly files("libs/l2tabs-3.0.5+7.jar")
+    compileOnly files("libs/l2serial-3.0.9+5.jar")
+    jarJar(implementation("com.tterrag.registrate:Registrate:MC1.21-1.3.0+67"))
     exporterRuntime 'com.github.javaparser:javaparser-core:3.26.2'
     compileOnly 'com.github.javaparser:javaparser-core:3.26.2'
     if (dataOnly) {
@@ -186,17 +230,24 @@ tasks.register('removeComments') {
         RemoveComments.process(srcDir)
     }
 }
+def baseModDir = "C:/mod"
+def srcSubDir = "src/main/java"
+
+def targetMod = project.findProperty('target') ?: "irons-spells-n-spellbooks-1.21"
+
 tasks.register('runExporter', JavaExec) {
-    group = 'export'
+    group = 'JavaPromptGenerator'
     description = 'Exports AST for the specified mod code'
 
     classpath = sourceSets.main.output + configurations.exporterRuntime
-    mainClass = 'main.ExportAst'
+    mainClass = 'main.JavaPromptGenerator'
+
+    // 动态拼接路径
+    def targetSrcDir = file("${baseModDir}/${targetMod}/${srcSubDir}")
+    def outputAstFile = file("${targetSrcDir}/all_code_ast.txt")
 
     args = [
-            // 扫描整个 src/main/java 目录下的所有 .java 文件
-            "C:\\mod\\Apotheosis-1.21\\src\\main\\java",
-            // 导出结果文件路径
-            "C:\\mod\\Apotheosis-1.21\\src\\main\\java\\all_code_ast.txt"
+            targetSrcDir.absolutePath,
+            outputAstFile.absolutePath
     ]
 }

@@ -2,13 +2,12 @@ package com.example.examplemod;
 
 import com.example.examplemod.client.ClientPayloadHandler;
 import com.example.examplemod.compat.ModLootCategories;
-import com.example.examplemod.content.spell.ModSpells;
-import com.example.examplemod.content.spell.SummonedCaveSpider;
-import com.example.examplemod.content.spell.SummonedSupportDragon;
+import com.example.examplemod.registry.modulargolems.ModRegistry;
+import com.example.examplemod.spell.ModSpells;
+import com.example.examplemod.spell.SummonedCaveSpider;
+import com.example.examplemod.spell.SummonedSupportDragon;
 
-import com.example.examplemod.network.ArrowCritPayload;
-import com.example.examplemod.network.OpenShopSelectorPayload;
-import com.example.examplemod.network.SleepButtonPayload;
+import com.example.examplemod.network.*;
 import com.example.examplemod.registry.*;
 import com.example.examplemod.skill.SkillRegistry;
 import com.example.examplemod.skill.SyncSkillDataPayload;
@@ -67,7 +66,8 @@ public final class ExampleMod {
         LOOT_MODIFIERS.register(modEventBus);
         ModAttachments.ATTACHMENTS.register(modEventBus);
         ModAttributes.ATTRIBUTES.register(modEventBus);
-
+        ModRegistry.MODIFIERS.register(modEventBus);
+        ModRegistry.ITEMS.register(modEventBus);
         modEventBus.addListener(this::registerEntityAttributes);
         modEventBus.addListener(ModLootCategories::onRegister);
         modEventBus.addListener(this::commonSetup);
@@ -82,7 +82,7 @@ public final class ExampleMod {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(WeaponReplacer::initWeaponPools);
+//        event.enqueueWork(WeaponReplacer::initWeaponPools);
         event.enqueueWork(SkillRegistry::init);
     }
 
@@ -114,13 +114,31 @@ public final class ExampleMod {
                     }
                 })
         );
-
+        registrar.playToServer(
+                AutoUpgradeArtifactsPayload.TYPE,
+                AutoUpgradeArtifactsPayload.STREAM_CODEC,
+                AutoUpgradeArtifactsPayload::handle
+        );
         registrar.playToServer(
                 UpgradeSkillPayload.TYPE,
                 UpgradeSkillPayload.STREAM_CODEC,
                 UpgradeSkillPayload::handle // 请确保其内部也使用了 context.enqueueWork
         );
-
+        registrar.playToServer(
+                SortToBackpackPayload.TYPE,
+                SortToBackpackPayload.STREAM_CODEC,
+                SortToBackpackPayload::handle
+        );
+        registrar.playToServer(
+                RequestFetchRecipeIngredientsPayload.TYPE,
+                RequestFetchRecipeIngredientsPayload.STREAM_CODEC,
+                RequestFetchRecipeIngredientsPayload::handle
+        );
+        registrar.playToServer(
+                SwapEquipmentPayload.TYPE,
+                SwapEquipmentPayload.STREAM_CODEC,
+                ServerPayloadHandler::handle
+        );
         registrar.playToServer(
                 SleepButtonPayload.TYPE,
                 SleepButtonPayload.STREAM_CODEC,

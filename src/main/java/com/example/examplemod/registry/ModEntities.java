@@ -1,8 +1,8 @@
 package com.example.examplemod.registry;
 
 import com.example.examplemod.ExampleMod;
-import com.example.examplemod.content.spell.SummonedCaveSpider;
-import com.example.examplemod.content.spell.SummonedSupportDragon;
+import com.example.examplemod.spell.SummonedCaveSpider;
+import com.example.examplemod.spell.SummonedSupportDragon;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
