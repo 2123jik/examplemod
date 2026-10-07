@@ -7,7 +7,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.LevelEvent;
 
-@EventBusSubscriber(modid = ExampleMod.MODID)
+@EventBusSubscriber(modid = ExampleMod.MOD_ID)
 public class ModWorldEvents {
 
     @SubscribeEvent

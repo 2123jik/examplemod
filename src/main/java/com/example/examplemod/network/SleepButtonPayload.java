@@ -14,7 +14,7 @@ public record SleepButtonPayload() implements CustomPacketPayload {
     public static final Type<SleepButtonPayload> TYPE =
             new Type<>(
                     ResourceLocation.fromNamespaceAndPath(
-                            ExampleMod.MODID,
+                            ExampleMod.MOD_ID,
                             "sleep_button"
                     )
             );

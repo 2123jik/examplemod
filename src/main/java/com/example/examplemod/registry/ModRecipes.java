@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 
 public class ModRecipes {
     public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS =
-            DeferredRegister.create(Registries.RECIPE_SERIALIZER, ExampleMod.MODID);
+            DeferredRegister.create(Registries.RECIPE_SERIALIZER, ExampleMod.MOD_ID);
 
     public static final Supplier<RecipeSerializer<RunewordSmithingRecipe>> RUNEWORD_SMITHING_SERIALIZER =
             SERIALIZERS.register("runeword_smithing", RunewordSmithingRecipe.Serializer::new);

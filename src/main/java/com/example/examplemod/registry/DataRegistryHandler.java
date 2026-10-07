@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 
-import static com.example.examplemod.ExampleMod.MODID;
+import static com.example.examplemod.ExampleMod.MOD_ID;
 
-@EventBusSubscriber(modid = MODID)
+@EventBusSubscriber(modid = MOD_ID)
 public class DataRegistryHandler {
 
     private static final Consumer<DataComponentPatch.Builder> SET_MAX_STACK_64 =

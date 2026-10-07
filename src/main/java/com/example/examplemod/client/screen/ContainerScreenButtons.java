@@ -22,7 +22,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 /**
  * 集中管理向所有容器/背包注入自定义交互按钮的逻辑
  */
-@EventBusSubscriber(modid = ExampleMod.MODID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = ExampleMod.MOD_ID, value = Dist.CLIENT)
 public final class ContainerScreenButtons {
 
     @SubscribeEvent

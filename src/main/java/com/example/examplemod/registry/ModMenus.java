@@ -7,6 +7,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModMenus {
     public static final DeferredRegister<MenuType<?>> MENUS =
-            DeferredRegister.create(Registries.MENU, ExampleMod.MODID);
+            DeferredRegister.create(Registries.MENU, ExampleMod.MOD_ID);
 
 }

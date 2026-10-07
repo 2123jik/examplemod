@@ -12,7 +12,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES =
-            DeferredRegister.create(Registries.ENTITY_TYPE, ExampleMod.MODID);
+            DeferredRegister.create(Registries.ENTITY_TYPE, ExampleMod.MOD_ID);
 
     public static final DeferredHolder<EntityType<?>, EntityType<SummonedCaveSpider>> SUMMONED_CAVE_SPIDER =
             ENTITIES.register("summoned_cave_spider", () ->
@@ -32,6 +32,8 @@ public class ModEntities {
                             .updateInterval(3)
                             .build("summoned_support_dragon")
             );
+
+
     public static void register(IEventBus modEventBus) {
         ENTITIES.register(modEventBus);
     }

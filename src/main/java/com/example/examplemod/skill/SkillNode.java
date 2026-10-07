@@ -72,7 +72,7 @@ public class SkillNode {
         ResourceLocation attrId = ResourceLocation.parse(attributeRl);
         int index = bonuses.size();
         ResourceLocation modifierId = ResourceLocation.fromNamespaceAndPath(
-                ExampleMod.MODID,
+                ExampleMod.MOD_ID,
                 "skill_" + this.id.replace(':', '_') + "_" + attrId.getPath() + "_" + index
         );
         bonuses.add(new AttributeBonus(attrId, amountPerRank, operation, modifierId));

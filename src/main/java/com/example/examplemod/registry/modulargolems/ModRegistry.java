@@ -14,14 +14,14 @@ public class ModRegistry {
 
     // 1. 注册 Modifier 到 Modular Golems 自定义注册表
     public static final DeferredRegister<GolemModifier> MODIFIERS =
-            DeferredRegister.create(GolemTypes.MODIFIERS.key(), ExampleMod.MODID);
+            DeferredRegister.create(GolemTypes.MODIFIERS.key(), ExampleMod.MOD_ID);
 
     public static final DeferredHolder<GolemModifier, BackstabModifier> BACKSTAB_MODIFIER =
             MODIFIERS.register("backstab", () -> new BackstabModifier(3));
 
     // 2. 注册升级卡物品（使用 NeoForge 的 createItems）
     public static final DeferredRegister.Items ITEMS =
-            DeferredRegister.createItems(ExampleMod.MODID);
+            DeferredRegister.createItems(ExampleMod.MOD_ID);
 
     public static final DeferredItem<SimpleUpgradeItem> BACKSTAB_UPGRADE =
             ITEMS.register("backstab_upgrade", () -> new SimpleUpgradeItem(

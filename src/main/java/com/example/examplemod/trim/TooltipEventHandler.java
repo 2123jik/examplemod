@@ -14,9 +14,9 @@ import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
 import java.util.List;
 
-import static com.example.examplemod.ExampleMod.MODID;
+import static com.example.examplemod.ExampleMod.MOD_ID;
 
-@EventBusSubscriber(modid = MODID)
+@EventBusSubscriber(modid = MOD_ID)
 public class TooltipEventHandler {
 
     // 使用 LOWEST 优先级，确保神化（Apotheosis）完成前后缀拼装后我们再接管第 0 行
@@ -34,11 +34,11 @@ public class TooltipEventHandler {
             Component currentFullName = tooltip.get(0);
 
             // 【恢复国际化翻译键】: runeword.<modid>.<id>
-            MutableComponent runewordTitle = Component.translatable("runeword." + ExampleMod.MODID + "." + def.id())
+            MutableComponent runewordTitle = Component.translatable("runeword." + ExampleMod.MOD_ID + "." + def.id())
                     .withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD);
 
             MutableComponent formattedFullName = Component.translatable(
-                    "runeword." + ExampleMod.MODID + ".title_format",
+                    "runeword." + ExampleMod.MOD_ID + ".title_format",
                     runewordTitle,
                     currentFullName
             );
@@ -66,7 +66,7 @@ public class TooltipEventHandler {
                 ModDataComponents.TrimStep step = history.get(i);
                 String patternName = simplifyId(step.pattern());
                 String matName = simplifyId(step.material());
-                tooltip.add(Component.translatable("tooltip." + MODID + ".history_step", (i + 1), patternName, matName)
+                tooltip.add(Component.translatable("tooltip." + MOD_ID + ".history_step", (i + 1), patternName, matName)
                         .withStyle(ChatFormatting.GRAY));
             }
         }

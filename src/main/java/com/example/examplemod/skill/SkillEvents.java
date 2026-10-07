@@ -8,7 +8,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-@EventBusSubscriber(modid = ExampleMod.MODID)
+@EventBusSubscriber(modid = ExampleMod.MOD_ID)
 public class SkillEvents {
 
     // 玩家登录/重进时，重新挂载技能属性并同步数据到客户端 UI

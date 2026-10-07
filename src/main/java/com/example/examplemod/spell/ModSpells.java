@@ -9,14 +9,16 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModSpells {
     public static final DeferredRegister<AbstractSpell> SPELLS = 
-            DeferredRegister.create(SpellRegistry.SPELL_REGISTRY_KEY, ExampleMod.MODID);
+            DeferredRegister.create(SpellRegistry.SPELL_REGISTRY_KEY, ExampleMod.MOD_ID);
 
     public static final DeferredHolder<AbstractSpell, AbstractSpell> SUMMON_CAVE_SPIDER =
             SPELLS.register("summon_cave_spider", SummonCaveSpiderSpell::new);
 
     public static final DeferredHolder<AbstractSpell, AbstractSpell> SUMMON_DRAGON =
             SPELLS.register("summon_dragon", SummonDragonSpell::new);
+    
     public static void register(IEventBus modEventBus) {
         SPELLS.register(modEventBus);
     }
+
 }

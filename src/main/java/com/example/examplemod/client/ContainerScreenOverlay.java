@@ -17,7 +17,6 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -26,7 +25,7 @@ import net.neoforged.neoforge.client.event.ContainerScreenEvent;
 
 import java.util.Locale;
 
-@EventBusSubscriber(modid = ExampleMod.MODID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = ExampleMod.MOD_ID, value = Dist.CLIENT)
 public class ContainerScreenOverlay {
 
     private static final int OVERLAY_Z = 300;

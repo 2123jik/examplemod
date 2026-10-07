@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@EventBusSubscriber(modid = ExampleMod.MODID)
+@EventBusSubscriber(modid = ExampleMod.MOD_ID)
 public class TrimTooltipHandler {
 
     // 使用 NORMAL 优先级注入单行紧凑展示
@@ -51,7 +51,7 @@ public class TrimTooltipHandler {
         }
 
         // 构建行首标头："纹饰：" (灰白微亮)
-        MutableComponent line = Component.translatable("tooltip." + ExampleMod.MODID + ".trims_header")
+        MutableComponent line = Component.translatable("tooltip." + ExampleMod.MOD_ID + ".trims_header")
                 .withStyle(ChatFormatting.GRAY);
 
         List<Component> stepComponents = new ArrayList<>();

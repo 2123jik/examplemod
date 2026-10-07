@@ -7,6 +7,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.sounds.SoundEvents;
@@ -19,7 +20,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-@EventBusSubscriber(modid = ExampleMod.MODID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = ExampleMod.MOD_ID, value = Dist.CLIENT)
 public class ClientScreenOverlayHandler {
 
     private static final int SLOT_SIZE = 18;
@@ -27,11 +28,10 @@ public class ClientScreenOverlayHandler {
     private static final int DOLL_WIDTH = 46;
     private static final int DOLL_HEIGHT = 78;
 
-    // 面板尺寸计算：左侧槽位(18) + 中间娃娃(46) + 右侧槽位(18) + 边距
+    // 面板尺寸计算：左侧槽位(18) + 中间娃娃(46) + 右侧槽位(18) + 间距与边距 = 94
     private static final int PANEL_WIDTH = PADDING * 2 + SLOT_SIZE * 2 + DOLL_WIDTH + 4;
     private static final int PANEL_HEIGHT = DOLL_HEIGHT + PADDING * 2;
 
-    // 装备槽位映射
     private static final EquipmentSlot[] ARMOR_SLOTS = {
             EquipmentSlot.HEAD,
             EquipmentSlot.CHEST,
@@ -39,24 +39,33 @@ public class ClientScreenOverlayHandler {
             EquipmentSlot.FEET
     };
 
-    /**
-     * 1. 渲染逻辑：绘制背景、3D玩家实体、所有槽位及悬停 Tooltip，并在最上层渲染光标物品
-     */
+    /** 判断当前 Screen 是否应当展示扩展侧边栏 */
+    private static boolean shouldDisplay(Screen screen, Player player) {
+        if (player == null || !(screen instanceof AbstractContainerScreen<?> containerScreen)) {
+            return false;
+        }
+        // 排除生存模式背包与创造模式背包
+        if (screen instanceof InventoryScreen || screen instanceof CreativeModeInventoryScreen) {
+            return false;
+        }
+        // 界面左侧空间不足以完整容纳侧边栏时退出，避免遮挡侵入原版槽位
+        return containerScreen.getGuiLeft() >= PANEL_WIDTH + 6;
+    }
+
     @SubscribeEvent
     public static void onScreenRenderPost(ScreenEvent.Render.Post event) {
         Screen screen = event.getScreen();
         Minecraft mc = Minecraft.getInstance();
         Player player = mc.player;
 
-        if (player == null || !(screen instanceof AbstractContainerScreen<?> containerScreen) || (screen instanceof InventoryScreen)) {
-            return;
-        }
+        if (!shouldDisplay(screen, player)) return;
+        AbstractContainerScreen<?> containerScreen = (AbstractContainerScreen<?>) screen;
 
         GuiGraphics graphics = event.getGuiGraphics();
         int mouseX = event.getMouseX();
         int mouseY = event.getMouseY();
 
-        int panelX = Math.max(2, containerScreen.getGuiLeft() - PANEL_WIDTH - 4);
+        int panelX = containerScreen.getGuiLeft() - PANEL_WIDTH - 4;
         int panelY = containerScreen.getGuiTop();
 
         // 绘制整体面板深色半透明背景与外边框
@@ -103,87 +112,79 @@ public class ClientScreenOverlayHandler {
             hoveredStack = player.getOffhandItem();
         }
 
-        // 悬停提示 Tooltip（如果光标没拿东西才展示提示）
+        // 悬停提示 Tooltip（光标未拿取物品时展示）
         ItemStack carried = containerScreen.getMenu().getCarried();
         if (!hoveredStack.isEmpty() && carried.isEmpty()) {
             graphics.renderTooltip(mc.font, hoveredStack, mouseX, mouseY);
         }
 
-        // 关键修复：如果光标持有物品且位于自定义面板上方，在 Post 阶段重绘光标物品，防止被面板背景遮盖
+        // 光标持有物品且位于自定义面板上方时在 Post 重新绘制光标物品，防止被面板背景遮盖
         if (!carried.isEmpty() && isInside(mouseX, mouseY, panelX, panelY, PANEL_WIDTH, PANEL_HEIGHT)) {
             graphics.renderItem(carried, mouseX - 8, mouseY - 8);
             graphics.renderItemDecorations(mc.font, carried, mouseX - 8, mouseY - 8);
         }
     }
 
-    /**
-     * 2. 鼠标点击按下拦截（Press）：
-     * 只要点击发生在整个扩展面板内，就绝对阻止事件向下传递给原版容器（防止触发点击外部丢弃物品）
-     */
     @SubscribeEvent
     public static void onMouseClickPre(ScreenEvent.MouseButtonPressed.Pre event) {
         Screen screen = event.getScreen();
         Minecraft mc = Minecraft.getInstance();
 
-        if (mc.player == null || !(screen instanceof AbstractContainerScreen<?> containerScreen) || (screen instanceof InventoryScreen)) {
-            return;
-        }
-
-        // 仅处理鼠标左键 (0)
-        if (event.getButton() != 0) {
-            return;
-        }
+        if (!shouldDisplay(screen, mc.player)) return;
+        AbstractContainerScreen<?> containerScreen = (AbstractContainerScreen<?>) screen;
 
         double mouseX = event.getMouseX();
         double mouseY = event.getMouseY();
 
-        int panelX = Math.max(2, containerScreen.getGuiLeft() - PANEL_WIDTH - 4);
+        int panelX = containerScreen.getGuiLeft() - PANEL_WIDTH - 4;
         int panelY = containerScreen.getGuiTop();
 
-        // 只要鼠标落在面板范围内，就必须拦截原生容器处理！
+        // 1. 只要鼠标位于面板范围内，立刻拦截原版处理（防止触发界面外丢弃物品）
         if (isInside(mouseX, mouseY, panelX, panelY, PANEL_WIDTH, PANEL_HEIGHT)) {
-            event.setCanceled(true); // 彻底阻止原版将此点击当成“点在容器外丢东西”
+            event.setCanceled(true);
 
-            // 检测左侧 4 个盔甲槽
-            int armorX = panelX + PADDING;
-            for (int i = 0; i < ARMOR_SLOTS.length; i++) {
-                int slotY = panelY + PADDING + i * (SLOT_SIZE + 2);
-                if (isInside(mouseX, mouseY, armorX, slotY, SLOT_SIZE, SLOT_SIZE)) {
-                    sendClick(ARMOR_SLOTS[i]);
+            // 2. 仅对鼠标左键 (0) 响应槽位装备交换
+            if (event.getButton() == 0) {
+                // 检测左侧 4 个盔甲槽
+                int armorX = panelX + PADDING;
+                for (int i = 0; i < ARMOR_SLOTS.length; i++) {
+                    int slotY = panelY + PADDING + i * (SLOT_SIZE + 2);
+                    if (isInside(mouseX, mouseY, armorX, slotY, SLOT_SIZE, SLOT_SIZE)) {
+                        sendClick(ARMOR_SLOTS[i]);
+                        return;
+                    }
+                }
+
+                // 检测右侧双手槽
+                int rightX = panelX + PADDING + SLOT_SIZE + 2 + DOLL_WIDTH + 2;
+                int mainHandY = panelY + PADDING;
+                int offHandY = panelY + PADDING + SLOT_SIZE + 2;
+
+                if (isInside(mouseX, mouseY, rightX, mainHandY, SLOT_SIZE, SLOT_SIZE)) {
+                    sendClick(EquipmentSlot.MAINHAND);
                     return;
                 }
-            }
 
-            // 检测双手槽
-            int rightX = panelX + PADDING + SLOT_SIZE + 2 + DOLL_WIDTH + 2;
-            int mainHandY = panelY + PADDING;
-            int offHandY = panelY + PADDING + SLOT_SIZE + 2;
-
-            if (isInside(mouseX, mouseY, rightX, mainHandY, SLOT_SIZE, SLOT_SIZE)) {
-                sendClick(EquipmentSlot.MAINHAND);
-                return;
-            }
-
-            if (isInside(mouseX, mouseY, rightX, offHandY, SLOT_SIZE, SLOT_SIZE)) {
-                sendClick(EquipmentSlot.OFFHAND);
-                return;
+                if (isInside(mouseX, mouseY, rightX, offHandY, SLOT_SIZE, SLOT_SIZE)) {
+                    sendClick(EquipmentSlot.OFFHAND);
+                }
             }
         }
     }
 
-    /**
-     * 3. 关键修复：鼠标释放拦截（Release）
-     * 阻止原版在松开鼠标时因判断位于 GUI 外部而将光标物品抛掷到地面
-     */
     @SubscribeEvent
     public static void onMouseReleasePre(ScreenEvent.MouseButtonReleased.Pre event) {
         Screen screen = event.getScreen();
-        if (screen instanceof AbstractContainerScreen<?> containerScreen && !(screen instanceof InventoryScreen)) {
-            int panelX = Math.max(2, containerScreen.getGuiLeft() - PANEL_WIDTH - 4);
-            int panelY = containerScreen.getGuiTop();
-            if (isInside(event.getMouseX(), event.getMouseY(), panelX, panelY, PANEL_WIDTH, PANEL_HEIGHT)) {
-                event.setCanceled(true);
-            }
+        Minecraft mc = Minecraft.getInstance();
+
+        if (!shouldDisplay(screen, mc.player)) return;
+        AbstractContainerScreen<?> containerScreen = (AbstractContainerScreen<?>) screen;
+
+        int panelX = containerScreen.getGuiLeft() - PANEL_WIDTH - 4;
+        int panelY = containerScreen.getGuiTop();
+
+        if (isInside(event.getMouseX(), event.getMouseY(), panelX, panelY, PANEL_WIDTH, PANEL_HEIGHT)) {
+            event.setCanceled(true);
         }
     }
 

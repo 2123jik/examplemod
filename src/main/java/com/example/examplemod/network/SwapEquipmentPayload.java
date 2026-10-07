@@ -11,7 +11,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 public record SwapEquipmentPayload(EquipmentSlot slot) implements CustomPacketPayload {
 
     public static final Type<SwapEquipmentPayload> TYPE = 
-            new Type<>(ResourceLocation.fromNamespaceAndPath(ExampleMod.MODID, "swap_equipment"));
+            new Type<>(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "swap_equipment"));
 
     // 将 EquipmentSlot 枚举编解码为整数传输
     public static final StreamCodec<RegistryFriendlyByteBuf, SwapEquipmentPayload> STREAM_CODEC = 

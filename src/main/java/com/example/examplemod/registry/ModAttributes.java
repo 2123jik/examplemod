@@ -12,7 +12,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModAttributes {
     public static final DeferredRegister<Attribute> ATTRIBUTES =
-            DeferredRegister.create(BuiltInRegistries.ATTRIBUTE, ExampleMod.MODID);
+            DeferredRegister.create(BuiltInRegistries.ATTRIBUTE, ExampleMod.MOD_ID);
 
     // 1. 魔能爆质变：虚空奇点（取消连发，聚变为吞噬黑洞）
     public static final DeferredHolder<Attribute, Attribute> ELDRITCH_SINGULARITY = ATTRIBUTES.register(

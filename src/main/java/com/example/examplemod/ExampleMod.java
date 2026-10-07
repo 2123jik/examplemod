@@ -1,6 +1,6 @@
 package com.example.examplemod;
 
-import com.example.examplemod.client.ClientPayloadHandler;
+import com.example.examplemod.client.XpFlightClient;
 import com.example.examplemod.compat.ModLootCategories;
 import com.example.examplemod.registry.modulargolems.ModRegistry;
 import com.example.examplemod.spell.ModSpells;
@@ -13,7 +13,6 @@ import com.example.examplemod.skill.SkillRegistry;
 import com.example.examplemod.skill.SyncSkillDataPayload;
 import com.example.examplemod.skill.UpgradeSkillPayload;
 import com.example.examplemod.trim.RunewordManager;
-import com.example.examplemod.util.WeaponReplacer;
 import com.mojang.serialization.MapCodec;
 import com.viscriptshop.util.ViScriptShopServerUtil;
 import net.minecraft.core.BlockPos;
@@ -41,13 +40,13 @@ import org.slf4j.LoggerFactory;
 
 import static com.example.examplemod.registry.ModItems.ITEMS;
 
-@Mod(ExampleMod.MODID)
+@Mod(ExampleMod.MOD_ID)
 public final class ExampleMod {
-    public static final String MODID = "examplemod";
+    public static final String MOD_ID = "examplemod";
     public static final Logger LOGGER = LoggerFactory.getLogger(ExampleMod.class);
 
     public static final DeferredRegister<MapCodec<? extends IGlobalLootModifier>> LOOT_MODIFIERS =
-            DeferredRegister.create(NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, MODID);
+            DeferredRegister.create(NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, MOD_ID);
 
     public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<WeaponReplacementModifier>> REPLACE_WEAPONS =
             LOOT_MODIFIERS.register("replace_weapons", () -> WeaponReplacementModifier.CODEC);
@@ -89,14 +88,13 @@ public final class ExampleMod {
     public void registerPayloads(RegisterPayloadHandlersEvent event) {
         PayloadRegistrar registrar = event.registrar("1");
 
-        // ================= 客户端接收 (S2C) =================
-        // 使用独立类避免在 Dedicated Server 上触发 ClassNotFoundException
-        registrar.playToClient(
-                ArrowCritPayload.TYPE,
-                ArrowCritPayload.STREAM_CODEC,
-                ClientPayloadHandler::handleArrowCrit
-        );
 
+        registrar.playToClient(
+                XpFlightPayload.TYPE,
+                XpFlightPayload.STREAM_CODEC,
+                (payload, context) ->
+                        context.enqueueWork(() -> XpFlightClient.receive(payload))
+        );
         registrar.playToClient(
                 SyncSkillDataPayload.TYPE,
                 SyncSkillDataPayload.STREAM_CODEC,

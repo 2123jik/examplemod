@@ -14,7 +14,7 @@ public class SpellTraitItemModels extends ItemModelProvider {
             ResourceLocation.fromNamespaceAndPath("l2hostility", "item/bg");
 
     public SpellTraitItemModels(PackOutput output, ExistingFileHelper helper) {
-        super(output, ExampleMod.MODID, helper);
+        super(output, ExampleMod.MOD_ID, helper);
     }
 
     @Override

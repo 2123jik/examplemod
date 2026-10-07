@@ -12,7 +12,7 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 public record SortToBackpackPayload(boolean fromContainerOnly) implements CustomPacketPayload {
     public static final Type<SortToBackpackPayload> TYPE = 
-        new Type<>(ResourceLocation.fromNamespaceAndPath(ExampleMod.MODID, "sort_to_backpack"));
+        new Type<>(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "sort_to_backpack"));
 
     public static final StreamCodec<ByteBuf, SortToBackpackPayload> STREAM_CODEC = 
         ByteBufCodecs.BOOL.map(SortToBackpackPayload::new, SortToBackpackPayload::fromContainerOnly);

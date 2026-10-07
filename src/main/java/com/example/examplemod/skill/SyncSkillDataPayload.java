@@ -10,7 +10,7 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 public record SyncSkillDataPayload(PlayerSkillData data) implements CustomPacketPayload {
     public static final Type<SyncSkillDataPayload> TYPE = 
-            new Type<>(ResourceLocation.fromNamespaceAndPath(ExampleMod.MODID, "sync_skill_data"));
+            new Type<>(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "sync_skill_data"));
 
     public static final StreamCodec<ByteBuf, SyncSkillDataPayload> STREAM_CODEC = StreamCodec.composite(
             PlayerSkillData.STREAM_CODEC,

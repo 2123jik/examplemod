@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 
 public class ModAttachments {
     public static final DeferredRegister<AttachmentType<?>> ATTACHMENTS =
-            DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, ExampleMod.MODID);
+            DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, ExampleMod.MOD_ID);
 
     public static final Supplier<AttachmentType<PlayerSkillData>> SKILL_DATA = ATTACHMENTS.register(
             "skill_data",

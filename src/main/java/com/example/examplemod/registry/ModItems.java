@@ -11,7 +11,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS =
-            DeferredRegister.createItems(ExampleMod.MODID);
+            DeferredRegister.createItems(ExampleMod.MOD_ID);
     public static final DeferredHolder<Item, Item> PORTABLE_STONECUTTER =
             ITEMS.register("portable_stonecutter", () -> new PortableStonecutterItem(new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, Item> PORTABLE_ANVIL =

@@ -2,9 +2,6 @@ package com.example.examplemod.event;
 
 import com.example.examplemod.ExampleMod;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.Chicken;
-import net.minecraft.world.entity.animal.Cow;
-import net.minecraft.world.entity.animal.Sheep;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -14,7 +11,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-@EventBusSubscriber(modid = ExampleMod.MODID)
+@EventBusSubscriber(modid = ExampleMod.MOD_ID)
 public class ModEvents {
 
     @SubscribeEvent

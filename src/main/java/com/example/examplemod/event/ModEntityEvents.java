@@ -8,7 +8,7 @@ import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
 import static com.example.examplemod.registry.ModAttachments.TIMED_MODIFIERS;
 
-@EventBusSubscriber(modid = ExampleMod.MODID)
+@EventBusSubscriber(modid = ExampleMod.MOD_ID)
 public class ModEntityEvents {
 
     @SubscribeEvent

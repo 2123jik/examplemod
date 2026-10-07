@@ -15,9 +15,9 @@ import net.neoforged.neoforge.event.ItemAttributeModifierEvent;
 
 import java.util.Optional;
 
-import static com.example.examplemod.ExampleMod.MODID;
+import static com.example.examplemod.ExampleMod.MOD_ID;
 
-@EventBusSubscriber(modid = MODID)
+@EventBusSubscriber(modid = MOD_ID)
 public class AttributeEventHandler {
 
     @SubscribeEvent
@@ -52,7 +52,7 @@ public class AttributeEventHandler {
 
             // 构造 Modifier ID：加入 validSlot.getSerializedName()，彻底杜绝双持相同符文之语时的 ID 碰撞
             ResourceLocation modifierId = ResourceLocation.fromNamespaceAndPath(
-                    MODID,
+                    MOD_ID,
                     "runeword_" + wordId + "_" + validSlot.getSerializedName() + "_" + i
             );
 

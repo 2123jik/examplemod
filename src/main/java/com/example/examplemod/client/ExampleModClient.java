@@ -8,13 +8,17 @@ import com.example.examplemod.client.tooltip.VisualComponents;
 import com.example.examplemod.registry.ModEntities;
 import com.example.examplemod.skill.gui.SkillTreeFragment;
 import com.mojang.blaze3d.platform.InputConstants;
+import com.mojang.blaze3d.vertex.PoseStack;
 import icyllis.modernui.mc.MuiModApi;
 import net.minecraft.client.KeyMapping;
-import net.minecraft.client.renderer.entity.CaveSpiderRenderer;
-import net.minecraft.client.renderer.entity.EnderDragonRenderer;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.culling.Frustum;
+import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -29,8 +33,8 @@ import org.lwjgl.glfw.GLFW;
 
 import java.util.Map;
 
-@Mod(value = ExampleMod.MODID, dist = Dist.CLIENT)
-@EventBusSubscriber(modid = ExampleMod.MODID, value = Dist.CLIENT)
+@Mod(value = ExampleMod.MOD_ID, dist = Dist.CLIENT)
+@EventBusSubscriber(modid = ExampleMod.MOD_ID, value = Dist.CLIENT)
 public final class ExampleModClient {
 
     public static final KeyMapping OPEN_SKILL_TREE = new KeyMapping(
@@ -57,9 +61,55 @@ public final class ExampleModClient {
 
     private void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.SUMMONED_SUPPORT_DRAGON.get(), EnderDragonRenderer::new);
+        event.registerEntityRenderer(
+                EntityType.EXPERIENCE_ORB,
+                HiddenExperienceOrbRenderer::new
+        );
         event.registerEntityRenderer(ModEntities.SUMMONED_CAVE_SPIDER.get(), CaveSpiderRenderer::new);
     }
+    private static final class HiddenExperienceOrbRenderer
+            extends EntityRenderer<ExperienceOrb> {
 
+        private static final ResourceLocation UNUSED_TEXTURE =
+                ResourceLocation.withDefaultNamespace(
+                        "textures/entity/experience_orb.png"
+                );
+
+        private HiddenExperienceOrbRenderer(
+                EntityRendererProvider.Context context
+        ) {
+            super(context);
+            shadowRadius = 0.0F;
+        }
+
+        @Override
+        public boolean shouldRender(
+                ExperienceOrb entity,
+                Frustum frustum,
+                double cameraX,
+                double cameraY,
+                double cameraZ
+        ) {
+            return false;
+        }
+
+        @Override
+        public void render(
+                ExperienceOrb entity,
+                float entityYaw,
+                float partialTick,
+                PoseStack poseStack,
+                MultiBufferSource buffers,
+                int packedLight
+        ) {
+            // 完全不绘制模型、名字和其他原版内容。
+        }
+
+        @Override
+        public ResourceLocation getTextureLocation(ExperienceOrb entity) {
+            return UNUSED_TEXTURE;
+        }
+    }
     private void registerKeys(RegisterKeyMappingsEvent event) {
         event.register(OPEN_SKILL_TREE);
     }
@@ -82,7 +132,7 @@ public final class ExampleModClient {
 
     private static void redirectItemModel(Map<ModelResourceLocation, BakedModel> models, String myItem, String vanillaItem) {
         ModelResourceLocation vanillaLoc = new ModelResourceLocation(ResourceLocation.withDefaultNamespace(vanillaItem), "inventory");
-        ModelResourceLocation myLoc = new ModelResourceLocation(ResourceLocation.fromNamespaceAndPath(ExampleMod.MODID, myItem), "inventory");
+        ModelResourceLocation myLoc = new ModelResourceLocation(ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, myItem), "inventory");
         BakedModel vanillaModel = models.get(vanillaLoc);
         if (vanillaModel != null) models.put(myLoc, vanillaModel);
     }

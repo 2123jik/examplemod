@@ -13,7 +13,7 @@ public record OpenShopSelectorPayload() implements CustomPacketPayload {
     public static final Type<OpenShopSelectorPayload> TYPE =
             new Type<>(
                     ResourceLocation.fromNamespaceAndPath(
-                            ExampleMod.MODID,
+                            ExampleMod.MOD_ID,
                             "open_shop_selector"
                     )
             );

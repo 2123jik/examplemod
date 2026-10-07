@@ -12,12 +12,12 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
-@EventBusSubscriber(modid = ExampleMod.MODID)
+@EventBusSubscriber(modid = ExampleMod.MOD_ID)
 public class PlayerHealthHandler {
 
     // 1.21 中 ResourceLocation 构造器已私有，需使用 fromNamespaceAndPath
     public static final ResourceLocation HEALTH_MULTIPLIER_ID = 
-            ResourceLocation.fromNamespaceAndPath(ExampleMod.MODID, "player_max_health_mult");
+            ResourceLocation.fromNamespaceAndPath(ExampleMod.MOD_ID, "player_max_health_mult");
 
     // 1 + 4.0 = 5.0，即 5 倍血量独立乘区
     private static final double MULTIPLIER_AMOUNT = 4.0D;
