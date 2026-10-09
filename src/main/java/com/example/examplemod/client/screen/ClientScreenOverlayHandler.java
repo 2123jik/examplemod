@@ -6,9 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
-import net.minecraft.client.gui.screens.inventory.InventoryScreen;
+import net.minecraft.client.gui.screens.inventory.*;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -19,6 +17,8 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
+
+import java.util.Set;
 
 @EventBusSubscriber(modid = ExampleMod.MOD_ID, value = Dist.CLIENT)
 public class ClientScreenOverlayHandler {
@@ -38,19 +38,25 @@ public class ClientScreenOverlayHandler {
             EquipmentSlot.LEGS,
             EquipmentSlot.FEET
     };
+    private static final Set<Class<? extends Screen>> WHITELIST_SCREENS = Set.of(
+            ContainerScreen.class,       // 单箱、大箱、末影箱
+            ShulkerBoxScreen.class       // 潜影盒
+            // 可根据需要增加：Barrel（木桶原版也是 ContainerScreen）
+    );
 
-    /** 判断当前 Screen 是否应当展示扩展侧边栏 */
     private static boolean shouldDisplay(Screen screen, Player player) {
         if (player == null || !(screen instanceof AbstractContainerScreen<?> containerScreen)) {
             return false;
         }
-        // 排除生存模式背包与创造模式背包
-        if (screen instanceof InventoryScreen || screen instanceof CreativeModeInventoryScreen) {
+
+        // 仅在白名单容器中启用
+        if (!WHITELIST_SCREENS.contains(screen.getClass())) {
             return false;
         }
-        // 界面左侧空间不足以完整容纳侧边栏时退出，避免遮挡侵入原版槽位
+
         return containerScreen.getGuiLeft() >= PANEL_WIDTH + 6;
     }
+
 
     @SubscribeEvent
     public static void onScreenRenderPost(ScreenEvent.Render.Post event) {

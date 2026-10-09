@@ -17,17 +17,33 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.wrapper.InvWrapper;
 
 public final class EquipmentCabinetBlockEntity extends BlockEntity
         implements Container, MenuProvider {
 
-    public static final int CAPACITY = 256;
+    public static final int CAPACITY = 2048;
 
     private final NonNullList<ItemStack> items =
             NonNullList.withSize(CAPACITY, ItemStack.EMPTY);
 
     public EquipmentCabinetBlockEntity(BlockPos pos, BlockState state) {
         super(ExampleMod.CABINET_ENTITY.get(), pos, state);
+    }
+    /*
+     * 包装已有 Container，直接使用 items 库存。
+     *
+     * InvWrapper 会通过 Container 的 setItem/removeItem 写入，
+     * 因而沿用已有的 setChanged() 和持久化逻辑。
+     *
+     * 不要另外创建 ItemStackHandler，否则容易出现界面库存和管道库存
+     * 各存一份物品的问题。
+     */
+    private final IItemHandler itemHandler = new InvWrapper(this);
+
+    public IItemHandler getItemHandler() {
+        return itemHandler;
     }
 
     /**
