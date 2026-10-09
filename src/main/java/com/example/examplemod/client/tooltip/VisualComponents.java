@@ -32,7 +32,6 @@ public final class VisualComponents {
     }
 
     public static void registerFactories(RegisterClientTooltipComponentFactoriesEvent event) {
-        event.register(MapPreview.class, ClientMapPreview::new);
         event.register(DynamicEntityPreview.class, ClientDynamicEntityPreview::new);
         event.register(BlockGridPreview.class, ClientBlockGridPreview::new);
 
@@ -50,59 +49,6 @@ public final class VisualComponents {
     }
 
 
-    public record MapPreview(MapId mapId) implements TooltipComponent {
-    }
-
-    public static class ClientMapPreview implements ClientTooltipComponent {
-        private final MapPreview data;
-
-        public ClientMapPreview(MapPreview data) {
-            this.data = data;
-        }
-
-        @Override
-        public int getWidth(Font font) {
-            return 68;
-        }
-
-        @Override
-        public int getHeight() {
-            return 68;
-        }
-
-        @Override
-        public void renderImage(Font font, int x, int y, GuiGraphics graphics) {
-            Minecraft mc = Minecraft.getInstance();
-            if (mc.level == null) return;
-            MapItemSavedData mapData = mc.level.getMapData(data.mapId());
-            graphics.fill(x, y, x + 68, y + 68, 0xFF2A2A2A);
-            graphics.renderOutline(x, y, 68, 68, 0xFF8A6A42);
-            if (mapData != null) {
-                var pose = graphics.pose();
-                pose.pushPose();
-                try {
-                    pose.translate(x + 2, y + 2, 0.0);
-                    pose.scale(0.5F, 0.5F, 1.0F);
-
-                    var buffer = graphics.bufferSource();
-                    try {
-                        mc.gameRenderer.getMapRenderer().render(
-                                pose, buffer, data.mapId(), mapData, false, 0xF000F0
-                        );
-                    } finally {
-                        buffer.endBatch();
-                    }
-                } finally {
-                    pose.popPose();
-                }
-            } else {
-                graphics.drawCenteredString(
-                        font, "未探索地图", x + 34, y + 30, 0xFFAAAAAA
-                );
-            }
-
-        }
-    }
 
     private static String ellipsize(Font font, String text, int width) {
         if (font.width(text) <= width) return text;

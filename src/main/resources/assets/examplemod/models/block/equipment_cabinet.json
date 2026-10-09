@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "minecraft:block/barrel_side",
+    "bottom": "minecraft:block/barrel_bottom",
+    "top": "minecraft:block/barrel_top",
+    "particle": "minecraft:block/barrel_side"
+  }
+}

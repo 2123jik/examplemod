@@ -364,5 +364,8 @@
   "item.examplemod.unidentified_scroll": "未鉴定的%s法术卷轴",
   "item.examplemod.unidentified_gem": "未鉴定的%s宝石",
   "tooltip.examplemod.school_filter": "%s学派限定",
-  "tooltip.examplemod.right_click_to_identify": "右键进行鉴定"
+  "tooltip.examplemod.right_click_to_identify": "右键进行鉴定",
+
+
+  "block.examplemod.equipment_cabinet": "装备柜"
 }

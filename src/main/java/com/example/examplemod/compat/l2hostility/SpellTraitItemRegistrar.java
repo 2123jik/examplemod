@@ -23,7 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@EventBusSubscriber(modid = ExampleMod.MOD_ID)
+//@EventBusSubscriber(modid = ExampleMod.MOD_ID)
 public class SpellTraitItemRegistrar {
     private static final boolean DEBUG = Boolean.getBoolean("examplemod.spelltrait.debug");
 

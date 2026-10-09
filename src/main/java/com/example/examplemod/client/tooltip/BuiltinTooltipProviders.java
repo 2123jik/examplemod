@@ -74,7 +74,7 @@ public final class BuiltinTooltipProviders {
         }
     }
 
-    public static final List<TooltipContributors.Provider> ALL = List.of(            BuiltinTooltipProviders::appendMapPreview,
+    public static final List<TooltipContributors.Provider> ALL = List.of(
             BuiltinTooltipProviders::appendBees,
             BuiltinTooltipProviders::appendEntities,
             BuiltinTooltipProviders::appendAdventureRestrictions,
@@ -101,12 +101,7 @@ public final class BuiltinTooltipProviders {
             BuiltinTooltipProviders::appendMisc
     );
 
-    private static void appendMapPreview(TooltipContext ctx, List<TooltipContribution> sink) {
-        MapId mapId = ctx.stack().get(DataComponents.MAP_ID);
-        if (mapId != null) {
-            sink.add(TooltipContribution.visual(TooltipCategory.IDENTITY, -10, "map_preview", new VisualComponents.MapPreview(mapId)));
-        }
-    }
+
 
     private static void appendBees(TooltipContext ctx, List<TooltipContribution> sink) {
         List<Occupant> bees = ctx.stack().get(DataComponents.BEES);

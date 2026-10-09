@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Set;
 
-@EventBusSubscriber(modid = "examplemod")
+//@EventBusSubscriber(modid = "examplemod")
 public class SpellTraitRegistrar {
     private static final Logger LOGGER = LogManager.getLogger();
 

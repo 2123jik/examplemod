@@ -1,6 +1,7 @@
 package com.example.examplemod.client;
 
 import com.example.examplemod.ExampleMod;
+import com.example.examplemod.client.gui.PinnacleAdaptiveHud;
 import com.example.examplemod.client.tooltip.ModelStageRenderer;
 import com.example.examplemod.client.tooltip.TooltipHandler;
 import com.example.examplemod.client.tooltip.TooltipRules;
@@ -28,6 +29,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import net.neoforged.neoforge.common.NeoForge;
 import org.lwjgl.glfw.GLFW;
 
@@ -58,6 +60,22 @@ public final class ExampleModClient {
         NeoForge.EVENT_BUS.register(TooltipHandler.class);
         NeoForge.EVENT_BUS.register(ModelStageRenderer.class);
     }
+
+    private static final ResourceLocation ADAPTIVE_HUD =
+            ResourceLocation.fromNamespaceAndPath(
+                    "examplemod",
+                    "adaptive_hud"
+            );
+
+    @SubscribeEvent
+    public static void registerGuiLayers(RegisterGuiLayersEvent event) {
+        event.registerAbove(
+                VanillaGuiLayers.HOTBAR,
+                ADAPTIVE_HUD,
+                PinnacleAdaptiveHud::renderLayer
+        );
+    }
+
 
     private void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.SUMMONED_SUPPORT_DRAGON.get(), EnderDragonRenderer::new);

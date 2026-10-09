@@ -1,55 +1,130 @@
 package com.example.examplemod.util;
 
+import com.example.examplemod.compat.apothic.CurioStackIdentity;
 import com.example.examplemod.registry.ModDataComponents;
 import dev.shadowsoffire.apotheosis.Apoth;
 import dev.shadowsoffire.apotheosis.loot.LootCategory;
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import top.theillusivec4.curios.api.CuriosApi;
 
+import javax.annotation.Nullable;
+import java.util.Comparator;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
-public class CurioMimicHelper {
+public final class CurioMimicHelper {
 
-    private static final TagKey<Item> CURIOS_TAG =
-            TagKey.create(BuiltInRegistries.ITEM.key(), ResourceLocation.fromNamespaceAndPath("curios", "curio"));
-
-    public static boolean isCurio(ItemStack stack) {
-        if (stack.isEmpty()) return false;
-        if (stack.is(CURIOS_TAG)) return true;
-
-        Holder<Item> holder = stack.getItem().builtInRegistryHolder();
-        for (TagKey<Item> tag : holder.tags().toList()) {
-            if ("curios".equals(tag.location().getNamespace())) {
-                return true;
-            }
-        }
-        return false;
+    private CurioMimicHelper() {
     }
 
+    public static boolean isCurio(ItemStack stack) {
+        return !stack.isEmpty()
+                && !CuriosApi.getItemStackSlots(stack, true).isEmpty();
+    }
+
+    /**
+     * 保留原方法的含义：
+     * 判断是否存在分类组件，不代表该分类当前仍然有效。
+     */
     public static boolean hasMimicCategory(ItemStack stack) {
         return stack.has(ModDataComponents.MIMIC_CATEGORY.get());
     }
 
-    public static void assignRandomCategory(ItemStack stack) {
-        List<LootCategory> pool = Apoth.BuiltInRegs.LOOT_CATEGORY.stream()
-                .filter(cat -> {
-                    ResourceLocation key = cat.getKey();
-                    if (key == null) return false;
-                    String path = key.getPath();
-                    String ns = key.getNamespace();
-                    // 仅从原版 Apotheosis 基础装备分类中抽取（胸甲、头盔、剑等），排除 none
-                    return "apotheosis".equals(ns) && !"none".equals(path) ;
-                })
-                .toList();
+    /**
+     * 读取旧物品保存的分类。
+     * 不删除、不覆盖无法解析的旧组件。
+     */
+    @Nullable
+    public static LootCategory getSavedCategory(ItemStack stack) {
+        ResourceLocation id =
+                stack.get(ModDataComponents.MIMIC_CATEGORY.get());
 
-        if (pool.isEmpty()) return;
+        if (id == null) {
+            return null;
+        }
 
-        LootCategory chosen = pool.get(ThreadLocalRandom.current().nextInt(pool.size()));
-        stack.set(ModDataComponents.MIMIC_CATEGORY.get(), chosen.getKey());
+        LootCategory category = Apoth.BuiltInRegs.LOOT_CATEGORY.get(id);
+
+        return category != null && !category.isNone()
+                ? category
+                : null;
     }
+
+
+
+    /**
+     * 神化分类查询入口：
+     * 旧分类 > 神化原有分类 > 饰品拟态分类。
+     *
+     * 整个方法不修改物品数据。
+     */
+    public static LootCategory resolveCategory(
+            ItemStack stack,
+            LootCategory original
+    ) {
+        if (stack.isEmpty()) {
+            return original;
+        }
+
+        LootCategory saved = getSavedCategory(stack);
+        if (saved != null) {
+            return saved;
+        }
+
+        if (!original.isNone()) {
+            return original;
+        }
+
+        if (!isCurio(stack)) {
+            return original;
+        }
+
+        CurioStackIdentity.initialize(stack);
+
+        LootCategory assigned = getSavedCategory(stack);
+
+        return assigned != null ? assigned : original;
+    }
+
+
+    /**
+     * 为一个物品堆栈选择分类并保存。
+     *
+     * 必须在服务端调用。
+     * 已有分类组件的物品不会重新随机。
+     */
+    public static void assignRandomCategory(ItemStack stack) {
+        if (stack.isEmpty()
+                || hasMimicCategory(stack)
+                || !isCurio(stack)) {
+            return;
+        }
+
+        List<ResourceLocation> pool =
+                Apoth.BuiltInRegs.LOOT_CATEGORY.stream()
+                        .filter(category -> !category.isNone())
+                        .filter(category -> !category.isBreaker())
+                        .map(LootCategory::getKey)
+                        .filter(key ->
+                                key != null
+                                        && "apotheosis".equals(key.getNamespace())
+                                        && !"none".equals(key.getPath())
+                        )
+                        .sorted(Comparator.comparing(ResourceLocation::toString))
+                        .toList();
+
+
+        if (pool.isEmpty()) {
+            return;
+        }
+
+        int index = java.util.concurrent.ThreadLocalRandom.current()
+                .nextInt(pool.size());
+
+        stack.set(
+                ModDataComponents.MIMIC_CATEGORY.get(),
+                pool.get(index)
+        );
+    }
+
 }

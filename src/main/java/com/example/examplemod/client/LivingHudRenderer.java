@@ -259,10 +259,13 @@ public final class LivingHudRenderer {
 
                 pushBillboard(pose, camera, cameraPos, entity, partialTick);
 
+                float textX = -HALF_WIDTH - 1.0F - 4.0F - state.labelWidth;
+                float textY = (BAR_HEIGHT - MC.font.lineHeight) * 0.5F;
+
                 MC.font.drawInBatch(
                         state.label,
-                        -state.labelWidth * 0.5F,
-                        -11.0F,
+                        textX,
+                        textY,
                         0xFFFFFFFF,
                         true,
                         pose.last().pose(),
@@ -330,10 +333,11 @@ public final class LivingHudRenderer {
                     false,
                     pose.last().pose(),
                     BUFFERS,
-                    Font.DisplayMode.NORMAL,
+                    Font.DisplayMode.SEE_THROUGH,
                     0,
                     LightTexture.FULL_BRIGHT
             );
+
 
             pose.popPose();
         }
@@ -511,14 +515,14 @@ public final class LivingHudRenderer {
         }
 
         private void updateLabel() {
+            int current = Mth.ceil(health);
 
-            int maximum = Mth.ceil(maxHealth);
-
-            if ( maximum == labelMaxHealth) {
+            if (current == labelHealth ) {
                 return;
             }
-            labelMaxHealth = maximum;
-            label =String.valueOf(maximum);
+
+            labelHealth = current;
+            label = ""+current ;
             labelWidth = MC.font.width(label);
         }
     }

@@ -36,10 +36,10 @@ public class MixinWorldTierSelectScreen {
 
         int experienceRequirement = switch (tier) {
             case HAVEN -> 0;
-            case FRONTIER -> 80;
-            case ASCENT -> 160;
-            case SUMMIT -> 240;
-            case PINNACLE -> 320;
+            case FRONTIER -> 60;
+            case ASCENT -> 120;
+            case SUMMIT -> 180;
+            case PINNACLE -> 300;
         };
 
         if (tier != WorldTier.HAVEN) {

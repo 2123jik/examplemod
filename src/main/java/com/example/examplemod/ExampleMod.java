@@ -1,7 +1,10 @@
 package com.example.examplemod;
 
 import com.example.examplemod.client.XpFlightClient;
-import com.example.examplemod.compat.ModLootCategories;
+import com.example.examplemod.compat.apothic.CurioSlots;
+import com.example.examplemod.entity.EquipmentCabinetBlock;
+import com.example.examplemod.entity.EquipmentCabinetBlockEntity;
+import com.example.examplemod.menu.EquipmentCabinetMenu;
 import com.example.examplemod.registry.modulargolems.ModRegistry;
 import com.example.examplemod.spell.ModSpells;
 import com.example.examplemod.spell.SummonedCaveSpider;
@@ -16,10 +19,18 @@ import com.example.examplemod.trim.RunewordManager;
 import com.mojang.serialization.MapCodec;
 import com.viscriptshop.util.ViScriptShopServerUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -27,6 +38,7 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.event.AddReloadListenerEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
@@ -39,15 +51,38 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static com.example.examplemod.registry.ModItems.ITEMS;
+import static com.example.examplemod.registry.ModMenus.MENUS;
 
 @Mod(ExampleMod.MOD_ID)
 public final class ExampleMod {
     public static final String MOD_ID = "examplemod";
     public static final Logger LOGGER = LoggerFactory.getLogger(ExampleMod.class);
-
+    public static final DeferredRegister<Block> BLOCKS =
+            DeferredRegister.create(Registries.BLOCK, MOD_ID);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
+            DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, MOD_ID);
     public static final DeferredRegister<MapCodec<? extends IGlobalLootModifier>> LOOT_MODIFIERS =
             DeferredRegister.create(NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, MOD_ID);
+    public static final DeferredHolder<Block, EquipmentCabinetBlock> CABINET =
+            BLOCKS.register("equipment_cabinet", () ->
+                    new EquipmentCabinetBlock(
+                            BlockBehaviour.Properties.of()
+                                    .mapColor(MapColor.METAL)
+                                    .strength(3.5F)
+                    ));
+    public static final DeferredHolder<Item, BlockItem> CABINET_ITEM =
+            ITEMS.register("equipment_cabinet", () ->
+                    new BlockItem(CABINET.get(), new Item.Properties()));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EquipmentCabinetBlockEntity>>
+            CABINET_ENTITY = BLOCK_ENTITIES.register("equipment_cabinet", () ->
+            BlockEntityType.Builder.of(
+                    EquipmentCabinetBlockEntity::new, CABINET.get()
+            ).build(null));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<EquipmentCabinetMenu>>
+            CABINET_MENU = MENUS.register("equipment_cabinet", () ->
+            IMenuTypeExtension.create(EquipmentCabinetMenu::new));
     public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<WeaponReplacementModifier>> REPLACE_WEAPONS =
             LOOT_MODIFIERS.register("replace_weapons", () -> WeaponReplacementModifier.CODEC);
 
@@ -61,17 +96,19 @@ public final class ExampleMod {
         ModEntities.register(modEventBus);
         ModDataComponents.COMPONENTS.register(modEventBus);
         ITEMS.register(modEventBus);
-        ModMenus.MENUS.register(modEventBus);
+        MENUS.register(modEventBus);
+        BLOCKS.register(modEventBus);
+        BLOCK_ENTITIES.register(modEventBus);
         LOOT_MODIFIERS.register(modEventBus);
         ModAttachments.ATTACHMENTS.register(modEventBus);
         ModAttributes.ATTRIBUTES.register(modEventBus);
         ModRegistry.MODIFIERS.register(modEventBus);
         ModRegistry.ITEMS.register(modEventBus);
         modEventBus.addListener(this::registerEntityAttributes);
-        modEventBus.addListener(ModLootCategories::onRegister);
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::registerPayloads);
         ModRecipes.SERIALIZERS.register(modEventBus);
+        modEventBus.addListener(CurioSlots::onRegister);
 
     }
 
