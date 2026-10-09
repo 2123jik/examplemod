@@ -1,15 +1,10 @@
 package com.example.examplemod.skill.gui;
 
-import com.example.examplemod.ExampleMod;
 import com.example.examplemod.registry.ModAttachments;
 import com.example.examplemod.skill.*;
 import icyllis.modernui.ModernUI;
 import icyllis.modernui.core.Context;
-import icyllis.modernui.graphics.Canvas;
-import icyllis.modernui.graphics.Color;
-import icyllis.modernui.graphics.Image;
-import icyllis.modernui.graphics.Paint;
-import icyllis.modernui.graphics.RectF;
+import icyllis.modernui.graphics.*;
 import icyllis.modernui.graphics.text.Font;
 import icyllis.modernui.graphics.text.FontFamily;
 import icyllis.modernui.graphics.text.FontMetricsInt;
@@ -21,7 +16,6 @@ import icyllis.modernui.view.View;
 import icyllis.modernui.view.ViewConfiguration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.neoforged.neoforge.network.PacketDistributor;
 

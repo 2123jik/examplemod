@@ -3,7 +3,6 @@ package com.example.examplemod.event;
 import com.example.examplemod.registry.ModAttributes;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
-import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import net.minecraft.core.particles.ParticleTypes;

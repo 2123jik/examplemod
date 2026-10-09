@@ -8,6 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.item.ItemStack;
+import org.lwjgl.opengl.GL11;
 
 public final class EquipmentItemIcon extends MinecraftSurfaceView {
 
@@ -43,12 +44,17 @@ public final class EquipmentItemIcon extends MinecraftSurfaceView {
                 float size = Math.min(width, height) * 0.9F;
                 float scale = size / 16.0F;
 
+                graphics.flush();
+
+                RenderSystem.enableDepthTest();
+                RenderSystem.depthFunc(GL11.GL_LEQUAL);
+
                 graphics.pose().pushPose();
                 try {
                     graphics.pose().translate(
                             (width - size) / 2.0F,
                             (height - size) / 2.0F,
-                            0
+                            0.0F
                     );
                     graphics.pose().scale(scale, scale, 1.0F);
 
@@ -66,9 +72,9 @@ public final class EquipmentItemIcon extends MinecraftSurfaceView {
                 } finally {
                     graphics.pose().popPose();
 
-                    // 彻底恢复渲染状态，避免与 ModernUI 或光影渲染器发生冲突
-                    RenderSystem.enableDepthTest();
-                    RenderSystem.depthMask(true);
+                    // 【关键】：画完立即抹除深度值，绝对不留任何 3D 残渣给后续绘制
+                    RenderSystem.clear(GL11.GL_DEPTH_BUFFER_BIT, Minecraft.ON_OSX);
+                    RenderSystem.disableDepthTest();
                     RenderSystem.defaultBlendFunc();
                 }
             }

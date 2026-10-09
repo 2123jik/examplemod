@@ -1,15 +1,9 @@
 package com.example.examplemod.skill.gui;
 
 import icyllis.modernui.core.Context;
-import icyllis.modernui.graphics.Canvas;
-import icyllis.modernui.graphics.Color;
-import icyllis.modernui.graphics.Image;
-import icyllis.modernui.graphics.Paint;
-import icyllis.modernui.graphics.RectF;
+import icyllis.modernui.graphics.*;
 import icyllis.modernui.graphics.drawable.ShapeDrawable;
 import icyllis.modernui.mc.ImageStore;
-import icyllis.modernui.text.Editable;
-import icyllis.modernui.text.TextWatcher;
 import icyllis.modernui.view.Gravity;
 import icyllis.modernui.view.MotionEvent;
 import icyllis.modernui.view.View;

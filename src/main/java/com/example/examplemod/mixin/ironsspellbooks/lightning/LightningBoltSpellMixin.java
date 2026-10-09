@@ -2,7 +2,6 @@ package com.example.examplemod.mixin.ironsspellbooks.lightning;
 
 import com.example.examplemod.registry.ModAttributes;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
-import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.spells.CastSource;
 import io.redspace.ironsspellbooks.api.util.CameraShakeData;
 import io.redspace.ironsspellbooks.api.util.CameraShakeManager;

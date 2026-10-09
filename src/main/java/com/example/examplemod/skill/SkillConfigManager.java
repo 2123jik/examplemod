@@ -3,13 +3,17 @@ package com.example.examplemod.skill;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.neoforged.fml.loading.FMLPaths;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class SkillConfigManager {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();

@@ -1,9 +1,5 @@
 package com.example.examplemod.skill;
 
-import com.example.examplemod.skill.SkillNode;
-import com.example.examplemod.skill.SkillNodeData;
-import com.example.examplemod.skill.SkillRegistry;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;

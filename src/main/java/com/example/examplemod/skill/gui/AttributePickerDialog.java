@@ -4,8 +4,6 @@ import com.example.examplemod.util.AttributeUtils;
 import icyllis.modernui.core.Context;
 import icyllis.modernui.graphics.Color;
 import icyllis.modernui.graphics.drawable.ShapeDrawable;
-import icyllis.modernui.text.Editable;
-import icyllis.modernui.text.TextWatcher;
 import icyllis.modernui.view.Gravity;
 import icyllis.modernui.view.ViewGroup;
 import icyllis.modernui.widget.*;

@@ -6,8 +6,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.lang.reflect.Field;
-
 // 目标定位灾变的静态配置类，remap = false（因为这是模组自身代码，不需要SRG/Mojang反混淆映射）
 @Mixin(value = CMCommonConfig.class, remap = false)
 public class CMCommonConfigMixin {

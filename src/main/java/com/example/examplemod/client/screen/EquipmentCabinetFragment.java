@@ -15,18 +15,8 @@ import icyllis.modernui.text.Editable;
 import icyllis.modernui.text.TextUtils;
 import icyllis.modernui.text.TextWatcher;
 import icyllis.modernui.util.DataSet;
-import icyllis.modernui.view.Gravity;
-import icyllis.modernui.view.KeyEvent;
-import icyllis.modernui.view.LayoutInflater;
-import icyllis.modernui.view.MotionEvent;
-import icyllis.modernui.view.View;
-import icyllis.modernui.view.ViewGroup;
-import icyllis.modernui.widget.Button;
-import icyllis.modernui.widget.EditText;
-import icyllis.modernui.widget.FrameLayout;
-import icyllis.modernui.widget.LinearLayout;
-import icyllis.modernui.widget.ScrollView;
-import icyllis.modernui.widget.TextView;
+import icyllis.modernui.view.*;
+import icyllis.modernui.widget.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -53,7 +43,7 @@ import static icyllis.modernui.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 public final class EquipmentCabinetFragment extends Fragment implements ScreenCallback {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EquipmentCabinetFragment.class);
-
+    private FrameLayout screenRoot;
     private static final int PAGE_SIZE_LIST = 16;
     private static final int SLOT_SIZE_DP = 42;
     private static final int SLOT_MARGIN_DP = 2;
@@ -178,8 +168,8 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         conditions.clear();
         allChoiceFields.clear();
 
-        FrameLayout screenRoot = new FrameLayout(context);
-
+// 改为成员变量赋值
+        this.screenRoot = new FrameLayout(context);
         root = column(context);
         root.setPadding(root.dp(12), root.dp(10), root.dp(12), root.dp(8));
         screenRoot.addView(root, new FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT));
@@ -219,7 +209,6 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         createTable(context, content);
         createBottomBar(context, content);
 
-        // ==================== 原生 Tooltip 顶层悬浮层 ====================
         tooltipOverlay = new MinecraftSurfaceView(context);
         tooltipOverlay.setClickable(false);
         tooltipOverlay.setFocusable(false);
@@ -230,20 +219,6 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
             @Override
             public void onDraw(GuiGraphics graphics, int mouseX, int mouseY, float partialTick, double guiScale, float alpha) {
                 if (hoveredStack.isEmpty()) return;
-
-                graphics.flush();
-
-                boolean scissorEnabled = GL11.glIsEnabled(GL11.GL_SCISSOR_TEST);
-                if (scissorEnabled) {
-                    GL11.glDisable(GL11.GL_SCISSOR_TEST);
-                }
-
-                com.mojang.blaze3d.systems.RenderSystem.clearDepth(1.0);
-                com.mojang.blaze3d.systems.RenderSystem.clear(GL11.GL_DEPTH_BUFFER_BIT, false);
-
-                if (scissorEnabled) {
-                    GL11.glEnable(GL11.GL_SCISSOR_TEST);
-                }
 
                 Font font = Minecraft.getInstance().font;
                 List<Component> tooltip = new ArrayList<>(Screen.getTooltipFromItem(Minecraft.getInstance(), hoveredStack));
@@ -270,23 +245,37 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
                 }
                 tooltip.add(Component.literal("▶ 左键: 快速转移").withStyle(ChatFormatting.AQUA));
 
-                int oldDepthFunc = GL11.glGetInteger(GL11.GL_DEPTH_FUNC);
-                GL11.glDepthFunc(GL11.GL_ALWAYS);
+                graphics.flush();
+
+                boolean scissorEnabled = GL11.glIsEnabled(GL11.GL_SCISSOR_TEST);
+                if (scissorEnabled) {
+                    GL11.glDisable(GL11.GL_SCISSOR_TEST);
+                }
+
+                // 清空深度缓冲，保证 Tooltip 不受任何先前的图元阻挡
+                com.mojang.blaze3d.systems.RenderSystem.clearDepth(1.0);
+                com.mojang.blaze3d.systems.RenderSystem.clear(GL11.GL_DEPTH_BUFFER_BIT, Minecraft.ON_OSX);
+                com.mojang.blaze3d.systems.RenderSystem.enableDepthTest();
+                com.mojang.blaze3d.systems.RenderSystem.depthFunc(GL11.GL_LEQUAL);
 
                 graphics.pose().pushPose();
                 try {
-                    graphics.pose().translate(0, 0, 100);
-                    // 实时使用 onDraw 回传的最新 mouseX, mouseY，保证极致平滑跟手
+                    graphics.pose().translate(0, 0, 400.0F);
                     graphics.renderComponentTooltip(font, tooltip, mouseX, mouseY);
                     graphics.flush();
                 } finally {
                     graphics.pose().popPose();
-                    GL11.glDepthFunc(oldDepthFunc);
+
+                    if (scissorEnabled) {
+                        GL11.glEnable(GL11.GL_SCISSOR_TEST);
+                    }
+                    com.mojang.blaze3d.systems.RenderSystem.clear(GL11.GL_DEPTH_BUFFER_BIT, Minecraft.ON_OSX);
+                    com.mojang.blaze3d.systems.RenderSystem.disableDepthTest();
+                    com.mojang.blaze3d.systems.RenderSystem.defaultBlendFunc();
                 }
             }
         });
         screenRoot.addView(tooltipOverlay, new FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT));
-
         refreshOptions();
         renderRows();
 
@@ -295,12 +284,29 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
 
     private void setHoveredItem(ItemStack stack) {
         this.hoveredStack = stack != null ? stack : ItemStack.EMPTY;
+        if (tooltipOverlay != null) {
+            tooltipOverlay.invalidate();
+        }
     }
 
     private void clearHoveredItem() {
-        this.hoveredStack = ItemStack.EMPTY;
+        if (!this.hoveredStack.isEmpty()) {
+            this.hoveredStack = ItemStack.EMPTY;
+            if (tooltipOverlay != null) {
+                tooltipOverlay.invalidate();
+            }
+        }
     }
-
+    /**
+     * 强迫 tooltipOverlay 的 DrawHandler 重新注册到 ViewRootImpl 的最末尾，
+     * 确保它永远在所有新创建的格子图标之后被绘制！
+     */
+    private void ensureTooltipOnTop() {
+        if (tooltipOverlay != null && screenRoot != null) {
+            screenRoot.removeView(tooltipOverlay);
+            screenRoot.addView(tooltipOverlay, new FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT));
+        }
+    }
     private void createToolbar(Context context) {
         LinearLayout toolbar = row(context);
         root.addView(toolbar, lp(MATCH_PARENT, WRAP_CONTENT));
@@ -644,6 +650,7 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         pageLabel.setText(String.format("第 %d / %d 页 (共 %d 件)", page + 1, totalPages, currentFiltered.size()));
         previous.setEnabled(page > 0);
         next.setEnabled(page + 1 < totalPages);
+        ensureTooltipOnTop();
     }
 
     private void renderGrid(List<EquipmentIndex.Row> items) {
@@ -670,7 +677,13 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
             slotView.setLayoutParams(lp);
 
             slotView.setOnHoverItemListener(
-                    (view, itemData) -> setHoveredItem(cachedStacks.get(itemData.menuSlot())),
+                    (view, itemData) -> {
+                        setHoveredItem(cachedStacks.get(itemData.menuSlot()));
+                        // 确保鼠标在格子里微动时，顶层 Tooltip 始终被唤醒重绘
+                        if (tooltipOverlay != null) {
+                            tooltipOverlay.invalidate();
+                        }
+                    },
                     this::clearHoveredItem
             );
 

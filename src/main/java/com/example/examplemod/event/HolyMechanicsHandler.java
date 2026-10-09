@@ -3,7 +3,6 @@ package com.example.examplemod.event;
 import com.example.examplemod.registry.ModAttributes;
 import io.redspace.ironsspellbooks.api.events.SpellHealEvent;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
-import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import net.minecraft.server.level.ServerPlayer;

@@ -5,7 +5,6 @@ import dev.shadowsoffire.apotheosis.socket.gem.GemItem;
 import dev.shadowsoffire.apotheosis.socket.gem.Purity;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.util.Unit;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
