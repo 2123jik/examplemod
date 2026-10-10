@@ -1,13 +1,19 @@
 {
   "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "cataclysm"
+    }
   ],
   "type": "apotheosis:invader",
   "basic_data": {
     "bonus_loot": [
-      "apotheosis:entity/boss_drops",
       "apotheosis:entity/rare_boss_drops"
     ],
     "constraints": {
+      "dimensions": [
+        "minecraft:overworld"
+      ]
     },
     "name": "use_name_generation",
     "valid_gear_sets": {
@@ -28,14 +34,8 @@
       ]
     },
     "weights": {
-      "summit": {
-        "quality": 0.1,
-        "weight": 100
-      },
-      "pinnacle": {
-        "quality": 0.1,
-        "weight": 100
-      }
+      "quality": 0.1,
+      "weight": 100
     }
   },
   "entity": "cataclysm:amethyst_crab",

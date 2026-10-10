@@ -103,7 +103,7 @@ public record RequestFetchRecipeIngredientsPayload(
             DeepBackpackFetcher.fillCraftingGrid(
                     player,
                     items,
-                    maxTransfer
+                    1
             );
         });
     }

@@ -97,6 +97,7 @@ public final class ExampleMod {
         if (FMLEnvironment.dist.isClient()) {
             modContainer.registerConfig(ModConfig.Type.CLIENT, Config.SPEC);
         }
+
         NeoForge.EVENT_BUS.addListener(this::onAddReloadListeners);
         ModSpells.register(modEventBus);
         ModEntities.register(modEventBus);
@@ -156,6 +157,11 @@ public final class ExampleMod {
                 })
         );
         registrar.playToServer(
+                RequestEmiCraftingPayload.TYPE,
+                RequestEmiCraftingPayload.STREAM_CODEC,
+                RequestEmiCraftingPayload::handle
+        );
+        registrar.playToServer(
                 AutoUpgradeArtifactsPayload.TYPE,
                 AutoUpgradeArtifactsPayload.STREAM_CODEC,
                 AutoUpgradeArtifactsPayload::handle
@@ -170,11 +176,7 @@ public final class ExampleMod {
                 SortToBackpackPayload.STREAM_CODEC,
                 SortToBackpackPayload::handle
         );
-        registrar.playToServer(
-                RequestFetchRecipeIngredientsPayload.TYPE,
-                RequestFetchRecipeIngredientsPayload.STREAM_CODEC,
-                RequestFetchRecipeIngredientsPayload::handle
-        );
+
         registrar.playToServer(
                 SwapEquipmentPayload.TYPE,
                 SwapEquipmentPayload.STREAM_CODEC,

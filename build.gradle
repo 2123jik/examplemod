@@ -251,3 +251,29 @@ tasks.register('runExporter', JavaExec) {
             outputAstFile.absolutePath
     ]
 }
+
+tasks.register('copyJarToPrismMods', Copy) {
+    group = 'build'
+    description = '将构建生成的 Mod Jar 自动覆盖复制到 PrismLauncher mods 目录'
+
+    dependsOn tasks.named('jar')
+
+    from(layout.buildDirectory.dir('libs')) {
+        // 只复制当前 Mod 生成的 jar
+        include("${base.archivesName.get()}-*.jar")
+
+        // 排除源码包和文档包
+        exclude('*-sources.jar')
+        exclude('*-javadoc.jar')
+    }
+
+    into(file(modsDir))
+
+    // 目标目录中存在同名文件时覆盖
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+// build 成功或失败后执行复制任务
+tasks.named('build') {
+    finalizedBy(tasks.named('copyJarToPrismMods'))
+}
