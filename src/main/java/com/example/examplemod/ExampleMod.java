@@ -7,6 +7,8 @@ import com.example.examplemod.entity.EquipmentCabinetBlockEntity;
 import com.example.examplemod.menu.EquipmentCabinetMenu;
 import com.example.examplemod.network.*;
 import com.example.examplemod.registry.*;
+import com.example.examplemod.registry.loot.EntityLootModifier;
+import com.example.examplemod.registry.loot.WeaponReplacementModifier;
 import com.example.examplemod.registry.modulargolems.ModRegistry;
 import com.example.examplemod.skill.SkillRegistry;
 import com.example.examplemod.skill.SyncSkillDataPayload;
@@ -62,7 +64,9 @@ public final class ExampleMod {
             DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, MOD_ID);
     public static final DeferredRegister<MapCodec<? extends IGlobalLootModifier>> LOOT_MODIFIERS =
             DeferredRegister.create(NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, MOD_ID);
+
     public static final DeferredHolder<Block, EquipmentCabinetBlock> CABINET =
+
             BLOCKS.register("equipment_cabinet", () ->
                     new EquipmentCabinetBlock(
                             BlockBehaviour.Properties.of()
@@ -84,6 +88,9 @@ public final class ExampleMod {
             IMenuTypeExtension.create(EquipmentCabinetMenu::new));
     public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<WeaponReplacementModifier>> REPLACE_WEAPONS =
             LOOT_MODIFIERS.register("replace_weapons", () -> WeaponReplacementModifier.CODEC);
+
+    public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<EntityLootModifier>> ENTITY_LOOT =
+            LOOT_MODIFIERS.register("entity_loot", () -> EntityLootModifier.CODEC);
 
     public ExampleMod(IEventBus modEventBus, ModContainer modContainer) {
         // 建议仅在客户端环境注册客户端配置，避免服务端读取无用配置

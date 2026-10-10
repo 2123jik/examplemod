@@ -1,6 +1,7 @@
 {
   "replace": false,
   "entries": [
-    "examplemod:replace_weapons"
+    "examplemod:replace_weapons",
+    "examplemod:amethyst_crab"
   ]
 }

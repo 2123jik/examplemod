@@ -18,14 +18,14 @@ public abstract class SingleQuadParticleMixin {
      * 距离镜头小于等于此值时，完全透明。
      */
     @Unique
-    private static final float yourmod$HIDE_DISTANCE = 0.75F;
+    private static final float yourmod$HIDE_DISTANCE = 3F;
 
     /**
      * 距离镜头大于等于此值时，保留原始 Alpha。
      * 必须大于 HIDE_DISTANCE。
      */
     @Unique
-    private static final float yourmod$FULL_DISTANCE = 2F;
+    private static final float yourmod$FULL_DISTANCE = 3.5F;
 
     /**
      * 当前四边形的距离衰减系数。

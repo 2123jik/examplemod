@@ -1,4 +1,4 @@
-package com.example.examplemod.registry;
+package com.example.examplemod.registry.loot;
 
 import com.example.examplemod.util.ChestWeaponReplacer;
 import com.mojang.serialization.MapCodec;
