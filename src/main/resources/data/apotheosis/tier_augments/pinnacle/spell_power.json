@@ -1,0 +1,12 @@
+{
+  "type": "apotheosis:attribute",
+  "modifier": {
+    "attribute": "irons_spellbooks:spell_power",
+    "operation": "add_value",
+    "value": 0.5
+  },
+  "modifier_id": "apotheosis:pinnacle/spell_power",
+  "sort_index":600,
+  "target": "monsters",
+  "tier": "pinnacle"
+}

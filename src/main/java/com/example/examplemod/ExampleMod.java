@@ -1,7 +1,11 @@
 package com.example.examplemod;
 
+import com.example.examplemod.client.ClientBootstrap;
 import com.example.examplemod.client.XpFlightClient;
 import com.example.examplemod.compat.apothic.CurioSlots;
+import com.example.examplemod.deathrecap.DeathRecapPayload;
+import com.example.examplemod.deathrecap.client.ClientDeathRecapCache;
+import com.example.examplemod.deathrecap.client.DeathRecapScreen;
 import com.example.examplemod.entity.EquipmentCabinetBlock;
 import com.example.examplemod.entity.EquipmentCabinetBlockEntity;
 import com.example.examplemod.menu.EquipmentCabinetMenu;
@@ -19,6 +23,7 @@ import com.example.examplemod.spell.SummonedSupportDragon;
 import com.example.examplemod.trim.RunewordManager;
 import com.mojang.serialization.MapCodec;
 import com.viscriptshop.util.ViScriptShopServerUtil;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -32,6 +37,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -44,6 +50,7 @@ import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.event.AddReloadListenerEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -97,7 +104,9 @@ public final class ExampleMod {
         if (FMLEnvironment.dist.isClient()) {
             modContainer.registerConfig(ModConfig.Type.CLIENT, Config.SPEC);
         }
-
+        if (FMLEnvironment.dist == Dist.CLIENT) {
+            ClientBootstrap.initialize(modEventBus);
+        }
         NeoForge.EVENT_BUS.addListener(this::onAddReloadListeners);
         ModSpells.register(modEventBus);
         ModEntities.register(modEventBus);
@@ -132,7 +141,11 @@ public final class ExampleMod {
     public void registerPayloads(RegisterPayloadHandlersEvent event) {
         PayloadRegistrar registrar = event.registrar("1");
 
-
+        registrar.playToClient(
+                DeathRecapPayload.TYPE,
+                DeathRecapPayload.STREAM_CODEC,
+                ExampleMod::handleDeathRecapOnClient
+        );
         registrar.playToClient(
                 XpFlightPayload.TYPE,
                 XpFlightPayload.STREAM_CODEC,
@@ -192,7 +205,20 @@ public final class ExampleMod {
                 })
         );
     }
+    private static void handleDeathRecapOnClient(DeathRecapPayload payload, IPayloadContext context) {
+        context.enqueueWork(() -> {
+            // 1. 将收到的快照存入客户端缓存
+            ClientDeathRecapCache.setRecords(payload.records());
 
+            // 2. 在聊天栏打印一句提示
+            if (Minecraft.getInstance().player != null) {
+                Minecraft.getInstance().player.displayClientMessage(
+                        net.minecraft.network.chat.Component.literal("§c[死亡战报] §e死亡快照已就绪，可在死亡界面点击按钮或按键查看！"),
+                        false
+                );
+            }
+        });
+    }
     private static void handleSleepButton(ServerPlayer player) {
         if (!(player.level() instanceof ServerLevel level)) {
             return;

@@ -41,7 +41,7 @@ public final class LivingHudRenderer {
 
     private static final float BAR_SCALE = 0.025F;
     private static final float HALF_WIDTH = 24.0F;
-    private static final float BAR_HEIGHT = 5.0F;
+    private static final float BAR_HEIGHT = 3.0F;
 
     private static final int DAMAGE_LIFETIME = 24;
     private static final int MAX_DAMAGE_NUMBERS = 1024;
@@ -426,7 +426,7 @@ public final class LivingHudRenderer {
         pose.pushPose();
         pose.translate(
                 x - cameraPos.x,
-                y + entity.getBbHeight() + 0.42 - cameraPos.y,
+                y + entity.getBbHeight()*1.42f - cameraPos.y,
                 z - cameraPos.z
         );
         pose.mulPose(camera.rotation());

@@ -1,6 +1,8 @@
 package com.example.examplemod.command;
 
+import com.example.examplemod.command.data.DataExporter;
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -41,8 +43,64 @@ public class ExportWeaponsCommand {
                 .requires(source -> source.hasPermission(2))
                 .executes(ExportWeaponsCommand::exportWeaponList)
         );
-    }
 
+        dispatcher.register(
+                Commands.literal("packdev_export")
+                        .requires(source -> source.hasPermission(2))
+                        .executes(context -> execute(
+                                context.getSource(),
+                                "../.packdev/index.json"
+                        ))
+                        .then(
+                                Commands.argument(
+                                        "path",
+                                        StringArgumentType.greedyString()
+                                ).executes(context -> execute(
+                                        context.getSource(),
+                                        StringArgumentType.getString(context, "path")
+                                ))
+                        )
+        );
+    }
+    private static int execute(
+            CommandSourceStack source,
+            String pathText
+    ) {
+        try {
+            Path path = Path.of(pathText);
+
+            DataExporter.ExportResult result =
+                    DataExporter.export(source.getServer(), path);
+
+            source.sendSuccess(
+                    () -> Component.literal(
+                            "PackDev data exported to "
+                                    + result.path()
+                                    + " ("
+                                    + result.registryCount()
+                                    + " registries, "
+                                    + result.registryValueCount()
+                                    + " registry values, "
+                                    + result.enumCount()
+                                    + " enums, "
+                                    + result.enumValueCount()
+                                    + " enum values)"
+                    ),
+                    false
+            );
+
+            return result.registryValueCount()
+                    + result.enumValueCount();
+        } catch (Exception exception) {
+            source.sendFailure(Component.literal(
+                    "PackDev export failed: "
+                            + exception.getClass().getSimpleName()
+                            + ": "
+                            + exception.getMessage()
+            ));
+            return 0;
+        }
+    }
     private static int exportWeaponList(CommandContext<CommandSourceStack> context) {
         CommandSourceStack source = context.getSource();
 

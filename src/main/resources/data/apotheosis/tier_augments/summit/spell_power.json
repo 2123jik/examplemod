@@ -1,0 +1,12 @@
+{
+  "type": "apotheosis:attribute",
+  "modifier": {
+    "attribute": "irons_spellbooks:spell_power",
+    "operation": "add_value",
+    "value": 0.3
+  },
+  "modifier_id": "apotheosis:summit/spell_power",
+  "sort_index": 100,
+  "target": "monsters",
+  "tier": "summit"
+}

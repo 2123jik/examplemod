@@ -249,7 +249,7 @@ public final class EnderBackpackStorage {
     public static boolean hasEquippedEnderBackpack(ServerPlayer player) {
         boolean[] found = {false};
         CuriosApi.getCuriosInventory(player).ifPresent(inventory -> {
-            inventory.getCurios().forEach((identifier, handler) -> {
+            inventory.getCurios().forEach((ResourceLocation, handler) -> {
                 var stacks = handler.getStacks();
                 for (int slot = 0; slot < stacks.getSlots(); slot++) {
                     if (stacks.getStackInSlot(slot).getItem() instanceof EnderBackpackItem) {
