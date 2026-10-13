@@ -1,6 +1,7 @@
 package com.example.examplemod.client.particle;
 
 import com.example.examplemod.ExampleMod;
+import com.example.examplemod.client.environment.EnvironmentColorSampler;
 import com.example.examplemod.client.environment.EnvironmentProfile;
 import com.example.examplemod.client.environment.VisualTier;
 import net.minecraft.client.Minecraft;
@@ -24,7 +25,7 @@ public final class AmbientParticleManager {
             "textures/environment/ambient_particles.png"
         );
 
-    private static final int HARD_LIMIT = 2400;
+    private static final int HARD_LIMIT = 300;
 
     private final List<AmbientParticle> particles = new ArrayList<>();
     private final Random random = new Random();
@@ -181,6 +182,10 @@ public final class AmbientParticleManager {
         particle.velocityX *= 0.975F;
         particle.velocityY *= 0.975F;
         particle.velocityZ *= 0.975F;
+        float pulse = Mth.sin(particle.age * particle.colorPhaseSpeed + particle.noiseOffset) * 0.08F;
+        particle.red = Mth.clamp(particle.initialR * (1.0F + pulse), 0.0F, 1.0F);
+        particle.green = Mth.clamp(particle.initialG * (1.0F + pulse * 0.5F), 0.0F, 1.0F);
+        particle.blue = Mth.clamp(particle.initialB * (1.0F - pulse * 0.5F), 0.0F, 1.0F);
     }
 
     private void spawnParticle(
@@ -246,6 +251,36 @@ public final class AmbientParticleManager {
             0.0F,
             1.0F
         );
+        EnvironmentColorSampler sampler = EnvironmentColorSampler.INSTANCE;
+        float influence = sampler.getStructureInfluence();
+
+        // 80% 几率吸取结构主色，20% 几率成为发光结构高光色
+        boolean isAccent = random.nextFloat() < 0.20F;
+        float structR = isAccent ? sampler.getAccentR() : sampler.getStructureR();
+        float structG = isAccent ? sampler.getAccentG() : sampler.getStructureG();
+        float structB = isAccent ? sampler.getAccentB() : sampler.getStructureB();
+
+        // Profile基准色与结构色的有机混合权重（可调，例如 60% 受结构影响，40% 保留世界阶层印记）
+        float blendFactor = influence * 0.65F;
+
+        float baseR = Mth.lerp(blendFactor, profile.particleR(), structR);
+        float baseG = Mth.lerp(blendFactor, profile.particleG(), structG);
+        float baseB = Mth.lerp(blendFactor, profile.particleB(), structB);
+
+        // 加入细微随机噪点，防止单调
+        float noise = 0.90F + random.nextFloat() * 0.20F;
+        particle.initialR = particle.red = Mth.clamp(baseR * noise, 0.0F, 1.0F);
+        particle.initialG = particle.green = Mth.clamp(baseG * noise, 0.0F, 1.0F);
+        particle.initialB = particle.blue = Mth.clamp(baseB * noise, 0.0F, 1.0F);
+
+        particle.colorPhaseSpeed = 0.02F + random.nextFloat() * 0.04F;
+
+        // 如果周围是强发光方块提取的高光色，将粒子标记为 emissive (自发光混合)
+        if (isAccent && influence > 0.3F) {
+            particle.emissive = true;
+        } else {
+            particle.emissive = random.nextFloat() < profile.emissiveRatio();
+        }
 
         particle.baseAlpha = 0.25F + random.nextFloat() * 0.55F;
         particle.noiseOffset = random.nextFloat() * 1000.0F;
@@ -312,7 +347,12 @@ public final class AmbientParticleManager {
     }
 
     public static final class AmbientParticle {
+        public float initialR;
+        public float initialG;
+        public float initialB;
 
+        // 呼吸色彩偏移速度
+        public float colorPhaseSpeed;
         public double x;
         public double y;
         public double z;

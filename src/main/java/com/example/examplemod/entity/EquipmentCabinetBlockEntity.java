@@ -3,6 +3,7 @@ package com.example.examplemod.entity;
 
 import com.example.examplemod.ExampleMod;
 import com.example.examplemod.menu.EquipmentCabinetMenu;
+import com.example.examplemod.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -23,13 +24,13 @@ import net.neoforged.neoforge.items.wrapper.InvWrapper;
 public final class EquipmentCabinetBlockEntity extends BlockEntity
         implements Container, MenuProvider {
 
-    public static final int CAPACITY = 2048;
+    public static final int CAPACITY = 256;
 
     private final NonNullList<ItemStack> items =
             NonNullList.withSize(CAPACITY, ItemStack.EMPTY);
 
     public EquipmentCabinetBlockEntity(BlockPos pos, BlockState state) {
-        super(ExampleMod.CABINET_ENTITY.get(), pos, state);
+        super(ModBlocks.CABINET_ENTITY.get(), pos, state);
     }
     /*
      * 包装已有 Container，直接使用 items 库存。
@@ -104,10 +105,10 @@ public final class EquipmentCabinetBlockEntity extends BlockEntity
         return level != null
                 && level.getBlockEntity(worldPosition) == this
                 && player.distanceToSqr(
-                        worldPosition.getX() + 0.5,
-                        worldPosition.getY() + 0.5,
-                        worldPosition.getZ() + 0.5
-                ) <= 64.0;
+                worldPosition.getX() + 0.5,
+                worldPosition.getY() + 0.5,
+                worldPosition.getZ() + 0.5
+        ) <= 64.0;
     }
 
     @Override

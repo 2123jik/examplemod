@@ -1,6 +1,7 @@
 package com.example.examplemod.entity;
 
 import com.example.examplemod.ExampleMod;
+import com.example.examplemod.registry.ModBlocks;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.capabilities.Capabilities;
@@ -24,7 +25,7 @@ public final class EquipmentCabinetCapabilities {
     public static void registerCapabilities(RegisterCapabilitiesEvent event) {
         event.registerBlockEntity(
                 Capabilities.ItemHandler.BLOCK,
-                ExampleMod.CABINET_ENTITY.get(),
+                ModBlocks.CABINET_ENTITY.get(),
                 (cabinet, side) -> cabinet.getItemHandler()
         );
     }

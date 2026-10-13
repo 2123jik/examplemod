@@ -1,5 +1,6 @@
 package com.example.examplemod.compat.emi;
 
+import com.example.examplemod.ExampleMod;
 import com.example.examplemod.network.RequestEmiCraftingPayload;
 import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
@@ -8,6 +9,7 @@ import dev.emi.emi.api.recipe.EmiPlayerInventory;
 import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.recipe.handler.EmiCraftContext;
 import dev.emi.emi.api.recipe.handler.EmiRecipeHandler;
+import dev.emi.emi.api.widget.Bounds;
 import dev.emi.emi.registry.EmiRecipeFiller;
 import dev.emi.emi.api.stack.EmiStack;
 import net.minecraft.client.Minecraft;
@@ -27,6 +29,7 @@ public final class ExampleModEmiPlugin implements EmiPlugin {
 
     @Override
     public void register(EmiRegistry registry) {
+
         DeepBackpackCraftingHandler handler =
                 new DeepBackpackCraftingHandler();
 

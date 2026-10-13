@@ -76,6 +76,8 @@ public class SpellTraitGenCommand {
                         .then(Commands.argument("outDir", StringArgumentType.greedyString())
                                 .executes(ctx -> gen(ctx.getSource(),
                                         StringArgumentType.getString(ctx, "outDir"))))));
+
+
         d.register(Commands.literal("export_attributes")
                 .requires(source -> source.hasPermission(2)) // 需要 2 级管理员/作弊权限
                 .executes(SpellTraitGenCommand::exportAttributes));

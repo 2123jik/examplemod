@@ -3,6 +3,7 @@ package com.example.examplemod.menu;
 
 import com.example.examplemod.ExampleMod;
 import com.example.examplemod.entity.EquipmentCabinetBlockEntity;
+import com.example.examplemod.registry.ModMenus;
 import dev.shadowsoffire.apotheosis.affix.salvaging.SalvagingMenu;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.sounds.SoundEvents;
@@ -39,7 +40,7 @@ public final class EquipmentCabinetMenu extends AbstractContainerMenu {
     }
 
     public EquipmentCabinetMenu(int id, Inventory inventory, Container cabinet) {
-        super(ExampleMod.CABINET_MENU.get(), id);
+        super(ModMenus.CABINET_MENU.get(), id);
         checkContainerSize(cabinet, CABINET_SLOTS);
         this.cabinet = cabinet;
         cabinet.startOpen(inventory.player);

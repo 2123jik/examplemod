@@ -1,5 +1,6 @@
 package com.example.examplemod.compat.jade;
 
+import com.example.examplemod.client.jade.CustomStatusEffectsClientProvider;
 import net.minecraft.world.entity.LivingEntity;
 import snownee.jade.api.IWailaClientRegistration;
 import snownee.jade.api.IWailaCommonRegistration;
@@ -16,6 +17,8 @@ public class ExampleJadePlugin implements IWailaPlugin {
                 MobAttackServerProvider.INSTANCE,
                 LivingEntity.class
         );
+        registration.registerEntityDataProvider(CustomStatusEffectsServerProvider.INSTANCE, LivingEntity.class);
+
     }
 
     @Override
@@ -25,5 +28,7 @@ public class ExampleJadePlugin implements IWailaPlugin {
                 MobAttackClientProvider.INSTANCE,
                 LivingEntity.class
         );
+        registration.registerEntityComponent(CustomStatusEffectsClientProvider.INSTANCE, LivingEntity.class);
     }
+
 }

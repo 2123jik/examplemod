@@ -2,8 +2,6 @@
   "replace": false,
   "values": [
     "#irons_spellbooks:staff",
-    "#iss_magicfromtheeast:staff",
-    "alexscaves:sea_staff",
-    "alexscaves:sugar_staff"
+    "#iss_magicfromtheeast:staff"
   ]
 }

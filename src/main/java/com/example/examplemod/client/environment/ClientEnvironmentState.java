@@ -26,7 +26,7 @@ public final class ClientEnvironmentState {
             reset();
             return;
         }
-
+        EnvironmentColorSampler.INSTANCE.tick(minecraft);
         if (trackedLevel != minecraft.level) {
             trackedLevel = minecraft.level;
             currentTier = VisualTier.getLocalPlayerTier();
@@ -119,7 +119,7 @@ public final class ClientEnvironmentState {
         tierTransition = 1.0F;
         previousFrameProfile = null;
         currentFrameProfile = null;
-
+        EnvironmentColorSampler.INSTANCE.reset(); // <- 重置采样器
         AmbientParticleManager.INSTANCE.clear();
     }
 }

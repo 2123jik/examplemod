@@ -1,6 +1,7 @@
 package com.example.examplemod.registry;
 
 import com.example.examplemod.ExampleMod;
+import com.example.examplemod.entity.CustomLightningLanceProjectile;
 import com.example.examplemod.spell.SummonedCaveSpider;
 import com.example.examplemod.spell.SummonedSupportDragon;
 import net.minecraft.core.registries.Registries;
@@ -21,7 +22,14 @@ public class ModEntities {
                             .clientTrackingRange(8)
                             .build("summoned_cave_spider")
             );
-
+    public static final DeferredHolder<EntityType<?>, EntityType<CustomLightningLanceProjectile>> CUSTOM_LIGHTNING_LANCE =
+            ENTITIES.register("custom_lightning_lance", () ->
+                    EntityType.Builder.<CustomLightningLanceProjectile>of(CustomLightningLanceProjectile::new, MobCategory.MISC)
+                            .sized(0.75F, 0.75F)
+                            .clientTrackingRange(64)
+                            .updateInterval(1)
+                            .build("custom_lightning_lance")
+            );
 
     public static final DeferredHolder<EntityType<?>, EntityType<SummonedSupportDragon>> SUMMONED_SUPPORT_DRAGON =
             ENTITIES.register("summoned_support_dragon", () ->
@@ -33,8 +41,4 @@ public class ModEntities {
                             .build("summoned_support_dragon")
             );
 
-
-    public static void register(IEventBus modEventBus) {
-        ENTITIES.register(modEventBus);
-    }
 }
