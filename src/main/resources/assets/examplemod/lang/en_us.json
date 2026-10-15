@@ -736,5 +736,14 @@
     "attribute.examplemod.convert_holy_to_symmetry": " Holy Damage converted to Symmetry",
     "affix.apotheosis:weapons/attribute/convert_melody_to_symmetry": "Mirrored-Transmuting ",
     "affix.apotheosis:weapons/attribute/convert_melody_to_symmetry.suffix": " of Symmetry Conversion",
-    "attribute.examplemod.convert_melody_to_symmetry": " Melody Damage converted to Symmetry"
+    "attribute.examplemod.convert_melody_to_symmetry": " Melody Damage converted to Symmetry",
+
+  "config.jade.plugin_examplemod.status_effects": "Status Effects",
+  "config.jade.plugin_examplemod.mob_attack": "Mob Attack",
+  "gui.examplemod.skill_tree.title": "Skill Constellation",
+  "gui.examplemod.skill_tree.points": "Skill Points: %s",
+  "gui.examplemod.skill_tree.requires_parent": "Requires Preceding Skill",
+  "gui.examplemod.skill_tree.max_rank": "Max Rank Reached",
+  "gui.examplemod.skill_tree.upgrade": "Click to Upgrade"
+
   }

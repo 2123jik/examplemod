@@ -749,5 +749,14 @@
     "attribute.examplemod.convert_holy_to_symmetry": "神圣伤害转化为两仪伤害",
     "affix.apotheosis:weapons/attribute/convert_melody_to_symmetry": "律转两仪之",
     "affix.apotheosis:weapons/attribute/convert_melody_to_symmetry.suffix": "之两仪质变",
-    "attribute.examplemod.convert_melody_to_symmetry": "旋律伤害转化为两仪伤害"
-  }
+    "attribute.examplemod.convert_melody_to_symmetry": "旋律伤害转化为两仪伤害",
+
+  "config.jade.plugin_examplemod.status_effects": "状态效果",
+  "config.jade.plugin_examplemod.mob_attack": "生物攻击",
+  "gui.examplemod.skill_tree.title": "技能星图",
+  "gui.examplemod.skill_tree.points": "可用点数: %s",
+  "gui.examplemod.skill_tree.requires_parent": "需先解锁前置技能",
+  "gui.examplemod.skill_tree.max_rank": "已达最大等级",
+  "gui.examplemod.skill_tree.upgrade": "点击升级技能"
+
+}

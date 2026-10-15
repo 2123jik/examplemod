@@ -2819,8 +2819,6 @@
         "armor_material"
       ],
       "values": [
-        "block_factorys_bosses:dragon_bones",
-        "block_factorys_bosses:knight",
         "cataclysm:bone_reptile",
         "cataclysm:crab",
         "cataclysm:cursium",
@@ -2913,48 +2911,101 @@
         "artifacts:generic.sprinting_step_height",
         "artifacts:player.entity_experience",
         "artifacts:player.villager_reputation",
-        "block_factorys_bosses:roll_count",
         "cataclysm:additional_critical_damage",
         "cataclysm:charge_time",
         "cataclysm:eat_speed",
         "cataclysm:nature_heal",
-        "examplemod:acid_orb_corrosion",
-        "examplemod:acupuncture_crucifixion",
-        "examplemod:black_hole_supernova",
-        "examplemod:blaze_storm_overheat",
-        "examplemod:blessing_overheal_aegis",
-        "examplemod:blight_pestilence",
-        "examplemod:blizzard_permafrost",
-        "examplemod:blood_slash_cross",
-        "examplemod:blood_step_severance",
-        "examplemod:burning_dash_ignition",
-        "examplemod:chain_lightning_superconductor",
-        "examplemod:charge_overclock",
-        "examplemod:divine_smite_judgment",
-        "examplemod:eldritch_singularity",
-        "examplemod:fang_ward_shred",
-        "examplemod:fireball_supercritical",
-        "examplemod:fortify_martyr_aegis",
-        "examplemod:frost_step_avalanche",
-        "examplemod:heat_surge_cinder_domain",
-        "examplemod:ice_spikes_shatter",
-        "examplemod:ice_tomb_absolute_zero",
-        "examplemod:kinetic_annihilation",
-        "examplemod:lightning_bolt_emp",
-        "examplemod:magic_missile_swarm",
-        "examplemod:oakskin_ancient_thorns",
-        "examplemod:root_strangle_rupture",
-        "examplemod:scapegoat_soul_surrogate",
-        "examplemod:sculk_hive_infestation",
-        "examplemod:shadow_slash_omnislash",
-        "examplemod:shield_deflection_overload",
-        "examplemod:siphon_chain",
-        "examplemod:slow_chrono_stagnation",
-        "examplemod:sonic_resonance_shatter",
-        "examplemod:sunbeam_dawn_flare",
-        "examplemod:teleport_void_swap",
-        "examplemod:thunder_step_shear",
-        "examplemod:wither_barrage",
+        "examplemod:convert_blood_to_dune",
+        "examplemod:convert_blood_to_eldritch",
+        "examplemod:convert_blood_to_ender",
+        "examplemod:convert_blood_to_evocation",
+        "examplemod:convert_blood_to_holy",
+        "examplemod:convert_blood_to_melody",
+        "examplemod:convert_blood_to_symmetry",
+        "examplemod:convert_dune_to_evocation",
+        "examplemod:convert_dune_to_holy",
+        "examplemod:convert_dune_to_melody",
+        "examplemod:convert_dune_to_symmetry",
+        "examplemod:convert_eldritch_to_dune",
+        "examplemod:convert_eldritch_to_evocation",
+        "examplemod:convert_eldritch_to_holy",
+        "examplemod:convert_eldritch_to_melody",
+        "examplemod:convert_eldritch_to_symmetry",
+        "examplemod:convert_ender_to_dune",
+        "examplemod:convert_ender_to_eldritch",
+        "examplemod:convert_ender_to_evocation",
+        "examplemod:convert_ender_to_holy",
+        "examplemod:convert_ender_to_melody",
+        "examplemod:convert_ender_to_symmetry",
+        "examplemod:convert_evocation_to_holy",
+        "examplemod:convert_evocation_to_melody",
+        "examplemod:convert_evocation_to_symmetry",
+        "examplemod:convert_fire_to_blood",
+        "examplemod:convert_fire_to_dune",
+        "examplemod:convert_fire_to_eldritch",
+        "examplemod:convert_fire_to_ender",
+        "examplemod:convert_fire_to_evocation",
+        "examplemod:convert_fire_to_holy",
+        "examplemod:convert_fire_to_ice",
+        "examplemod:convert_fire_to_lightning",
+        "examplemod:convert_fire_to_melody",
+        "examplemod:convert_fire_to_nature",
+        "examplemod:convert_fire_to_spirit",
+        "examplemod:convert_fire_to_symmetry",
+        "examplemod:convert_holy_to_melody",
+        "examplemod:convert_holy_to_symmetry",
+        "examplemod:convert_ice_to_blood",
+        "examplemod:convert_ice_to_dune",
+        "examplemod:convert_ice_to_eldritch",
+        "examplemod:convert_ice_to_ender",
+        "examplemod:convert_ice_to_evocation",
+        "examplemod:convert_ice_to_holy",
+        "examplemod:convert_ice_to_lightning",
+        "examplemod:convert_ice_to_melody",
+        "examplemod:convert_ice_to_nature",
+        "examplemod:convert_ice_to_spirit",
+        "examplemod:convert_ice_to_symmetry",
+        "examplemod:convert_lightning_to_blood",
+        "examplemod:convert_lightning_to_dune",
+        "examplemod:convert_lightning_to_eldritch",
+        "examplemod:convert_lightning_to_ender",
+        "examplemod:convert_lightning_to_evocation",
+        "examplemod:convert_lightning_to_holy",
+        "examplemod:convert_lightning_to_melody",
+        "examplemod:convert_lightning_to_nature",
+        "examplemod:convert_lightning_to_spirit",
+        "examplemod:convert_lightning_to_symmetry",
+        "examplemod:convert_melody_to_symmetry",
+        "examplemod:convert_nature_to_blood",
+        "examplemod:convert_nature_to_dune",
+        "examplemod:convert_nature_to_eldritch",
+        "examplemod:convert_nature_to_ender",
+        "examplemod:convert_nature_to_evocation",
+        "examplemod:convert_nature_to_holy",
+        "examplemod:convert_nature_to_melody",
+        "examplemod:convert_nature_to_spirit",
+        "examplemod:convert_nature_to_symmetry",
+        "examplemod:convert_physical_to_blood",
+        "examplemod:convert_physical_to_dune",
+        "examplemod:convert_physical_to_eldritch",
+        "examplemod:convert_physical_to_ender",
+        "examplemod:convert_physical_to_evocation",
+        "examplemod:convert_physical_to_fire",
+        "examplemod:convert_physical_to_holy",
+        "examplemod:convert_physical_to_ice",
+        "examplemod:convert_physical_to_lightning",
+        "examplemod:convert_physical_to_melody",
+        "examplemod:convert_physical_to_nature",
+        "examplemod:convert_physical_to_spirit",
+        "examplemod:convert_physical_to_symmetry",
+        "examplemod:convert_spirit_to_blood",
+        "examplemod:convert_spirit_to_dune",
+        "examplemod:convert_spirit_to_eldritch",
+        "examplemod:convert_spirit_to_ender",
+        "examplemod:convert_spirit_to_evocation",
+        "examplemod:convert_spirit_to_holy",
+        "examplemod:convert_spirit_to_melody",
+        "examplemod:convert_spirit_to_symmetry",
         "irons_lib:armor_pierce",
         "irons_lib:arrow_damage",
         "irons_lib:crit_damage",
@@ -3230,11 +3281,6 @@
           "zh": "村民声望",
           "en": "Villager Reputation"
         },
-        "block_factorys_bosses:roll_count": {
-          "key": "attribute.block_factorys_bosses.roll_count",
-          "zh": "翻滚次数",
-          "en": "Roll Count"
-        },
         "cataclysm:additional_critical_damage": {
           "key": "attribute.cataclysm.additional_critical_damage",
           "zh": "% 暴击伤害",
@@ -3251,190 +3297,460 @@
           "zh": "% 生命值自然恢复速度",
           "en": "% Nature Heal"
         },
-        "examplemod:acid_orb_corrosion": {
-          "key": "attribute.examplemod.acid_orb_corrosion",
-          "zh": "机制质变：强酸蚀甲聚爆",
-          "en": "Mechanic Transmutation: Acid Armor Rupture"
+        "examplemod:convert_blood_to_dune": {
+          "key": "attribute.examplemod.convert_blood_to_dune",
+          "zh": "猩红伤害转化为沙丘伤害",
+          "en": " Blood Damage converted to Dune"
         },
-        "examplemod:acupuncture_crucifixion": {
-          "key": "attribute.examplemod.acupuncture_crucifixion",
-          "zh": "质变：血梏钉刑",
-          "en": "Transmutation: Blood Crucifixion"
+        "examplemod:convert_blood_to_eldritch": {
+          "key": "attribute.examplemod.convert_blood_to_eldritch",
+          "zh": "猩红伤害转化为邪术伤害",
+          "en": " Blood Damage converted to Eldritch"
         },
-        "examplemod:black_hole_supernova": {
-          "key": "attribute.examplemod.black_hole_supernova",
-          "zh": "质变：坍缩超新星",
-          "en": "Transmutation: Collapsing Supernova"
+        "examplemod:convert_blood_to_ender": {
+          "key": "attribute.examplemod.convert_blood_to_ender",
+          "zh": "猩红伤害转化为末影伤害",
+          "en": " Blood Damage converted to Ender"
         },
-        "examplemod:blaze_storm_overheat": {
-          "key": "attribute.examplemod.blaze_storm_overheat",
-          "zh": "机制质变：过热超载",
-          "en": "Mechanic Transmutation: Overheated Core"
+        "examplemod:convert_blood_to_evocation": {
+          "key": "attribute.examplemod.convert_blood_to_evocation",
+          "zh": "猩红伤害转化为唤魔伤害",
+          "en": " Blood Damage converted to Evocation"
         },
-        "examplemod:blessing_overheal_aegis": {
-          "key": "attribute.examplemod.blessing_overheal_aegis",
-          "zh": "机制质变：过量光佑",
-          "en": "Mechanic Transmutation: Overheal Aegis"
+        "examplemod:convert_blood_to_holy": {
+          "key": "attribute.examplemod.convert_blood_to_holy",
+          "zh": "猩红伤害转化为神圣伤害",
+          "en": " Blood Damage converted to Holy"
         },
-        "examplemod:blight_pestilence": {
-          "key": "attribute.examplemod.blight_pestilence",
-          "zh": "机制质变：疫病生息共振",
-          "en": "Mechanic Transmutation: Pestilence Resonance"
+        "examplemod:convert_blood_to_melody": {
+          "key": "attribute.examplemod.convert_blood_to_melody",
+          "zh": "猩红伤害转化为旋律伤害",
+          "en": " Blood Damage converted to Melody"
         },
-        "examplemod:blizzard_permafrost": {
-          "key": "attribute.examplemod.blizzard_permafrost",
-          "zh": "机制质变：永冻冰渊",
-          "en": "Mechanic Transmutation: Permafrost Abyss"
+        "examplemod:convert_blood_to_symmetry": {
+          "key": "attribute.examplemod.convert_blood_to_symmetry",
+          "zh": "猩红伤害转化为两仪伤害",
+          "en": " Blood Damage converted to Symmetry"
         },
-        "examplemod:blood_slash_cross": {
-          "key": "attribute.examplemod.blood_slash_cross",
-          "zh": "形态重塑：血月十字斩",
-          "en": "Morph: Cross Blood Slash"
+        "examplemod:convert_dune_to_evocation": {
+          "key": "attribute.examplemod.convert_dune_to_evocation",
+          "zh": "沙丘伤害转化为唤魔伤害",
+          "en": " Dune Damage converted to Evocation"
         },
-        "examplemod:blood_step_severance": {
-          "key": "attribute.examplemod.blood_step_severance",
-          "zh": "质变：血影断魂",
-          "en": "Transmutation: Blood Severance"
+        "examplemod:convert_dune_to_holy": {
+          "key": "attribute.examplemod.convert_dune_to_holy",
+          "zh": "沙丘伤害转化为神圣伤害",
+          "en": " Dune Damage converted to Holy"
         },
-        "examplemod:burning_dash_ignition": {
-          "key": "attribute.examplemod.burning_dash_ignition",
-          "zh": "机制质变：劫火回旋充能",
-          "en": "Mechanic Transmutation: Ignition Surge"
+        "examplemod:convert_dune_to_melody": {
+          "key": "attribute.examplemod.convert_dune_to_melody",
+          "zh": "沙丘伤害转化为旋律伤害",
+          "en": " Dune Damage converted to Melody"
         },
-        "examplemod:chain_lightning_superconductor": {
-          "key": "attribute.examplemod.chain_lightning_superconductor",
-          "zh": "机制质变：高压电离超导",
-          "en": "Mechanic Transmutation: Superconducting Ionization"
+        "examplemod:convert_dune_to_symmetry": {
+          "key": "attribute.examplemod.convert_dune_to_symmetry",
+          "zh": "沙丘伤害转化为两仪伤害",
+          "en": " Dune Damage converted to Symmetry"
         },
-        "examplemod:charge_overclock": {
-          "key": "attribute.examplemod.charge_overclock",
-          "zh": "机制质变：超频聚能",
-          "en": "Mechanic Transmutation: Overclocked Convergence"
+        "examplemod:convert_eldritch_to_dune": {
+          "key": "attribute.examplemod.convert_eldritch_to_dune",
+          "zh": "邪术伤害转化为沙丘伤害",
+          "en": " Eldritch Damage converted to Dune"
         },
-        "examplemod:divine_smite_judgment": {
-          "key": "attribute.examplemod.divine_smite_judgment",
-          "zh": "机制质变：圣裁审判",
-          "en": "Mechanic Transmutation: Divine Judgment"
+        "examplemod:convert_eldritch_to_evocation": {
+          "key": "attribute.examplemod.convert_eldritch_to_evocation",
+          "zh": "邪术伤害转化为唤魔伤害",
+          "en": " Eldritch Damage converted to Evocation"
         },
-        "examplemod:eldritch_singularity": {
-          "key": "attribute.examplemod.eldritch_singularity",
-          "zh": "质变：异界奇点",
-          "en": "Transmutation: Eldritch Singularity"
+        "examplemod:convert_eldritch_to_holy": {
+          "key": "attribute.examplemod.convert_eldritch_to_holy",
+          "zh": "邪术伤害转化为神圣伤害",
+          "en": " Eldritch Damage converted to Holy"
         },
-        "examplemod:fang_ward_shred": {
-          "key": "attribute.examplemod.fang_ward_shred",
-          "zh": "机制质变：断罪咬合",
-          "en": "Mechanic Transmutation: Judgment Clamp"
+        "examplemod:convert_eldritch_to_melody": {
+          "key": "attribute.examplemod.convert_eldritch_to_melody",
+          "zh": "邪术伤害转化为旋律伤害",
+          "en": " Eldritch Damage converted to Melody"
         },
-        "examplemod:fireball_supercritical": {
-          "key": "attribute.examplemod.fireball_supercritical",
-          "zh": "机制质变：超临界聚爆",
-          "en": "Mechanic Transmutation: Supercritical Burst"
+        "examplemod:convert_eldritch_to_symmetry": {
+          "key": "attribute.examplemod.convert_eldritch_to_symmetry",
+          "zh": "邪术伤害转化为两仪伤害",
+          "en": " Eldritch Damage converted to Symmetry"
         },
-        "examplemod:fortify_martyr_aegis": {
-          "key": "attribute.examplemod.fortify_martyr_aegis",
-          "zh": "机制质变：殉道光环",
-          "en": "Mechanic Transmutation: Martyr Aura"
+        "examplemod:convert_ender_to_dune": {
+          "key": "attribute.examplemod.convert_ender_to_dune",
+          "zh": "末影伤害转化为沙丘伤害",
+          "en": " Ender Damage converted to Dune"
         },
-        "examplemod:frost_step_avalanche": {
-          "key": "attribute.examplemod.frost_step_avalanche",
-          "zh": "机制质变：绝对零度雪崩",
-          "en": "Mechanic Transmutation: Absolute Avalanche"
+        "examplemod:convert_ender_to_eldritch": {
+          "key": "attribute.examplemod.convert_ender_to_eldritch",
+          "zh": "末影伤害转化为邪术伤害",
+          "en": " Ender Damage converted to Eldritch"
         },
-        "examplemod:heat_surge_cinder_domain": {
-          "key": "attribute.examplemod.heat_surge_cinder_domain",
-          "zh": "机制质变：灰烬焦土领域",
-          "en": "Mechanic Transmutation: Cinder Domain"
+        "examplemod:convert_ender_to_evocation": {
+          "key": "attribute.examplemod.convert_ender_to_evocation",
+          "zh": "末影伤害转化为唤魔伤害",
+          "en": " Ender Damage converted to Evocation"
         },
-        "examplemod:ice_spikes_shatter": {
-          "key": "attribute.examplemod.ice_spikes_shatter",
-          "zh": "机制质变：极冰穿刺碎裂",
-          "en": "Mechanic Transmutation: Spikes Shatter"
+        "examplemod:convert_ender_to_holy": {
+          "key": "attribute.examplemod.convert_ender_to_holy",
+          "zh": "末影伤害转化为神圣伤害",
+          "en": " Ender Damage converted to Holy"
         },
-        "examplemod:ice_tomb_absolute_zero": {
-          "key": "attribute.examplemod.ice_tomb_absolute_zero",
-          "zh": "机制质变：极寒涅槃",
-          "en": "Mechanic Transmutation: Glacial Nirvana"
+        "examplemod:convert_ender_to_melody": {
+          "key": "attribute.examplemod.convert_ender_to_melody",
+          "zh": "末影伤害转化为旋律伤害",
+          "en": " Ender Damage converted to Melody"
         },
-        "examplemod:kinetic_annihilation": {
-          "key": "attribute.examplemod.kinetic_annihilation",
-          "zh": "质变：动能陨落",
-          "en": "Transmutation: Kinetic Oblivion"
+        "examplemod:convert_ender_to_symmetry": {
+          "key": "attribute.examplemod.convert_ender_to_symmetry",
+          "zh": "末影伤害转化为两仪伤害",
+          "en": " Ender Damage converted to Symmetry"
         },
-        "examplemod:lightning_bolt_emp": {
-          "key": "attribute.examplemod.lightning_bolt_emp",
-          "zh": "机制质变：电磁雷暴引信",
-          "en": "Mechanic Transmutation: EMP Detonator"
+        "examplemod:convert_evocation_to_holy": {
+          "key": "attribute.examplemod.convert_evocation_to_holy",
+          "zh": "唤魔伤害转化为神圣伤害",
+          "en": " Evocation Damage converted to Holy"
         },
-        "examplemod:magic_missile_swarm": {
-          "key": "attribute.examplemod.magic_missile_swarm",
-          "zh": "形态重塑：浮游星芒",
-          "en": "Morph: Floating Starlight"
+        "examplemod:convert_evocation_to_melody": {
+          "key": "attribute.examplemod.convert_evocation_to_melody",
+          "zh": "唤魔伤害转化为旋律伤害",
+          "en": " Evocation Damage converted to Melody"
         },
-        "examplemod:oakskin_ancient_thorns": {
-          "key": "attribute.examplemod.oakskin_ancient_thorns",
-          "zh": "机制质变：远古荆棘古树",
-          "en": "Mechanic Transmutation: Ancient Thorn Tree"
+        "examplemod:convert_evocation_to_symmetry": {
+          "key": "attribute.examplemod.convert_evocation_to_symmetry",
+          "zh": "唤魔伤害转化为两仪伤害",
+          "en": " Evocation Damage converted to Symmetry"
         },
-        "examplemod:root_strangle_rupture": {
-          "key": "attribute.examplemod.root_strangle_rupture",
-          "zh": "机制质变：绞杀荆棘断筋",
-          "en": "Mechanic Transmutation: Strangle Thorns"
+        "examplemod:convert_fire_to_blood": {
+          "key": "attribute.examplemod.convert_fire_to_blood",
+          "zh": "炽焰伤害转化为猩红伤害",
+          "en": " Fire Damage converted to Blood"
         },
-        "examplemod:scapegoat_soul_surrogate": {
-          "key": "attribute.examplemod.scapegoat_soul_surrogate",
-          "zh": "机制质变：命元代偿",
-          "en": "Mechanic Transmutation: Soul Surrogate"
+        "examplemod:convert_fire_to_dune": {
+          "key": "attribute.examplemod.convert_fire_to_dune",
+          "zh": "炽焰伤害转化为沙丘伤害",
+          "en": " Fire Damage converted to Dune"
         },
-        "examplemod:sculk_hive_infestation": {
-          "key": "attribute.examplemod.sculk_hive_infestation",
-          "zh": "质变：盲目巢群",
-          "en": "Transmutation: Blind Hive"
+        "examplemod:convert_fire_to_eldritch": {
+          "key": "attribute.examplemod.convert_fire_to_eldritch",
+          "zh": "炽焰伤害转化为邪术伤害",
+          "en": " Fire Damage converted to Eldritch"
         },
-        "examplemod:shadow_slash_omnislash": {
-          "key": "attribute.examplemod.shadow_slash_omnislash",
-          "zh": "质变：瞬狱影杀阵",
-          "en": "Transmutation: Shadow Omnislash"
+        "examplemod:convert_fire_to_ender": {
+          "key": "attribute.examplemod.convert_fire_to_ender",
+          "zh": "炽焰伤害转化为末影伤害",
+          "en": " Fire Damage converted to Ender"
         },
-        "examplemod:shield_deflection_overload": {
-          "key": "attribute.examplemod.shield_deflection_overload",
-          "zh": "机制质变：偏斜过载",
-          "en": "Mechanic Transmutation: Deflection Overload"
+        "examplemod:convert_fire_to_evocation": {
+          "key": "attribute.examplemod.convert_fire_to_evocation",
+          "zh": "炽焰伤害转化为唤魔伤害",
+          "en": " Fire Damage converted to Evocation"
         },
-        "examplemod:siphon_chain": {
-          "key": "attribute.examplemod.siphon_chain",
-          "zh": "质变：猩红链锁",
-          "en": "Transmutation: Crimson Chain"
+        "examplemod:convert_fire_to_holy": {
+          "key": "attribute.examplemod.convert_fire_to_holy",
+          "zh": "炽焰伤害转化为神圣伤害",
+          "en": " Fire Damage converted to Holy"
         },
-        "examplemod:slow_chrono_stagnation": {
-          "key": "attribute.examplemod.slow_chrono_stagnation",
-          "zh": "机制质变：时滞停滞",
-          "en": "Mechanic Transmutation: Chrono Stagnation"
+        "examplemod:convert_fire_to_ice": {
+          "key": "attribute.examplemod.convert_fire_to_ice",
+          "zh": "炽焰伤害转化为冰霜伤害",
+          "en": " Fire Damage converted to Ice"
         },
-        "examplemod:sonic_resonance_shatter": {
-          "key": "attribute.examplemod.sonic_resonance_shatter",
-          "zh": "质变：音爆裂解",
-          "en": "Transmutation: Sonic Resonance"
+        "examplemod:convert_fire_to_lightning": {
+          "key": "attribute.examplemod.convert_fire_to_lightning",
+          "zh": "炽焰伤害转化为雷霆伤害",
+          "en": " Fire Damage converted to Lightning"
         },
-        "examplemod:sunbeam_dawn_flare": {
-          "key": "attribute.examplemod.sunbeam_dawn_flare",
-          "zh": "机制质变：黎明耀斑",
-          "en": "Mechanic Transmutation: Dawn Flare"
+        "examplemod:convert_fire_to_melody": {
+          "key": "attribute.examplemod.convert_fire_to_melody",
+          "zh": "炽焰伤害转化为旋律伤害",
+          "en": " Fire Damage converted to Melody"
         },
-        "examplemod:teleport_void_swap": {
-          "key": "attribute.examplemod.teleport_void_swap",
-          "zh": "质变：虚空置换",
-          "en": "Transmutation: Void Swap"
+        "examplemod:convert_fire_to_nature": {
+          "key": "attribute.examplemod.convert_fire_to_nature",
+          "zh": "炽焰伤害转化为自然伤害",
+          "en": " Fire Damage converted to Nature"
         },
-        "examplemod:thunder_step_shear": {
-          "key": "attribute.examplemod.thunder_step_shear",
-          "zh": "机制质变：苍雷闪烁突刺",
-          "en": "Mechanic Transmutation: Azure Step Shear"
+        "examplemod:convert_fire_to_spirit": {
+          "key": "attribute.examplemod.convert_fire_to_spirit",
+          "zh": "炽焰伤害转化为魂灵伤害",
+          "en": " Fire Damage converted to Spirit"
         },
-        "examplemod:wither_barrage": {
-          "key": "attribute.examplemod.wither_barrage",
-          "zh": "形态重塑：死疫齐射",
-          "en": "Morph: Plagued Barrage"
+        "examplemod:convert_fire_to_symmetry": {
+          "key": "attribute.examplemod.convert_fire_to_symmetry",
+          "zh": "炽焰伤害转化为两仪伤害",
+          "en": " Fire Damage converted to Symmetry"
+        },
+        "examplemod:convert_holy_to_melody": {
+          "key": "attribute.examplemod.convert_holy_to_melody",
+          "zh": "神圣伤害转化为旋律伤害",
+          "en": " Holy Damage converted to Melody"
+        },
+        "examplemod:convert_holy_to_symmetry": {
+          "key": "attribute.examplemod.convert_holy_to_symmetry",
+          "zh": "神圣伤害转化为两仪伤害",
+          "en": " Holy Damage converted to Symmetry"
+        },
+        "examplemod:convert_ice_to_blood": {
+          "key": "attribute.examplemod.convert_ice_to_blood",
+          "zh": "冰霜伤害转化为猩红伤害",
+          "en": " Ice Damage converted to Blood"
+        },
+        "examplemod:convert_ice_to_dune": {
+          "key": "attribute.examplemod.convert_ice_to_dune",
+          "zh": "冰霜伤害转化为沙丘伤害",
+          "en": " Ice Damage converted to Dune"
+        },
+        "examplemod:convert_ice_to_eldritch": {
+          "key": "attribute.examplemod.convert_ice_to_eldritch",
+          "zh": "冰霜伤害转化为邪术伤害",
+          "en": " Ice Damage converted to Eldritch"
+        },
+        "examplemod:convert_ice_to_ender": {
+          "key": "attribute.examplemod.convert_ice_to_ender",
+          "zh": "冰霜伤害转化为末影伤害",
+          "en": " Ice Damage converted to Ender"
+        },
+        "examplemod:convert_ice_to_evocation": {
+          "key": "attribute.examplemod.convert_ice_to_evocation",
+          "zh": "冰霜伤害转化为唤魔伤害",
+          "en": " Ice Damage converted to Evocation"
+        },
+        "examplemod:convert_ice_to_holy": {
+          "key": "attribute.examplemod.convert_ice_to_holy",
+          "zh": "冰霜伤害转化为神圣伤害",
+          "en": " Ice Damage converted to Holy"
+        },
+        "examplemod:convert_ice_to_lightning": {
+          "key": "attribute.examplemod.convert_ice_to_lightning",
+          "zh": "冰霜伤害转化为雷霆伤害",
+          "en": " Ice Damage converted to Lightning"
+        },
+        "examplemod:convert_ice_to_melody": {
+          "key": "attribute.examplemod.convert_ice_to_melody",
+          "zh": "冰霜伤害转化为旋律伤害",
+          "en": " Ice Damage converted to Melody"
+        },
+        "examplemod:convert_ice_to_nature": {
+          "key": "attribute.examplemod.convert_ice_to_nature",
+          "zh": "冰霜伤害转化为自然伤害",
+          "en": " Ice Damage converted to Nature"
+        },
+        "examplemod:convert_ice_to_spirit": {
+          "key": "attribute.examplemod.convert_ice_to_spirit",
+          "zh": "冰霜伤害转化为魂灵伤害",
+          "en": " Ice Damage converted to Spirit"
+        },
+        "examplemod:convert_ice_to_symmetry": {
+          "key": "attribute.examplemod.convert_ice_to_symmetry",
+          "zh": "冰霜伤害转化为两仪伤害",
+          "en": " Ice Damage converted to Symmetry"
+        },
+        "examplemod:convert_lightning_to_blood": {
+          "key": "attribute.examplemod.convert_lightning_to_blood",
+          "zh": "雷霆伤害转化为猩红伤害",
+          "en": " Lightning Damage converted to Blood"
+        },
+        "examplemod:convert_lightning_to_dune": {
+          "key": "attribute.examplemod.convert_lightning_to_dune",
+          "zh": "雷霆伤害转化为沙丘伤害",
+          "en": " Lightning Damage converted to Dune"
+        },
+        "examplemod:convert_lightning_to_eldritch": {
+          "key": "attribute.examplemod.convert_lightning_to_eldritch",
+          "zh": "雷霆伤害转化为邪术伤害",
+          "en": " Lightning Damage converted to Eldritch"
+        },
+        "examplemod:convert_lightning_to_ender": {
+          "key": "attribute.examplemod.convert_lightning_to_ender",
+          "zh": "雷霆伤害转化为末影伤害",
+          "en": " Lightning Damage converted to Ender"
+        },
+        "examplemod:convert_lightning_to_evocation": {
+          "key": "attribute.examplemod.convert_lightning_to_evocation",
+          "zh": "雷霆伤害转化为唤魔伤害",
+          "en": " Lightning Damage converted to Evocation"
+        },
+        "examplemod:convert_lightning_to_holy": {
+          "key": "attribute.examplemod.convert_lightning_to_holy",
+          "zh": "雷霆伤害转化为神圣伤害",
+          "en": " Lightning Damage converted to Holy"
+        },
+        "examplemod:convert_lightning_to_melody": {
+          "key": "attribute.examplemod.convert_lightning_to_melody",
+          "zh": "雷霆伤害转化为旋律伤害",
+          "en": " Lightning Damage converted to Melody"
+        },
+        "examplemod:convert_lightning_to_nature": {
+          "key": "attribute.examplemod.convert_lightning_to_nature",
+          "zh": "雷霆伤害转化为自然伤害",
+          "en": " Lightning Damage converted to Nature"
+        },
+        "examplemod:convert_lightning_to_spirit": {
+          "key": "attribute.examplemod.convert_lightning_to_spirit",
+          "zh": "雷霆伤害转化为魂灵伤害",
+          "en": " Lightning Damage converted to Spirit"
+        },
+        "examplemod:convert_lightning_to_symmetry": {
+          "key": "attribute.examplemod.convert_lightning_to_symmetry",
+          "zh": "雷霆伤害转化为两仪伤害",
+          "en": " Lightning Damage converted to Symmetry"
+        },
+        "examplemod:convert_melody_to_symmetry": {
+          "key": "attribute.examplemod.convert_melody_to_symmetry",
+          "zh": "旋律伤害转化为两仪伤害",
+          "en": " Melody Damage converted to Symmetry"
+        },
+        "examplemod:convert_nature_to_blood": {
+          "key": "attribute.examplemod.convert_nature_to_blood",
+          "zh": "自然伤害转化为猩红伤害",
+          "en": " Nature Damage converted to Blood"
+        },
+        "examplemod:convert_nature_to_dune": {
+          "key": "attribute.examplemod.convert_nature_to_dune",
+          "zh": "自然伤害转化为沙丘伤害",
+          "en": " Nature Damage converted to Dune"
+        },
+        "examplemod:convert_nature_to_eldritch": {
+          "key": "attribute.examplemod.convert_nature_to_eldritch",
+          "zh": "自然伤害转化为邪术伤害",
+          "en": " Nature Damage converted to Eldritch"
+        },
+        "examplemod:convert_nature_to_ender": {
+          "key": "attribute.examplemod.convert_nature_to_ender",
+          "zh": "自然伤害转化为末影伤害",
+          "en": " Nature Damage converted to Ender"
+        },
+        "examplemod:convert_nature_to_evocation": {
+          "key": "attribute.examplemod.convert_nature_to_evocation",
+          "zh": "自然伤害转化为唤魔伤害",
+          "en": " Nature Damage converted to Evocation"
+        },
+        "examplemod:convert_nature_to_holy": {
+          "key": "attribute.examplemod.convert_nature_to_holy",
+          "zh": "自然伤害转化为神圣伤害",
+          "en": " Nature Damage converted to Holy"
+        },
+        "examplemod:convert_nature_to_melody": {
+          "key": "attribute.examplemod.convert_nature_to_melody",
+          "zh": "自然伤害转化为旋律伤害",
+          "en": " Nature Damage converted to Melody"
+        },
+        "examplemod:convert_nature_to_spirit": {
+          "key": "attribute.examplemod.convert_nature_to_spirit",
+          "zh": "自然伤害转化为魂灵伤害",
+          "en": " Nature Damage converted to Spirit"
+        },
+        "examplemod:convert_nature_to_symmetry": {
+          "key": "attribute.examplemod.convert_nature_to_symmetry",
+          "zh": "自然伤害转化为两仪伤害",
+          "en": " Nature Damage converted to Symmetry"
+        },
+        "examplemod:convert_physical_to_blood": {
+          "key": "attribute.examplemod.convert_physical_to_blood",
+          "zh": "物理伤害转化为猩红伤害",
+          "en": " Physical Damage converted to Blood"
+        },
+        "examplemod:convert_physical_to_dune": {
+          "key": "attribute.examplemod.convert_physical_to_dune",
+          "zh": "物理伤害转化为沙丘伤害",
+          "en": " Physical Damage converted to Dune"
+        },
+        "examplemod:convert_physical_to_eldritch": {
+          "key": "attribute.examplemod.convert_physical_to_eldritch",
+          "zh": "物理伤害转化为邪术伤害",
+          "en": " Physical Damage converted to Eldritch"
+        },
+        "examplemod:convert_physical_to_ender": {
+          "key": "attribute.examplemod.convert_physical_to_ender",
+          "zh": "物理伤害转化为末影伤害",
+          "en": " Physical Damage converted to Ender"
+        },
+        "examplemod:convert_physical_to_evocation": {
+          "key": "attribute.examplemod.convert_physical_to_evocation",
+          "zh": "物理伤害转化为唤魔伤害",
+          "en": " Physical Damage converted to Evocation"
+        },
+        "examplemod:convert_physical_to_fire": {
+          "key": "attribute.examplemod.convert_physical_to_fire",
+          "zh": "物理伤害转化为炽焰伤害",
+          "en": " Physical Damage converted to Fire"
+        },
+        "examplemod:convert_physical_to_holy": {
+          "key": "attribute.examplemod.convert_physical_to_holy",
+          "zh": "物理伤害转化为神圣伤害",
+          "en": " Physical Damage converted to Holy"
+        },
+        "examplemod:convert_physical_to_ice": {
+          "key": "attribute.examplemod.convert_physical_to_ice",
+          "zh": "物理伤害转化为冰霜伤害",
+          "en": " Physical Damage converted to Ice"
+        },
+        "examplemod:convert_physical_to_lightning": {
+          "key": "attribute.examplemod.convert_physical_to_lightning",
+          "zh": "物理伤害转化为雷霆伤害",
+          "en": " Physical Damage converted to Lightning"
+        },
+        "examplemod:convert_physical_to_melody": {
+          "key": "attribute.examplemod.convert_physical_to_melody",
+          "zh": "物理伤害转化为旋律伤害",
+          "en": " Physical Damage converted to Melody"
+        },
+        "examplemod:convert_physical_to_nature": {
+          "key": "attribute.examplemod.convert_physical_to_nature",
+          "zh": "物理伤害转化为自然伤害",
+          "en": " Physical Damage converted to Nature"
+        },
+        "examplemod:convert_physical_to_spirit": {
+          "key": "attribute.examplemod.convert_physical_to_spirit",
+          "zh": "物理伤害转化为魂灵伤害",
+          "en": " Physical Damage converted to Spirit"
+        },
+        "examplemod:convert_physical_to_symmetry": {
+          "key": "attribute.examplemod.convert_physical_to_symmetry",
+          "zh": "物理伤害转化为两仪伤害",
+          "en": " Physical Damage converted to Symmetry"
+        },
+        "examplemod:convert_spirit_to_blood": {
+          "key": "attribute.examplemod.convert_spirit_to_blood",
+          "zh": "魂灵伤害转化为猩红伤害",
+          "en": " Spirit Damage converted to Blood"
+        },
+        "examplemod:convert_spirit_to_dune": {
+          "key": "attribute.examplemod.convert_spirit_to_dune",
+          "zh": "魂灵伤害转化为沙丘伤害",
+          "en": " Spirit Damage converted to Dune"
+        },
+        "examplemod:convert_spirit_to_eldritch": {
+          "key": "attribute.examplemod.convert_spirit_to_eldritch",
+          "zh": "魂灵伤害转化为邪术伤害",
+          "en": " Spirit Damage converted to Eldritch"
+        },
+        "examplemod:convert_spirit_to_ender": {
+          "key": "attribute.examplemod.convert_spirit_to_ender",
+          "zh": "魂灵伤害转化为末影伤害",
+          "en": " Spirit Damage converted to Ender"
+        },
+        "examplemod:convert_spirit_to_evocation": {
+          "key": "attribute.examplemod.convert_spirit_to_evocation",
+          "zh": "魂灵伤害转化为唤魔伤害",
+          "en": " Spirit Damage converted to Evocation"
+        },
+        "examplemod:convert_spirit_to_holy": {
+          "key": "attribute.examplemod.convert_spirit_to_holy",
+          "zh": "魂灵伤害转化为神圣伤害",
+          "en": " Spirit Damage converted to Holy"
+        },
+        "examplemod:convert_spirit_to_melody": {
+          "key": "attribute.examplemod.convert_spirit_to_melody",
+          "zh": "魂灵伤害转化为旋律伤害",
+          "en": " Spirit Damage converted to Melody"
+        },
+        "examplemod:convert_spirit_to_symmetry": {
+          "key": "attribute.examplemod.convert_spirit_to_symmetry",
+          "zh": "魂灵伤害转化为两仪伤害",
+          "en": " Spirit Damage converted to Symmetry"
         },
         "irons_lib:armor_pierce": {
           "key": "attribute.name.irons_lib.armor_pierce",
@@ -3987,48 +4303,6 @@
         "apothic_enchanting:soul_touched_sculkshelf",
         "apothic_enchanting:stoneshelf",
         "apothic_enchanting:treasure_shelf",
-        "block_factorys_bosses:big_chain",
-        "block_factorys_bosses:big_oak_planks",
-        "block_factorys_bosses:big_oak_planks_broken",
-        "block_factorys_bosses:big_oak_planks_cracked",
-        "block_factorys_bosses:big_oak_planks_straight",
-        "block_factorys_bosses:big_oak_planks_variation",
-        "block_factorys_bosses:big_oak_planks_wet",
-        "block_factorys_bosses:big_oak_planks_wet_broken",
-        "block_factorys_bosses:big_oak_planks_wet_cracked",
-        "block_factorys_bosses:big_oak_planks_wet_straight",
-        "block_factorys_bosses:big_oak_planks_wet_variation",
-        "block_factorys_bosses:bone_remains",
-        "block_factorys_bosses:bone_remains_legs",
-        "block_factorys_bosses:bone_remains_rib_cage",
-        "block_factorys_bosses:boss_spawner",
-        "block_factorys_bosses:candles",
-        "block_factorys_bosses:cannonball",
-        "block_factorys_bosses:coin_pile",
-        "block_factorys_bosses:corpse",
-        "block_factorys_bosses:dragon_banner",
-        "block_factorys_bosses:dragon_skull",
-        "block_factorys_bosses:guardrail",
-        "block_factorys_bosses:guardrail_diagonal",
-        "block_factorys_bosses:ice_block_particules",
-        "block_factorys_bosses:kraken_spawner",
-        "block_factorys_bosses:net",
-        "block_factorys_bosses:plank",
-        "block_factorys_bosses:prison_door",
-        "block_factorys_bosses:rope_roll",
-        "block_factorys_bosses:rusty_prison_door",
-        "block_factorys_bosses:ship_lantern",
-        "block_factorys_bosses:ship_steering_wheel",
-        "block_factorys_bosses:tall_candles",
-        "block_factorys_bosses:tall_candles_cross",
-        "block_factorys_bosses:tall_vase",
-        "block_factorys_bosses:under_world_tall_candle_cross",
-        "block_factorys_bosses:underwold_candles",
-        "block_factorys_bosses:underwold_wall_torch",
-        "block_factorys_bosses:underworld_arena_door",
-        "block_factorys_bosses:underworld_tall_candles",
-        "block_factorys_bosses:vase",
-        "block_factorys_bosses:wall_torch",
         "bosses_of_mass_destruction:chiseled_stone_altar",
         "bosses_of_mass_destruction:gauntlet_blackstone",
         "bosses_of_mass_destruction:levitation_block",
@@ -7116,196 +7390,6 @@
           "key": "block.apothic_enchanting.treasure_shelf",
           "zh": "奥术宝藏深暗书架",
           "en": "Deepshelf of Arcane Treasures"
-        },
-        "block_factorys_bosses:big_chain": {
-          "key": "block.block_factorys_bosses.big_chain",
-          "zh": "大型链条",
-          "en": "Big Chain"
-        },
-        "block_factorys_bosses:big_oak_planks": {
-          "key": "block.block_factorys_bosses.big_oak_planks",
-          "en": "Big Oak Planks"
-        },
-        "block_factorys_bosses:big_oak_planks_broken": {
-          "key": "block.block_factorys_bosses.big_oak_planks_broken",
-          "en": "Broken Big Oak Planks"
-        },
-        "block_factorys_bosses:big_oak_planks_cracked": {
-          "key": "block.block_factorys_bosses.big_oak_planks_cracked",
-          "en": "Cracked Big Oak Planks"
-        },
-        "block_factorys_bosses:big_oak_planks_straight": {
-          "key": "block.block_factorys_bosses.big_oak_planks_straight",
-          "en": "Big Oak Planks (straight)"
-        },
-        "block_factorys_bosses:big_oak_planks_variation": {
-          "key": "block.block_factorys_bosses.big_oak_planks_variation",
-          "en": "Big Oak Planks (variant)"
-        },
-        "block_factorys_bosses:big_oak_planks_wet": {
-          "key": "block.block_factorys_bosses.big_oak_planks_wet",
-          "en": "Big Wet Oak Planks"
-        },
-        "block_factorys_bosses:big_oak_planks_wet_broken": {
-          "key": "block.block_factorys_bosses.big_oak_planks_wet_broken",
-          "en": "Broken Big Wet Oak Planks"
-        },
-        "block_factorys_bosses:big_oak_planks_wet_cracked": {
-          "key": "block.block_factorys_bosses.big_oak_planks_wet_cracked",
-          "en": "Cracked Big Wet Oak Planks"
-        },
-        "block_factorys_bosses:big_oak_planks_wet_straight": {
-          "key": "block.block_factorys_bosses.big_oak_planks_wet_straight",
-          "en": "Big Wet Oak Planks (straight)"
-        },
-        "block_factorys_bosses:big_oak_planks_wet_variation": {
-          "key": "block.block_factorys_bosses.big_oak_planks_wet_variation",
-          "en": "Big Wet Oak Planks (variant)"
-        },
-        "block_factorys_bosses:bone_remains": {
-          "key": "block.block_factorys_bosses.bone_remains",
-          "zh": "残余骨骸",
-          "en": "Bone Remains"
-        },
-        "block_factorys_bosses:bone_remains_legs": {
-          "key": "block.block_factorys_bosses.bone_remains_legs",
-          "zh": "残余骨骸",
-          "en": "Bone Remains"
-        },
-        "block_factorys_bosses:bone_remains_rib_cage": {
-          "key": "block.block_factorys_bosses.bone_remains_rib_cage",
-          "zh": "残余骨骸",
-          "en": "Bone Remains"
-        },
-        "block_factorys_bosses:boss_spawner": {
-          "key": "block.block_factorys_bosses.boss_spawner",
-          "zh": "Boss刷怪笼",
-          "en": "Boss Spawner"
-        },
-        "block_factorys_bosses:candles": {
-          "key": "block.block_factorys_bosses.candles",
-          "zh": "小烛台",
-          "en": "Small Candelabra"
-        },
-        "block_factorys_bosses:cannonball": {
-          "key": "block.block_factorys_bosses.cannonball",
-          "en": "Cannonball"
-        },
-        "block_factorys_bosses:coin_pile": {
-          "key": "block.block_factorys_bosses.coin_pile",
-          "en": "Coin Pile"
-        },
-        "block_factorys_bosses:corpse": {
-          "key": "block.block_factorys_bosses.corpse",
-          "zh": "尸体",
-          "en": "Corpse"
-        },
-        "block_factorys_bosses:dragon_banner": {
-          "key": "block.block_factorys_bosses.dragon_banner",
-          "zh": "飞龙旗帜",
-          "en": "Dragon Banner"
-        },
-        "block_factorys_bosses:dragon_skull": {
-          "key": "block.block_factorys_bosses.dragon_skull",
-          "zh": "§e飞龙头颅",
-          "en": "Ashlord Skull"
-        },
-        "block_factorys_bosses:guardrail": {
-          "key": "block.block_factorys_bosses.guardrail",
-          "en": "Guardrail"
-        },
-        "block_factorys_bosses:guardrail_diagonal": {
-          "key": "block.block_factorys_bosses.guardrail_diagonal",
-          "en": "Diagonal Guardrail"
-        },
-        "block_factorys_bosses:ice_block_particules": {
-          "key": "block.block_factorys_bosses.ice_block_particules",
-          "zh": "冰块粒",
-          "en": "Ice Block Particles"
-        },
-        "block_factorys_bosses:kraken_spawner": {
-          "key": "block.block_factorys_bosses.kraken_spawner",
-          "en": "Kraken Spawner"
-        },
-        "block_factorys_bosses:net": {
-          "key": "block.block_factorys_bosses.net",
-          "en": "Net"
-        },
-        "block_factorys_bosses:plank": {
-          "key": "block.block_factorys_bosses.plank",
-          "en": "Pile of Planks"
-        },
-        "block_factorys_bosses:prison_door": {
-          "key": "block.block_factorys_bosses.prison_door",
-          "zh": "监狱门",
-          "en": "Prison Door"
-        },
-        "block_factorys_bosses:rope_roll": {
-          "key": "block.block_factorys_bosses.rope_roll",
-          "en": "Rope Roll"
-        },
-        "block_factorys_bosses:rusty_prison_door": {
-          "key": "block.block_factorys_bosses.rusty_prison_door",
-          "zh": "锈蚀监狱门",
-          "en": "Rusty Prison Door"
-        },
-        "block_factorys_bosses:ship_lantern": {
-          "key": "block.block_factorys_bosses.ship_lantern",
-          "en": "Ship Lantern"
-        },
-        "block_factorys_bosses:ship_steering_wheel": {
-          "key": "block.block_factorys_bosses.ship_steering_wheel",
-          "en": "Ship Steering Wheel"
-        },
-        "block_factorys_bosses:tall_candles": {
-          "key": "block.block_factorys_bosses.tall_candles",
-          "zh": "高烛台",
-          "en": "Tall Candelabra"
-        },
-        "block_factorys_bosses:tall_candles_cross": {
-          "key": "block.block_factorys_bosses.tall_candles_cross",
-          "zh": "高烛台",
-          "en": "Tall Cross Candelabra"
-        },
-        "block_factorys_bosses:tall_vase": {
-          "key": "block.block_factorys_bosses.tall_vase",
-          "zh": "高装饰瓶",
-          "en": "Tall Vase"
-        },
-        "block_factorys_bosses:under_world_tall_candle_cross": {
-          "key": "block.block_factorys_bosses.under_world_tall_candle_cross",
-          "zh": "高灵魂烛台",
-          "en": "Tall Cross Soul Candelabra"
-        },
-        "block_factorys_bosses:underwold_candles": {
-          "key": "block.block_factorys_bosses.underwold_candles",
-          "zh": "小灵魂烛台",
-          "en": "Small Soul Candelabra"
-        },
-        "block_factorys_bosses:underwold_wall_torch": {
-          "key": "block.block_factorys_bosses.underwold_wall_torch",
-          "zh": "灵魂墙置火把",
-          "en": "Soul Wall Torch"
-        },
-        "block_factorys_bosses:underworld_arena_door": {
-          "key": "block.block_factorys_bosses.underworld_arena_door",
-          "zh": "冥界竞技场门",
-          "en": "Underworld Arena Door"
-        },
-        "block_factorys_bosses:underworld_tall_candles": {
-          "key": "block.block_factorys_bosses.underworld_tall_candles",
-          "zh": "高灵魂烛台",
-          "en": "Tall Soul Candelabra"
-        },
-        "block_factorys_bosses:vase": {
-          "key": "block.block_factorys_bosses.vase",
-          "zh": "装饰瓶",
-          "en": "Vase"
-        },
-        "block_factorys_bosses:wall_torch": {
-          "key": "block.block_factorys_bosses.wall_torch",
-          "zh": "墙置火把",
-          "en": "Wall Torch"
         },
         "bosses_of_mass_destruction:chiseled_stone_altar": {
           "key": "block.bosses_of_mass_destruction.chiseled_stone_altar",
@@ -20232,14 +20316,6 @@
         "apothic_enchanting:ender_library",
         "apothic_enchanting:filtering_shelf",
         "apothic_enchanting:library",
-        "block_factorys_bosses:boss_spawner",
-        "block_factorys_bosses:dragon_banner",
-        "block_factorys_bosses:kraken_spawner",
-        "block_factorys_bosses:plank",
-        "block_factorys_bosses:prison_door",
-        "block_factorys_bosses:rope_roll",
-        "block_factorys_bosses:rusty_prison_door",
-        "block_factorys_bosses:underworld_arena_door",
         "bosses_of_mass_destruction:levitation_block",
         "bosses_of_mass_destruction:mob_ward",
         "bosses_of_mass_destruction:monolith_block",
@@ -20830,7 +20906,6 @@
         "apotheosis:adventure",
         "apothic_enchanting:ench",
         "artifacts:main",
-        "block_factorys_bosses:blockfactorysbossestab",
         "bosses_of_mass_destruction:bosses_of_mass_destruction",
         "cataclysm:cataclysm_block",
         "cataclysm:cataclysm_item",
@@ -21009,8 +21084,6 @@
         "apothic_attributes:detonation",
         "apothic_attributes:fire_damage",
         "apothic_enchanting:corrupted",
-        "block_factorys_bosses:cannonball_hit",
-        "block_factorys_bosses:kraken_tentacle_smash",
         "bookshelf:fake_player",
         "bosses_of_mass_destruction:shield_piercing",
         "cataclysm:abyssal_burn",
@@ -21266,7 +21339,6 @@
         "artifacts:tool_tier_upgrade",
         "artifacts:walk_on_powder_snow",
         "bettercombat:preset_id",
-        "block_factorys_bosses:operation_mode",
         "cataclysm:charge_animation",
         "cataclysm:laser_gatling",
         "cataclysm:thrown_anchor",
@@ -22714,49 +22786,6 @@
         "apotheosis:tiered_gateway",
         "artifacts:mimic",
         "bagus_lib:mini_bagu",
-        "block_factorys_bosses:anchor",
-        "block_factorys_bosses:big_cage",
-        "block_factorys_bosses:big_cage_skelly",
-        "block_factorys_bosses:big_rift_projectile",
-        "block_factorys_bosses:blazing_fire_ball",
-        "block_factorys_bosses:cage",
-        "block_factorys_bosses:cage_skelly",
-        "block_factorys_bosses:cannonball",
-        "block_factorys_bosses:cinematic_kraken",
-        "block_factorys_bosses:crate_pile",
-        "block_factorys_bosses:crossbow_pirate",
-        "block_factorys_bosses:dragon_guard_sword",
-        "block_factorys_bosses:fire_area",
-        "block_factorys_bosses:flaming_skeleton_guard_fireball",
-        "block_factorys_bosses:flaming_skeleton_guard_sword",
-        "block_factorys_bosses:frozen_skeleton",
-        "block_factorys_bosses:ghost_tentacle",
-        "block_factorys_bosses:glacial_shove",
-        "block_factorys_bosses:ice_spike",
-        "block_factorys_bosses:ice_spike_cluster",
-        "block_factorys_bosses:ice_spike_pr",
-        "block_factorys_bosses:infernal_dragon",
-        "block_factorys_bosses:knight_mark",
-        "block_factorys_bosses:kraken",
-        "block_factorys_bosses:kraken_cannon",
-        "block_factorys_bosses:kraken_tentacle",
-        "block_factorys_bosses:kraken_trident",
-        "block_factorys_bosses:pile_of_bones",
-        "block_factorys_bosses:pirate_captain",
-        "block_factorys_bosses:pirate_rook",
-        "block_factorys_bosses:poison_area",
-        "block_factorys_bosses:poison_spit_pr",
-        "block_factorys_bosses:rift",
-        "block_factorys_bosses:rift_projectile",
-        "block_factorys_bosses:sand_column",
-        "block_factorys_bosses:sandworm",
-        "block_factorys_bosses:soul_knight_wither_skeleton",
-        "block_factorys_bosses:soul_shockwave",
-        "block_factorys_bosses:soul_skeleton",
-        "block_factorys_bosses:sword_wave",
-        "block_factorys_bosses:thrown_crate",
-        "block_factorys_bosses:underworld_knight",
-        "block_factorys_bosses:yeti",
         "bosses_of_mass_destruction:blue_fireball",
         "bosses_of_mass_destruction:charged_ender_pearl",
         "bosses_of_mass_destruction:comet",
@@ -23443,206 +23472,6 @@
         "bagus_lib:mini_bagu": {
           "key": "entity.bagus_lib.mini_bagu",
           "en": "Mini Bagu"
-        },
-        "block_factorys_bosses:anchor": {
-          "key": "entity.block_factorys_bosses.anchor",
-          "en": "Anchor"
-        },
-        "block_factorys_bosses:big_cage": {
-          "key": "entity.block_factorys_bosses.big_cage",
-          "zh": "笼子",
-          "en": "Big Cage"
-        },
-        "block_factorys_bosses:big_cage_skelly": {
-          "key": "entity.block_factorys_bosses.big_cage_skelly",
-          "zh": "笼子",
-          "en": "Big Cage With Skelly"
-        },
-        "block_factorys_bosses:big_rift_projectile": {
-          "key": "entity.block_factorys_bosses.big_rift_projectile",
-          "zh": "赫尔瓦裂隙高级投射物",
-          "en": "Helvar Rift Projectile Deluxe"
-        },
-        "block_factorys_bosses:blazing_fire_ball": {
-          "key": "entity.block_factorys_bosses.blazing_fire_ball",
-          "zh": "炽热火球",
-          "en": "Blazing Fireball"
-        },
-        "block_factorys_bosses:cage": {
-          "key": "entity.block_factorys_bosses.cage",
-          "zh": "笼子",
-          "en": "Cage"
-        },
-        "block_factorys_bosses:cage_skelly": {
-          "key": "entity.block_factorys_bosses.cage_skelly",
-          "zh": "笼子",
-          "en": "Cage With Skelly"
-        },
-        "block_factorys_bosses:cannonball": {
-          "key": "entity.block_factorys_bosses.cannonball",
-          "en": "Cannonball"
-        },
-        "block_factorys_bosses:cinematic_kraken": {
-          "key": "entity.block_factorys_bosses.cinematic_kraken"
-        },
-        "block_factorys_bosses:crate_pile": {
-          "key": "entity.block_factorys_bosses.crate_pile",
-          "en": "Crate Pile"
-        },
-        "block_factorys_bosses:crossbow_pirate": {
-          "key": "entity.block_factorys_bosses.crossbow_pirate",
-          "en": "Crossbow Pirate"
-        },
-        "block_factorys_bosses:dragon_guard_sword": {
-          "key": "entity.block_factorys_bosses.dragon_guard_sword",
-          "zh": "飞龙守卫",
-          "en": "Ashlord Guard"
-        },
-        "block_factorys_bosses:fire_area": {
-          "key": "entity.block_factorys_bosses.fire_area",
-          "zh": "火焰区域",
-          "en": "Fire Arena"
-        },
-        "block_factorys_bosses:flaming_skeleton_guard_fireball": {
-          "key": "entity.block_factorys_bosses.flaming_skeleton_guard_fireball",
-          "zh": "燃烧的骷髅射手",
-          "en": "Flaming Ashlord Shooter"
-        },
-        "block_factorys_bosses:flaming_skeleton_guard_sword": {
-          "key": "entity.block_factorys_bosses.flaming_skeleton_guard_sword",
-          "zh": "燃烧的飞龙守卫",
-          "en": "Flaming Ashlord Guard"
-        },
-        "block_factorys_bosses:frozen_skeleton": {
-          "key": "entity.block_factorys_bosses.frozen_skeleton",
-          "zh": "冰冻骷髅",
-          "en": "Frozen Skeleton"
-        },
-        "block_factorys_bosses:ghost_tentacle": {
-          "key": "entity.block_factorys_bosses.ghost_tentacle",
-          "en": "Ghost Tentacle"
-        },
-        "block_factorys_bosses:glacial_shove": {
-          "key": "entity.block_factorys_bosses.glacial_shove",
-          "zh": "冰块",
-          "en": "Ice Cube"
-        },
-        "block_factorys_bosses:ice_spike": {
-          "key": "entity.block_factorys_bosses.ice_spike",
-          "zh": "冰锥",
-          "en": "Ice Spike"
-        },
-        "block_factorys_bosses:ice_spike_cluster": {
-          "key": "entity.block_factorys_bosses.ice_spike_cluster",
-          "zh": "冰刺簇",
-          "en": "Ice Spike Cluster"
-        },
-        "block_factorys_bosses:ice_spike_pr": {
-          "key": "entity.block_factorys_bosses.ice_spike_pr",
-          "zh": "冰刺弹",
-          "en": "Ice Spike Projectile"
-        },
-        "block_factorys_bosses:infernal_dragon": {
-          "key": "entity.block_factorys_bosses.infernal_dragon",
-          "zh": "阿什洛德，炼狱飞龙",
-          "en": "Ashlord, The Infernal Dragon"
-        },
-        "block_factorys_bosses:knight_mark": {
-          "key": "entity.block_factorys_bosses.knight_mark",
-          "zh": "赫尔瓦的弱点",
-          "en": "Helvar's Weakness"
-        },
-        "block_factorys_bosses:kraken": {
-          "key": "entity.block_factorys_bosses.kraken",
-          "en": "Nerakyss, The Kraken"
-        },
-        "block_factorys_bosses:kraken_cannon": {
-          "key": "entity.block_factorys_bosses.kraken_cannon",
-          "en": "Kraken Cannon"
-        },
-        "block_factorys_bosses:kraken_tentacle": {
-          "key": "entity.block_factorys_bosses.kraken_tentacle",
-          "en": "Kraken Tentacle"
-        },
-        "block_factorys_bosses:kraken_trident": {
-          "key": "entity.block_factorys_bosses.kraken_trident"
-        },
-        "block_factorys_bosses:pile_of_bones": {
-          "key": "entity.block_factorys_bosses.pile_of_bones",
-          "zh": "骨头堆",
-          "en": "Pile Of Bones"
-        },
-        "block_factorys_bosses:pirate_captain": {
-          "key": "entity.block_factorys_bosses.pirate_captain",
-          "en": "Pirate Captain"
-        },
-        "block_factorys_bosses:pirate_rook": {
-          "key": "entity.block_factorys_bosses.pirate_rook",
-          "en": "Pirate Rook"
-        },
-        "block_factorys_bosses:poison_area": {
-          "key": "entity.block_factorys_bosses.poison_area",
-          "zh": "剧毒区域",
-          "en": "Poison Area"
-        },
-        "block_factorys_bosses:poison_spit_pr": {
-          "key": "entity.block_factorys_bosses.poison_spit_pr",
-          "zh": "剧毒唾沫",
-          "en": "Poison Spit"
-        },
-        "block_factorys_bosses:rift": {
-          "key": "entity.block_factorys_bosses.rift",
-          "zh": "赫尔瓦裂隙",
-          "en": "Helvar Rift"
-        },
-        "block_factorys_bosses:rift_projectile": {
-          "key": "entity.block_factorys_bosses.rift_projectile",
-          "zh": "赫尔瓦裂隙投射物",
-          "en": "Helvar Rift Projectile"
-        },
-        "block_factorys_bosses:sand_column": {
-          "key": "entity.block_factorys_bosses.sand_column",
-          "zh": "沙柱",
-          "en": "Sand Column"
-        },
-        "block_factorys_bosses:sandworm": {
-          "key": "entity.block_factorys_bosses.sandworm",
-          "zh": "斯洛克，巨型沙虫",
-          "en": "Sirok, The Sandworm"
-        },
-        "block_factorys_bosses:soul_knight_wither_skeleton": {
-          "key": "entity.block_factorys_bosses.soul_knight_wither_skeleton",
-          "zh": "凋灵骷髅骑士",
-          "en": "Wither Knight"
-        },
-        "block_factorys_bosses:soul_shockwave": {
-          "key": "entity.block_factorys_bosses.soul_shockwave",
-          "zh": "灵魂冲击波",
-          "en": "Soul Shockwave"
-        },
-        "block_factorys_bosses:soul_skeleton": {
-          "key": "entity.block_factorys_bosses.soul_skeleton",
-          "zh": "灵魂骷髅",
-          "en": "Soul Skeleton"
-        },
-        "block_factorys_bosses:sword_wave": {
-          "key": "entity.block_factorys_bosses.sword_wave",
-          "zh": "剑气波",
-          "en": "Sword Wave"
-        },
-        "block_factorys_bosses:thrown_crate": {
-          "key": "entity.block_factorys_bosses.thrown_crate",
-          "en": "Crate"
-        },
-        "block_factorys_bosses:underworld_knight": {
-          "key": "entity.block_factorys_bosses.underworld_knight",
-          "zh": "赫尔瓦，冥界骑士",
-          "en": "Helvar, the Underworld Knight"
-        },
-        "block_factorys_bosses:yeti": {
-          "key": "entity.block_factorys_bosses.yeti",
-          "zh": "斯科尔，霜冻雪怪",
-          "en": "Skor, The Yeti"
         },
         "bosses_of_mass_destruction:blue_fireball": {
           "key": "entity.bosses_of_mass_destruction.blue_fireball",
@@ -26977,98 +26806,6 @@
         "artifacts:warp_drive",
         "artifacts:whoopee_cushion",
         "artifacts:withered_bracelet",
-        "block_factorys_bosses:achievement_icons",
-        "block_factorys_bosses:anchor",
-        "block_factorys_bosses:ancient_trial_key",
-        "block_factorys_bosses:big_cage_item",
-        "block_factorys_bosses:big_cage_skelly_item",
-        "block_factorys_bosses:big_chain",
-        "block_factorys_bosses:big_oak_planks",
-        "block_factorys_bosses:big_oak_planks_broken",
-        "block_factorys_bosses:big_oak_planks_cracked",
-        "block_factorys_bosses:big_oak_planks_straight",
-        "block_factorys_bosses:big_oak_planks_variation",
-        "block_factorys_bosses:big_oak_planks_wet",
-        "block_factorys_bosses:big_oak_planks_wet_broken",
-        "block_factorys_bosses:big_oak_planks_wet_cracked",
-        "block_factorys_bosses:big_oak_planks_wet_straight",
-        "block_factorys_bosses:big_oak_planks_wet_variation",
-        "block_factorys_bosses:bone_remains",
-        "block_factorys_bosses:bone_remains_legs",
-        "block_factorys_bosses:bone_remains_rib_cage",
-        "block_factorys_bosses:boss_spawner",
-        "block_factorys_bosses:cage_item",
-        "block_factorys_bosses:cage_skelly_item",
-        "block_factorys_bosses:candles",
-        "block_factorys_bosses:cannonball",
-        "block_factorys_bosses:coin_pile",
-        "block_factorys_bosses:corpse",
-        "block_factorys_bosses:crate",
-        "block_factorys_bosses:crossbow_pirate_spawn_egg",
-        "block_factorys_bosses:dagger",
-        "block_factorys_bosses:dragon_banner",
-        "block_factorys_bosses:dragon_bone",
-        "block_factorys_bosses:dragon_bones_boots",
-        "block_factorys_bosses:dragon_bones_chestplate",
-        "block_factorys_bosses:dragon_bones_leggings",
-        "block_factorys_bosses:dragon_guard_shield",
-        "block_factorys_bosses:dragon_guard_sword_spawn_egg",
-        "block_factorys_bosses:dragon_shank",
-        "block_factorys_bosses:dragon_skull",
-        "block_factorys_bosses:enhanced_shield",
-        "block_factorys_bosses:flaming_skeleton_guard_fireball_spawn_egg",
-        "block_factorys_bosses:flaming_skeleton_guard_sword_spawn_egg",
-        "block_factorys_bosses:guardrail",
-        "block_factorys_bosses:guardrail_diagonal",
-        "block_factorys_bosses:ice_block_particules",
-        "block_factorys_bosses:ice_gauntlet",
-        "block_factorys_bosses:infernal_dragon_spawn_egg",
-        "block_factorys_bosses:knight_boots",
-        "block_factorys_bosses:knight_chestplate",
-        "block_factorys_bosses:knight_helmet",
-        "block_factorys_bosses:knight_leggings",
-        "block_factorys_bosses:knight_sword",
-        "block_factorys_bosses:kraken_cannon_item",
-        "block_factorys_bosses:kraken_spawn_egg",
-        "block_factorys_bosses:kraken_spawner",
-        "block_factorys_bosses:kraken_tooth",
-        "block_factorys_bosses:kraken_trident",
-        "block_factorys_bosses:large_sword",
-        "block_factorys_bosses:loot_table_stick",
-        "block_factorys_bosses:loot_table_stick_dragon",
-        "block_factorys_bosses:loot_table_stick_rare",
-        "block_factorys_bosses:net",
-        "block_factorys_bosses:pile_of_bones_spawn_egg",
-        "block_factorys_bosses:pirate_captain_spawn_egg",
-        "block_factorys_bosses:pirate_rook_spawn_egg",
-        "block_factorys_bosses:pirate_saber",
-        "block_factorys_bosses:placeholder",
-        "block_factorys_bosses:plank",
-        "block_factorys_bosses:prison_door",
-        "block_factorys_bosses:rope_roll",
-        "block_factorys_bosses:rusty_prison_door",
-        "block_factorys_bosses:sandworm_gauntlet",
-        "block_factorys_bosses:sandworm_spawn_egg",
-        "block_factorys_bosses:ship_lantern",
-        "block_factorys_bosses:ship_steering_wheel",
-        "block_factorys_bosses:soul_knight_wither_skeleton_spawn_egg",
-        "block_factorys_bosses:soul_skeleton_spawn_egg",
-        "block_factorys_bosses:tall_candles",
-        "block_factorys_bosses:tall_candles_cross",
-        "block_factorys_bosses:tall_vase",
-        "block_factorys_bosses:tp_stick",
-        "block_factorys_bosses:under_world_tall_candle_cross",
-        "block_factorys_bosses:underwold_candles",
-        "block_factorys_bosses:underwold_wall_torch",
-        "block_factorys_bosses:underworld_arena_door",
-        "block_factorys_bosses:underworld_arena_key",
-        "block_factorys_bosses:underworld_knight_spawn_egg",
-        "block_factorys_bosses:underworld_tall_candles",
-        "block_factorys_bosses:undying_tentacle",
-        "block_factorys_bosses:vase",
-        "block_factorys_bosses:wall_torch",
-        "block_factorys_bosses:warrior_sword",
-        "block_factorys_bosses:yeti_spawn_egg",
         "bosses_of_mass_destruction:ancient_anima",
         "bosses_of_mass_destruction:blazing_eye",
         "bosses_of_mass_destruction:brimstone_nectar",
@@ -33706,419 +33443,6 @@
           "key": "item.artifacts.withered_bracelet",
           "zh": "凋零腕带",
           "en": "Withered Bracelet"
-        },
-        "block_factorys_bosses:achievement_icons": {
-          "key": "item.block_factorys_bosses.achievement_icons"
-        },
-        "block_factorys_bosses:anchor": {
-          "key": "item.block_factorys_bosses.anchor",
-          "en": "Anchor"
-        },
-        "block_factorys_bosses:ancient_trial_key": {
-          "key": "item.block_factorys_bosses.ancient_trial_key",
-          "zh": "远古试炼钥匙",
-          "en": "Ancient Trial Key"
-        },
-        "block_factorys_bosses:big_cage_item": {
-          "key": "item.block_factorys_bosses.big_cage_item",
-          "en": "Big Cage"
-        },
-        "block_factorys_bosses:big_cage_skelly_item": {
-          "key": "item.block_factorys_bosses.big_cage_skelly_item",
-          "en": "Big Cage With Skelly"
-        },
-        "block_factorys_bosses:big_chain": {
-          "key": "block.block_factorys_bosses.big_chain",
-          "zh": "大型链条",
-          "en": "Big Chain"
-        },
-        "block_factorys_bosses:big_oak_planks": {
-          "key": "block.block_factorys_bosses.big_oak_planks",
-          "en": "Big Oak Planks"
-        },
-        "block_factorys_bosses:big_oak_planks_broken": {
-          "key": "block.block_factorys_bosses.big_oak_planks_broken",
-          "en": "Broken Big Oak Planks"
-        },
-        "block_factorys_bosses:big_oak_planks_cracked": {
-          "key": "block.block_factorys_bosses.big_oak_planks_cracked",
-          "en": "Cracked Big Oak Planks"
-        },
-        "block_factorys_bosses:big_oak_planks_straight": {
-          "key": "block.block_factorys_bosses.big_oak_planks_straight",
-          "en": "Big Oak Planks (straight)"
-        },
-        "block_factorys_bosses:big_oak_planks_variation": {
-          "key": "block.block_factorys_bosses.big_oak_planks_variation",
-          "en": "Big Oak Planks (variant)"
-        },
-        "block_factorys_bosses:big_oak_planks_wet": {
-          "key": "block.block_factorys_bosses.big_oak_planks_wet",
-          "en": "Big Wet Oak Planks"
-        },
-        "block_factorys_bosses:big_oak_planks_wet_broken": {
-          "key": "block.block_factorys_bosses.big_oak_planks_wet_broken",
-          "en": "Broken Big Wet Oak Planks"
-        },
-        "block_factorys_bosses:big_oak_planks_wet_cracked": {
-          "key": "block.block_factorys_bosses.big_oak_planks_wet_cracked",
-          "en": "Cracked Big Wet Oak Planks"
-        },
-        "block_factorys_bosses:big_oak_planks_wet_straight": {
-          "key": "block.block_factorys_bosses.big_oak_planks_wet_straight",
-          "en": "Big Wet Oak Planks (straight)"
-        },
-        "block_factorys_bosses:big_oak_planks_wet_variation": {
-          "key": "block.block_factorys_bosses.big_oak_planks_wet_variation",
-          "en": "Big Wet Oak Planks (variant)"
-        },
-        "block_factorys_bosses:bone_remains": {
-          "key": "block.block_factorys_bosses.bone_remains",
-          "zh": "残余骨骸",
-          "en": "Bone Remains"
-        },
-        "block_factorys_bosses:bone_remains_legs": {
-          "key": "block.block_factorys_bosses.bone_remains_legs",
-          "zh": "残余骨骸",
-          "en": "Bone Remains"
-        },
-        "block_factorys_bosses:bone_remains_rib_cage": {
-          "key": "block.block_factorys_bosses.bone_remains_rib_cage",
-          "zh": "残余骨骸",
-          "en": "Bone Remains"
-        },
-        "block_factorys_bosses:boss_spawner": {
-          "key": "block.block_factorys_bosses.boss_spawner",
-          "zh": "Boss刷怪笼",
-          "en": "Boss Spawner"
-        },
-        "block_factorys_bosses:cage_item": {
-          "key": "item.block_factorys_bosses.cage_item",
-          "en": "Cage"
-        },
-        "block_factorys_bosses:cage_skelly_item": {
-          "key": "item.block_factorys_bosses.cage_skelly_item",
-          "en": "Cage With Skelly"
-        },
-        "block_factorys_bosses:candles": {
-          "key": "block.block_factorys_bosses.candles",
-          "zh": "小烛台",
-          "en": "Small Candelabra"
-        },
-        "block_factorys_bosses:cannonball": {
-          "key": "block.block_factorys_bosses.cannonball",
-          "en": "Cannonball"
-        },
-        "block_factorys_bosses:coin_pile": {
-          "key": "block.block_factorys_bosses.coin_pile",
-          "en": "Coin Pile"
-        },
-        "block_factorys_bosses:corpse": {
-          "key": "block.block_factorys_bosses.corpse",
-          "zh": "尸体",
-          "en": "Corpse"
-        },
-        "block_factorys_bosses:crate": {
-          "key": "item.block_factorys_bosses.crate",
-          "en": "Crate"
-        },
-        "block_factorys_bosses:crossbow_pirate_spawn_egg": {
-          "key": "item.block_factorys_bosses.crossbow_pirate_spawn_egg",
-          "en": "Crossbow Pirate Spawn Egg"
-        },
-        "block_factorys_bosses:dagger": {
-          "key": "item.block_factorys_bosses.dagger",
-          "zh": "匕首",
-          "en": "Dagger"
-        },
-        "block_factorys_bosses:dragon_banner": {
-          "key": "block.block_factorys_bosses.dragon_banner",
-          "zh": "飞龙旗帜",
-          "en": "Dragon Banner"
-        },
-        "block_factorys_bosses:dragon_bone": {
-          "key": "item.block_factorys_bosses.dragon_bone",
-          "zh": "飞龙之骨",
-          "en": "Dragon Bone"
-        },
-        "block_factorys_bosses:dragon_bones_boots": {
-          "key": "item.block_factorys_bosses.dragon_bones_boots",
-          "zh": "龙骨靴子",
-          "en": "Dragon Bones Boots"
-        },
-        "block_factorys_bosses:dragon_bones_chestplate": {
-          "key": "item.block_factorys_bosses.dragon_bones_chestplate",
-          "zh": "龙骨胸甲",
-          "en": "Dragon Bones Chestplate"
-        },
-        "block_factorys_bosses:dragon_bones_leggings": {
-          "key": "item.block_factorys_bosses.dragon_bones_leggings",
-          "zh": "龙骨护腿",
-          "en": "Dragon Bones Leggings"
-        },
-        "block_factorys_bosses:dragon_guard_shield": {
-          "key": "item.block_factorys_bosses.dragon_guard_shield",
-          "zh": "飞龙守卫盾牌",
-          "en": "Dragon Guard Shield"
-        },
-        "block_factorys_bosses:dragon_guard_sword_spawn_egg": {
-          "key": "item.block_factorys_bosses.dragon_guard_sword_spawn_egg",
-          "zh": "飞龙守卫刷怪蛋",
-          "en": "Ashlord Guard Spawn Egg"
-        },
-        "block_factorys_bosses:dragon_shank": {
-          "key": "item.block_factorys_bosses.dragon_shank",
-          "zh": "飞龙腿肉",
-          "en": "Dragon Shank"
-        },
-        "block_factorys_bosses:dragon_skull": {
-          "key": "block.block_factorys_bosses.dragon_skull",
-          "zh": "§e飞龙头颅",
-          "en": "Ashlord Skull"
-        },
-        "block_factorys_bosses:enhanced_shield": {
-          "key": "item.block_factorys_bosses.enhanced_shield",
-          "zh": "增强盾牌",
-          "en": "Enhanced Shield"
-        },
-        "block_factorys_bosses:flaming_skeleton_guard_fireball_spawn_egg": {
-          "key": "item.block_factorys_bosses.flaming_skeleton_guard_fireball_spawn_egg",
-          "zh": "燃烧的骷髅射手刷怪蛋",
-          "en": "Flaming Ashlord Shooter Spawn Egg"
-        },
-        "block_factorys_bosses:flaming_skeleton_guard_sword_spawn_egg": {
-          "key": "item.block_factorys_bosses.flaming_skeleton_guard_sword_spawn_egg",
-          "zh": "燃烧的飞龙守卫刷怪蛋",
-          "en": "Flaming Ashlord Guard Spawn Egg"
-        },
-        "block_factorys_bosses:guardrail": {
-          "key": "block.block_factorys_bosses.guardrail",
-          "en": "Guardrail"
-        },
-        "block_factorys_bosses:guardrail_diagonal": {
-          "key": "block.block_factorys_bosses.guardrail_diagonal",
-          "en": "Diagonal Guardrail"
-        },
-        "block_factorys_bosses:ice_block_particules": {
-          "key": "block.block_factorys_bosses.ice_block_particules",
-          "zh": "冰块粒",
-          "en": "Ice Block Particles"
-        },
-        "block_factorys_bosses:ice_gauntlet": {
-          "key": "item.block_factorys_bosses.ice_gauntlet",
-          "zh": "雪怪护手",
-          "en": "Skor Gauntlet"
-        },
-        "block_factorys_bosses:infernal_dragon_spawn_egg": {
-          "key": "item.block_factorys_bosses.infernal_dragon_spawn_egg",
-          "zh": "阿什洛德刷怪蛋",
-          "en": "Ashlord, The Infernal Dragon Spawn Egg"
-        },
-        "block_factorys_bosses:knight_boots": {
-          "key": "item.block_factorys_bosses.knight_boots",
-          "zh": "骑士靴子",
-          "en": "Knight Boots"
-        },
-        "block_factorys_bosses:knight_chestplate": {
-          "key": "item.block_factorys_bosses.knight_chestplate",
-          "zh": "骑士胸甲",
-          "en": "Knight Chestplate"
-        },
-        "block_factorys_bosses:knight_helmet": {
-          "key": "item.block_factorys_bosses.knight_helmet",
-          "zh": "骑士头盔",
-          "en": "Knight Helmet"
-        },
-        "block_factorys_bosses:knight_leggings": {
-          "key": "item.block_factorys_bosses.knight_leggings",
-          "zh": "骑士护腿",
-          "en": "Knight Leggings"
-        },
-        "block_factorys_bosses:knight_sword": {
-          "key": "item.block_factorys_bosses.knight_sword",
-          "zh": "赫尔瓦的剑",
-          "en": "Helvar's Sword"
-        },
-        "block_factorys_bosses:kraken_cannon_item": {
-          "key": "item.block_factorys_bosses.kraken_cannon_item",
-          "en": "Kraken Cannon"
-        },
-        "block_factorys_bosses:kraken_spawn_egg": {
-          "key": "item.block_factorys_bosses.kraken_spawn_egg",
-          "en": "Nerakyss, The Kraken Spawn Egg"
-        },
-        "block_factorys_bosses:kraken_spawner": {
-          "key": "block.block_factorys_bosses.kraken_spawner",
-          "en": "Kraken Spawner"
-        },
-        "block_factorys_bosses:kraken_tooth": {
-          "key": "item.block_factorys_bosses.kraken_tooth",
-          "en": "Kraken Tooth"
-        },
-        "block_factorys_bosses:kraken_trident": {
-          "key": "item.block_factorys_bosses.kraken_trident",
-          "en": "Kraken Trident"
-        },
-        "block_factorys_bosses:large_sword": {
-          "key": "item.block_factorys_bosses.large_sword",
-          "zh": "大剑",
-          "en": "Large Sword"
-        },
-        "block_factorys_bosses:loot_table_stick": {
-          "key": "item.block_factorys_bosses.loot_table_stick"
-        },
-        "block_factorys_bosses:loot_table_stick_dragon": {
-          "key": "item.block_factorys_bosses.loot_table_stick_dragon"
-        },
-        "block_factorys_bosses:loot_table_stick_rare": {
-          "key": "item.block_factorys_bosses.loot_table_stick_rare"
-        },
-        "block_factorys_bosses:net": {
-          "key": "block.block_factorys_bosses.net",
-          "en": "Net"
-        },
-        "block_factorys_bosses:pile_of_bones_spawn_egg": {
-          "key": "item.block_factorys_bosses.pile_of_bones_spawn_egg",
-          "zh": "骨头堆刷怪蛋",
-          "en": "Pile Of Bones Spawn Egg"
-        },
-        "block_factorys_bosses:pirate_captain_spawn_egg": {
-          "key": "item.block_factorys_bosses.pirate_captain_spawn_egg",
-          "en": "Pirate Captain Spawn Egg"
-        },
-        "block_factorys_bosses:pirate_rook_spawn_egg": {
-          "key": "item.block_factorys_bosses.pirate_rook_spawn_egg",
-          "en": "Pirate Rook Spawn Egg"
-        },
-        "block_factorys_bosses:pirate_saber": {
-          "key": "item.block_factorys_bosses.pirate_saber",
-          "en": "Pirate Saber"
-        },
-        "block_factorys_bosses:placeholder": {
-          "key": "item.block_factorys_bosses.placeholder"
-        },
-        "block_factorys_bosses:plank": {
-          "key": "block.block_factorys_bosses.plank",
-          "en": "Pile of Planks"
-        },
-        "block_factorys_bosses:prison_door": {
-          "key": "block.block_factorys_bosses.prison_door",
-          "zh": "监狱门",
-          "en": "Prison Door"
-        },
-        "block_factorys_bosses:rope_roll": {
-          "key": "block.block_factorys_bosses.rope_roll",
-          "en": "Rope Roll"
-        },
-        "block_factorys_bosses:rusty_prison_door": {
-          "key": "block.block_factorys_bosses.rusty_prison_door",
-          "zh": "锈蚀监狱门",
-          "en": "Rusty Prison Door"
-        },
-        "block_factorys_bosses:sandworm_gauntlet": {
-          "key": "item.block_factorys_bosses.sandworm_gauntlet",
-          "zh": "沙虫护手",
-          "en": "Sirok Gauntlet"
-        },
-        "block_factorys_bosses:sandworm_spawn_egg": {
-          "key": "item.block_factorys_bosses.sandworm_spawn_egg",
-          "zh": "斯洛克刷怪蛋",
-          "en": "Sirok, The Sandworm Spawn Egg"
-        },
-        "block_factorys_bosses:ship_lantern": {
-          "key": "block.block_factorys_bosses.ship_lantern",
-          "en": "Ship Lantern"
-        },
-        "block_factorys_bosses:ship_steering_wheel": {
-          "key": "block.block_factorys_bosses.ship_steering_wheel",
-          "en": "Ship Steering Wheel"
-        },
-        "block_factorys_bosses:soul_knight_wither_skeleton_spawn_egg": {
-          "key": "item.block_factorys_bosses.soul_knight_wither_skeleton_spawn_egg",
-          "zh": "凋灵骷髅骑士刷怪蛋",
-          "en": "Wither Knight Spawn Egg"
-        },
-        "block_factorys_bosses:soul_skeleton_spawn_egg": {
-          "key": "item.block_factorys_bosses.soul_skeleton_spawn_egg",
-          "zh": "灵魂骷髅刷怪蛋",
-          "en": "Soul Skeleton Spawn Egg"
-        },
-        "block_factorys_bosses:tall_candles": {
-          "key": "block.block_factorys_bosses.tall_candles",
-          "zh": "高烛台",
-          "en": "Tall Candelabra"
-        },
-        "block_factorys_bosses:tall_candles_cross": {
-          "key": "block.block_factorys_bosses.tall_candles_cross",
-          "zh": "高烛台",
-          "en": "Tall Cross Candelabra"
-        },
-        "block_factorys_bosses:tall_vase": {
-          "key": "block.block_factorys_bosses.tall_vase",
-          "zh": "高装饰瓶",
-          "en": "Tall Vase"
-        },
-        "block_factorys_bosses:tp_stick": {
-          "key": "item.block_factorys_bosses.tp_stick"
-        },
-        "block_factorys_bosses:under_world_tall_candle_cross": {
-          "key": "block.block_factorys_bosses.under_world_tall_candle_cross",
-          "zh": "高灵魂烛台",
-          "en": "Tall Cross Soul Candelabra"
-        },
-        "block_factorys_bosses:underwold_candles": {
-          "key": "block.block_factorys_bosses.underwold_candles",
-          "zh": "小灵魂烛台",
-          "en": "Small Soul Candelabra"
-        },
-        "block_factorys_bosses:underwold_wall_torch": {
-          "key": "block.block_factorys_bosses.underwold_wall_torch",
-          "zh": "灵魂墙置火把",
-          "en": "Soul Wall Torch"
-        },
-        "block_factorys_bosses:underworld_arena_door": {
-          "key": "block.block_factorys_bosses.underworld_arena_door",
-          "zh": "冥界竞技场门",
-          "en": "Underworld Arena Door"
-        },
-        "block_factorys_bosses:underworld_arena_key": {
-          "key": "item.block_factorys_bosses.underworld_arena_key",
-          "zh": "冥界竞技场钥匙",
-          "en": "Underworld Arena Key"
-        },
-        "block_factorys_bosses:underworld_knight_spawn_egg": {
-          "key": "item.block_factorys_bosses.underworld_knight_spawn_egg",
-          "zh": "赫尔瓦刷怪蛋",
-          "en": "Helvar, the Underworld Knight Spawn Egg"
-        },
-        "block_factorys_bosses:underworld_tall_candles": {
-          "key": "block.block_factorys_bosses.underworld_tall_candles",
-          "zh": "高灵魂烛台",
-          "en": "Tall Soul Candelabra"
-        },
-        "block_factorys_bosses:undying_tentacle": {
-          "key": "item.block_factorys_bosses.undying_tentacle",
-          "en": "Undying Tentacle"
-        },
-        "block_factorys_bosses:vase": {
-          "key": "block.block_factorys_bosses.vase",
-          "zh": "装饰瓶",
-          "en": "Vase"
-        },
-        "block_factorys_bosses:wall_torch": {
-          "key": "block.block_factorys_bosses.wall_torch",
-          "zh": "墙置火把",
-          "en": "Wall Torch"
-        },
-        "block_factorys_bosses:warrior_sword": {
-          "key": "item.block_factorys_bosses.warrior_sword",
-          "zh": "战士剑",
-          "en": "Warrior Sword"
-        },
-        "block_factorys_bosses:yeti_spawn_egg": {
-          "key": "item.block_factorys_bosses.yeti_spawn_egg",
-          "zh": "斯科尔刷怪蛋",
-          "en": "Skor, The Yeti Spawn Egg"
         },
         "bosses_of_mass_destruction:ancient_anima": {
           "key": "item.bosses_of_mass_destruction.ancient_anima",
@@ -62107,6 +61431,32 @@
         "cataclysm:wetness",
         "dungeonnowloading:vertex_transmission",
         "endersdelight:phasing",
+        "examplemod:blood_shred_flat",
+        "examplemod:blood_shred_total",
+        "examplemod:dune_shred_flat",
+        "examplemod:dune_shred_total",
+        "examplemod:eldritch_shred_flat",
+        "examplemod:eldritch_shred_total",
+        "examplemod:ender_shred_flat",
+        "examplemod:ender_shred_total",
+        "examplemod:evocation_shred_flat",
+        "examplemod:evocation_shred_total",
+        "examplemod:fire_shred_flat",
+        "examplemod:fire_shred_total",
+        "examplemod:holy_shred_flat",
+        "examplemod:holy_shred_total",
+        "examplemod:ice_shred_flat",
+        "examplemod:ice_shred_total",
+        "examplemod:lightning_shred_flat",
+        "examplemod:lightning_shred_total",
+        "examplemod:melody_shred_flat",
+        "examplemod:melody_shred_total",
+        "examplemod:nature_shred_flat",
+        "examplemod:nature_shred_total",
+        "examplemod:spirit_shred_flat",
+        "examplemod:spirit_shred_total",
+        "examplemod:symmetry_shred_flat",
+        "examplemod:symmetry_shred_total",
         "farmersdelight:comfort",
         "farmersdelight:nourishment",
         "irons_spellbooks:abyssal_shroud",
@@ -62398,6 +61748,136 @@
           "key": "effect.endersdelight.phasing",
           "zh": "末影相移",
           "en": "Ender Phasing"
+        },
+        "examplemod:blood_shred_flat": {
+          "key": "effect.examplemod.blood_shred_flat",
+          "zh": "猩红抗性碎裂",
+          "en": "Blood Fragility"
+        },
+        "examplemod:blood_shred_total": {
+          "key": "effect.examplemod.blood_shred_total",
+          "zh": "猩红抗性撕裂",
+          "en": "Blood Sundering"
+        },
+        "examplemod:dune_shred_flat": {
+          "key": "effect.examplemod.dune_shred_flat",
+          "zh": "沙丘抗性碎裂",
+          "en": "Dune Fragility"
+        },
+        "examplemod:dune_shred_total": {
+          "key": "effect.examplemod.dune_shred_total",
+          "zh": "沙丘抗性撕裂",
+          "en": "Dune Sundering"
+        },
+        "examplemod:eldritch_shred_flat": {
+          "key": "effect.examplemod.eldritch_shred_flat",
+          "zh": "邪术抗性碎裂",
+          "en": "Eldritch Fragility"
+        },
+        "examplemod:eldritch_shred_total": {
+          "key": "effect.examplemod.eldritch_shred_total",
+          "zh": "邪术抗性撕裂",
+          "en": "Eldritch Sundering"
+        },
+        "examplemod:ender_shred_flat": {
+          "key": "effect.examplemod.ender_shred_flat",
+          "zh": "末影抗性碎裂",
+          "en": "Ender Fragility"
+        },
+        "examplemod:ender_shred_total": {
+          "key": "effect.examplemod.ender_shred_total",
+          "zh": "末影抗性撕裂",
+          "en": "Ender Sundering"
+        },
+        "examplemod:evocation_shred_flat": {
+          "key": "effect.examplemod.evocation_shred_flat",
+          "zh": "唤魔抗性碎裂",
+          "en": "Evocation Fragility"
+        },
+        "examplemod:evocation_shred_total": {
+          "key": "effect.examplemod.evocation_shred_total",
+          "zh": "唤魔抗性撕裂",
+          "en": "Evocation Sundering"
+        },
+        "examplemod:fire_shred_flat": {
+          "key": "effect.examplemod.fire_shred_flat",
+          "zh": "炽焰抗性碎裂",
+          "en": "Fire Fragility"
+        },
+        "examplemod:fire_shred_total": {
+          "key": "effect.examplemod.fire_shred_total",
+          "zh": "炽焰抗性撕裂",
+          "en": "Fire Sundering"
+        },
+        "examplemod:holy_shred_flat": {
+          "key": "effect.examplemod.holy_shred_flat",
+          "zh": "神圣抗性碎裂",
+          "en": "Holy Fragility"
+        },
+        "examplemod:holy_shred_total": {
+          "key": "effect.examplemod.holy_shred_total",
+          "zh": "神圣抗性撕裂",
+          "en": "Holy Sundering"
+        },
+        "examplemod:ice_shred_flat": {
+          "key": "effect.examplemod.ice_shred_flat",
+          "zh": "冰霜抗性碎裂",
+          "en": "Ice Fragility"
+        },
+        "examplemod:ice_shred_total": {
+          "key": "effect.examplemod.ice_shred_total",
+          "zh": "冰霜抗性撕裂",
+          "en": "Ice Sundering"
+        },
+        "examplemod:lightning_shred_flat": {
+          "key": "effect.examplemod.lightning_shred_flat",
+          "zh": "雷霆抗性碎裂",
+          "en": "Lightning Fragility"
+        },
+        "examplemod:lightning_shred_total": {
+          "key": "effect.examplemod.lightning_shred_total",
+          "zh": "雷霆抗性撕裂",
+          "en": "Lightning Sundering"
+        },
+        "examplemod:melody_shred_flat": {
+          "key": "effect.examplemod.melody_shred_flat",
+          "zh": "音律抗性碎裂",
+          "en": "Melody Fragility"
+        },
+        "examplemod:melody_shred_total": {
+          "key": "effect.examplemod.melody_shred_total",
+          "zh": "音律抗性撕裂",
+          "en": "Melody Sundering"
+        },
+        "examplemod:nature_shred_flat": {
+          "key": "effect.examplemod.nature_shred_flat",
+          "zh": "自然抗性碎裂",
+          "en": "Nature Fragility"
+        },
+        "examplemod:nature_shred_total": {
+          "key": "effect.examplemod.nature_shred_total",
+          "zh": "自然抗性撕裂",
+          "en": "Nature Sundering"
+        },
+        "examplemod:spirit_shred_flat": {
+          "key": "effect.examplemod.spirit_shred_flat",
+          "zh": "魂灵抗性碎裂",
+          "en": "Spirit Fragility"
+        },
+        "examplemod:spirit_shred_total": {
+          "key": "effect.examplemod.spirit_shred_total",
+          "zh": "魂灵抗性撕裂",
+          "en": "Spirit Sundering"
+        },
+        "examplemod:symmetry_shred_flat": {
+          "key": "effect.examplemod.symmetry_shred_flat",
+          "zh": "两仪抗性碎裂",
+          "en": "Symmetry Fragility"
+        },
+        "examplemod:symmetry_shred_total": {
+          "key": "effect.examplemod.symmetry_shred_total",
+          "zh": "两仪抗性撕裂",
+          "en": "Symmetry Sundering"
         },
         "farmersdelight:comfort": {
           "key": "effect.farmersdelight.comfort",
@@ -63335,140 +62815,6 @@
         "bettercombat:topslash45",
         "bettercombat:topslash90",
         "bettercombat:topstab",
-        "block_factorys_bosses:area_bubbling",
-        "block_factorys_bosses:big_explosion",
-        "block_factorys_bosses:big_star",
-        "block_factorys_bosses:bite_debris",
-        "block_factorys_bosses:bite_dust",
-        "block_factorys_bosses:black_falling_dust",
-        "block_factorys_bosses:blazing_cloud",
-        "block_factorys_bosses:blazing_dust",
-        "block_factorys_bosses:blazing_flame",
-        "block_factorys_bosses:crate_debris",
-        "block_factorys_bosses:crate_impact_dust",
-        "block_factorys_bosses:crate_throw_dust",
-        "block_factorys_bosses:dust_cloud",
-        "block_factorys_bosses:emergence_water_foam",
-        "block_factorys_bosses:emergence_water_foam_big",
-        "block_factorys_bosses:emergence_water_foam_giant",
-        "block_factorys_bosses:emergence_water_foam_medium",
-        "block_factorys_bosses:emergence_water_giant",
-        "block_factorys_bosses:explosion",
-        "block_factorys_bosses:falling_dust",
-        "block_factorys_bosses:fancy_smoke",
-        "block_factorys_bosses:fire_aoe",
-        "block_factorys_bosses:fire_cloud",
-        "block_factorys_bosses:fire_cloud_smoke",
-        "block_factorys_bosses:fog_1",
-        "block_factorys_bosses:glint",
-        "block_factorys_bosses:ground_dust",
-        "block_factorys_bosses:ice_whirlpool_1",
-        "block_factorys_bosses:ice_whirlpool_2",
-        "block_factorys_bosses:ice_whirlpool_3",
-        "block_factorys_bosses:ice_whirlpool_4",
-        "block_factorys_bosses:ice_whirlpool_5",
-        "block_factorys_bosses:ink_fog",
-        "block_factorys_bosses:introduction_attack_2",
-        "block_factorys_bosses:introduction_attack_3",
-        "block_factorys_bosses:introduction_attack_dust",
-        "block_factorys_bosses:introduction_attack_event",
-        "block_factorys_bosses:introduction_attack_soul_once",
-        "block_factorys_bosses:introduction_attack_souls",
-        "block_factorys_bosses:introduction_attack_souls_2",
-        "block_factorys_bosses:introduction_attack_souls_3",
-        "block_factorys_bosses:introduction_attack_souls_3_died",
-        "block_factorys_bosses:introduction_attack_souls_died_2",
-        "block_factorys_bosses:invul_wisp",
-        "block_factorys_bosses:invul_wisp_inactive",
-        "block_factorys_bosses:knight_smoke_impact_1",
-        "block_factorys_bosses:knight_smoke_impact_2",
-        "block_factorys_bosses:kraken_head_stars",
-        "block_factorys_bosses:kraken_pirate_summon",
-        "block_factorys_bosses:kraken_spit",
-        "block_factorys_bosses:magical_dot",
-        "block_factorys_bosses:mark_glint",
-        "block_factorys_bosses:mark_glint_2",
-        "block_factorys_bosses:mark_glint_3",
-        "block_factorys_bosses:mark_glint_exp",
-        "block_factorys_bosses:mark_glint_exp_2",
-        "block_factorys_bosses:mast_debris",
-        "block_factorys_bosses:mast_debris_big",
-        "block_factorys_bosses:mast_dust",
-        "block_factorys_bosses:mast_dust_big",
-        "block_factorys_bosses:mist_cloud",
-        "block_factorys_bosses:phase_transition_1",
-        "block_factorys_bosses:phase_transition_10",
-        "block_factorys_bosses:phase_transition_2",
-        "block_factorys_bosses:phase_transition_4",
-        "block_factorys_bosses:phase_transition_6",
-        "block_factorys_bosses:phase_transition_6_low",
-        "block_factorys_bosses:phase_transition_7",
-        "block_factorys_bosses:phase_transition_8",
-        "block_factorys_bosses:phase_transition_9",
-        "block_factorys_bosses:pixel",
-        "block_factorys_bosses:poison_aoe",
-        "block_factorys_bosses:poison_bubble",
-        "block_factorys_bosses:poison_fog",
-        "block_factorys_bosses:poison_fog_puddle",
-        "block_factorys_bosses:poison_spit",
-        "block_factorys_bosses:red_smoke",
-        "block_factorys_bosses:red_spark",
-        "block_factorys_bosses:rift",
-        "block_factorys_bosses:rift_close",
-        "block_factorys_bosses:rift_open",
-        "block_factorys_bosses:ring",
-        "block_factorys_bosses:sand_rock",
-        "block_factorys_bosses:slam_bubbles_loop",
-        "block_factorys_bosses:slam_bubbles_release",
-        "block_factorys_bosses:slam_drops_loop",
-        "block_factorys_bosses:slam_drops_release",
-        "block_factorys_bosses:slam_small_splash_release",
-        "block_factorys_bosses:slam_splash_loop",
-        "block_factorys_bosses:slam_splash_release",
-        "block_factorys_bosses:slam_whirlpool_loop",
-        "block_factorys_bosses:slam_whirlpool_release",
-        "block_factorys_bosses:smoke",
-        "block_factorys_bosses:snow_cloud",
-        "block_factorys_bosses:snow_flake",
-        "block_factorys_bosses:soul",
-        "block_factorys_bosses:soul_cloud",
-        "block_factorys_bosses:soul_flip",
-        "block_factorys_bosses:soul_smoke",
-        "block_factorys_bosses:soul_trail",
-        "block_factorys_bosses:star",
-        "block_factorys_bosses:strong_slam_debris",
-        "block_factorys_bosses:strong_slam_dust",
-        "block_factorys_bosses:tentacle_emergence_splash",
-        "block_factorys_bosses:tentacle_slam_shockwave_activation",
-        "block_factorys_bosses:tentacle_slam_small_water_activation",
-        "block_factorys_bosses:tentacle_slam_splash_activation_main",
-        "block_factorys_bosses:tentacle_slam_tall_water_activation",
-        "block_factorys_bosses:tentacle_slam_white_water_activation",
-        "block_factorys_bosses:towering_mist_cloud",
-        "block_factorys_bosses:transition_emergence_splash_big",
-        "block_factorys_bosses:transition_emergence_water_foam",
-        "block_factorys_bosses:transition_emergence_water_foam_long",
-        "block_factorys_bosses:transition_emergence_water_foam_tentacle_long",
-        "block_factorys_bosses:transition_mast_debris",
-        "block_factorys_bosses:transition_mast_dust",
-        "block_factorys_bosses:transition_tentacle_emergence_splash",
-        "block_factorys_bosses:transition_water_bubble",
-        "block_factorys_bosses:transition_water_bubble_foam",
-        "block_factorys_bosses:water_bubble_foam",
-        "block_factorys_bosses:water_burst",
-        "block_factorys_bosses:water_foam",
-        "block_factorys_bosses:water_splash",
-        "block_factorys_bosses:weird_smoke",
-        "block_factorys_bosses:wood_debris",
-        "block_factorys_bosses:wood_dust",
-        "block_factorys_bosses:yeti_death_frost",
-        "block_factorys_bosses:yeti_death_light",
-        "block_factorys_bosses:yeti_death_shockwave",
-        "block_factorys_bosses:yeti_death_soft",
-        "block_factorys_bosses:yeti_death_solid",
-        "block_factorys_bosses:yeti_ice_chunk",
-        "block_factorys_bosses:yeti_smoke_impact_1",
-        "block_factorys_bosses:yeti_smoke_impact_2",
         "bosses_of_mass_destruction:disappearing_swirl",
         "bosses_of_mass_destruction:downsparkle",
         "bosses_of_mass_destruction:earthdive_indicator",
@@ -63815,8 +63161,6 @@
         "point_of_interest_type"
       ],
       "values": [
-        "block_factorys_bosses:boss_spawner",
-        "block_factorys_bosses:kraken_spawner",
         "irons_spellbooks:cinderous_soul_rune",
         "minecraft:armorer",
         "minecraft:bee_nest",
@@ -64261,134 +63605,6 @@
         "bettercombat:staff_stab",
         "bettercombat:sword_slash",
         "bettercombat:wand_swing",
-        "block_factorys_bosses:block.underworld_arena_door.close",
-        "block_factorys_bosses:block.underworld_arena_door.key_insertion",
-        "block_factorys_bosses:block.underworld_arena_door.open",
-        "block_factorys_bosses:entity.barrage_rift.closing",
-        "block_factorys_bosses:entity.barrage_rift.jump",
-        "block_factorys_bosses:entity.barrage_rift.rift_fireball",
-        "block_factorys_bosses:entity.barrage_rift.rift_idle",
-        "block_factorys_bosses:entity.barrage_rift.rift_open",
-        "block_factorys_bosses:entity.barrage_rift.slash_air",
-        "block_factorys_bosses:entity.cannon.fire",
-        "block_factorys_bosses:entity.cannon.get_out",
-        "block_factorys_bosses:entity.cannon.impact",
-        "block_factorys_bosses:entity.cannon.reload",
-        "block_factorys_bosses:entity.cannon.seat",
-        "block_factorys_bosses:entity.crate.land",
-        "block_factorys_bosses:entity.dragon.bite",
-        "block_factorys_bosses:entity.dragon.claw",
-        "block_factorys_bosses:entity.dragon.death",
-        "block_factorys_bosses:entity.dragon.fire_smelted_item",
-        "block_factorys_bosses:entity.dragon.fireballs",
-        "block_factorys_bosses:entity.dragon.firelayer",
-        "block_factorys_bosses:entity.dragon.footstep",
-        "block_factorys_bosses:entity.dragon.hit",
-        "block_factorys_bosses:entity.dragon.phase_transition",
-        "block_factorys_bosses:entity.dragon.roar",
-        "block_factorys_bosses:entity.dragon.spawn",
-        "block_factorys_bosses:entity.dragon.tailswipe",
-        "block_factorys_bosses:entity.dragon.wing",
-        "block_factorys_bosses:entity.ice_gauntlet.icicle_break",
-        "block_factorys_bosses:entity.ice_gauntlet.icicle_hurt",
-        "block_factorys_bosses:entity.ice_gauntlet.icicle_spawning",
-        "block_factorys_bosses:entity.knight.attack_voiceline",
-        "block_factorys_bosses:entity.knight.block",
-        "block_factorys_bosses:entity.knight.combo1",
-        "block_factorys_bosses:entity.knight.combo2",
-        "block_factorys_bosses:entity.knight.death",
-        "block_factorys_bosses:entity.knight.dodge",
-        "block_factorys_bosses:entity.knight.fake_death",
-        "block_factorys_bosses:entity.knight.footstep",
-        "block_factorys_bosses:entity.knight.heavy_attack",
-        "block_factorys_bosses:entity.knight.horizontal_slash",
-        "block_factorys_bosses:entity.knight.horizontal_slash_transition",
-        "block_factorys_bosses:entity.knight.hurt",
-        "block_factorys_bosses:entity.knight.intro",
-        "block_factorys_bosses:entity.knight.introduction_attack",
-        "block_factorys_bosses:entity.knight.jumpspin_1",
-        "block_factorys_bosses:entity.knight.jumpspin_2",
-        "block_factorys_bosses:entity.knight.jumpspin_3",
-        "block_factorys_bosses:entity.knight.knock_off",
-        "block_factorys_bosses:entity.knight.knocked_down",
-        "block_factorys_bosses:entity.knight.light_attack_1",
-        "block_factorys_bosses:entity.knight.light_attack_2",
-        "block_factorys_bosses:entity.knight.light_heavy_attack",
-        "block_factorys_bosses:entity.knight.resurrection",
-        "block_factorys_bosses:entity.knight.revenge_attack",
-        "block_factorys_bosses:entity.knight.stack_remove",
-        "block_factorys_bosses:entity.knight.thrust",
-        "block_factorys_bosses:entity.knight.vertical_slash",
-        "block_factorys_bosses:entity.knight.vertical_slash_transition",
-        "block_factorys_bosses:entity.knight.wisp_explode",
-        "block_factorys_bosses:entity.knight.wisp_explode_last",
-        "block_factorys_bosses:entity.kraken.death",
-        "block_factorys_bosses:entity.kraken.death_final",
-        "block_factorys_bosses:entity.kraken.grab_and_throw",
-        "block_factorys_bosses:entity.kraken.growling",
-        "block_factorys_bosses:entity.kraken.idle",
-        "block_factorys_bosses:entity.kraken.intro",
-        "block_factorys_bosses:entity.kraken.light_slam",
-        "block_factorys_bosses:entity.kraken.phase_transition",
-        "block_factorys_bosses:entity.kraken.strong_slam",
-        "block_factorys_bosses:entity.kraken.tentacle_death",
-        "block_factorys_bosses:entity.kraken.warning",
-        "block_factorys_bosses:entity.kraken.water_movement",
-        "block_factorys_bosses:entity.roll",
-        "block_factorys_bosses:entity.sand_column.eruption",
-        "block_factorys_bosses:entity.sandworm.ambient",
-        "block_factorys_bosses:entity.sandworm.bite",
-        "block_factorys_bosses:entity.sandworm.charge",
-        "block_factorys_bosses:entity.sandworm.death",
-        "block_factorys_bosses:entity.sandworm.dive",
-        "block_factorys_bosses:entity.sandworm.dive_long",
-        "block_factorys_bosses:entity.sandworm.dive_short",
-        "block_factorys_bosses:entity.sandworm.emerge",
-        "block_factorys_bosses:entity.sandworm.hurt",
-        "block_factorys_bosses:entity.sandworm.impact",
-        "block_factorys_bosses:entity.sandworm.poison_spit",
-        "block_factorys_bosses:entity.sandworm.screech",
-        "block_factorys_bosses:entity.sandworm.tail_impact",
-        "block_factorys_bosses:entity.silence",
-        "block_factorys_bosses:entity.yeti.death",
-        "block_factorys_bosses:entity.yeti.enrage",
-        "block_factorys_bosses:entity.yeti.footstep",
-        "block_factorys_bosses:entity.yeti.groundsmash",
-        "block_factorys_bosses:entity.yeti.handswipe",
-        "block_factorys_bosses:entity.yeti.handswipe2",
-        "block_factorys_bosses:entity.yeti.hit",
-        "block_factorys_bosses:entity.yeti.ice_barrage",
-        "block_factorys_bosses:entity.yeti.ice_barrage_whirlpool",
-        "block_factorys_bosses:entity.yeti.jump",
-        "block_factorys_bosses:entity.yeti.land",
-        "block_factorys_bosses:entity.yeti.punch",
-        "block_factorys_bosses:entity.yeti.ranged_control",
-        "block_factorys_bosses:entity.yeti.ranged_control_ice_block",
-        "block_factorys_bosses:entity.yeti.spawn",
-        "block_factorys_bosses:item.dagger_stab",
-        "block_factorys_bosses:item.ice_gauntlet.blast_1",
-        "block_factorys_bosses:item.ice_gauntlet.blast_2",
-        "block_factorys_bosses:item.ice_gauntlet.icicle_pickup",
-        "block_factorys_bosses:item.ice_gauntlet.punch",
-        "block_factorys_bosses:item.ice_gauntlet.throw_icicle",
-        "block_factorys_bosses:item.knight_sword_swing",
-        "block_factorys_bosses:item.large_sword_swing",
-        "block_factorys_bosses:item.sandworm_gauntlet.poison_barrage_release",
-        "block_factorys_bosses:item.undying_tentacle.charging",
-        "block_factorys_bosses:item.undying_tentacle.disappearing",
-        "block_factorys_bosses:item.undying_tentacle.smash_ground",
-        "block_factorys_bosses:item.undying_tentacle.spawn_tentacles",
-        "block_factorys_bosses:item.undying_tentacle.tentacle_strike_the_ground",
-        "block_factorys_bosses:item.undying_tentacle.throw_back",
-        "block_factorys_bosses:item.undying_tentacle.throw_forth",
-        "block_factorys_bosses:item.undying_tentacle.throw_grab",
-        "block_factorys_bosses:item.warrior_sword_swing",
-        "block_factorys_bosses:music.ashlord",
-        "block_factorys_bosses:music.helvar",
-        "block_factorys_bosses:music.nerakyss",
-        "block_factorys_bosses:music.sirok",
-        "block_factorys_bosses:music.skor",
-        "block_factorys_bosses:music.yeti_intro",
         "bosses_of_mass_destruction:blue_fireball_land",
         "bosses_of_mass_destruction:brimstone",
         "bosses_of_mass_destruction:charged_ender_pearl",
@@ -67808,7 +67024,6 @@
         "carver"
       ],
       "values": [
-        "bettercaves:better_cave",
         "minecraft:canyon",
         "minecraft:cave",
         "minecraft:nether_cave",
@@ -67839,8 +67054,6 @@
         "configured_carver"
       ],
       "values": [
-        "bettercaves:better_cave",
-        "bettercaves:surface_cave",
         "incendium:big_cave",
         "minecraft:canyon",
         "minecraft:cave",
@@ -69838,18 +69051,6 @@
       ],
       "values": [
         "apotheosis:item_frame_gems",
-        "betterdungeons:skeleton_dungeon/skeleton_dungeon",
-        "betterdungeons:small_dungeon/small_dungeon_loot_pile",
-        "betterdungeons:small_dungeon/small_dungeon_skeleton",
-        "betterdungeons:small_dungeon/small_dungeon_spider",
-        "betterdungeons:small_dungeon/small_dungeon_zombie",
-        "betterdungeons:small_nether_dungeon/props",
-        "betterdungeons:small_nether_dungeon/small_nether_dungeon_blaze",
-        "betterdungeons:small_nether_dungeon/small_nether_dungeon_skeleton",
-        "betterdungeons:small_nether_dungeon/small_nether_dungeon_wither_skeleton",
-        "betterdungeons:small_nether_dungeon/small_nether_dungeon_zombified_piglin",
-        "betterdungeons:zombie_dungeon/zombie_dungeon",
-        "betterdungeons:zombie_dungeon/zombie_dungeon_cubby",
         "cataclysm:waterlogging_when_replacing_water",
         "dungeonnowloading:labyrinth/anvil",
         "dungeonnowloading:labyrinth/barrels/arrows",
@@ -70485,16 +69686,6 @@
         "awesomedungeonocean:ocean_temple_quad",
         "awesomedungeonocean:ocean_the_column_temple",
         "awesomedungeonocean:ocean_warn_temple",
-        "betterdungeons:skeleton_dungeon",
-        "betterdungeons:small_dungeon",
-        "betterdungeons:small_nether_dungeon",
-        "betterdungeons:spider_dungeon",
-        "betterdungeons:zombie_dungeon",
-        "block_factorys_bosses:dragon_tower",
-        "block_factorys_bosses:kraken_ship",
-        "block_factorys_bosses:sandworm_nest",
-        "block_factorys_bosses:underworld_arena",
-        "block_factorys_bosses:yeti_hideout",
         "bosses_of_mass_destruction:gauntlet_arena",
         "bosses_of_mass_destruction:lich_tower",
         "bosses_of_mass_destruction:obsidilith_arena",
@@ -71078,10 +70269,6 @@
         "structure_piece"
       ],
       "values": [
-        "betterdungeons:spider_dungeon_big_tunnel_piece",
-        "betterdungeons:spider_dungeon_egg_room_piece",
-        "betterdungeons:spider_dungeon_nest_piece",
-        "betterdungeons:spider_dungeon_small_tunnel_piece",
         "bosses_of_mass_destruction:void_blossom_piece",
         "cataclysm:burning_arena",
         "cataclysm:cursed_pyramid",
@@ -71356,8 +70543,7 @@
         "repurposed_structures:advanced_random_spread",
         "twilightforest:avoid_landmark_grid",
         "twilightforest:landmark_grid",
-        "valhelsia_structures:valhelsia_random_spread",
-        "yungsapi:enhanced_random_spread"
+        "valhelsia_structures:valhelsia_random_spread"
       ],
       "translations": {}
     },
@@ -71385,13 +70571,7 @@
         "repurposed_structures:legacy_ocean_bottom_single_pool_element",
         "repurposed_structures:mirroring_single_pool_element",
         "valhelsia_structures:valhelsia_pool_element_wrapper",
-        "valhelsia_structures:valhelsia_single_pool_element",
-        "yungsapi:max_count_feature_element",
-        "yungsapi:max_count_legacy_single_element",
-        "yungsapi:max_count_list_element",
-        "yungsapi:max_count_single_element",
-        "yungsapi:yung_feature_element",
-        "yungsapi:yung_single_element"
+        "valhelsia_structures:valhelsia_single_pool_element"
       ],
       "translations": {}
     },
@@ -71404,35 +70584,6 @@
       "values": [
         "apotheosis:item_frame_gems",
         "bagus_lib:base",
-        "betterdungeons:candle_processor",
-        "betterdungeons:head_processor",
-        "betterdungeons:mob_spawner_processor",
-        "betterdungeons:nether_block_processor",
-        "betterdungeons:skeleton_dungeon_leg_processor",
-        "betterdungeons:skeleton_dungeon_ruined_stone_bricks_processor",
-        "betterdungeons:skeleton_mob_spawner_processor",
-        "betterdungeons:small_dungeon_banner_processor",
-        "betterdungeons:small_dungeon_ceiling_lamp_processor",
-        "betterdungeons:small_dungeon_ceiling_processor",
-        "betterdungeons:small_dungeon_ceiling_prop_processor",
-        "betterdungeons:small_dungeon_chest_processor",
-        "betterdungeons:small_dungeon_cobblestone_processor",
-        "betterdungeons:small_dungeon_leg_processor",
-        "betterdungeons:small_dungeon_ore_processor",
-        "betterdungeons:small_nether_dungeon_banner_processor",
-        "betterdungeons:small_nether_dungeon_entrance_stairs_processor",
-        "betterdungeons:small_nether_dungeon_head_processor",
-        "betterdungeons:small_nether_dungeon_lava_block_processor",
-        "betterdungeons:small_nether_dungeon_leg_processor",
-        "betterdungeons:small_nether_dungeon_mob_spawner_processor",
-        "betterdungeons:zombie_dungeon_cubby_processor",
-        "betterdungeons:zombie_dungeon_flower_pot_processor",
-        "betterdungeons:zombie_dungeon_leg_processor",
-        "betterdungeons:zombie_dungeon_stair_processor",
-        "betterdungeons:zombie_main_stairs_processor",
-        "betterdungeons:zombie_mob_spawner_processor",
-        "betterdungeons:zombie_rot_processor",
-        "betterdungeons:zombie_tombstone_spawner_processor",
         "cataclysm:waterlogging_when_replacing_water_processor",
         "dungeonnowloading:book_pile_randomizer_processor",
         "dungeonnowloading:statue_processor",
@@ -71566,16 +70717,6 @@
         "awesomedungeonocean:ocean_temple_quad",
         "awesomedungeonocean:ocean_the_column_temple",
         "awesomedungeonocean:ocean_warn_temple",
-        "betterdungeons:skeleton_dungeons",
-        "betterdungeons:small_dungeons",
-        "betterdungeons:small_nether_dungeons",
-        "betterdungeons:spider_dungeons",
-        "betterdungeons:zombie_dungeons",
-        "block_factorys_bosses:dragon_tower",
-        "block_factorys_bosses:kraken_ship",
-        "block_factorys_bosses:sandworm_nest",
-        "block_factorys_bosses:underworld_arena",
-        "block_factorys_bosses:yeti_hideout",
         "bosses_of_mass_destruction:gauntlet_arena",
         "bosses_of_mass_destruction:lich_tower",
         "bosses_of_mass_destruction:obsidilith_arena",
@@ -71921,10 +71062,6 @@
         "awesomedungeonocean:awesome_ocean_frigate_l",
         "awesomedungeonocean:awesome_ocean_frigate_m",
         "awesomedungeonocean:awesome_structure",
-        "betterdungeons:small_nether_dungeon",
-        "betterdungeons:spider_dungeon",
-        "block_factorys_bosses:dragon_tower",
-        "block_factorys_bosses:kraken_ship",
         "bosses_of_mass_destruction:void_blossom",
         "cataclysm:burning_arena",
         "cataclysm:cataclysm_jigsaw",
@@ -71987,8 +71124,7 @@
         "twilightforest:quest_grove",
         "twilightforest:troll_cave",
         "twilightforest:yeti_cave",
-        "valhelsia_structures:valhelsia_jigsaw_structure",
-        "yungsapi:yung_jigsaw"
+        "valhelsia_structures:valhelsia_jigsaw_structure"
       ],
       "translations": {}
     },
@@ -72089,58 +71225,6 @@
         "awesomedungeonocean:ocean_temple_quad/start_pool",
         "awesomedungeonocean:ocean_the_column_temple/start_pool",
         "awesomedungeonocean:ocean_warn_temple/start_pool",
-        "betterdungeons:skeleton_dungeon",
-        "betterdungeons:skeleton_dungeon/2x3",
-        "betterdungeons:skeleton_dungeon/3x3",
-        "betterdungeons:skeleton_dungeon/arch",
-        "betterdungeons:skeleton_dungeon/bridge",
-        "betterdungeons:skeleton_dungeon/bridge_big",
-        "betterdungeons:skeleton_dungeon/campfire_prop",
-        "betterdungeons:skeleton_dungeon/stair1",
-        "betterdungeons:skeleton_dungeon/stair2",
-        "betterdungeons:skeleton_dungeon/stair_bottom",
-        "betterdungeons:small_dungeon",
-        "betterdungeons:small_dungeon_loot_piles",
-        "betterdungeons:small_nether_dungeon",
-        "betterdungeons:small_nether_dungeon/2x1",
-        "betterdungeons:small_nether_dungeon/2x2",
-        "betterdungeons:small_nether_dungeon/3x2",
-        "betterdungeons:zombie_dungeon",
-        "betterdungeons:zombie_dungeon/big_stairs",
-        "betterdungeons:zombie_dungeon/cubby_double",
-        "betterdungeons:zombie_dungeon/cubby_prop",
-        "betterdungeons:zombie_dungeon/cubby_single",
-        "betterdungeons:zombie_dungeon/cubby_sm_prop",
-        "betterdungeons:zombie_dungeon/cubby_sm_single",
-        "betterdungeons:zombie_dungeon/floor1_hall",
-        "betterdungeons:zombie_dungeon/floor1_room",
-        "betterdungeons:zombie_dungeon/floor2_hall",
-        "betterdungeons:zombie_dungeon/floor2_room",
-        "betterdungeons:zombie_dungeon/terminators/big_stairs_terminators",
-        "betterdungeons:zombie_dungeon/terminators/floor1_hall_terminators",
-        "betterdungeons:zombie_dungeon/terminators/floor1_room_terminators",
-        "betterdungeons:zombie_dungeon/terminators/floor2_hall_terminators",
-        "betterdungeons:zombie_dungeon/terminators/floor2_room_terminators",
-        "betterdungeons:zombie_dungeon/tombstones",
-        "block_factorys_bosses:dragon_tower",
-        "block_factorys_bosses:dragon_tower_middle",
-        "block_factorys_bosses:dragon_tower_top",
-        "block_factorys_bosses:kraken_ship",
-        "block_factorys_bosses:kraken_ship_destroyed",
-        "block_factorys_bosses:kraken_ship_destroyed_seed",
-        "block_factorys_bosses:kraken_ship_seed",
-        "block_factorys_bosses:sandworm_nest",
-        "block_factorys_bosses:underworld_arena",
-        "block_factorys_bosses:underworld_arena_boss",
-        "block_factorys_bosses:underworld_arena_bridges",
-        "block_factorys_bosses:underworld_arena_end_caps",
-        "block_factorys_bosses:underworld_arena_end_caps_short",
-        "block_factorys_bosses:underworld_arena_hallway",
-        "block_factorys_bosses:underworld_arena_poi",
-        "block_factorys_bosses:underworld_arena_poi_fallback",
-        "block_factorys_bosses:underworld_arena_rooms",
-        "block_factorys_bosses:underworld_arena_tower",
-        "block_factorys_bosses:yeti_hideout",
         "bosses_of_mass_destruction:gauntlet_arena/start_pool",
         "bosses_of_mass_destruction:lich_tower/start_pool",
         "bosses_of_mass_destruction:lich_tower/top_pool",
@@ -75582,10 +74666,6 @@
         "apothic_enchanting:raven_table_stats",
         "artifacts:ability_toggles",
         "artifacts:swim_data",
-        "block_factorys_bosses:gauntlet_attachment",
-        "block_factorys_bosses:player_animation",
-        "block_factorys_bosses:player_variables",
-        "block_factorys_bosses:roll_attachment",
         "bosses_of_mass_destruction:historical_data",
         "cataclysm:charge_attachment",
         "cataclysm:hook_falling",
@@ -75667,9 +74747,6 @@
         "architectury:impl",
         "artifacts:add_campsite",
         "balm:balm",
-        "bettercaves:add_carvers",
-        "bettercaves:remove_carvers",
-        "betterdungeons:vanilla_dungeon_removal",
         "cataclysm:cataclysm_mob_spawns",
         "endermanoverhaul:badlands",
         "endermanoverhaul:cave",
@@ -75820,9 +74897,6 @@
         "entity_data_serializers"
       ],
       "values": [
-        "block_factorys_bosses:optional_direction",
-        "block_factorys_bosses:tentacle_type",
-        "block_factorys_bosses:vec3",
         "cataclysm:optional_vec_3",
         "dungeonnowloading:ballista_golem_state",
         "dungeonnowloading:broken_garhold_state",
@@ -77261,6 +76335,19 @@
         "overview",
         "stack_trace",
         "raw_nbt"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.example.examplemod.registry.ModMobEffects$ShredType",
+      "aliases": [
+        "shred_type",
+        "mod_mob_effects",
+        "mod_mob_effects_shred_type"
+      ],
+      "values": [
+        "flat",
+        "total"
       ],
       "translations": {}
     },
@@ -84082,117 +83169,6 @@
       "translations": {}
     },
     {
-      "id": "com.yungnickyoung.minecraft.betterdungeons.world.DungeonType",
-      "aliases": [
-        "dungeon_type"
-      ],
-      "values": [
-        "spider",
-        "skeleton",
-        "zombie",
-        "zombified_piglin",
-        "wither_skeleton",
-        "blaze"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.yungnickyoung.minecraft.yungsapi.noise.FastNoise$CellularDistanceFunction",
-      "aliases": [
-        "cellular_distance_function",
-        "fast_noise",
-        "fast_noise_cellular_distance_function"
-      ],
-      "values": [
-        "euclidean",
-        "manhattan",
-        "natural"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.yungnickyoung.minecraft.yungsapi.noise.FastNoise$CellularReturnType",
-      "aliases": [
-        "cellular_return_type",
-        "fast_noise",
-        "fast_noise_cellular_return_type"
-      ],
-      "values": [
-        "cellvalue",
-        "noiselookup",
-        "distance",
-        "distance2",
-        "distance2add",
-        "distance2sub",
-        "distance2mul",
-        "distance2div"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.yungnickyoung.minecraft.yungsapi.noise.FastNoise$FractalType",
-      "aliases": [
-        "fractal_type",
-        "fast_noise",
-        "fast_noise_fractal_type"
-      ],
-      "values": [
-        "fbm",
-        "billow",
-        "rigidmulti"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.yungnickyoung.minecraft.yungsapi.noise.FastNoise$Interp",
-      "aliases": [
-        "interp",
-        "fast_noise",
-        "fast_noise_interp"
-      ],
-      "values": [
-        "linear",
-        "hermite",
-        "quintic"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.yungnickyoung.minecraft.yungsapi.noise.FastNoise$NoiseType",
-      "aliases": [
-        "noise_type",
-        "fast_noise",
-        "fast_noise_noise_type"
-      ],
-      "values": [
-        "value",
-        "valuefractal",
-        "perlin",
-        "perlinfractal",
-        "simplex",
-        "simplexfractal",
-        "cellular",
-        "whitenoise",
-        "cubic",
-        "cubicfractal"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.yungnickyoung.minecraft.yungsapi.world.structure.terrainadaptation.adaptations.EnhancedTerrainAdaptation$TerrainAction",
-      "aliases": [
-        "terrain_action",
-        "enhanced_terrain_adaptation",
-        "enhanced_terrain_adaptation_terrain_action"
-      ],
-      "values": [
-        "carve",
-        "bury",
-        "none"
-      ],
-      "translations": {}
-    },
-    {
       "id": "commonnetwork.networking.data.PacketContainer$PacketType",
       "aliases": [
         "packet_type",
@@ -84319,6 +83295,46 @@
       "values": [
         "neo_forge",
         "fabric"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "de.melanx.simplebackups.StorageSize",
+      "aliases": [
+        "storage_size"
+      ],
+      "values": [
+        "b",
+        "kb",
+        "mb",
+        "gb",
+        "tb"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "de.melanx.simplebackups.config.BackupType",
+      "aliases": [
+        "backup_type"
+      ],
+      "values": [
+        "full_backups",
+        "modified_since_last",
+        "modified_since_full"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "de.melanx.simplebackups.config.ExperimentalConfig$ExperimentalBackupType",
+      "aliases": [
+        "experimental_backup_type",
+        "experimental_config",
+        "experimental_config_experimental_backup_type"
+      ],
+      "values": [
+        "full_backups",
+        "incremental",
+        "differential"
       ],
       "translations": {}
     },
@@ -86068,7 +85084,8 @@
         "monarch",
         "pixie",
         "space",
-        "spooky"
+        "spooky",
+        "white_dragon"
       ],
       "translations": {}
     },
@@ -101154,165 +100171,6 @@
         "bottom",
         "bottom_left",
         "bottom_right"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "net.unusual.block_factorys_bosses.attachment.entity.RollAttachment$RollType",
-      "aliases": [
-        "roll_type",
-        "roll_attachment",
-        "roll_attachment_roll_type"
-      ],
-      "values": [
-        "forward",
-        "backward",
-        "left",
-        "right"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "net.unusual.block_factorys_bosses.block.HugeDoorBlock$Part",
-      "aliases": [
-        "part",
-        "huge_door_block",
-        "huge_door_block_part"
-      ],
-      "values": [
-        "root",
-        "block",
-        "half_block"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "net.unusual.block_factorys_bosses.block.NetBlock$NetType",
-      "aliases": [
-        "net_type",
-        "net_block",
-        "net_block_net_type"
-      ],
-      "values": [
-        "floor",
-        "leaning",
-        "hanging"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "net.unusual.block_factorys_bosses.client.camera.CinematicCameraTypes",
-      "aliases": [
-        "cinematic_camera_types"
-      ],
-      "values": [
-        "fov",
-        "shake",
-        "bars",
-        "black",
-        "camera",
-        "hide_gui",
-        "blur"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "net.unusual.block_factorys_bosses.configuration.ClientConfiguration$GUIAnchors",
-      "aliases": [
-        "guianchors",
-        "client_configuration",
-        "client_configuration_guianchors"
-      ],
-      "values": [
-        "hotbar_right",
-        "hotbar_left",
-        "top_left",
-        "top_right",
-        "bottom_left",
-        "bottom_right",
-        "screen_center"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "net.unusual.block_factorys_bosses.entity.boss.kraken.KrakenTentacleEntity$TentacleType",
-      "aliases": [
-        "tentacle_type",
-        "kraken_tentacle_entity",
-        "kraken_tentacle_entity_tentacle_type"
-      ],
-      "values": [
-        "melee",
-        "cannon",
-        "create",
-        "runaway"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "net.unusual.block_factorys_bosses.entity.boss.yeti.YetiEntity$YetiState",
-      "aliases": [
-        "yeti_state",
-        "yeti_entity",
-        "yeti_entity_yeti_state"
-      ],
-      "values": [
-        "idle",
-        "intro",
-        "enraged",
-        "death",
-        "swipe_1",
-        "swipe_2",
-        "leap_smash",
-        "ground_smash",
-        "throw_spike",
-        "punch",
-        "ranged_control",
-        "ice_barrage"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "net.unusual.block_factorys_bosses.state.State$Result",
-      "aliases": [
-        "result",
-        "state",
-        "state_result"
-      ],
-      "values": [
-        "continue",
-        "end"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "net.unusual.block_factorys_bosses.util.BossHandling$HealthBarDefaultStyle",
-      "aliases": [
-        "health_bar_default_style",
-        "boss_handling",
-        "boss_handling_health_bar_default_style"
-      ],
-      "values": [
-        "off",
-        "vanilla",
-        "simple",
-        "fancy"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "net.unusual.block_factorys_bosses.util.BossHandling$HealthBarStyle",
-      "aliases": [
-        "health_bar_style",
-        "boss_handling",
-        "boss_handling_health_bar_style"
-      ],
-      "values": [
-        "default",
-        "off",
-        "vanilla",
-        "simple",
-        "fancy"
       ],
       "translations": {}
     },
