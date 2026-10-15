@@ -1,6 +1,6 @@
 package com.example.examplemod.skill.gui;
 
-import com.example.examplemod.registry.ModAttachments;
+import com.example.examplemod.registry.ModPayloads;
 import com.example.examplemod.skill.*;
 import icyllis.modernui.ModernUI;
 import icyllis.modernui.core.Context;
@@ -16,12 +16,15 @@ import icyllis.modernui.view.View;
 import icyllis.modernui.view.ViewConfiguration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.neoforged.neoforge.network.PacketDistributor;
 
 import javax.annotation.Nullable;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+
+import static com.example.examplemod.registry.ModRegistry.SKILL_DATA;
 
 public class SkillConstellationView extends View {
 
@@ -168,7 +171,7 @@ public class SkillConstellationView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         var player = Minecraft.getInstance().player;
-        PlayerSkillData data = (player != null) ? player.getData(ModAttachments.SKILL_DATA.get()) : null;
+        PlayerSkillData data = (player != null) ? player.getData(SKILL_DATA.get()) : null;
 
         float cx = getWidth() * 0.5f;
         float cy = getHeight() * 0.5f;
@@ -317,8 +320,14 @@ public class SkillConstellationView extends View {
 
             // 3. 中心图标或 '+' 号
             if (node.getIcon() != null) {
-                Image img = ImageStore.getInstance().getOrCreate(node.getIcon());
-                if (img != null) {
+                ResourceLocation icon = node.getIcon();
+
+// 如果没有 .png 后缀，则自动补上
+                if (!icon.getPath().endsWith(".png")) {
+                    icon = icon.withSuffix(".png");
+                }
+
+                Image img = ImageStore.getInstance().getOrCreate(icon);                if (img != null) {
                     float iconSize = r * 1.3f;
                     dstRect.set(nx - iconSize * 0.5f, ny - iconSize * 0.5f, nx + iconSize * 0.5f, ny + iconSize * 0.5f);
                     canvas.drawImage(img, null, dstRect, null);
@@ -565,7 +574,7 @@ public class SkillConstellationView extends View {
     private void handleClick(float screenX, float screenY) {
         var player = Minecraft.getInstance().player;
         if (player == null) return;
-        PlayerSkillData data = player.getData(ModAttachments.SKILL_DATA.get());
+        PlayerSkillData data = player.getData(SKILL_DATA.get());
 
         SkillNode node = findNodeAt(toWorldCoordX(screenX), toWorldCoordY(screenY));
         if (node != null) {
@@ -573,7 +582,7 @@ public class SkillConstellationView extends View {
             boolean isMax = currentRank >= node.getMaxRank();
 
             if (data.getPoints() > 0 && !isMax && areParentsMet(node, data)) {
-                PacketDistributor.sendToServer(new UpgradeSkillPayload(node.getId()));
+                PacketDistributor.sendToServer(new ModPayloads.UpgradeSkillPayload(node.getId()));
                 Minecraft.getInstance().getSoundManager().play(
                         SimpleSoundInstance.forUI(SoundEvents.PLAYER_LEVELUP, 1.25f, 0.35f)
                 );

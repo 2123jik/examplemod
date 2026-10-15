@@ -1,7 +1,6 @@
 package com.example.examplemod.trim;
 
 import com.example.examplemod.registry.ModDataComponents;
-import com.example.examplemod.registry.ModRecipes;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
@@ -22,6 +21,8 @@ import net.minecraft.world.level.Level;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import static com.example.examplemod.registry.ModRegistry.RUNEWORD_SMITHING_SERIALIZER;
 
 public class RunewordSmithingRecipe implements SmithingRecipe {
     final Ingredient template;
@@ -93,7 +94,7 @@ public class RunewordSmithingRecipe implements SmithingRecipe {
     }
 
     private static void checkAndActivateRuneword(ItemStack stack, List<ModDataComponents.TrimStep> history) {
-        for (RunewordDefinition def : RunewordManager.RUNEWORDS.values()) {
+        for (RunewordDefinition def : RunewordManager.getAll().values()) {
             if (history.size() != def.sequence().size()) {
                 continue;
             }
@@ -147,7 +148,7 @@ public class RunewordSmithingRecipe implements SmithingRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipes.RUNEWORD_SMITHING_SERIALIZER.get();
+        return RUNEWORD_SMITHING_SERIALIZER.get();
     }
 
     @Override

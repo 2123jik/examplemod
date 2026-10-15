@@ -1,13 +1,20 @@
 package com.example.examplemod.skill;
 
+import com.example.examplemod.ExampleMod;
 import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+@EventBusSubscriber
 public class SkillRegistry {
     private static final Map<String, SkillNode> REGISTRY = new LinkedHashMap<>();
     public static final Map<String, SkillNode> NODES = Collections.unmodifiableMap(REGISTRY);
@@ -26,6 +33,11 @@ public class SkillRegistry {
 
     public static void init() {
         reload();
+    }
+
+    @SubscribeEvent
+    private static void commonSetup(FMLCommonSetupEvent event) {
+        event.enqueueWork(SkillRegistry::init);
     }
 
     /**
@@ -53,232 +65,272 @@ public class SkillRegistry {
         SkillNodeData.saveAll(REGISTRY.values());
     }
 
-    private static void loadDefaults()
-    {
+    /**
+     * 辅助方法：快速获取伤害转化属性注册名 (如 "examplemod:convert_physical_to_fire")
+     */
+    private static String conv(String from, String to) {
+        return ExampleMod.MOD_ID + ":convert_" + from + "_to_" + to;
+    }
 
-        // 根节点
-        register(new SkillNode("1", 5)
-                .addBonus("minecraft:generic.max_health", 2, AttributeModifier.Operation.ADD_VALUE));
+    private static void loadDefaults() {
+        // =========================================================================
+        // 0. 核心根节点 (Root)
+        // =========================================================================
+        register(new SkillNode("root", 1)
+                .setTitle(Component.literal("宿命觉醒"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/nether_star"))
+                .addBonus("minecraft:generic.max_health", 2.0, AttributeModifier.Operation.ADD_VALUE));
 
-        register(new SkillNode("symmetry", 5, "1")
-                .addBonus("iss_magicfromtheeast:symmetry_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE));
 
-        register(new SkillNode("spirit", 5, "1")
-                .addBonus("iss_magicfromtheeast:spirit_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE));
+        // =========================================================================
+        // 分支 1：近战重装 / 先锋狂战 / 魔剑士 (Vanguard & Spellblade)
+        // =========================================================================
+        // 一阶：体魄与强击
+        register(new SkillNode("warrior_vigor", 5, "root")
+                .setTitle(Component.literal("强韧体魄"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/golden_apple"))
+                .addBonus("minecraft:generic.max_health", 2.0, AttributeModifier.Operation.ADD_VALUE));
 
-        register(new SkillNode("dune", 5, "1")
-                .addBonus("iss_magicfromtheeast:dune_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE));
+        register(new SkillNode("warrior_might", 5, "warrior_vigor")
+                .setTitle(Component.literal("狂力挥砍"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/iron_sword"))
+                .addBonus("minecraft:generic.attack_damage", 0.5, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("minecraft:player.sweeping_damage_ratio", 0.08, AttributeModifier.Operation.ADD_VALUE));
 
-        register(new SkillNode("fire", 5, "1")
-                .addBonus("irons_spellbooks:fire_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE));
+        // 二阶：铁壁防御 / 重兵专精
+        register(new SkillNode("warrior_defense", 3, "warrior_vigor")
+                .setTitle(Component.literal("重装铠甲"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/iron_chestplate"))
+                .addBonus("minecraft:generic.armor", 1.0, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("minecraft:generic.armor_toughness", 0.5, AttributeModifier.Operation.ADD_VALUE));
 
-        register(new SkillNode("ice", 5, "1")
-                .addBonus("irons_spellbooks:ice_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE));
+        register(new SkillNode("warrior_parry", 3, "warrior_defense")
+                .setTitle(Component.literal("坚守盾阵"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/shield"))
+                .addBonus("l2weaponry:shield_defense", 0.06, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("l2weaponry:reflect_time", 0.10, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("minecraft:generic.knockback_resistance", 0.10, AttributeModifier.Operation.ADD_VALUE));
 
-        register(new SkillNode("lightning", 5, "1")
+        register(new SkillNode("warrior_heavy_strike", 3, "warrior_might")
+                .setTitle(Component.literal("破甲重锤"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/iron_axe"))
+                .addBonus("apothic_attributes:armor_pierce", 0.05, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("cataclysm:charge_time", -0.08, AttributeModifier.Operation.ADD_VALUE)); // 减少蓄力时间
+
+        // --- 战士质变专精 A：熔炎战刃 (物转火) ---
+        register(new SkillNode("spec_physical_to_fire", 3, "warrior_heavy_strike")
+                .setTitle(Component.literal("专精：熔炎战刃"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/magma_cream"))
+                .addBonus(conv("physical", "fire"), 0.15, AttributeModifier.Operation.ADD_VALUE) // 满级 45% 物转火
+                .addBonus("irons_spellbooks:fire_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("apothic_attributes:fire_damage", 0.08, AttributeModifier.Operation.ADD_VALUE));
+
+        // --- 战士质变专精 B：风暴雷震 (物转雷) ---
+        register(new SkillNode("spec_physical_to_lightning", 3, "warrior_heavy_strike")
+                .setTitle(Component.literal("专精：风暴雷震"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/lightning_rod"))
+                .addBonus(conv("physical", "lightning"), 0.15, AttributeModifier.Operation.ADD_VALUE) // 满级 45% 物转雷
+                .addBonus("minecraft:generic.attack_speed", 0.06, AttributeModifier.Operation.ADD_VALUE)
                 .addBonus("irons_spellbooks:lightning_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE));
 
-        register(new SkillNode("holy", 5, "1")
-                .addBonus("irons_spellbooks:holy_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE));
+        // --- 战士质变专精 C：猩红饮血 (物转血 + 斩杀) ---
+        register(new SkillNode("spec_physical_to_blood", 3, "warrior_might")
+                .setTitle(Component.literal("专精：猩红死狂"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/fermented_spider_eye"))
+                .addBonus(conv("physical", "blood"), 0.15, AttributeModifier.Operation.ADD_VALUE) // 满级 45% 物转血
+                .addBonus("apothic_attributes:life_steal", 0.04, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("apothic_attributes:current_hp_damage", 0.02, AttributeModifier.Operation.ADD_VALUE));
 
-        register(new SkillNode("ender", 5, "1")
-                .addBonus("irons_spellbooks:ender_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE));
+        // --- 战士防御专精 D：暮色不灭幻盾 (绝对防御) ---
+        register(new SkillNode("spec_tank_fortress", 3, "warrior_parry")
+                .setTitle(Component.literal("专精：不灭堡垒"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/turtle_helmet"))
+                .addBonus("l2damagetracker:damage_reduction", 0.04, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("twilightforest:max_shield_strength", 1.0, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("artifacts:generic.invincibility_ticks", 2.0, AttributeModifier.Operation.ADD_VALUE));
 
-        register(new SkillNode("blood", 5, "1")
-                .addBonus("irons_spellbooks:blood_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE));
-// === 怪异系（Eldritch）核心质变天赋挂载 ===
-
-// 1. 魔能爆质变：异界奇点
-        register(new SkillNode("keystone_eldritch_singularity", 1, "eldritch")
-                .setSpell(SpellRegistry.ELDRITCH_BLAST_SPELL.get())
-                .addBonus("examplemod:eldritch_singularity", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 2. 音波共鸣质变：音爆裂解
-        register(new SkillNode("keystone_sonic_resonance_shatter", 1, "eldritch")
-                .setSpell(SpellRegistry.SONIC_BOOM_SPELL.get())
-                .addBonus("examplemod:sonic_resonance_shatter", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 3. 念动力质变：动能陨落
-        register(new SkillNode("keystone_kinetic_annihilation", 1, "eldritch")
-                .setSpell(SpellRegistry.TELEKINESIS_SPELL.get())
-                .addBonus("examplemod:kinetic_annihilation", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 4. 幽匿触手质变：盲目巢群
-        register(new SkillNode("keystone_sculk_hive_infestation", 1, "eldritch")
-                .setSpell(SpellRegistry.SCULK_TENTACLES_SPELL.get())
-                .addBonus("examplemod:sculk_hive_infestation", 1.0, AttributeModifier.Operation.ADD_VALUE));
-        // === 在 blood 分支后挂载机制质变核心节点 ===
-
-// 1. 血步质变：血影断魂
-        register(new SkillNode("keystone_blood_step_severance", 1, "blood")
-                .setSpell(SpellRegistry.BLOOD_STEP_SPELL.get())
-                .addBonus("examplemod:blood_step_severance", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 2. 针灸质变：血梏钉刑
-        register(new SkillNode("keystone_acupuncture_crucifixion", 1, "blood")
-                .setSpell(SpellRegistry.ACUPUNCTURE_SPELL.get())
-                .addBonus("examplemod:acupuncture_crucifixion", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 3. 血之斩击质变：血月十字
-        register(new SkillNode("keystone_blood_slash_cross", 1, "blood")
-                .setSpell(SpellRegistry.BLOOD_SLASH_SPELL.get())
-                .addBonus("examplemod:blood_slash_cross", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 4. 凋零之首质变：死疫齐射
-        register(new SkillNode("keystone_wither_barrage", 1, "blood")
-                .setSpell(SpellRegistry.WITHER_SKULL_SPELL.get())
-                .addBonus("examplemod:wither_barrage", 1.0, AttributeModifier.Operation.ADD_VALUE));
-        register(new SkillNode("nature", 5, "1")
-                .addBonus("irons_spellbooks:nature_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE));
-// ==================== 末影系核心质变天赋节点 ====================
-
-// 1. 瞬移术质变：虚空置换
-        register(new SkillNode("keystone_teleport_void_swap", 1, "ender")
-                .setSpell(SpellRegistry.TELEPORT_SPELL.get())
-                .addBonus("examplemod:teleport_void_swap", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 2. 影斩质变：瞬狱影杀阵
-        register(new SkillNode("keystone_shadow_slash_omnislash", 1, "ender")
-                .setSpell(SpellRegistry.SHADOW_SLASH.get())
-                .addBonus("examplemod:shadow_slash_omnislash", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 3. 魔法飞弹质变：浮游星芒
-        register(new SkillNode("keystone_magic_missile_swarm", 1, "ender")
-                .setSpell(SpellRegistry.MAGIC_MISSILE_SPELL.get())
-                .addBonus("examplemod:magic_missile_swarm", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 4. 黑洞质变：坍缩超新星
-        register(new SkillNode("keystone_black_hole_supernova", 1, "ender")
-                .setSpell(SpellRegistry.BLACK_HOLE_SPELL.get())
-                .addBonus("examplemod:black_hole_supernova", 1.0, AttributeModifier.Operation.ADD_VALUE));
-        register(new SkillNode("evocation", 5, "1")
-                .addBonus("irons_spellbooks:evocation_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE));
-
-        // ==================== 唤魔系（Evocation）机制质变大点 ====================
-
-// 1. 替罪羊：命元代偿
-        register(new SkillNode("keystone_scapegoat_soul_surrogate", 1, "evocation")
-                .setSpell(SpellRegistry.SCAPEGOAT_SPELL.get())
-                .addBonus("examplemod:scapegoat_soul_surrogate", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 2. 魔法护盾：偏斜过载
-        register(new SkillNode("keystone_shield_deflection_overload", 1, "evocation")
-                .setSpell(SpellRegistry.SHIELD_SPELL.get())
-                .addBonus("examplemod:shield_deflection_overload", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 3. 尖牙结界：断罪咬合
-        register(new SkillNode("keystone_fang_ward_shred", 1, "evocation")
-                .setSpell(SpellRegistry.FANG_WARD_SPELL.get())
-                .addBonus("examplemod:fang_ward_shred", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 4. 迟缓术：时滞停滞
-        register(new SkillNode("keystone_slow_chrono_stagnation", 1, "evocation")
-                .setSpell(SpellRegistry.SLOW_SPELL.get())
-                .addBonus("examplemod:slow_chrono_stagnation", 1.0, AttributeModifier.Operation.ADD_VALUE));
-// ==================== 火焰系（Fire）机制质变大点 ====================
-
-// 1. 烈焰风暴：过热超载
-        register(new SkillNode("keystone_blaze_storm_overheat", 1, "fire")
-                .setSpell(SpellRegistry.BLAZE_STORM_SPELL.get())
-                .addBonus("examplemod:blaze_storm_overheat", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 2. 烈焰突进：劫火回旋充能
-        register(new SkillNode("keystone_burning_dash_ignition", 1, "fire")
-                .setSpell(SpellRegistry.BURNING_DASH_SPELL.get())
-                .addBonus("examplemod:burning_dash_ignition", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 3. 火球术：超临界聚爆
-        register(new SkillNode("keystone_fireball_supercritical", 1, "fire")
-                .setSpell(SpellRegistry.FIREBALL_SPELL.get())
-                .addBonus("examplemod:fireball_supercritical", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 4. 热浪涌动：灰烬焦土领域
-        register(new SkillNode("keystone_heat_surge_cinder_domain", 1, "fire")
-                .setSpell(SpellRegistry.HEAT_SURGE_SPELL.get())
-                .addBonus("examplemod:heat_surge_cinder_domain", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// ==================== 神圣系（Holy）机制质变大点 ====================
-
-// 1. 神圣重击：圣裁审判
-        register(new SkillNode("keystone_divine_smite_judgment", 1, "holy")
-                .setSpell(SpellRegistry.DIVINE_SMITE_SPELL.get())
-                .addBonus("examplemod:divine_smite_judgment", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 2. 治疗过量：过量光佑
-        register(new SkillNode("keystone_blessing_overheal_aegis", 1, "holy")
-                .setSpell(SpellRegistry.BLESSING_OF_LIFE_SPELL.get())
-                .addBonus("examplemod:blessing_overheal_aegis", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 3. 日光射线：黎明耀斑
-        register(new SkillNode("keystone_sunbeam_dawn_flare", 1, "holy")
-                .setSpell(SpellRegistry.SUNBEAM_SPELL.get())
-                .addBonus("examplemod:sunbeam_dawn_flare", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 4. 强化术：殉道光环
-        register(new SkillNode("keystone_fortify_martyr_aegis", 1, "holy")
+        // 终极终赋：不灭战神
+        register(new SkillNode("warrior_mastery", 1, "warrior_might")
+                .setTitle(Component.literal("终赋：不灭战神"))
                 .setSpell(SpellRegistry.FORTIFY_SPELL.get())
-                .addBonus("examplemod:fortify_martyr_aegis", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// ==================== 冰霜系（Ice）机制质变大点 ====================
-
-// 1. 霜冻之踏：绝对零度雪崩
-        register(new SkillNode("keystone_frost_step_avalanche", 1, "ice")
-                .setSpell(SpellRegistry.FROST_STEP_SPELL.get())
-                .addBonus("examplemod:frost_step_avalanche", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 2. 冰刺术：极冰穿刺碎裂
-        register(new SkillNode("keystone_ice_spikes_shatter", 1, "ice")
-                .setSpell(SpellRegistry.ICE_SPIKES_SPELL.get())
-                .addBonus("examplemod:ice_spikes_shatter", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 3. 暴风雪：永冻冰渊
-        register(new SkillNode("keystone_blizzard_permafrost", 1, "ice")
-                .setSpell(SpellRegistry.BLIZZARD_SPELL.get())
-                .addBonus("examplemod:blizzard_permafrost", 1.0, AttributeModifier.Operation.ADD_VALUE));
-
-// 4. 冰封之棺：极寒涅槃
-        register(new SkillNode("keystone_ice_tomb_absolute_zero", 1, "ice")
-                .setSpell(SpellRegistry.ICE_TOMB_SPELL.get())
-                .addBonus("examplemod:ice_tomb_absolute_zero", 1.0, AttributeModifier.Operation.ADD_VALUE));
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/netherite_chestplate"))
+                .addBonus("minecraft:generic.max_health", 8.0, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("apothic_attributes:armor_shred", 0.15, AttributeModifier.Operation.ADD_VALUE));
 
 
-        // ==================== 雷电系（Lightning）机制质变大点 ====================
+        // =========================================================================
+        // 分支 2：游侠敏捷 / 暗影刺客 / 异能射手 (Ranger & Shadow Assassin)
+        // =========================================================================
+        // 一阶：轻盈疾行
+        register(new SkillNode("ranger_agility", 5, "root")
+                .setTitle(Component.literal("灵巧步伐"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/leather_boots"))
+                .addBonus("minecraft:generic.movement_speed", 0.03, AttributeModifier.Operation.ADD_MULTIPLIED_BASE)
+                .addBonus("artifacts:generic.sprinting_speed", 0.04, AttributeModifier.Operation.ADD_VALUE));
 
-// 1. 连锁闪电：高压电离超导
-        register(new SkillNode("keystone_chain_lightning_superconductor", 1, "lightning")
-                .setSpell(SpellRegistry.CHAIN_LIGHTNING_SPELL.get())
-                .addBonus("examplemod:chain_lightning_superconductor", 1.0, AttributeModifier.Operation.ADD_VALUE));
+        // 二阶：神射与穿透
+        register(new SkillNode("ranger_archery", 5, "ranger_agility")
+                .setTitle(Component.literal("精准拉弓"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/bow"))
+                .addBonus("apothic_attributes:arrow_damage", 0.08, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("apothic_attributes:draw_speed", 0.06, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("apothic_attributes:arrow_velocity", 0.05, AttributeModifier.Operation.ADD_VALUE));
 
-// 2. 落雷术：电磁雷暴引信
-        register(new SkillNode("keystone_lightning_bolt_emp", 1, "lightning")
-                .setSpell(SpellRegistry.LIGHTNING_BOLT_SPELL.get())
-                .addBonus("examplemod:lightning_bolt_emp", 1.0, AttributeModifier.Operation.ADD_VALUE));
+        // 二阶：幽影闪避
+        register(new SkillNode("ranger_dodge", 3, "ranger_agility")
+                .setTitle(Component.literal("虚实残影"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/feather"))
+                .addBonus("apothic_attributes:dodge_chance", 0.04, AttributeModifier.Operation.ADD_VALUE));
 
-// 3. 充能术：超频聚能
-        register(new SkillNode("keystone_charge_overclock", 1, "lightning")
-                .setSpell(SpellRegistry.CHARGE_SPELL.get())
-                .addBonus("examplemod:charge_overclock", 1.0, AttributeModifier.Operation.ADD_VALUE));
+        // 三阶：弱点狙杀
+        register(new SkillNode("ranger_crit", 3, "ranger_archery")
+                .setTitle(Component.literal("致命弱点"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/spectral_arrow"))
+                .addBonus("apothic_attributes:crit_chance", 0.05, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("apothic_attributes:crit_damage", 0.15, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("cataclysm:additional_critical_damage", 0.10, AttributeModifier.Operation.ADD_VALUE));
+
+        // --- 游侠质变专精 E：凛冬霜矢 (物转冰) ---
+        register(new SkillNode("spec_physical_to_ice", 3, "ranger_archery")
+                .setTitle(Component.literal("专精：极地寒矢"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/snowball"))
+                .addBonus(conv("physical", "ice"), 0.15, AttributeModifier.Operation.ADD_VALUE) // 满级 45% 物转冰
+                .addBonus("irons_spellbooks:ice_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("apothic_attributes:cold_damage", 0.08, AttributeModifier.Operation.ADD_VALUE));
+
+        // --- 游侠质变专精 F：幽冥裂隙 (物转末影) ---
+        register(new SkillNode("spec_physical_to_ender", 3, "ranger_dodge")
+                .setTitle(Component.literal("专精：虚空掠影"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/ender_pearl"))
+                .addBonus(conv("physical", "ender"), 0.15, AttributeModifier.Operation.ADD_VALUE) // 满级 45% 物转末影
+                .addBonus("irons_spellbooks:ender_spell_power", 0.06, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("apothic_attributes:dodge_chance", 0.04, AttributeModifier.Operation.ADD_VALUE));
+
+        // 终极终赋：鹰眼猎王
+        register(new SkillNode("ranger_mastery", 1, "ranger_crit")
+                .setTitle(Component.literal("终赋：天际鹰眼"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/crossbow"))
+                .addBonus("apothic_attributes:crit_chance", 0.10, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("apothic_attributes:prot_pierce", 0.15, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("minecraft:player.entity_interaction_range", 1.0, AttributeModifier.Operation.ADD_VALUE));
 
 
+        // =========================================================================
+        // 分支 3：奥术源泉 / 元素融合 / 东方仙道 (Arcane, Shifter & Taoist)
+        // =========================================================================
+        // 一阶：魔力与回涌
+        register(new SkillNode("magic_focus", 5, "root")
+                .setTitle(Component.literal("灵能涌动"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/lapis_lazuli"))
+                .addBonus("irons_spellbooks:max_mana", 25.0, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("irons_spellbooks:mana_regen", 0.06, AttributeModifier.Operation.ADD_VALUE));
 
-// 1. 酸液法球：强酸蚀甲聚爆
-        register(new SkillNode("keystone_acid_orb_corrosion", 1, "nature")
-                .setSpell(SpellRegistry.ACID_ORB_SPELL.get())
-                .addBonus("examplemod:acid_orb_corrosion", 1.0, AttributeModifier.Operation.ADD_VALUE));
+        // 二阶：奥术专注与移速
+        register(new SkillNode("magic_flow", 5, "magic_focus")
+                .setTitle(Component.literal("施法专注"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/blaze_powder"))
+                .addBonus("irons_spellbooks:spell_power", 0.04, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("irons_spellbooks:cast_time_reduction", 0.04, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("irons_spellbooks:casting_movespeed", 0.06, AttributeModifier.Operation.ADD_VALUE));
 
-// 2. 缠绕术：绞杀荆棘断筋
-        register(new SkillNode("keystone_root_strangle_rupture", 1, "nature")
-                .setSpell(SpellRegistry.ROOT_SPELL.get())
-                .addBonus("examplemod:root_strangle_rupture", 1.0, AttributeModifier.Operation.ADD_VALUE));
+        register(new SkillNode("magic_cdr", 3, "magic_focus")
+                .setTitle(Component.literal("时光灵契"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/clock"))
+                .addBonus("irons_spellbooks:cooldown_reduction", 0.05, AttributeModifier.Operation.ADD_VALUE));
 
-// 3. 枯萎术：疫病生息共振
-        register(new SkillNode("keystone_blight_pestilence", 1, "nature")
-                .setSpell(SpellRegistry.BLIGHT_SPELL.get())
-                .addBonus("examplemod:blight_pestilence", 1.0, AttributeModifier.Operation.ADD_VALUE));
+        // --- 元素转化进阶 1：等离子融爆 (火转雷) ---
+        register(new SkillNode("spec_fire_to_lightning", 3, "magic_flow")
+                .setTitle(Component.literal("奥术裂变：等离子电涌"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/fire_charge"))
+                .addBonus(conv("fire", "lightning"), 0.15, AttributeModifier.Operation.ADD_VALUE) // 满级 45% 火转雷
+                .addBonus("irons_spellbooks:lightning_spell_power", 0.08, AttributeModifier.Operation.ADD_VALUE));
 
-// 4. 橡木之躯：远古荆棘古树
-        register(new SkillNode("keystone_oakskin_ancient_thorns", 1, "nature")
-                .setSpell(SpellRegistry.OAKSKIN_SPELL.get())
-                .addBonus("examplemod:oakskin_ancient_thorns", 1.0, AttributeModifier.Operation.ADD_VALUE));
+        // --- 元素转化进阶 2：仙灵归真 (自然转灵能 - ISS Magic from the East) ---
+        register(new SkillNode("spec_nature_to_spirit", 3, "magic_flow")
+                .setTitle(Component.literal("仙法通灵：化境生魂"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/ghast_tear"))
+                .addBonus(conv("nature", "spirit"), 0.15, AttributeModifier.Operation.ADD_VALUE) // 满级 45% 自然转 Spirit
+                .addBonus("iss_magicfromtheeast:spirit_spell_power", 0.08, AttributeModifier.Operation.ADD_VALUE));
+
+        // --- 元素转化进阶 3：圣音咏叹 (神圣转旋律 - Tunes 'n Tomes) ---
+        register(new SkillNode("spec_holy_to_melody", 3, "magic_flow")
+                .setTitle(Component.literal("福音交响：天界咏叹"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/music_disc_wait"))
+                .addBonus(conv("holy", "melody"), 0.15, AttributeModifier.Operation.ADD_VALUE) // 满级 45% 神圣转 Melody
+                .addBonus("tunes_n_tomes:melody_spell_power", 0.08, AttributeModifier.Operation.ADD_VALUE));
+
+        // --- 唤灵统御：召唤与暮色使徒 ---
+        register(new SkillNode("magic_summoner", 3, "magic_flow")
+                .setTitle(Component.literal("统御军势"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/bone"))
+                .addBonus("irons_spellbooks:summon_damage", 0.10, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("twilightforest:minion_count", 1.0, AttributeModifier.Operation.ADD_VALUE));
+
+        // --- 终极核心仙法：万法归一 (物转对称 - 东方仙道至高) ---
+        register(new SkillNode("spec_physical_to_symmetry", 1, "magic_flow")
+                .setTitle(Component.literal("天道终赋：万象归元"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/amethyst_shard"))
+                .addBonus(conv("physical", "symmetry"), 0.40, AttributeModifier.Operation.ADD_VALUE) // 40% 物转对称
+                .addBonus("iss_magicfromtheeast:symmetry_spell_power", 0.15, AttributeModifier.Operation.ADD_VALUE));
+
+        // 终极法师终赋：真理大魔导
+        register(new SkillNode("magic_archmage", 1, "magic_flow")
+                .setTitle(Component.literal("终赋：全知魔导"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/enchanted_book"))
+                .addBonus("irons_spellbooks:max_mana", 100.0, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("irons_spellbooks:spell_power", 0.12, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("irons_spellbooks:cooldown_reduction", 0.10, AttributeModifier.Operation.ADD_VALUE));
+
+
+        // =========================================================================
+        // 分支 4：圣辉愈合 / 护体生机 (Paladin & Living Grace)
+        // =========================================================================
+        register(new SkillNode("holy_vitality", 5, "root")
+                .setTitle(Component.literal("圣灵甘霖"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/glistering_melon_slice"))
+                .addBonus("apothic_attributes:healing_received", 0.08, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("cataclysm:nature_heal", 0.08, AttributeModifier.Operation.ADD_VALUE));
+
+        // 质变专精 G：圣裁誓约 (物转神圣)
+        register(new SkillNode("spec_physical_to_holy", 3, "holy_vitality")
+                .setTitle(Component.literal("专精：黎明圣裁"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/gold_ingot"))
+                .addBonus(conv("physical", "holy"), 0.15, AttributeModifier.Operation.ADD_VALUE) // 满级 45% 物转神圣
+                .addBonus("irons_spellbooks:holy_spell_power", 0.08, AttributeModifier.Operation.ADD_VALUE));
+
+        // 过量护盾与幽魂生机
+        register(new SkillNode("holy_overheal", 3, "holy_vitality")
+                .setTitle(Component.literal("过量圣佑"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/totem_of_undying"))
+                .addBonus("apothic_attributes:overheal", 0.15, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("apothic_attributes:ghost_health", 2.0, AttributeModifier.Operation.ADD_VALUE));
+
+
+        // =========================================================================
+        // 分支 5：探索漫游 / 工匠采金 (Explorer & Artisan)
+        // =========================================================================
+        register(new SkillNode("util_survival", 5, "root")
+                .setTitle(Component.literal("荒野求生"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/bread"))
+                .addBonus("minecraft:generic.safe_fall_distance", 1.5, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("artifacts:generic.eating_speed", 0.15, AttributeModifier.Operation.ADD_VALUE));
+
+        register(new SkillNode("util_mining", 5, "util_survival")
+                .setTitle(Component.literal("巨力开凿"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/iron_pickaxe"))
+                .addBonus("minecraft:player.block_break_speed", 0.12, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("minecraft:player.block_interaction_range", 0.5, AttributeModifier.Operation.ADD_VALUE));
+
+        register(new SkillNode("util_traversal", 3, "util_survival")
+                .setTitle(Component.literal("畅游四海"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/rabbit_foot"))
+                .addBonus("minecraft:generic.step_height", 0.5, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("neoforge:swim_speed", 0.20, AttributeModifier.Operation.ADD_VALUE));
+
+        register(new SkillNode("util_wisdom", 3, "util_survival")
+                .setTitle(Component.literal("智者洞察"))
+                .setIcon(ResourceLocation.withDefaultNamespace("textures/item/experience_bottle"))
+                .addBonus("apothic_attributes:experience_gained", 0.15, AttributeModifier.Operation.ADD_VALUE)
+                .addBonus("minecraft:generic.luck", 1.0, AttributeModifier.Operation.ADD_VALUE));
     }
 }

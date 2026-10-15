@@ -5,7 +5,6 @@ import dev.xkmc.l2hostility.content.capability.mob.MobTraitCap;
 import dev.xkmc.l2hostility.events.HostilityInitEvent;
 import dev.xkmc.l2hostility.init.registrate.LHMiscs;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;

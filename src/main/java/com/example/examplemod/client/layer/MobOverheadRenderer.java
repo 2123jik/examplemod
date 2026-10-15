@@ -1,5 +1,6 @@
 package com.example.examplemod.client.layer;
 
+import com.example.examplemod.client.util.LevelRenderEngine;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import dev.xkmc.l2core.capability.attachment.GeneralCapabilityHolder;
@@ -10,690 +11,287 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.core.BlockPos;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityAttachment;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.npc.AbstractVillager;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.item.trading.MerchantOffers;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.neoforge.client.event.RenderNameTagEvent;
 import org.joml.Matrix4f;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
+import java.util.*;
 
 public final class MobOverheadRenderer {
 
-    private static final double MAX_DISTANCE = 20.0D;
-    private static final double TRAIT_DISTANCE = 20.0D;
-
-    // 视线最多允许穿过三个有碰撞形状的方块。
-    private static final int MAX_OCCLUDING_BLOCKS = 2;
-
-    private static final boolean TRAITS_ONLY_WHEN_HOVERED = false;
-    private static final boolean SHOW_LEVEL = true;
-    private static final boolean SHOW_TRAITS = true;
-
+    private static final double MAX_DIST_SQ = 24.0D * 24.0D;
     private static final float SCALE = 0.022F;
     private static final double HEIGHT_OFFSET = 0.25D;
+    private static final float ICON_SIZE = 9.0F; // 物品大小与字体对齐
+    private static final float ICON_SPACING = 10.0F;
 
-    private static final int MIN_WIDTH = 100;
-    private static final int MAX_WIDTH = 150;
+    private MobOverheadRenderer() {}
 
-    private static final int TRAIT_WRAP_WIDTH = MAX_WIDTH - 8;
-    private static final int MAX_TRAIT_LINES = 3;
-
-    private static final float BAR_HEIGHT = 4.0F;
-    private static final float BORDER = 1.0F;
-
-    private static final int ROW_GAP = 8;
-    private static final int TRAIT_LINE_GAP = 2;
-
-    // 视觉与配色优化：纯白文字 + 同色系面板与血条槽
-    private static final int HP_TEXT_COLOR = 0xFFFFFFFF;
-    private static final int TRAIT_TEXT_COLOR = 0xFFCCD3DE;
-
-    private static final int PANEL_COLOR = 0x500C1017;         // 较通透的大底板 (31% 不透明)
-    private static final int BORDER_COLOR = 0xFF4A5568;       // 清晰的亮金属边框
-    private static final int BAR_BACKGROUND_COLOR = 0xE00C1017; // 较浓郁的同色系血条槽 (88% 不透明，确保血条高对比)
-
-    private MobOverheadRenderer() {
-    }
-
-    /*
-     * 由 L2ClientEventsMixin 调用。
-     * 不要再为本类注册 RenderLivingEvent.Post 监听。
-     */
     public static void renderOverhead(RenderNameTagEvent event) {
-        if (!(event.getEntity() instanceof Mob entity)) {
+        if (!(event.getEntity() instanceof Mob entity)||event.getEntity()instanceof Animal) return;
+
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.player == null || !entity.isAlive() || entity.isInvisibleTo(mc.player)) return;
+
+        float pTicks = event.getPartialTick();
+        Vec3 camPos = mc.gameRenderer.getMainCamera().getPosition();
+        Vec3 entityPos = entity instanceof EnderDragon d ? d.head.getPosition(pTicks) : entity.getPosition(pTicks);
+
+        if (camPos.distanceToSqr(entityPos) > MAX_DIST_SQ) return;
+
+        // 视线快速检测
+        Vec3 anchor = getAnchor(entity, pTicks);
+        Vec3 targetPos = entity.getPosition(pTicks).add(anchor.x, anchor.y + HEIGHT_OFFSET, anchor.z);
+        if (entity.level().clip(new ClipContext(camPos, targetPos, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, entity)).getType() != HitResult.Type.MISS) {
             return;
         }
-
-        Minecraft minecraft = Minecraft.getInstance();
-
-        if (minecraft.player == null
-                || !entity.isAlive()
-                || entity.isInvisibleTo(minecraft.player)) {
-            return;
-        }
-
-        float partialTick = event.getPartialTick();
-
-        Vec3 cameraPosition = minecraft.gameRenderer
-                .getMainCamera()
-                .getPosition();
-
-        Vec3 displayPosition = entity instanceof EnderDragon dragon
-                ? dragon.head.getPosition(partialTick)
-                : entity.getPosition(partialTick);
-
-        double distanceSquared = cameraPosition.distanceToSqr(
-                displayPosition
-        );
-
-        if (distanceSquared > MAX_DISTANCE * MAX_DISTANCE) {
-            return;
-        }
-
-        float health = entity.getHealth();
-        float maxHealth = entity.getMaxHealth();
-
-        if (!Float.isFinite(health)
-                || !Float.isFinite(maxHealth)
-                || maxHealth <= 0.0F) {
-            return;
-        }
-
-        Vec3 anchor = getAnchor(entity, partialTick);
-
-        // 遮挡检测终点与实际绘制位置一致。
-        Vec3 panelPosition = entity.getPosition(partialTick).add(
-                anchor.x,
-                anchor.y + HEIGHT_OFFSET,
-                anchor.z
-        );
-
-        if (!canSeeThroughBlocks(
-                entity.level(),
-                cameraPosition,
-                panelPosition,
-                entity
-        )) {
-            return;
-        }
-
-        Font font = minecraft.font;
-        MobTraitCap cap = getCapability(entity);
-
-        List<Component> levelTitles = List.of();
-        List<Component> traitTitles = List.of();
-
-        if (cap != null) {
-            if (SHOW_LEVEL
-                    && !entity.getType().is(LHTagGen.HIDE_LEVEL)) {
-                levelTitles = cap.getTitle(true, false);
-            }
-
-            boolean showTraits = SHOW_TRAITS
-                    && !entity.getType().is(LHTagGen.HIDE_TRAITS)
-                    && distanceSquared <= TRAIT_DISTANCE * TRAIT_DISTANCE
-                    && (!TRAITS_ONLY_WHEN_HOVERED
-                    || minecraft.crosshairPickEntity == entity);
-
-            if (showTraits) {
-                traitTitles = cap.getTitle(false, true);
-            }
-        }
-
-        Component levelText = joinComponents(levelTitles, " ");
-
-        String healthText = formatHealth(health)
-                + " / "
-                + formatHealth(maxHealth);
-
-        List<FormattedCharSequence> traitLines = wrapTraits(
-                font,
-                traitTitles
-        );
-
-        int levelWidth = font.width(levelText);
-        int healthWidth = font.width(healthText);
-
-        int infoWidth = levelWidth
-                + healthWidth
-                + (levelWidth > 0 ? ROW_GAP : 0);
-
-        int width = Math.max(MIN_WIDTH, infoWidth + 8);
-
-        for (FormattedCharSequence line : traitLines) {
-            width = Math.max(width, font.width(line) + 8);
-        }
-
-        width = Math.min(width, MAX_WIDTH);
 
         PoseStack pose = event.getPoseStack();
         pose.pushPose();
-
         try {
-            // 事件矩阵已经位于实体渲染原点，只添加局部偏移。
-            pose.translate(
-                    anchor.x,
-                    anchor.y + HEIGHT_OFFSET,
-                    anchor.z
-            );
-
-            pose.mulPose(
-                    minecraft.getEntityRenderDispatcher()
-                            .cameraOrientation()
-            );
-
+            pose.translate(anchor.x, anchor.y + HEIGHT_OFFSET, anchor.z);
+            pose.mulPose(mc.getEntityRenderDispatcher().cameraOrientation());
             pose.scale(SCALE, -SCALE, SCALE);
 
-            renderPanel(
-                    pose,
-                    event.getMultiBufferSource(),
-                    font,
-                    width,
-                    levelText,
-                    healthText,
-                    traitLines,
-                    Mth.clamp(health / maxHealth, 0.0F, 1.0F),
-                    isHostile(entity)
-            );
+            if (entity instanceof AbstractVillager villager) {
+                // 1. 村民走专用的纯交易卡片（无血条、无血量）
+                drawVillagerCard(pose, event.getMultiBufferSource(), mc.font, villager);
+            } else {
+                // 2. 普通/敌对怪物走血条与词缀面板
+                drawMobHealthPanel(pose, event.getMultiBufferSource(), mc.font, entity);
+            }
         } finally {
             pose.popPose();
         }
     }
 
-    private static Vec3 getAnchor(
-            LivingEntity entity,
-            float partialTick
-    ) {
-        if (entity instanceof EnderDragon dragon) {
-            Vec3 bodyPosition = dragon.getPosition(partialTick);
-            Vec3 headPosition = dragon.head.getPosition(partialTick);
+    // =========================================================================
+    // A. 村民专属纯交易看板 (无血条，纯图文卡片)
+    // =========================================================================
+    private static void drawVillagerCard(PoseStack ps, MultiBufferSource buf, Font font, AbstractVillager villager) {
+        MerchantOffers offers = VillagerTradeClientCache.get(villager.getId());
+        List<ItemStack> buyItems = offers != null ? extractUniqueItems(offers, true) : Collections.emptyList();
+        List<ItemStack> sellItems = offers != null ? extractUniqueItems(offers, false) : Collections.emptyList();
 
-            return headPosition.subtract(bodyPosition).add(
-                    0.0D,
-                    dragon.head.getBbHeight() + 0.5D,
-                    0.0D
-            );
-        }
+        Component title = villager.getDisplayName();
+        int titleW = font.width(title);
+        int buyW = font.width("买: ") + (int) (buyItems.size() * ICON_SPACING);
+        int sellW = font.width("卖: ") + (int) (sellItems.size() * ICON_SPACING);
 
-        Vec3 anchor = entity.getAttachments().getNullable(
-                EntityAttachment.NAME_TAG,
-                0,
-                entity.getViewYRot(partialTick)
-        );
+        // 自适应计算卡片宽度
+        int cardWidth = Math.max(titleW, Math.max(buyW, sellW)) + 12;
+        float left = -cardWidth * 0.5F;
+        float right = cardWidth * 0.5F;
 
-        if (anchor != null) {
-            return anchor;
-        }
+        // 行坐标计算
+        float titleY = -31.0F;
+        float buyY = titleY + font.lineHeight + 2.0F;   // -20
+        float sellY = buyY + ICON_SIZE + 2.0F;          // -9
+        float cardBottom = sellY + ICON_SIZE + 2.0F;    // +2
+        float cardTop = titleY - 3.0F;
 
-        return new Vec3(
-                0.0D,
-                entity.getBoundingBox().getYsize(),
-                0.0D
-        );
+        Matrix4f p = ps.last().pose();
+        VertexConsumer vc = buf.getBuffer(LevelRenderEngine.Pipelines.unlitColor(false, true, true));
+
+        // 仅绘制整洁圆润的半透底板与边框（无血条槽）
+        LevelRenderEngine.VertexWriter.quadColor(vc, p, left - 4, cardTop, -0.02F, right + 4, cardTop, -0.02F, right + 4, cardBottom, -0.02F, left - 4, cardBottom, -0.02F, 0.05F, 0.07F, 0.09F, 0.55F);
+        LevelRenderEngine.VertexWriter.quadColor(vc, p, left - 3, cardTop + 1, -0.01F, right + 3, cardTop + 1, -0.01F, right + 3, cardBottom - 1, -0.01F, left - 3, cardBottom - 1, -0.01F, 0.12F, 0.16F, 0.20F, 0.7F);
+
+        // 居中绘制村民名字/职业
+        font.drawInBatch(title, -titleW * 0.5F, titleY, 0xFFE2E5E9, false, p, buf, Font.DisplayMode.SEE_THROUGH, 0, LightTexture.FULL_BRIGHT);
+
+        // 绘制买/卖行与物品图标
+        renderTradeLine(ps, buf, font, "§e买: ", buyItems, left + 2, buyY, villager);
+        renderTradeLine(ps, buf, font, "§a卖: ", sellItems, left + 2, sellY, villager);
     }
 
-    /*
-     * 只检查方块碰撞形状，不检查实体。
-     * 沿视线逐格遍历，每个相交方块只计数一次。
-     */
-    private static boolean canSeeThroughBlocks(
-            Level level,
-            Vec3 from,
-            Vec3 to,
-            LivingEntity entity
-    ) {
-        double dx = to.x - from.x;
-        double dy = to.y - from.y;
-        double dz = to.z - from.z;
+    private static void renderTradeLine(PoseStack ps, MultiBufferSource buf, Font font,
+                                        String label, List<ItemStack> items,
+                                        float startX, float startY, Mob entity) {
+        font.drawInBatch(label, startX, startY + 0.5F, 0xFFFFFFFF, false, ps.last().pose(), buf, Font.DisplayMode.SEE_THROUGH, 0, LightTexture.FULL_BRIGHT);
 
-        if (dx * dx + dy * dy + dz * dz < 1.0E-12D) {
-            return true;
+        if (items.isEmpty()) {
+            font.drawInBatch("§7-", startX + font.width(label), startY + 0.5F, 0xFF888888, false, ps.last().pose(), buf, Font.DisplayMode.SEE_THROUGH, 0, LightTexture.FULL_BRIGHT);
+            return;
         }
 
-        int x = Mth.floor(from.x);
-        int y = Mth.floor(from.y);
-        int z = Mth.floor(from.z);
+        float iconX = startX + font.width(label);
+        for (ItemStack stack : items) {
+            ps.pushPose();
+            ps.translate(iconX + ICON_SIZE * 0.5F, startY + ICON_SIZE * 0.5F, 0.05F);
+            ps.scale(ICON_SIZE, -ICON_SIZE, ICON_SIZE);
 
-        int endX = Mth.floor(to.x);
-        int endY = Mth.floor(to.y);
-        int endZ = Mth.floor(to.z);
+            Minecraft.getInstance().getItemRenderer().renderStatic(
+                    stack,
+                    ItemDisplayContext.GUI,
+                    LightTexture.FULL_BRIGHT,
+                    OverlayTexture.NO_OVERLAY,
+                    ps,
+                    buf,
+                    entity.level(),
+                    entity.getId()
+            );
+            ps.popPose();
+            iconX += ICON_SPACING;
+        }
+    }
 
-        int stepX = dx > 0.0D ? 1 : dx < 0.0D ? -1 : 0;
-        int stepY = dy > 0.0D ? 1 : dy < 0.0D ? -1 : 0;
-        int stepZ = dz > 0.0D ? 1 : dz < 0.0D ? -1 : 0;
+    // =========================================================================
+    // B. 普通/敌对怪物血条面板 (保持原有血条与 L2 Hostility 词缀逻辑)
+    // =========================================================================
+    private static void drawMobHealthPanel(PoseStack ps, MultiBufferSource buf, Font font, Mob entity) {
+        float barH = 4.0F, border = 1.0F;
+        float hpRatio = Mth.clamp(entity.getHealth() / entity.getMaxHealth(), 0.0F, 1.0F);
+        boolean isHostile = entity.getTarget() != null && entity.getTarget().isAlive();
 
-        double deltaX = stepX == 0
-                ? Double.POSITIVE_INFINITY
-                : 1.0D / Math.abs(dx);
+        List<FormattedCharSequence> traitLines = collectTraitLines(entity, font);
+        Component title = getMobTitle(entity);
+        String hpText = (int) entity.getHealth() + " / " + (int) entity.getMaxHealth();
 
-        double deltaY = stepY == 0
-                ? Double.POSITIVE_INFINITY
-                : 1.0D / Math.abs(dy);
+        int titleW = font.width(title);
+        int hpW = font.width(hpText);
+        int width = Math.max(100, titleW + hpW + 16);
+        for (FormattedCharSequence line : traitLines) {
+            width = Math.max(width, font.width(line) + 10);
+        }
+        width = Math.min(width, 180);
 
-        double deltaZ = stepZ == 0
-                ? Double.POSITIVE_INFINITY
-                : 1.0D / Math.abs(dz);
+        float left = -width * 0.5F, right = width * 0.5F;
+        float infoY = -font.lineHeight - 3.0F;
+        float top = traitLines.isEmpty() ? infoY - 3.0F : infoY - 3.0F - traitLines.size() * (font.lineHeight + 2);
 
-        double nextX = firstBoundary(from.x, x, dx, stepX);
-        double nextY = firstBoundary(from.y, y, dy, stepY);
-        double nextZ = firstBoundary(from.z, z, dz, stepZ);
+        Matrix4f p = ps.last().pose();
+        VertexConsumer vc = buf.getBuffer(LevelRenderEngine.Pipelines.unlitColor(false, true, true));
 
-        CollisionContext context = CollisionContext.of(entity);
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+        // 底板
+        LevelRenderEngine.VertexWriter.quadColor(vc, p, left - 4, top, -0.02F, right + 4, top, -0.02F, right + 4, barH + 3, -0.02F, left - 4, barH + 3, -0.02F, 0.05F, 0.07F, 0.09F, 0.45F);
+        // 血条外框
+        LevelRenderEngine.VertexWriter.quadColor(vc, p, left - border, -border, 0.0F, right + border, -border, 0.0F, right + border, barH + border, 0.0F, left - border, barH + border, 0.0F, 0.09F, 0.11F, 0.13F, 0.75F);
+        // 血条槽底色
+        LevelRenderEngine.VertexWriter.quadColor(vc, p, left, 0, 0.01F, right, 0, 0.01F, right, barH, 0.01F, left, barH, 0.01F, 0.20F, 0.22F, 0.25F, 0.85F);
 
-        int occludingBlocks = 0;
+        // 血条填充
+        if (hpRatio > 0.0F) {
+            float r = isHostile ? 0.8F : 0.4F + 0.14F * hpRatio;
+            float g = isHostile ? 0.3F + 0.25F * hpRatio : 0.6F + 0.13F * hpRatio;
+            float b = isHostile ? 0.35F : 0.5F + 0.1F * hpRatio;
+            LevelRenderEngine.VertexWriter.quadColor(vc, p, left, 0, 0.02F, left + width * hpRatio, 0, 0.02F, left + width * hpRatio, barH, 0.02F, left, barH, 0.02F, r, g, b, 1.0F);
+        }
 
-        while (true) {
-            pos.set(x, y, z);
+        // 文字
+        if (titleW > 0) font.drawInBatch(title, left, infoY, 0xFFE2E5E9, false, p, buf, Font.DisplayMode.SEE_THROUGH, 0, LightTexture.FULL_BRIGHT);
+        font.drawInBatch(hpText, right - hpW, infoY, 0xFFE2E5E9, false, p, buf, Font.DisplayMode.SEE_THROUGH, 0, LightTexture.FULL_BRIGHT);
 
-            if (!level.hasChunkAt(pos)) {
-                return false;
-            }
+        for (int i = 0; i < traitLines.size(); i++) {
+            FormattedCharSequence line = traitLines.get(i);
+            font.drawInBatch(line, -font.width(line) * 0.5F, top + 3.0F + i * (font.lineHeight + 2), 0xFFBEC5CE, false, p, buf, Font.DisplayMode.SEE_THROUGH, 0, LightTexture.FULL_BRIGHT);
+        }
+    }
 
-            VoxelShape shape = level.getBlockState(pos)
-                    .getCollisionShape(level, pos, context);
+// =========================================================================
+// 修复后的交易物品提取逻辑
+// =========================================================================
 
-            if (!shape.isEmpty()
-                    && shape.clip(from, to, pos) != null) {
-                occludingBlocks++;
+    /**
+     * 提取村民交易列表中的独特物品
+     * @param offers 村民交易列表
+     * @param isBuy true: 提取村民收购的物品 (玩家卖材料赚绿宝石)
+     *              false: 提取村民出售的物品 (玩家花绿宝石买商品)
+     */
+    private static List<ItemStack> extractUniqueItems(MerchantOffers offers, boolean isBuy) {
+        Set<Object> seen = new HashSet<>();
+        List<ItemStack> result = new ArrayList<>();
 
-                if (occludingBlocks > MAX_OCCLUDING_BLOCKS) {
-                    return false;
+        for (MerchantOffer offer : offers) {
+            ItemStack resultStack = offer.getResult();
+            boolean isVillagerBuying = resultStack.is(Items.EMERALD); // 产出绿宝石 = 村民收购
+
+            if (isBuy) {
+                // 只有当产物是绿宝石时，它的输入原料才是村民“买”的东西
+                if (isVillagerBuying) {
+                    addUnique(offer.getCostA(), seen, result);
+                    if (!offer.getCostB().isEmpty()) {
+                        addUnique(offer.getCostB(), seen, result);
+                    }
+                }
+            } else {
+                // 只要产物不是绿宝石，说明这是村民“卖”给玩家的商品
+                if (!isVillagerBuying) {
+                    addUnique(resultStack, seen, result);
                 }
             }
-
-            if (x == endX && y == endY && z == endZ) {
-                return true;
-            }
-
-            double next = Math.min(
-                    nextX,
-                    Math.min(nextY, nextZ)
-            );
-
-            if (!Double.isFinite(next) || next > 1.0D) {
-                return true;
-            }
-
-            // 同时经过格子边或角时，同时推进对应坐标。
-            if (nextX <= next) {
-                x += stepX;
-                nextX += deltaX;
-            }
-
-            if (nextY <= next) {
-                y += stepY;
-                nextY += deltaY;
-            }
-
-            if (nextZ <= next) {
-                z += stepZ;
-                nextZ += deltaZ;
-            }
         }
-    }
-
-    private static double firstBoundary(
-            double origin,
-            int block,
-            double direction,
-            int step
-    ) {
-        if (step == 0) {
-            return Double.POSITIVE_INFINITY;
-        }
-
-        double boundary = step > 0
-                ? block + 1.0D
-                : block;
-
-        return (boundary - origin) / direction;
-    }
-
-    private static boolean isHostile(LivingEntity entity) {
-        if (!(entity instanceof Mob mob)) {
-            return false;
-        }
-
-        LivingEntity target = mob.getTarget();
-
-        return target != null
-                && target.isAlive()
-                && !target.isRemoved();
-    }
-
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    private static MobTraitCap getCapability(LivingEntity entity) {
-        // 只读取已有数据，没有 L2 数据仍显示血条。
-        Optional<?> optional =
-                ((GeneralCapabilityHolder) LHMiscs.MOB.type())
-                        .getExisting(entity);
-
-        if (optional.isPresent()
-                && optional.get() instanceof MobTraitCap cap) {
-            return cap;
-        }
-
-        return null;
-    }
-
-    private static Component joinComponents(
-            List<Component> components,
-            String separator
-    ) {
-        var result = Component.empty();
-
-        for (int i = 0; i < components.size(); i++) {
-            if (i > 0) {
-                result.append(Component.literal(separator));
-            }
-
-            result.append(components.get(i));
-        }
-
         return result;
     }
 
-    private static List<FormattedCharSequence> wrapTraits(
-            Font font,
-            List<Component> titles
-    ) {
-        if (titles.isEmpty()) {
-            return List.of();
+    private static void addUnique(ItemStack stack, Set<Object> seen, List<ItemStack> out) {
+        if (stack.isEmpty() || stack.is(Items.EMERALD)) return;
+
+        // 针对附魔书、药水做精准去重（NeoForge 1.20.5+ 使用 Components）
+        Object key;
+        if (stack.is(Items.ENCHANTED_BOOK) || stack.is(Items.POTION) || stack.is(Items.SPLASH_POTION)) {
+            key = stack.getComponentsPatch(); // 区分不同附魔和药水属性
+        } else {
+            key = stack.getItem();
         }
 
-        Component text = joinComponents(titles, "  ·  ");
-
-        List<FormattedCharSequence> wrapped = font.split(
-                text,
-                TRAIT_WRAP_WIDTH
-        );
-
-        if (wrapped.size() <= MAX_TRAIT_LINES) {
-            return wrapped;
+        if (seen.add(key)) {
+            out.add(stack);
         }
-
-        List<FormattedCharSequence> result = new ArrayList<>(
-                wrapped.subList(0, MAX_TRAIT_LINES - 1)
-        );
-
-        result.add(
-                Component.literal("…").getVisualOrderText()
-        );
-
-        return result;
     }
 
-    private static void renderPanel(
-            PoseStack pose,
-            MultiBufferSource buffers,
-            Font font,
-            int width,
-            Component levelText,
-            String healthText,
-            List<FormattedCharSequence> traitLines,
-            float ratio,
-            boolean hostile
-    ) {
-        float left = -width * 0.5F;
-        float right = width * 0.5F;
-
-        float infoY = -font.lineHeight - 3.0F;
-
-        float traitStartY = infoY
-                - 3.0F
-                - traitLines.size()
-                * (font.lineHeight + TRAIT_LINE_GAP);
-
-        float panelTop = traitLines.isEmpty()
-                ? infoY - 3.0F
-                : traitStartY - 3.0F;
-
-        Matrix4f matrix = pose.last().pose();
-
-        VertexConsumer vertices = buffers.getBuffer(
-                RenderType.GUI
-        );
-
-        rect(
-                vertices,
-                matrix,
-                left - 4.0F,
-                panelTop,
-                right + 4.0F,
-                BAR_HEIGHT + 3.0F,
-                -0.02F,
-                PANEL_COLOR
-        );
-
-        rect(
-                vertices,
-                matrix,
-                left - BORDER,
-                -BORDER,
-                right + BORDER,
-                BAR_HEIGHT + BORDER,
-                0.0F,
-                BORDER_COLOR
-        );
-
-        rect(
-                vertices,
-                matrix,
-                left,
-                0.0F,
-                right,
-                BAR_HEIGHT,
-                0.01F,
-                BAR_BACKGROUND_COLOR
-        );
-
-        if (ratio > 0.0F) {
-            rect(
-                    vertices,
-                    matrix,
-                    left,
-                    0.0F,
-                    left + width * ratio,
-                    BAR_HEIGHT,
-                    0.02F,
-                    healthColor(ratio, hostile)
-            );
+    private static Component getMobTitle(Mob entity) {
+        MobTraitCap cap = getCapability(entity);
+        if (cap != null && !entity.getType().is(LHTagGen.HIDE_LEVEL)) {
+            var list = cap.getTitle(true, false);
+            var comp = Component.empty();
+            list.forEach(c -> comp.append(c).append(" "));
+            return comp;
         }
+        return entity.getDisplayName();
+    }
 
-        int levelWidth = font.width(levelText);
-        int healthWidth = font.width(healthText);
-
-        int totalWidth = levelWidth
-                + healthWidth
-                + (levelWidth > 0 ? ROW_GAP : 0);
-
-        float infoScale = totalWidth > width
-                ? (float) width / totalWidth
-                : 1.0F;
-
-        pose.pushPose();
-
-        try {
-            pose.translate(0.0F, infoY, 0.03F);
-            pose.scale(infoScale, infoScale, 1.0F);
-
-            float scaledLeft = left / infoScale;
-            float scaledRight = right / infoScale;
-
-            if (levelWidth > 0) {
-                font.drawInBatch(
-                        levelText,
-                        scaledLeft,
-                        0.0F,
-                        HP_TEXT_COLOR,
-                        false,
-                        pose.last().pose(),
-                        buffers,
-                        Font.DisplayMode.SEE_THROUGH,
-                        0,
-                        LightTexture.FULL_BRIGHT
-                );
+    private static List<FormattedCharSequence> collectTraitLines(Mob entity, Font font) {
+        MobTraitCap cap = getCapability(entity);
+        if (cap != null && !entity.getType().is(LHTagGen.HIDE_TRAITS)) {
+            var titles = cap.getTitle(false, true);
+            if (!titles.isEmpty()) {
+                var comp = Component.empty();
+                titles.forEach(comp::append);
+                return font.split(comp, 140);
             }
-
-            float healthX = levelWidth > 0
-                    ? scaledRight - healthWidth
-                    : -healthWidth * 0.5F;
-
-            font.drawInBatch(
-                    healthText,
-                    healthX,
-                    0.0F,
-                    HP_TEXT_COLOR,
-                    false,
-                    pose.last().pose(),
-                    buffers,
-                    Font.DisplayMode.SEE_THROUGH,
-                    0,
-                    LightTexture.FULL_BRIGHT
-            );
-        } finally {
-            pose.popPose();
         }
-
-        pose.pushPose();
-
-        try {
-            pose.translate(0.0F, 0.0F, 0.03F);
-
-            for (int i = 0; i < traitLines.size(); i++) {
-                FormattedCharSequence line = traitLines.get(i);
-
-                font.drawInBatch(
-                        line,
-                        -font.width(line) * 0.5F,
-                        traitStartY
-                                + i * (font.lineHeight + TRAIT_LINE_GAP),
-                        TRAIT_TEXT_COLOR,
-                        false,
-                        pose.last().pose(),
-                        buffers,
-                        Font.DisplayMode.SEE_THROUGH,
-                        0,
-                        LightTexture.FULL_BRIGHT
-                );
-            }
-        } finally {
-            pose.popPose();
-        }
+        return Collections.emptyList();
     }
 
-    private static void rect(
-            VertexConsumer vertices,
-            Matrix4f matrix,
-            float left,
-            float top,
-            float right,
-            float bottom,
-            float z,
-            int color
-    ) {
-        vertices.addVertex(matrix, left, top, z)
-                .setColor(color)
-                .setLight(LightTexture.FULL_BRIGHT);
-
-        vertices.addVertex(matrix, left, bottom, z)
-                .setColor(color)
-                .setLight(LightTexture.FULL_BRIGHT);
-
-        vertices.addVertex(matrix, right, bottom, z)
-                .setColor(color)
-                .setLight(LightTexture.FULL_BRIGHT);
-
-        vertices.addVertex(matrix, right, top, z)
-                .setColor(color)
-                .setLight(LightTexture.FULL_BRIGHT);
+    private static Vec3 getAnchor(Mob entity, float pTicks) {
+        if (entity instanceof EnderDragon dragon) {
+            return dragon.head.getPosition(pTicks).subtract(dragon.getPosition(pTicks)).add(0, dragon.head.getBbHeight() + 0.5D, 0);
+        }
+        Vec3 anchor = entity.getAttachments().getNullable(EntityAttachment.NAME_TAG, 0, entity.getViewYRot(pTicks));
+        return anchor != null ? anchor : new Vec3(0, entity.getBoundingBox().getYsize(), 0);
     }
 
-    private static int healthColor(
-            float ratio,
-            boolean hostile
-    ) {
-        return hostile
-                ? 0xFFFF3344   // 更醒目的亮红
-                : 0xFF22DD55;  // 更醒目的亮绿
-    }
-
-    private static int mixColor(
-            int from,
-            int to,
-            float progress
-    ) {
-        int red = Math.round(Mth.lerp(
-                progress,
-                (float) ((from >> 16) & 0xFF),
-                (float) ((to >> 16) & 0xFF)
-        ));
-
-        int green = Math.round(Mth.lerp(
-                progress,
-                (float) ((from >> 8) & 0xFF),
-                (float) ((to >> 8) & 0xFF)
-        ));
-
-        int blue = Math.round(Mth.lerp(
-                progress,
-                (float) (from & 0xFF),
-                (float) (to & 0xFF)
-        ));
-
-        return (red << 16) | (green << 8) | blue;
-    }
-
-    private static String formatHealth(double value) {
-        value = Math.max(0.0D, value);
-
-        if (value < 10_000.0D) {
-            return Long.toString(Math.round(value));
-        }
-
-        if (value < 100_000_000.0D) {
-            return formatUnit(value / 10_000.0D, "万");
-        }
-
-        if (value < 1_000_000_000_000.0D) {
-            return formatUnit(value / 100_000_000.0D, "亿");
-        }
-
-        return formatUnit(
-                value / 1_000_000_000_000.0D,
-                "万亿"
-        );
-    }
-
-    private static String formatUnit(
-            double value,
-            String unit
-    ) {
-        String text = String.format(
-                Locale.ROOT,
-                "%.1f",
-                value
-        );
-
-        if (text.endsWith(".0")) {
-            text = text.substring(0, text.length() - 2);
-        }
-
-        return text + unit;
+    @SuppressWarnings("rawtypes")
+    private static MobTraitCap getCapability(Mob entity) {
+        Optional<?> opt = ((GeneralCapabilityHolder) LHMiscs.MOB.type()).getExisting(entity);
+        return (opt.isPresent() && opt.get() instanceof MobTraitCap cap) ? cap : null;
     }
 }

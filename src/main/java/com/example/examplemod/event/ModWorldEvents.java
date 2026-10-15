@@ -23,7 +23,6 @@ public class ModWorldEvents {
                 if (!rule.get()) {
                     // 修改规则，并传入 serverLevel.getServer() 用于触发网路同步与通知
                     rule.set(true, serverLevel.getServer());
-                    ExampleMod.LOGGER.info("已成功自动开启全局 keepInventory 规则！");
                 }
             }
         }

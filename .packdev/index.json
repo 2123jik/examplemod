@@ -152,18 +152,6 @@
       "translations": {}
     },
     {
-      "id": "hunters_return:hunter_variant",
-      "aliases": [
-        "hunter_variant"
-      ],
-      "values": [
-        "hunters_return:cold",
-        "hunters_return:normal",
-        "hunters_return:swamp"
-      ],
-      "translations": {}
-    },
-    {
       "id": "irons_spellbooks:schools",
       "aliases": [
         "schools"
@@ -191,8 +179,6 @@
         "spells"
       ],
       "values": [
-        "examplemod:summon_cave_spider",
-        "examplemod:summon_dragon",
         "irons_spellbooks:abyssal_shroud",
         "irons_spellbooks:acid_orb",
         "irons_spellbooks:acupuncture",
@@ -5896,76 +5882,6 @@
         "mynethersdelight:warped_fungus_colony",
         "mynethersdelight:waxed_hoglin_trophy",
         "mynethersdelight:zoglin_trophy",
-        "phantasm:acidic_mass",
-        "phantasm:acidic_nihilis",
-        "phantasm:acidic_nihilium",
-        "phantasm:choral_block",
-        "phantasm:choral_fan",
-        "phantasm:cirite",
-        "phantasm:cirite_bricks",
-        "phantasm:cirite_bricks_slab",
-        "phantasm:cirite_bricks_stairs",
-        "phantasm:cirite_iron_ore",
-        "phantasm:crystal_block",
-        "phantasm:crystal_glass",
-        "phantasm:crystal_glass_pane",
-        "phantasm:crystal_pillar",
-        "phantasm:crystal_shard",
-        "phantasm:crystal_tiles",
-        "phantasm:crystal_tiles_slab",
-        "phantasm:crystal_tiles_stairs",
-        "phantasm:crystalily",
-        "phantasm:dragon_mint",
-        "phantasm:dralgae",
-        "phantasm:fallen_star",
-        "phantasm:hanging_pream_leaves",
-        "phantasm:oblivine",
-        "phantasm:oblivion",
-        "phantasm:polished_obsidian",
-        "phantasm:polished_obsidian_bricks",
-        "phantasm:polished_obsidian_bricks_slab",
-        "phantasm:polished_obsidian_bricks_stairs",
-        "phantasm:pome",
-        "phantasm:pream_button",
-        "phantasm:pream_door",
-        "phantasm:pream_fence",
-        "phantasm:pream_fence_gate",
-        "phantasm:pream_hanging_sign",
-        "phantasm:pream_leaves",
-        "phantasm:pream_log",
-        "phantasm:pream_planks",
-        "phantasm:pream_pressure_plate",
-        "phantasm:pream_sapling",
-        "phantasm:pream_sign",
-        "phantasm:pream_slab",
-        "phantasm:pream_stairs",
-        "phantasm:pream_trapdoor",
-        "phantasm:pream_wall_hanging_sign",
-        "phantasm:pream_wall_sign",
-        "phantasm:pream_wood",
-        "phantasm:purpur_lamp",
-        "phantasm:raw_purpur",
-        "phantasm:raw_purpur_bricks",
-        "phantasm:raw_purpur_bricks_slab",
-        "phantasm:raw_purpur_bricks_stairs",
-        "phantasm:raw_purpur_pillar",
-        "phantasm:raw_purpur_tiles",
-        "phantasm:starflower",
-        "phantasm:stripped_pream_log",
-        "phantasm:stripped_pream_wood",
-        "phantasm:subwoofer_block",
-        "phantasm:tall_acidic_nihilis",
-        "phantasm:tall_vivid_nihilis",
-        "phantasm:vivid_nihilis",
-        "phantasm:vivid_nihilium",
-        "phantasm:void_crystal_block",
-        "phantasm:void_crystal_glass",
-        "phantasm:void_crystal_glass_pane",
-        "phantasm:void_crystal_pillar",
-        "phantasm:void_crystal_shard",
-        "phantasm:void_crystal_tiles",
-        "phantasm:void_crystal_tiles_slab",
-        "phantasm:void_crystal_tiles_stairs",
         "simplyswords:runic_forge",
         "transmog:transmogrification_table",
         "twilightdelight:aurora_pie",
@@ -15380,286 +15296,6 @@
           "zh": "僵尸疣猪兽头颅挂饰",
           "en": "Zoglin Trophy"
         },
-        "phantasm:acidic_mass": {
-          "key": "block.phantasm.acidic_mass",
-          "en": "Acidic Mass"
-        },
-        "phantasm:acidic_nihilis": {
-          "key": "block.phantasm.acidic_nihilis",
-          "en": "Acidic Nihilis"
-        },
-        "phantasm:acidic_nihilium": {
-          "key": "block.phantasm.acidic_nihilium",
-          "en": "Acidic Nihilium"
-        },
-        "phantasm:choral_block": {
-          "key": "block.phantasm.choral_block",
-          "en": "Choral Block"
-        },
-        "phantasm:choral_fan": {
-          "key": "block.phantasm.choral_fan",
-          "en": "Choral Fan"
-        },
-        "phantasm:cirite": {
-          "key": "block.phantasm.cirite",
-          "en": "Cirite"
-        },
-        "phantasm:cirite_bricks": {
-          "key": "block.phantasm.cirite_bricks",
-          "en": "Cirite Bricks"
-        },
-        "phantasm:cirite_bricks_slab": {
-          "key": "block.phantasm.cirite_bricks_slab",
-          "en": "Cirite Bricks Slab"
-        },
-        "phantasm:cirite_bricks_stairs": {
-          "key": "block.phantasm.cirite_bricks_stairs",
-          "en": "Cirite Bricks Stairs"
-        },
-        "phantasm:cirite_iron_ore": {
-          "key": "block.phantasm.cirite_iron_ore",
-          "en": "Cirite Iron Ore"
-        },
-        "phantasm:crystal_block": {
-          "key": "block.phantasm.crystal_block",
-          "en": "Crystal Block"
-        },
-        "phantasm:crystal_glass": {
-          "key": "block.phantasm.crystal_glass",
-          "en": "Crystal Glass"
-        },
-        "phantasm:crystal_glass_pane": {
-          "key": "block.phantasm.crystal_glass_pane",
-          "en": "Crystal Glass Pane"
-        },
-        "phantasm:crystal_pillar": {
-          "key": "block.phantasm.crystal_pillar",
-          "en": "Crystal Pillar"
-        },
-        "phantasm:crystal_shard": {
-          "key": "block.phantasm.crystal_shard",
-          "en": "Crystal Shard"
-        },
-        "phantasm:crystal_tiles": {
-          "key": "block.phantasm.crystal_tiles",
-          "en": "Crystal Tiles"
-        },
-        "phantasm:crystal_tiles_slab": {
-          "key": "block.phantasm.crystal_tiles_slab",
-          "en": "Crystal Tiles Slab"
-        },
-        "phantasm:crystal_tiles_stairs": {
-          "key": "block.phantasm.crystal_tiles_stairs",
-          "en": "Crystal Tiles Stairs"
-        },
-        "phantasm:crystalily": {
-          "key": "block.phantasm.crystalily",
-          "en": "Crystalily"
-        },
-        "phantasm:dragon_mint": {
-          "key": "block.phantasm.dragon_mint",
-          "en": "Dragon Mint"
-        },
-        "phantasm:dralgae": {
-          "key": "block.phantasm.dralgae",
-          "en": "Dralgae"
-        },
-        "phantasm:fallen_star": {
-          "key": "block.phantasm.fallen_star",
-          "en": "Fallen Star"
-        },
-        "phantasm:hanging_pream_leaves": {
-          "key": "block.phantasm.hanging_pream_leaves",
-          "en": "Hanging Pream Leaves"
-        },
-        "phantasm:oblivine": {
-          "key": "block.phantasm.oblivine",
-          "en": "Oblivine"
-        },
-        "phantasm:oblivion": {
-          "key": "block.phantasm.oblivion",
-          "en": "Oblivion"
-        },
-        "phantasm:polished_obsidian": {
-          "key": "block.phantasm.polished_obsidian",
-          "en": "Polished Obsidian"
-        },
-        "phantasm:polished_obsidian_bricks": {
-          "key": "block.phantasm.polished_obsidian_bricks",
-          "en": "Polished Obsidian Bricks"
-        },
-        "phantasm:polished_obsidian_bricks_slab": {
-          "key": "block.phantasm.polished_obsidian_bricks_slab",
-          "en": "Polished Obsidian Bricks Slab"
-        },
-        "phantasm:polished_obsidian_bricks_stairs": {
-          "key": "block.phantasm.polished_obsidian_bricks_stairs",
-          "en": "Polished Obsidian Bricks Stairs"
-        },
-        "phantasm:pome": {
-          "key": "block.phantasm.pome",
-          "en": "Pome"
-        },
-        "phantasm:pream_button": {
-          "key": "block.phantasm.pream_button",
-          "en": "Pream Button"
-        },
-        "phantasm:pream_door": {
-          "key": "block.phantasm.pream_door",
-          "en": "Pream Door"
-        },
-        "phantasm:pream_fence": {
-          "key": "block.phantasm.pream_fence",
-          "en": "Pream Fence"
-        },
-        "phantasm:pream_fence_gate": {
-          "key": "block.phantasm.pream_fence_gate",
-          "en": "Pream Fence Gate"
-        },
-        "phantasm:pream_hanging_sign": {
-          "key": "block.phantasm.pream_hanging_sign",
-          "en": "Pream Hanging Sign"
-        },
-        "phantasm:pream_leaves": {
-          "key": "block.phantasm.pream_leaves",
-          "en": "Pream Leaves"
-        },
-        "phantasm:pream_log": {
-          "key": "block.phantasm.pream_log",
-          "en": "Pream Log"
-        },
-        "phantasm:pream_planks": {
-          "key": "block.phantasm.pream_planks",
-          "en": "Pream Planks"
-        },
-        "phantasm:pream_pressure_plate": {
-          "key": "block.phantasm.pream_pressure_plate",
-          "en": "Pream Pressure Plate"
-        },
-        "phantasm:pream_sapling": {
-          "key": "block.phantasm.pream_sapling",
-          "en": "Pream Sapling"
-        },
-        "phantasm:pream_sign": {
-          "key": "block.phantasm.pream_sign",
-          "en": "Pream Sign"
-        },
-        "phantasm:pream_slab": {
-          "key": "block.phantasm.pream_slab",
-          "en": "Pream Slab"
-        },
-        "phantasm:pream_stairs": {
-          "key": "block.phantasm.pream_stairs",
-          "en": "Pream Stairs"
-        },
-        "phantasm:pream_trapdoor": {
-          "key": "block.phantasm.pream_trapdoor",
-          "en": "Pream Trapdoor"
-        },
-        "phantasm:pream_wall_hanging_sign": {
-          "key": "block.phantasm.pream_hanging_sign",
-          "en": "Pream Hanging Sign"
-        },
-        "phantasm:pream_wall_sign": {
-          "key": "block.phantasm.pream_sign",
-          "en": "Pream Sign"
-        },
-        "phantasm:pream_wood": {
-          "key": "block.phantasm.pream_wood",
-          "en": "Pream Wood"
-        },
-        "phantasm:purpur_lamp": {
-          "key": "block.phantasm.purpur_lamp",
-          "en": "Purpur Lamp"
-        },
-        "phantasm:raw_purpur": {
-          "key": "block.phantasm.raw_purpur",
-          "en": "Raw Purpur"
-        },
-        "phantasm:raw_purpur_bricks": {
-          "key": "block.phantasm.raw_purpur_bricks",
-          "en": "Raw Purpur Bricks"
-        },
-        "phantasm:raw_purpur_bricks_slab": {
-          "key": "block.phantasm.raw_purpur_bricks_slab",
-          "en": "Raw Purpur Bricks Slab"
-        },
-        "phantasm:raw_purpur_bricks_stairs": {
-          "key": "block.phantasm.raw_purpur_bricks_stairs",
-          "en": "Raw Purpur Bricks Stairs"
-        },
-        "phantasm:raw_purpur_pillar": {
-          "key": "block.phantasm.raw_purpur_pillar",
-          "en": "Raw Purpur Pillar"
-        },
-        "phantasm:raw_purpur_tiles": {
-          "key": "block.phantasm.raw_purpur_tiles",
-          "en": "Raw Purpur Tiles"
-        },
-        "phantasm:starflower": {
-          "key": "block.phantasm.starflower",
-          "en": "Starflower"
-        },
-        "phantasm:stripped_pream_log": {
-          "key": "block.phantasm.stripped_pream_log",
-          "en": "Stripped Pream Log"
-        },
-        "phantasm:stripped_pream_wood": {
-          "key": "block.phantasm.stripped_pream_wood",
-          "en": "Stripped Pream Wood"
-        },
-        "phantasm:subwoofer_block": {
-          "key": "block.phantasm.subwoofer_block",
-          "en": "Subwoofer Block"
-        },
-        "phantasm:tall_acidic_nihilis": {
-          "key": "block.phantasm.tall_acidic_nihilis",
-          "en": "Tall Acidic Nihilis"
-        },
-        "phantasm:tall_vivid_nihilis": {
-          "key": "block.phantasm.tall_vivid_nihilis",
-          "en": "Tall Vivid Nihilis"
-        },
-        "phantasm:vivid_nihilis": {
-          "key": "block.phantasm.vivid_nihilis",
-          "en": "Vivid Nihilis"
-        },
-        "phantasm:vivid_nihilium": {
-          "key": "block.phantasm.vivid_nihilium",
-          "en": "Vivid Nihilium"
-        },
-        "phantasm:void_crystal_block": {
-          "key": "block.phantasm.void_crystal_block",
-          "en": "Void Crystal Block"
-        },
-        "phantasm:void_crystal_glass": {
-          "key": "block.phantasm.void_crystal_glass",
-          "en": "Void Crystal Glass"
-        },
-        "phantasm:void_crystal_glass_pane": {
-          "key": "block.phantasm.void_crystal_glass_pane",
-          "en": "Void Crystal Glass Pane"
-        },
-        "phantasm:void_crystal_pillar": {
-          "key": "block.phantasm.void_crystal_pillar",
-          "en": "Void Crystal Pillar"
-        },
-        "phantasm:void_crystal_shard": {
-          "key": "block.phantasm.void_crystal_shard",
-          "en": "Void Crystal Shard"
-        },
-        "phantasm:void_crystal_tiles": {
-          "key": "block.phantasm.void_crystal_tiles",
-          "en": "Void Crystal Tiles"
-        },
-        "phantasm:void_crystal_tiles_slab": {
-          "key": "block.phantasm.void_crystal_tiles_slab",
-          "en": "Void Crystal Tiles Slab"
-        },
-        "phantasm:void_crystal_tiles_stairs": {
-          "key": "block.phantasm.void_crystal_tiles_stairs",
-          "en": "Void Crystal Tiles Stairs"
-        },
         "simplyswords:runic_forge": {
           "key": "block.simplyswords.runic_forge",
           "zh": "符文锻炉",
@@ -20734,8 +20370,6 @@
         "mynethersdelight:mnd_hsign",
         "mynethersdelight:mnd_sign",
         "mynethersdelight:nether_stove",
-        "phantasm:mod_hanging_sign",
-        "phantasm:mod_sign",
         "transmog:transmog_station",
         "twilightdelight:maze_stove",
         "twilightforest:alpha_yeti_spawner",
@@ -21215,6 +20849,7 @@
         "iss_magicfromtheeast:magicfromtheeast_items",
         "kaleidoscope_tavern:tavern_deco",
         "kaleidoscope_tavern:tavern_main",
+        "knavesneeds:knavestab",
         "l2core:archery",
         "l2core:artifacts",
         "l2core:backpack",
@@ -21246,7 +20881,6 @@
         "morevillagers:tab",
         "mowziesmobs:mowziesmobs_tab",
         "mynethersdelight:main",
-        "phantasm:phantasm",
         "powerful_dummy:creativetab_dummy",
         "simplyswords:simplyswords",
         "takesapillage:main_tab",
@@ -21399,7 +21033,6 @@
         "farmersdelight:stove_burn",
         "golemdungeons:echo_attack",
         "golemdungeons:flame_attack",
-        "hunters_return:boomerang",
         "incendium:sacrifice",
         "irons_spellbooks:blood_cauldron",
         "irons_spellbooks:blood_magic",
@@ -21688,6 +21321,7 @@
         "kaleidoscope_tavern:shaker_result",
         "kaleidoscope_tavern:signature_cocktail_color",
         "kaleidoscope_tavern:signature_cocktail_effects",
+        "knavesneeds:invisible",
         "l2archery:bow_upgrade",
         "l2archery:energy",
         "l2archery:item_upgrade",
@@ -21813,7 +21447,6 @@
         "modulargolems:use_speed",
         "pandora:backpack_content",
         "patchouli:book",
-        "phantasm:shattered_pendant_data",
         "simplyswords:additional_gem_sockets",
         "simplyswords:awakening",
         "simplyswords:awakening_route",
@@ -21996,9 +21629,6 @@
         "dungeons_arise:purification",
         "dungeons_arise:voltaic_shot",
         "farmersdelight:backstabbing",
-        "hunters_return:bounce",
-        "hunters_return:cutting",
-        "hunters_return:return",
         "iss_magicfromtheeast:expanding",
         "iss_magicfromtheeast:ghostly_cold",
         "iss_magicfromtheeast:inner_impact",
@@ -22117,6 +21747,7 @@
         "minecraft:vanishing_curse",
         "minecraft:wind_burst",
         "mynethersdelight:poaching",
+        "passablefoliage:leaf_walker",
         "twilightforest:chill_aura",
         "twilightforest:destruction",
         "twilightforest:fire_react",
@@ -22295,21 +21926,6 @@
           "key": "enchantment.farmersdelight.backstabbing",
           "zh": "背刺",
           "en": "Backstabbing"
-        },
-        "hunters_return:bounce": {
-          "key": "enchantment.hunters_return.bounce",
-          "zh": "弹跳",
-          "en": "Bounce"
-        },
-        "hunters_return:cutting": {
-          "key": "enchantment.hunters_return.cutting",
-          "zh": "切割",
-          "en": "Cutting"
-        },
-        "hunters_return:return": {
-          "key": "enchantment.hunters_return.return",
-          "zh": "回归",
-          "en": "Return"
         },
         "iss_magicfromtheeast:expanding": {
           "key": "enchantment.iss_magicfromtheeast.expanding",
@@ -22858,6 +22474,11 @@
           "zh": "盗猎",
           "en": "Curse of Poaching"
         },
+        "passablefoliage:leaf_walker": {
+          "key": "enchantment.passablefoliage.leaf_walker",
+          "zh": "树叶行者",
+          "en": "Leaf Walker"
+        },
         "twilightforest:chill_aura": {
           "key": "enchantment.twilightforest.chill_aura",
           "zh": "凛寒气场",
@@ -22938,7 +22559,8 @@
         "minecraft:trident_return_acceleration",
         "minecraft:trident_sound",
         "minecraft:trident_spin_attack_strength",
-        "mynethersdelight:poaching"
+        "mynethersdelight:poaching",
+        "passablefoliage:leaf_walker"
       ],
       "translations": {}
     },
@@ -23307,13 +22929,9 @@
         "endermanoverhaul:warped_forest_enderman",
         "endermanoverhaul:warped_pearl",
         "endermanoverhaul:windswept_hills_enderman",
-        "examplemod:summoned_cave_spider",
-        "examplemod:summoned_support_dragon",
         "farmersdelight:rotten_tomato",
         "gateways:endless_gateway",
         "gateways:normal_gateway",
-        "hunters_return:boomerang",
-        "hunters_return:hunter",
         "irons_spellbooks:acid_orb",
         "irons_spellbooks:apothecarist",
         "irons_spellbooks:arcane_shackle",
@@ -23623,9 +23241,6 @@
         "mowziesmobs:umvuthana_raptor",
         "mowziesmobs:umvuthi",
         "mynethersdelight:strider_rock",
-        "phantasm:behemoth",
-        "phantasm:choral_arrow",
-        "phantasm:crystie",
         "powerful_dummy:test_dummy",
         "powerful_dummy:test_dummy_arthropod",
         "powerful_dummy:test_dummy_illager",
@@ -24833,12 +24448,6 @@
           "zh": "高丘末影人",
           "en": "Windswept Hills Enderman"
         },
-        "examplemod:summoned_cave_spider": {
-          "key": "entity.examplemod.summoned_cave_spider"
-        },
-        "examplemod:summoned_support_dragon": {
-          "key": "entity.examplemod.summoned_support_dragon"
-        },
         "farmersdelight:rotten_tomato": {
           "key": "entity.farmersdelight.rotten_tomato",
           "zh": "烂番茄",
@@ -24849,16 +24458,6 @@
         },
         "gateways:normal_gateway": {
           "key": "entity.gateways.normal_gateway"
-        },
-        "hunters_return:boomerang": {
-          "key": "entity.hunters_return.boomerang",
-          "zh": "回旋镖",
-          "en": "Boomerang"
-        },
-        "hunters_return:hunter": {
-          "key": "entity.hunters_return.hunter",
-          "zh": "邪猎者",
-          "en": "Hunter"
         },
         "irons_spellbooks:acid_orb": {
           "key": "entity.irons_spellbooks.acid_orb",
@@ -26213,18 +25812,6 @@
         },
         "mynethersdelight:strider_rock": {
           "key": "entity.mynethersdelight.strider_rock"
-        },
-        "phantasm:behemoth": {
-          "key": "entity.phantasm.behemoth",
-          "en": "Behemoth"
-        },
-        "phantasm:choral_arrow": {
-          "key": "entity.phantasm.choral_arrow",
-          "en": "Choral Arrow"
-        },
-        "phantasm:crystie": {
-          "key": "entity.phantasm.crystie",
-          "en": "Crystie"
         },
         "powerful_dummy:test_dummy": {
           "key": "entity.powerful_dummy.test_dummy",
@@ -28049,7 +27636,6 @@
         "endersdelight:uncanny_cookies",
         "endersdelight:veil_of_flames_risotto",
         "endersdelight:voidpepper",
-        "examplemod:backstab_upgrade",
         "examplemod:equipment_cabinet",
         "examplemod:glass_overlay_item",
         "examplemod:irons_spellbooks_acid_orb_spelltrait",
@@ -28143,6 +27729,7 @@
         "examplemod:portable_brewing_stand",
         "examplemod:portable_furnace",
         "examplemod:portable_stonecutter",
+        "examplemod:turtle_shield",
         "farmersdelight:acacia_cabinet",
         "farmersdelight:apple_cider",
         "farmersdelight:apple_pie",
@@ -28355,9 +27942,6 @@
         "golemdungeons:samurai_golem_shinguard",
         "golemdungeons:sculk_golem_scythe",
         "golemdungeons:trial_medal",
-        "hunters_return:boomerang",
-        "hunters_return:hunter_spawn_egg",
-        "hunters_return:mini_crossbow",
         "irons_lib:player_statue",
         "irons_lib:transmog_table",
         "irons_spellbooks:affinity_ring",
@@ -28813,6 +28397,66 @@
         "kaleidoscope_tavern:yellow_pendant_lamp",
         "kaleidoscope_tavern:yellow_sofa",
         "kaleidoscope_tavern:ysbb_painting",
+        "knavesneeds:twilightforest/fiery/chakram",
+        "knavesneeds:twilightforest/fiery/claymore",
+        "knavesneeds:twilightforest/fiery/cutlass",
+        "knavesneeds:twilightforest/fiery/glaive",
+        "knavesneeds:twilightforest/fiery/greataxe",
+        "knavesneeds:twilightforest/fiery/greathammer",
+        "knavesneeds:twilightforest/fiery/halberd",
+        "knavesneeds:twilightforest/fiery/katana",
+        "knavesneeds:twilightforest/fiery/longsword",
+        "knavesneeds:twilightforest/fiery/rapier",
+        "knavesneeds:twilightforest/fiery/sai",
+        "knavesneeds:twilightforest/fiery/scythe",
+        "knavesneeds:twilightforest/fiery/spear",
+        "knavesneeds:twilightforest/fiery/twinblade",
+        "knavesneeds:twilightforest/fiery/warglaive",
+        "knavesneeds:twilightforest/ironwood/chakram",
+        "knavesneeds:twilightforest/ironwood/claymore",
+        "knavesneeds:twilightforest/ironwood/cutlass",
+        "knavesneeds:twilightforest/ironwood/glaive",
+        "knavesneeds:twilightforest/ironwood/greataxe",
+        "knavesneeds:twilightforest/ironwood/greathammer",
+        "knavesneeds:twilightforest/ironwood/halberd",
+        "knavesneeds:twilightforest/ironwood/katana",
+        "knavesneeds:twilightforest/ironwood/longsword",
+        "knavesneeds:twilightforest/ironwood/rapier",
+        "knavesneeds:twilightforest/ironwood/sai",
+        "knavesneeds:twilightforest/ironwood/scythe",
+        "knavesneeds:twilightforest/ironwood/spear",
+        "knavesneeds:twilightforest/ironwood/twinblade",
+        "knavesneeds:twilightforest/ironwood/warglaive",
+        "knavesneeds:twilightforest/knightmetal/chakram",
+        "knavesneeds:twilightforest/knightmetal/claymore",
+        "knavesneeds:twilightforest/knightmetal/cutlass",
+        "knavesneeds:twilightforest/knightmetal/glaive",
+        "knavesneeds:twilightforest/knightmetal/greataxe",
+        "knavesneeds:twilightforest/knightmetal/greathammer",
+        "knavesneeds:twilightforest/knightmetal/halberd",
+        "knavesneeds:twilightforest/knightmetal/katana",
+        "knavesneeds:twilightforest/knightmetal/longsword",
+        "knavesneeds:twilightforest/knightmetal/rapier",
+        "knavesneeds:twilightforest/knightmetal/sai",
+        "knavesneeds:twilightforest/knightmetal/scythe",
+        "knavesneeds:twilightforest/knightmetal/spear",
+        "knavesneeds:twilightforest/knightmetal/twinblade",
+        "knavesneeds:twilightforest/knightmetal/warglaive",
+        "knavesneeds:twilightforest/steeleaf/chakram",
+        "knavesneeds:twilightforest/steeleaf/claymore",
+        "knavesneeds:twilightforest/steeleaf/cutlass",
+        "knavesneeds:twilightforest/steeleaf/glaive",
+        "knavesneeds:twilightforest/steeleaf/greataxe",
+        "knavesneeds:twilightforest/steeleaf/greathammer",
+        "knavesneeds:twilightforest/steeleaf/halberd",
+        "knavesneeds:twilightforest/steeleaf/katana",
+        "knavesneeds:twilightforest/steeleaf/longsword",
+        "knavesneeds:twilightforest/steeleaf/rapier",
+        "knavesneeds:twilightforest/steeleaf/sai",
+        "knavesneeds:twilightforest/steeleaf/scythe",
+        "knavesneeds:twilightforest/steeleaf/spear",
+        "knavesneeds:twilightforest/steeleaf/twinblade",
+        "knavesneeds:twilightforest/steeleaf/warglaive",
         "l2archery:acid_arrow",
         "l2archery:blackstone_arrow",
         "l2archery:copper_arrow",
@@ -31767,90 +31411,6 @@
         "pandora:pandora_bracelet",
         "pandora:pandora_necklace",
         "patchouli:guide_book",
-        "phantasm:acidic_mass",
-        "phantasm:acidic_nihilis",
-        "phantasm:acidic_nihilium",
-        "phantasm:behemoth_meat",
-        "phantasm:behemoth_spawn_egg",
-        "phantasm:behemoth_steak",
-        "phantasm:choral_arrow",
-        "phantasm:choral_block",
-        "phantasm:choral_fan",
-        "phantasm:chorus_fruit_salad",
-        "phantasm:cirite",
-        "phantasm:cirite_bricks",
-        "phantasm:cirite_bricks_slab",
-        "phantasm:cirite_bricks_stairs",
-        "phantasm:cirite_iron_ore",
-        "phantasm:crystal_block",
-        "phantasm:crystal_glass",
-        "phantasm:crystal_glass_pane",
-        "phantasm:crystal_pillar",
-        "phantasm:crystal_shard",
-        "phantasm:crystal_tiles",
-        "phantasm:crystal_tiles_slab",
-        "phantasm:crystal_tiles_stairs",
-        "phantasm:crystalily",
-        "phantasm:crystalline_axe",
-        "phantasm:crystalline_hoe",
-        "phantasm:crystalline_pickaxe",
-        "phantasm:crystalline_shovel",
-        "phantasm:crystalline_sword",
-        "phantasm:crystie_spawn_egg",
-        "phantasm:dragon_mint",
-        "phantasm:dralgae",
-        "phantasm:fallen_star",
-        "phantasm:hanging_pream_leaves",
-        "phantasm:music_disc_abruption",
-        "phantasm:oblifruit",
-        "phantasm:oblivine",
-        "phantasm:oblivion",
-        "phantasm:polished_obsidian",
-        "phantasm:polished_obsidian_bricks",
-        "phantasm:polished_obsidian_bricks_slab",
-        "phantasm:polished_obsidian_bricks_stairs",
-        "phantasm:pome",
-        "phantasm:pome_slice",
-        "phantasm:pream_berry",
-        "phantasm:pream_button",
-        "phantasm:pream_door",
-        "phantasm:pream_fence",
-        "phantasm:pream_fence_gate",
-        "phantasm:pream_hanging_sign",
-        "phantasm:pream_leaves",
-        "phantasm:pream_log",
-        "phantasm:pream_planks",
-        "phantasm:pream_pressure_plate",
-        "phantasm:pream_sapling",
-        "phantasm:pream_sign",
-        "phantasm:pream_slab",
-        "phantasm:pream_stairs",
-        "phantasm:pream_trapdoor",
-        "phantasm:pream_wood",
-        "phantasm:purpur_lamp",
-        "phantasm:raw_purpur",
-        "phantasm:raw_purpur_bricks",
-        "phantasm:raw_purpur_bricks_slab",
-        "phantasm:raw_purpur_bricks_stairs",
-        "phantasm:raw_purpur_pillar",
-        "phantasm:raw_purpur_tiles",
-        "phantasm:shattered_pendant",
-        "phantasm:starflower",
-        "phantasm:stripped_pream_log",
-        "phantasm:stripped_pream_wood",
-        "phantasm:subwoofer_block",
-        "phantasm:tall_acidic_nihilis",
-        "phantasm:tall_vivid_nihilis",
-        "phantasm:vivid_nihilis",
-        "phantasm:vivid_nihilium",
-        "phantasm:void_crystal_block",
-        "phantasm:void_crystal_glass",
-        "phantasm:void_crystal_glass_pane",
-        "phantasm:void_crystal_pillar",
-        "phantasm:void_crystal_shard",
-        "phantasm:void_crystal_tiles",
-        "phantasm:void_crystal_tiles_slab",
-        "phantasm:void_crystal_tiles_stairs",
         "powerful_dummy:dummy_stand",
         "simplyswords:arcanethyst",
         "simplyswords:awakened_lichblade",
@@ -37260,11 +36820,6 @@
           "key": "block.endersdelight.voidpepper_bush",
           "en": "Void Pepper"
         },
-        "examplemod:backstab_upgrade": {
-          "key": "item.examplemod.backstab_upgrade",
-          "zh": "犬灵背刺升级",
-          "en": "犬灵背刺升级"
-        },
         "examplemod:equipment_cabinet": {
           "key": "block.examplemod.equipment_cabinet",
           "zh": "装备柜",
@@ -37715,6 +37270,9 @@
         },
         "examplemod:portable_stonecutter": {
           "key": "item.examplemod.portable_stonecutter"
+        },
+        "examplemod:turtle_shield": {
+          "key": "item.examplemod.turtle_shield"
         },
         "farmersdelight:acacia_cabinet": {
           "key": "block.farmersdelight.acacia_cabinet",
@@ -38775,21 +38333,6 @@
           "key": "item.golemdungeons.trial_medal",
           "zh": "傀儡试炼奖章",
           "en": "Trial Medal"
-        },
-        "hunters_return:boomerang": {
-          "key": "item.hunters_return.boomerang",
-          "zh": "回旋镖",
-          "en": "Boomerang"
-        },
-        "hunters_return:hunter_spawn_egg": {
-          "key": "item.hunters_return.hunter_spawn_egg",
-          "zh": "邪猎者刷怪蛋",
-          "en": "Hunter Spawn Egg"
-        },
-        "hunters_return:mini_crossbow": {
-          "key": "item.hunters_return.mini_crossbow",
-          "zh": "迷你手弩",
-          "en": "Mini CrossBow"
         },
         "irons_lib:player_statue": {
           "key": "block.irons_lib.player_statue",
@@ -41044,6 +40587,246 @@
           "key": "block.kaleidoscope_tavern.painting",
           "zh": "挂画",
           "en": "Painting"
+        },
+        "knavesneeds:twilightforest/fiery/chakram": {
+          "key": "item.knavesneeds.twilightforest.fiery.chakram",
+          "en": "Fiery Chakram"
+        },
+        "knavesneeds:twilightforest/fiery/claymore": {
+          "key": "item.knavesneeds.twilightforest.fiery.claymore",
+          "en": "Fiery Claymore"
+        },
+        "knavesneeds:twilightforest/fiery/cutlass": {
+          "key": "item.knavesneeds.twilightforest.fiery.cutlass",
+          "en": "Fiery Cutlass"
+        },
+        "knavesneeds:twilightforest/fiery/glaive": {
+          "key": "item.knavesneeds.twilightforest.fiery.glaive",
+          "en": "Fiery Glaive"
+        },
+        "knavesneeds:twilightforest/fiery/greataxe": {
+          "key": "item.knavesneeds.twilightforest.fiery.greataxe",
+          "en": "Fiery Greataxe"
+        },
+        "knavesneeds:twilightforest/fiery/greathammer": {
+          "key": "item.knavesneeds.twilightforest.fiery.greathammer",
+          "en": "Fiery Greathammer"
+        },
+        "knavesneeds:twilightforest/fiery/halberd": {
+          "key": "item.knavesneeds.twilightforest.fiery.halberd",
+          "en": "Fiery Halberd"
+        },
+        "knavesneeds:twilightforest/fiery/katana": {
+          "key": "item.knavesneeds.twilightforest.fiery.katana",
+          "en": "Fiery Katana"
+        },
+        "knavesneeds:twilightforest/fiery/longsword": {
+          "key": "item.knavesneeds.twilightforest.fiery.longsword",
+          "en": "Fiery Longsword"
+        },
+        "knavesneeds:twilightforest/fiery/rapier": {
+          "key": "item.knavesneeds.twilightforest.fiery.rapier",
+          "en": "Fiery Rapier"
+        },
+        "knavesneeds:twilightforest/fiery/sai": {
+          "key": "item.knavesneeds.twilightforest.fiery.sai",
+          "en": "Fiery Sai"
+        },
+        "knavesneeds:twilightforest/fiery/scythe": {
+          "key": "item.knavesneeds.twilightforest.fiery.scythe",
+          "en": "Fiery Scythe"
+        },
+        "knavesneeds:twilightforest/fiery/spear": {
+          "key": "item.knavesneeds.twilightforest.fiery.spear",
+          "en": "Fiery Spear"
+        },
+        "knavesneeds:twilightforest/fiery/twinblade": {
+          "key": "item.knavesneeds.twilightforest.fiery.twinblade",
+          "en": "Fiery Twinblade"
+        },
+        "knavesneeds:twilightforest/fiery/warglaive": {
+          "key": "item.knavesneeds.twilightforest.fiery.warglaive",
+          "en": "Fiery Warglaive"
+        },
+        "knavesneeds:twilightforest/ironwood/chakram": {
+          "key": "item.knavesneeds.twilightforest.ironwood.chakram",
+          "en": "Ironwood Chakram"
+        },
+        "knavesneeds:twilightforest/ironwood/claymore": {
+          "key": "item.knavesneeds.twilightforest.ironwood.claymore",
+          "en": "Ironwood Claymore"
+        },
+        "knavesneeds:twilightforest/ironwood/cutlass": {
+          "key": "item.knavesneeds.twilightforest.ironwood.cutlass",
+          "en": "Ironwood Cutlass"
+        },
+        "knavesneeds:twilightforest/ironwood/glaive": {
+          "key": "item.knavesneeds.twilightforest.ironwood.glaive",
+          "en": "Ironwood Glaive"
+        },
+        "knavesneeds:twilightforest/ironwood/greataxe": {
+          "key": "item.knavesneeds.twilightforest.ironwood.greataxe",
+          "en": "Ironwood Greataxe"
+        },
+        "knavesneeds:twilightforest/ironwood/greathammer": {
+          "key": "item.knavesneeds.twilightforest.ironwood.greathammer",
+          "en": "Ironwood Greathammer"
+        },
+        "knavesneeds:twilightforest/ironwood/halberd": {
+          "key": "item.knavesneeds.twilightforest.ironwood.halberd",
+          "en": "Ironwood Halberd"
+        },
+        "knavesneeds:twilightforest/ironwood/katana": {
+          "key": "item.knavesneeds.twilightforest.ironwood.katana",
+          "en": "Ironwood Katana"
+        },
+        "knavesneeds:twilightforest/ironwood/longsword": {
+          "key": "item.knavesneeds.twilightforest.ironwood.longsword",
+          "en": "Ironwood Longsword"
+        },
+        "knavesneeds:twilightforest/ironwood/rapier": {
+          "key": "item.knavesneeds.twilightforest.ironwood.rapier",
+          "en": "Ironwood Rapier"
+        },
+        "knavesneeds:twilightforest/ironwood/sai": {
+          "key": "item.knavesneeds.twilightforest.ironwood.sai",
+          "en": "Ironwood Sai"
+        },
+        "knavesneeds:twilightforest/ironwood/scythe": {
+          "key": "item.knavesneeds.twilightforest.ironwood.scythe",
+          "en": "Ironwood Scythe"
+        },
+        "knavesneeds:twilightforest/ironwood/spear": {
+          "key": "item.knavesneeds.twilightforest.ironwood.spear",
+          "en": "Ironwood Spear"
+        },
+        "knavesneeds:twilightforest/ironwood/twinblade": {
+          "key": "item.knavesneeds.twilightforest.ironwood.twinblade",
+          "en": "Ironwood Twinblade"
+        },
+        "knavesneeds:twilightforest/ironwood/warglaive": {
+          "key": "item.knavesneeds.twilightforest.ironwood.warglaive",
+          "en": "Ironwood Warglaive"
+        },
+        "knavesneeds:twilightforest/knightmetal/chakram": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.chakram",
+          "en": "Knightmetal Chakram"
+        },
+        "knavesneeds:twilightforest/knightmetal/claymore": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.claymore",
+          "en": "Knightmetal Claymore"
+        },
+        "knavesneeds:twilightforest/knightmetal/cutlass": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.cutlass",
+          "en": "Knightmetal Cutlass"
+        },
+        "knavesneeds:twilightforest/knightmetal/glaive": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.glaive",
+          "en": "Knightmetal Glaive"
+        },
+        "knavesneeds:twilightforest/knightmetal/greataxe": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.greataxe",
+          "en": "Knightmetal Greataxe"
+        },
+        "knavesneeds:twilightforest/knightmetal/greathammer": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.greathammer",
+          "en": "Knightmetal Greathammer"
+        },
+        "knavesneeds:twilightforest/knightmetal/halberd": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.halberd",
+          "en": "Knightmetal Halberd"
+        },
+        "knavesneeds:twilightforest/knightmetal/katana": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.katana",
+          "en": "Knightmetal Katana"
+        },
+        "knavesneeds:twilightforest/knightmetal/longsword": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.longsword",
+          "en": "Knightmetal Longsword"
+        },
+        "knavesneeds:twilightforest/knightmetal/rapier": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.rapier",
+          "en": "Knightmetal Rapier"
+        },
+        "knavesneeds:twilightforest/knightmetal/sai": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.sai",
+          "en": "Knightmetal Sai"
+        },
+        "knavesneeds:twilightforest/knightmetal/scythe": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.scythe",
+          "en": "Knightmetal Scythe"
+        },
+        "knavesneeds:twilightforest/knightmetal/spear": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.spear",
+          "en": "Knightmetal Spear"
+        },
+        "knavesneeds:twilightforest/knightmetal/twinblade": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.twinblade",
+          "en": "Knightmetal Twinblade"
+        },
+        "knavesneeds:twilightforest/knightmetal/warglaive": {
+          "key": "item.knavesneeds.twilightforest.knightmetal.warglaive",
+          "en": "Knightmetal Warglaive"
+        },
+        "knavesneeds:twilightforest/steeleaf/chakram": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.chakram",
+          "en": "Steeleaf Chakram"
+        },
+        "knavesneeds:twilightforest/steeleaf/claymore": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.claymore",
+          "en": "Steeleaf Claymore"
+        },
+        "knavesneeds:twilightforest/steeleaf/cutlass": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.cutlass",
+          "en": "Steeleaf Cutlass"
+        },
+        "knavesneeds:twilightforest/steeleaf/glaive": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.glaive",
+          "en": "Steeleaf Glaive"
+        },
+        "knavesneeds:twilightforest/steeleaf/greataxe": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.greataxe",
+          "en": "Steeleaf Greataxe"
+        },
+        "knavesneeds:twilightforest/steeleaf/greathammer": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.greathammer",
+          "en": "Steeleaf Greathammer"
+        },
+        "knavesneeds:twilightforest/steeleaf/halberd": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.halberd",
+          "en": "Steeleaf Halberd"
+        },
+        "knavesneeds:twilightforest/steeleaf/katana": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.katana",
+          "en": "Steeleaf Katana"
+        },
+        "knavesneeds:twilightforest/steeleaf/longsword": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.longsword",
+          "en": "Steeleaf Longsword"
+        },
+        "knavesneeds:twilightforest/steeleaf/rapier": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.rapier",
+          "en": "Steeleaf Rapier"
+        },
+        "knavesneeds:twilightforest/steeleaf/sai": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.sai",
+          "en": "Steeleaf Sai"
+        },
+        "knavesneeds:twilightforest/steeleaf/scythe": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.scythe",
+          "en": "Steeleaf Scythe"
+        },
+        "knavesneeds:twilightforest/steeleaf/spear": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.spear",
+          "en": "Steeleaf Spear"
+        },
+        "knavesneeds:twilightforest/steeleaf/twinblade": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.twinblade",
+          "en": "Steeleaf Twinblade"
+        },
+        "knavesneeds:twilightforest/steeleaf/warglaive": {
+          "key": "item.knavesneeds.twilightforest.steeleaf.warglaive",
+          "en": "Steeleaf Warglaive"
         },
         "l2archery:acid_arrow": {
           "key": "item.l2archery.acid_arrow",
@@ -54383,342 +54166,6 @@
           "key": "item.patchouli.guide_book",
           "en": "Guide Book"
         },
-        "phantasm:acidic_mass": {
-          "key": "block.phantasm.acidic_mass",
-          "en": "Acidic Mass"
-        },
-        "phantasm:acidic_nihilis": {
-          "key": "block.phantasm.acidic_nihilis",
-          "en": "Acidic Nihilis"
-        },
-        "phantasm:acidic_nihilium": {
-          "key": "block.phantasm.acidic_nihilium",
-          "en": "Acidic Nihilium"
-        },
-        "phantasm:behemoth_meat": {
-          "key": "item.phantasm.behemoth_meat",
-          "en": "Behemoth Meat"
-        },
-        "phantasm:behemoth_spawn_egg": {
-          "key": "item.phantasm.behemoth_spawn_egg",
-          "en": "Behemoth Spawn Egg"
-        },
-        "phantasm:behemoth_steak": {
-          "key": "item.phantasm.behemoth_steak",
-          "en": "Behemoth Steak"
-        },
-        "phantasm:choral_arrow": {
-          "key": "item.phantasm.choral_arrow",
-          "en": "Choral Arrow"
-        },
-        "phantasm:choral_block": {
-          "key": "block.phantasm.choral_block",
-          "en": "Choral Block"
-        },
-        "phantasm:choral_fan": {
-          "key": "block.phantasm.choral_fan",
-          "en": "Choral Fan"
-        },
-        "phantasm:chorus_fruit_salad": {
-          "key": "item.phantasm.chorus_fruit_salad",
-          "en": "Chorus Fruit Salad"
-        },
-        "phantasm:cirite": {
-          "key": "block.phantasm.cirite",
-          "en": "Cirite"
-        },
-        "phantasm:cirite_bricks": {
-          "key": "block.phantasm.cirite_bricks",
-          "en": "Cirite Bricks"
-        },
-        "phantasm:cirite_bricks_slab": {
-          "key": "block.phantasm.cirite_bricks_slab",
-          "en": "Cirite Bricks Slab"
-        },
-        "phantasm:cirite_bricks_stairs": {
-          "key": "block.phantasm.cirite_bricks_stairs",
-          "en": "Cirite Bricks Stairs"
-        },
-        "phantasm:cirite_iron_ore": {
-          "key": "block.phantasm.cirite_iron_ore",
-          "en": "Cirite Iron Ore"
-        },
-        "phantasm:crystal_block": {
-          "key": "block.phantasm.crystal_block",
-          "en": "Crystal Block"
-        },
-        "phantasm:crystal_glass": {
-          "key": "block.phantasm.crystal_glass",
-          "en": "Crystal Glass"
-        },
-        "phantasm:crystal_glass_pane": {
-          "key": "block.phantasm.crystal_glass_pane",
-          "en": "Crystal Glass Pane"
-        },
-        "phantasm:crystal_pillar": {
-          "key": "block.phantasm.crystal_pillar",
-          "en": "Crystal Pillar"
-        },
-        "phantasm:crystal_shard": {
-          "key": "block.phantasm.crystal_shard",
-          "en": "Crystal Shard"
-        },
-        "phantasm:crystal_tiles": {
-          "key": "block.phantasm.crystal_tiles",
-          "en": "Crystal Tiles"
-        },
-        "phantasm:crystal_tiles_slab": {
-          "key": "block.phantasm.crystal_tiles_slab",
-          "en": "Crystal Tiles Slab"
-        },
-        "phantasm:crystal_tiles_stairs": {
-          "key": "block.phantasm.crystal_tiles_stairs",
-          "en": "Crystal Tiles Stairs"
-        },
-        "phantasm:crystalily": {
-          "key": "block.phantasm.crystalily",
-          "en": "Crystalily"
-        },
-        "phantasm:crystalline_axe": {
-          "key": "item.phantasm.crystalline_axe",
-          "en": "Crystalline Axe"
-        },
-        "phantasm:crystalline_hoe": {
-          "key": "item.phantasm.crystalline_hoe",
-          "en": "Crystalline Hoe"
-        },
-        "phantasm:crystalline_pickaxe": {
-          "key": "item.phantasm.crystalline_pickaxe",
-          "en": "Crystalline Pickaxe"
-        },
-        "phantasm:crystalline_shovel": {
-          "key": "item.phantasm.crystalline_shovel",
-          "en": "Crystalline Shovel"
-        },
-        "phantasm:crystalline_sword": {
-          "key": "item.phantasm.crystalline_sword",
-          "en": "Crystalline Sword"
-        },
-        "phantasm:crystie_spawn_egg": {
-          "key": "item.phantasm.crystie_spawn_egg",
-          "en": "Crystie Spawn Egg"
-        },
-        "phantasm:dragon_mint": {
-          "key": "block.phantasm.dragon_mint",
-          "en": "Dragon Mint"
-        },
-        "phantasm:dralgae": {
-          "key": "block.phantasm.dralgae",
-          "en": "Dralgae"
-        },
-        "phantasm:fallen_star": {
-          "key": "block.phantasm.fallen_star",
-          "en": "Fallen Star"
-        },
-        "phantasm:hanging_pream_leaves": {
-          "key": "block.phantasm.hanging_pream_leaves",
-          "en": "Hanging Pream Leaves"
-        },
-        "phantasm:music_disc_abruption": {
-          "key": "item.phantasm.music_disc_abruption",
-          "en": "Music Disc"
-        },
-        "phantasm:oblifruit": {
-          "key": "item.phantasm.oblifruit",
-          "en": "Oblifruit"
-        },
-        "phantasm:oblivine": {
-          "key": "block.phantasm.oblivine",
-          "en": "Oblivine"
-        },
-        "phantasm:oblivion": {
-          "key": "block.phantasm.oblivion",
-          "en": "Oblivion"
-        },
-        "phantasm:polished_obsidian": {
-          "key": "block.phantasm.polished_obsidian",
-          "en": "Polished Obsidian"
-        },
-        "phantasm:polished_obsidian_bricks": {
-          "key": "block.phantasm.polished_obsidian_bricks",
-          "en": "Polished Obsidian Bricks"
-        },
-        "phantasm:polished_obsidian_bricks_slab": {
-          "key": "block.phantasm.polished_obsidian_bricks_slab",
-          "en": "Polished Obsidian Bricks Slab"
-        },
-        "phantasm:polished_obsidian_bricks_stairs": {
-          "key": "block.phantasm.polished_obsidian_bricks_stairs",
-          "en": "Polished Obsidian Bricks Stairs"
-        },
-        "phantasm:pome": {
-          "key": "block.phantasm.pome",
-          "en": "Pome"
-        },
-        "phantasm:pome_slice": {
-          "key": "item.phantasm.pome_slice",
-          "en": "Pome Slice"
-        },
-        "phantasm:pream_berry": {
-          "key": "item.phantasm.pream_berry",
-          "en": "Pream Berry"
-        },
-        "phantasm:pream_button": {
-          "key": "block.phantasm.pream_button",
-          "en": "Pream Button"
-        },
-        "phantasm:pream_door": {
-          "key": "block.phantasm.pream_door",
-          "en": "Pream Door"
-        },
-        "phantasm:pream_fence": {
-          "key": "block.phantasm.pream_fence",
-          "en": "Pream Fence"
-        },
-        "phantasm:pream_fence_gate": {
-          "key": "block.phantasm.pream_fence_gate",
-          "en": "Pream Fence Gate"
-        },
-        "phantasm:pream_hanging_sign": {
-          "key": "block.phantasm.pream_hanging_sign",
-          "en": "Pream Hanging Sign"
-        },
-        "phantasm:pream_leaves": {
-          "key": "block.phantasm.pream_leaves",
-          "en": "Pream Leaves"
-        },
-        "phantasm:pream_log": {
-          "key": "block.phantasm.pream_log",
-          "en": "Pream Log"
-        },
-        "phantasm:pream_planks": {
-          "key": "block.phantasm.pream_planks",
-          "en": "Pream Planks"
-        },
-        "phantasm:pream_pressure_plate": {
-          "key": "block.phantasm.pream_pressure_plate",
-          "en": "Pream Pressure Plate"
-        },
-        "phantasm:pream_sapling": {
-          "key": "block.phantasm.pream_sapling",
-          "en": "Pream Sapling"
-        },
-        "phantasm:pream_sign": {
-          "key": "block.phantasm.pream_sign",
-          "en": "Pream Sign"
-        },
-        "phantasm:pream_slab": {
-          "key": "block.phantasm.pream_slab",
-          "en": "Pream Slab"
-        },
-        "phantasm:pream_stairs": {
-          "key": "block.phantasm.pream_stairs",
-          "en": "Pream Stairs"
-        },
-        "phantasm:pream_trapdoor": {
-          "key": "block.phantasm.pream_trapdoor",
-          "en": "Pream Trapdoor"
-        },
-        "phantasm:pream_wood": {
-          "key": "block.phantasm.pream_wood",
-          "en": "Pream Wood"
-        },
-        "phantasm:purpur_lamp": {
-          "key": "block.phantasm.purpur_lamp",
-          "en": "Purpur Lamp"
-        },
-        "phantasm:raw_purpur": {
-          "key": "block.phantasm.raw_purpur",
-          "en": "Raw Purpur"
-        },
-        "phantasm:raw_purpur_bricks": {
-          "key": "block.phantasm.raw_purpur_bricks",
-          "en": "Raw Purpur Bricks"
-        },
-        "phantasm:raw_purpur_bricks_slab": {
-          "key": "block.phantasm.raw_purpur_bricks_slab",
-          "en": "Raw Purpur Bricks Slab"
-        },
-        "phantasm:raw_purpur_bricks_stairs": {
-          "key": "block.phantasm.raw_purpur_bricks_stairs",
-          "en": "Raw Purpur Bricks Stairs"
-        },
-        "phantasm:raw_purpur_pillar": {
-          "key": "block.phantasm.raw_purpur_pillar",
-          "en": "Raw Purpur Pillar"
-        },
-        "phantasm:raw_purpur_tiles": {
-          "key": "block.phantasm.raw_purpur_tiles",
-          "en": "Raw Purpur Tiles"
-        },
-        "phantasm:shattered_pendant": {
-          "key": "item.phantasm.shattered_pendant",
-          "en": "Shattered Pendant"
-        },
-        "phantasm:starflower": {
-          "key": "block.phantasm.starflower",
-          "en": "Starflower"
-        },
-        "phantasm:stripped_pream_log": {
-          "key": "block.phantasm.stripped_pream_log",
-          "en": "Stripped Pream Log"
-        },
-        "phantasm:stripped_pream_wood": {
-          "key": "block.phantasm.stripped_pream_wood",
-          "en": "Stripped Pream Wood"
-        },
-        "phantasm:subwoofer_block": {
-          "key": "block.phantasm.subwoofer_block",
-          "en": "Subwoofer Block"
-        },
-        "phantasm:tall_acidic_nihilis": {
-          "key": "block.phantasm.tall_acidic_nihilis",
-          "en": "Tall Acidic Nihilis"
-        },
-        "phantasm:tall_vivid_nihilis": {
-          "key": "block.phantasm.tall_vivid_nihilis",
-          "en": "Tall Vivid Nihilis"
-        },
-        "phantasm:vivid_nihilis": {
-          "key": "block.phantasm.vivid_nihilis",
-          "en": "Vivid Nihilis"
-        },
-        "phantasm:vivid_nihilium": {
-          "key": "block.phantasm.vivid_nihilium",
-          "en": "Vivid Nihilium"
-        },
-        "phantasm:void_crystal_block": {
-          "key": "block.phantasm.void_crystal_block",
-          "en": "Void Crystal Block"
-        },
-        "phantasm:void_crystal_glass": {
-          "key": "block.phantasm.void_crystal_glass",
-          "en": "Void Crystal Glass"
-        },
-        "phantasm:void_crystal_glass_pane": {
-          "key": "block.phantasm.void_crystal_glass_pane",
-          "en": "Void Crystal Glass Pane"
-        },
-        "phantasm:void_crystal_pillar": {
-          "key": "block.phantasm.void_crystal_pillar",
-          "en": "Void Crystal Pillar"
-        },
-        "phantasm:void_crystal_shard": {
-          "key": "block.phantasm.void_crystal_shard",
-          "en": "Void Crystal Shard"
-        },
-        "phantasm:void_crystal_tiles": {
-          "key": "block.phantasm.void_crystal_tiles",
-          "en": "Void Crystal Tiles"
-        },
-        "phantasm:void_crystal_tiles_slab": {
-          "key": "block.phantasm.void_crystal_tiles_slab",
-          "en": "Void Crystal Tiles Slab"
-        },
-        "phantasm:void_crystal_tiles_stairs": {
-          "key": "block.phantasm.void_crystal_tiles_stairs",
-          "en": "Void Crystal Tiles Stairs"
-        },
         "powerful_dummy:dummy_stand": {
           "key": "item.powerful_dummy.dummy_stand",
           "zh": "假人架",
@@ -62168,7 +61615,6 @@
         "minecraft:wait",
         "minecraft:ward",
         "mowziesmobs:14",
-        "phantasm:abruption",
         "takesapillage:bastille_blues",
         "twilightforest:findings",
         "twilightforest:home",
@@ -62788,8 +62234,6 @@
         "mowziesmobs:suns_blessing",
         "mynethersdelight:b_pungent",
         "mynethersdelight:g_pungent",
-        "phantasm:charm",
-        "phantasm:corrosion",
         "simplyswords:astral_shift",
         "simplyswords:battle_fatigue",
         "simplyswords:bleed",
@@ -63528,14 +62972,6 @@
           "zh": "呛鼻",
           "en": "Invigorating Pungency"
         },
-        "phantasm:charm": {
-          "key": "effect.phantasm.charm",
-          "en": "Charm"
-        },
-        "phantasm:corrosion": {
-          "key": "effect.phantasm.corrosion",
-          "en": "Corrosion"
-        },
         "simplyswords:astral_shift": {
           "key": "effect.simplyswords.astral_shift",
           "zh": "斗转星移",
@@ -64129,6 +63565,7 @@
         "endermanoverhaul:snow",
         "endermanoverhaul:soul_fire",
         "endersdelight:end_flame",
+        "examplemod:damage_spark",
         "farmersdelight:sparkle",
         "farmersdelight:star",
         "farmersdelight:steam",
@@ -64331,7 +63768,6 @@
         "mowziesmobs:sun_nova",
         "mowziesmobs:terrain",
         "mowziesmobs:vanilla_cloud_extended",
-        "phantasm:zzz",
         "simplyswords:blood_spray",
         "simplyswords:custom_bubble",
         "simplyswords:dripping_blood",
@@ -64555,9 +63991,6 @@
         "minecraft:wind_charged",
         "mowziesmobs:long_poison_resist",
         "mowziesmobs:poison_resist",
-        "phantasm:corrosion",
-        "phantasm:long_corrosion",
-        "phantasm:strong_corrosion",
         "vintagedelight:dehydrated",
         "vintagedelight:long_dehydrated",
         "vintagedelight:strong_dehydrated"
@@ -64603,6 +64036,8 @@
         "kaleidoscope_tavern:barrel",
         "kaleidoscope_tavern:pressing_tub",
         "kaleidoscope_tavern:shaker",
+        "kiwi:shaped_no_containers",
+        "kiwi:shapeless",
         "l2backpack:backpack_dye",
         "l2complements:bow_craft",
         "l2complements:burnt",
@@ -65371,11 +64806,6 @@
         "gateways:gate_end",
         "gateways:gate_start",
         "gateways:gate_warp",
-        "hunters_return:mob.hunterillager.cheer",
-        "hunters_return:mob.hunterillager.death",
-        "hunters_return:mob.hunterillager.hurt",
-        "hunters_return:mob.hunterillager.idle",
-        "hunters_return:mob.hunterillager.laugh",
         "irons_lib:block.transmog_table.forge",
         "irons_spellbooks:abyssal_teleport",
         "irons_spellbooks:arial_summoning_5_custom_1",
@@ -67408,9 +66838,6 @@
         "mowziesmobs:wroughtnaut.whoosh",
         "patchouli:book_flip",
         "patchouli:book_open",
-        "phantasm:entity.behemoth_ambient",
-        "phantasm:entity.behemoth_dying",
-        "phantasm:music_disc_abruption",
         "simplyswords:activate_plinth_03",
         "simplyswords:ambience_wind_loop",
         "simplyswords:caelestis_breach_ambience",
@@ -68316,8 +67743,6 @@
         "minecraft:windswept_hills",
         "minecraft:windswept_savanna",
         "minecraft:wooded_badlands",
-        "phantasm:acidburnt_abysses",
-        "phantasm:dreaming_den",
         "twilightforest:clearing",
         "twilightforest:dark_forest",
         "twilightforest:dark_forest_center",
@@ -68778,24 +68203,6 @@
         "minecraft:warped_fungus_planted",
         "minecraft:weeping_vines",
         "mynethersdelight:patch_powdery_cane",
-        "phantasm:choral_riff",
-        "phantasm:cirite_boulder",
-        "phantasm:cirite_spike",
-        "phantasm:crystal_spike",
-        "phantasm:dralgae",
-        "phantasm:fallen_star",
-        "phantasm:huge_dralgae",
-        "phantasm:obsidian_tower",
-        "phantasm:patch_acidic_nihilis",
-        "phantasm:patch_choral_fan",
-        "phantasm:patch_dragon_mint",
-        "phantasm:patch_oblivine",
-        "phantasm:patch_starflower",
-        "phantasm:patch_tall_acidic_nihilis",
-        "phantasm:patch_tall_vivid_nihilis",
-        "phantasm:patch_vivid_nihilis",
-        "phantasm:pream",
-        "phantasm:tall_dralgae",
         "repurposed_structures:azalea_bees_05",
         "repurposed_structures:cherry_bees_05",
         "repurposed_structures:decor/basalt_mineshaft_lava",
@@ -69323,15 +68730,6 @@
         "minecraft:waterlogged_vegetation_patch",
         "minecraft:weeping_vines",
         "mynethersdelight:powderycane",
-        "phantasm:boulder",
-        "phantasm:ceiling_boulder",
-        "phantasm:ceiling_spike",
-        "phantasm:crystal_spike",
-        "phantasm:dralgae",
-        "phantasm:huge_dralgae",
-        "phantasm:oblivine",
-        "phantasm:obsidian_tower",
-        "phantasm:single_block",
         "repurposed_structures:configurable_coral_claw",
         "repurposed_structures:configurable_coral_mushroom",
         "repurposed_structures:configurable_coral_tree",
@@ -69479,7 +68877,6 @@
         "minecraft:pine_foliage_placer",
         "minecraft:random_spread_foliage_placer",
         "minecraft:spruce_foliage_placer",
-        "phantasm:pream_foliage_placer",
         "twilightforest:spheroid_foliage_placer"
       ],
       "translations": {}
@@ -70075,24 +69472,6 @@
         "minecraft:warped_fungi",
         "minecraft:weeping_vines",
         "mynethersdelight:patch_powdery_cane",
-        "phantasm:choral_riff",
-        "phantasm:cirite_boulder",
-        "phantasm:cirite_spike",
-        "phantasm:crystal_spike",
-        "phantasm:dralgae",
-        "phantasm:fallen_star",
-        "phantasm:huge_dralgae",
-        "phantasm:obsidian_tower",
-        "phantasm:patch_acidic_nihilis",
-        "phantasm:patch_choral_fan",
-        "phantasm:patch_dragon_mint",
-        "phantasm:patch_oblivine",
-        "phantasm:patch_starflower",
-        "phantasm:patch_tall_acidic_nihilis",
-        "phantasm:patch_tall_vivid_nihilis",
-        "phantasm:patch_vivid_nihilis",
-        "phantasm:pream",
-        "phantasm:tall_dralgae",
         "repurposed_structures:azalea_bees_05",
         "repurposed_structures:brown_mushroom_normal",
         "repurposed_structures:brown_mushroom_old_growth",
@@ -70458,19 +69837,6 @@
         "processor_list"
       ],
       "values": [
-        "adventuredungeons:bygonedungeon",
-        "adventuredungeons:bygonedungeon_nocobblestairs",
-        "adventuredungeons:cold_lair",
-        "adventuredungeons:cold_lair_map",
-        "adventuredungeons:muddy_dungeon",
-        "adventuredungeons:ruins_default",
-        "adventuredungeons:ruins_default_basement",
-        "adventuredungeons:ruins_desert",
-        "adventuredungeons:ruins_desert_basement",
-        "adventuredungeons:ruins_snow",
-        "adventuredungeons:ruins_snow_basement",
-        "adventuredungeons:trialrooms",
-        "adventuredungeons:underground_camp",
         "apotheosis:item_frame_gems",
         "betterdungeons:skeleton_dungeon/skeleton_dungeon",
         "betterdungeons:small_dungeon/small_dungeon_loot_pile",
@@ -71036,212 +70402,6 @@
         "structure"
       ],
       "values": [
-        "additionalstructures:acacia_log",
-        "additionalstructures:big_jungle_log",
-        "additionalstructures:birch_log",
-        "additionalstructures:boat_1",
-        "additionalstructures:boat_2",
-        "additionalstructures:bone_1",
-        "additionalstructures:bone_2",
-        "additionalstructures:bush_1",
-        "additionalstructures:bush_2",
-        "additionalstructures:bush_3",
-        "additionalstructures:bush_4",
-        "additionalstructures:cactus_1",
-        "additionalstructures:cactus_2",
-        "additionalstructures:camp_1",
-        "additionalstructures:camp_2",
-        "additionalstructures:camp_3",
-        "additionalstructures:cobblestone_rock_1",
-        "additionalstructures:cobblestone_rock_2",
-        "additionalstructures:cobblestone_rock_3",
-        "additionalstructures:damaged_mushroom_1",
-        "additionalstructures:damaged_mushroom_2",
-        "additionalstructures:dead_tree_1",
-        "additionalstructures:dead_tree_2",
-        "additionalstructures:desert_pillars_1",
-        "additionalstructures:desert_pillars_2",
-        "additionalstructures:desert_tomb_1",
-        "additionalstructures:desert_tomb_2",
-        "additionalstructures:dragon_fossil_1",
-        "additionalstructures:dragon_fossil_2",
-        "additionalstructures:end_building_1",
-        "additionalstructures:end_crystal",
-        "additionalstructures:end_dungeon_1",
-        "additionalstructures:end_pillar_ruin_1",
-        "additionalstructures:end_pillar_ruin_2",
-        "additionalstructures:end_ruin_1",
-        "additionalstructures:end_spawn_altar_1",
-        "additionalstructures:end_spawn_altar_2",
-        "additionalstructures:end_tower_1",
-        "additionalstructures:end_tower_2",
-        "additionalstructures:end_tower_3",
-        "additionalstructures:end_tower_4",
-        "additionalstructures:end_wall_ruin_1",
-        "additionalstructures:end_wall_ruin_2",
-        "additionalstructures:end_wall_ruin_3",
-        "additionalstructures:fallen_dead_tree_1",
-        "additionalstructures:fallen_dead_tree_2",
-        "additionalstructures:fallen_dead_tree_3",
-        "additionalstructures:fallen_jungle_tree_1",
-        "additionalstructures:fallen_oak_tree_1",
-        "additionalstructures:fallen_oak_tree_2",
-        "additionalstructures:fallen_palm_tree_1",
-        "additionalstructures:fallen_palm_tree_2",
-        "additionalstructures:fallen_spruce_tree_1",
-        "additionalstructures:fallen_spruce_tree_2",
-        "additionalstructures:farm_1",
-        "additionalstructures:farm_2",
-        "additionalstructures:flotsam_1",
-        "additionalstructures:flotsam_2",
-        "additionalstructures:flotsam_3",
-        "additionalstructures:flotsam_4",
-        "additionalstructures:flotsam_5",
-        "additionalstructures:fossil_1",
-        "additionalstructures:fossil_2",
-        "additionalstructures:ice_floes_1",
-        "additionalstructures:ice_floes_2",
-        "additionalstructures:ice_floes_3",
-        "additionalstructures:ice_floes_4",
-        "additionalstructures:illager_house_1",
-        "additionalstructures:jungle_log",
-        "additionalstructures:jungle_tree_hole",
-        "additionalstructures:lava_fountain",
-        "additionalstructures:log_bundle",
-        "additionalstructures:maya_temple",
-        "additionalstructures:meteor",
-        "additionalstructures:mushroom_house_1",
-        "additionalstructures:mushroom_house_2",
-        "additionalstructures:nether_building_1",
-        "additionalstructures:nether_building_2",
-        "additionalstructures:nether_building_3",
-        "additionalstructures:nether_dungeon_1",
-        "additionalstructures:nether_dungeon_2",
-        "additionalstructures:nether_dungeon_3",
-        "additionalstructures:nether_pillar_1",
-        "additionalstructures:nether_pillar_2",
-        "additionalstructures:nether_spawn_altar_1",
-        "additionalstructures:nether_spawn_altar_2",
-        "additionalstructures:nether_spawn_altar_3",
-        "additionalstructures:nether_villager_house_1",
-        "additionalstructures:nether_wall_ruin_1",
-        "additionalstructures:nether_wall_ruin_2",
-        "additionalstructures:nether_wall_ruin_3",
-        "additionalstructures:nether_wall_ruin_4",
-        "additionalstructures:oak_log_1",
-        "additionalstructures:oak_log_2",
-        "additionalstructures:oasis_1",
-        "additionalstructures:oasis_2",
-        "additionalstructures:obsidian_pillar_1",
-        "additionalstructures:obsidian_pillar_2",
-        "additionalstructures:obsidian_pillar_3",
-        "additionalstructures:obsidian_pillar_4",
-        "additionalstructures:obsidian_pillar_5",
-        "additionalstructures:obsidian_spike_1",
-        "additionalstructures:obsidian_spike_2",
-        "additionalstructures:obsidian_spike_3",
-        "additionalstructures:obsidian_tree_1",
-        "additionalstructures:obsidian_tree_2",
-        "additionalstructures:obsidian_tree_3",
-        "additionalstructures:obsidian_tree_4",
-        "additionalstructures:palm_1",
-        "additionalstructures:palm_2",
-        "additionalstructures:palm_3",
-        "additionalstructures:palm_4",
-        "additionalstructures:pillar_ruin_1",
-        "additionalstructures:pillar_ruin_2",
-        "additionalstructures:pillar_ruin_3",
-        "additionalstructures:pyramid_1",
-        "additionalstructures:pyramid_2",
-        "additionalstructures:pyramid_dungeon",
-        "additionalstructures:red_sandstone_totem_1",
-        "additionalstructures:red_sandstone_totem_2",
-        "additionalstructures:ruin_1",
-        "additionalstructures:sandstone_rock_1",
-        "additionalstructures:sandstone_rock_2",
-        "additionalstructures:sandstone_rock_3",
-        "additionalstructures:sandstone_totem_1",
-        "additionalstructures:sandstone_totem_2",
-        "additionalstructures:sandstone_totem_3",
-        "additionalstructures:scarecrow",
-        "additionalstructures:sewage_system_1",
-        "additionalstructures:shulker_cluster_1",
-        "additionalstructures:shulker_cluster_2",
-        "additionalstructures:silverfish_cluster_1",
-        "additionalstructures:silverfish_cluster_2",
-        "additionalstructures:skeleton_skull",
-        "additionalstructures:snow_pile_1",
-        "additionalstructures:snow_pile_2",
-        "additionalstructures:snow_pile_3",
-        "additionalstructures:snowman_1",
-        "additionalstructures:snowman_2",
-        "additionalstructures:spawn_altar_1",
-        "additionalstructures:spawn_altar_2",
-        "additionalstructures:spawn_altar_3",
-        "additionalstructures:spawn_altar_4",
-        "additionalstructures:spawn_altar_5",
-        "additionalstructures:spawn_altar_6",
-        "additionalstructures:spawn_altar_7",
-        "additionalstructures:sphinx",
-        "additionalstructures:spider_nest_1",
-        "additionalstructures:spider_nest_2",
-        "additionalstructures:spider_nest_3",
-        "additionalstructures:spruce_log_1",
-        "additionalstructures:spruce_log_2",
-        "additionalstructures:standing_acacia_log",
-        "additionalstructures:standing_dark_oak_log",
-        "additionalstructures:standing_jungle_log",
-        "additionalstructures:standing_oak_log",
-        "additionalstructures:standing_spruce_log",
-        "additionalstructures:stone_circle_1",
-        "additionalstructures:stone_circle_2",
-        "additionalstructures:stone_circle_3",
-        "additionalstructures:stone_rock_1",
-        "additionalstructures:stone_rock_2",
-        "additionalstructures:stone_rock_3",
-        "additionalstructures:stone_rock_4",
-        "additionalstructures:suspicious_gravel_patch_1",
-        "additionalstructures:suspicious_gravel_patch_2",
-        "additionalstructures:suspicious_sand_patch_1",
-        "additionalstructures:suspicious_sand_patch_2",
-        "additionalstructures:suspicious_sand_patch_3",
-        "additionalstructures:suspicious_sand_patch_4",
-        "additionalstructures:temple_1",
-        "additionalstructures:temple_2",
-        "additionalstructures:tomb_1",
-        "additionalstructures:tomb_2",
-        "additionalstructures:tomb_3",
-        "additionalstructures:tomb_4",
-        "additionalstructures:tower_1",
-        "additionalstructures:tower_2",
-        "additionalstructures:underground_base_1",
-        "additionalstructures:underground_base_2",
-        "additionalstructures:underground_dungeon_1",
-        "additionalstructures:underground_dungeon_2",
-        "additionalstructures:underground_nether_portal",
-        "additionalstructures:underground_stollen_1",
-        "additionalstructures:villager_house_1",
-        "additionalstructures:villager_house_2",
-        "additionalstructures:villager_house_3",
-        "additionalstructures:villager_house_4",
-        "additionalstructures:villager_statue_1",
-        "additionalstructures:villager_statue_2",
-        "additionalstructures:villager_statue_3",
-        "additionalstructures:villager_statue_4",
-        "additionalstructures:villager_statue_5",
-        "additionalstructures:wall_ruin_1",
-        "additionalstructures:wall_ruin_2",
-        "additionalstructures:well_1",
-        "additionalstructures:well_2",
-        "additionalstructures:wither_skull",
-        "adventuredungeons:bygonedungeon",
-        "adventuredungeons:coldlair",
-        "adventuredungeons:murkydungeon",
-        "adventuredungeons:ruins_desert",
-        "adventuredungeons:ruins_snow",
-        "adventuredungeons:ruins_standard",
-        "adventuredungeons:trialrooms",
-        "adventuredungeons:underground_camp",
         "apotheosis:tower_leaf",
         "apotheosis:tower_main",
         "apotheosis:tower_sand",
@@ -71419,7 +70579,6 @@
         "golemdungeons:abandoned_factory",
         "golemdungeons:piglin_factory",
         "golemdungeons:sculk_factory",
-        "hunters_return:hunter_house",
         "incendium:abandoned_tower",
         "incendium:forbidden_castle",
         "incendium:infernal_altar",
@@ -71686,7 +70845,6 @@
         "mvs:wheat_grain_bin",
         "mvs:windmill",
         "mvs:wooden_wheat_farm",
-        "phantasm:obsidian_tower",
         "repurposed_structures:ancient_city_end",
         "repurposed_structures:ancient_city_nether",
         "repurposed_structures:ancient_city_ocean",
@@ -72381,59 +71539,6 @@
         "structure_set"
       ],
       "values": [
-        "additionalstructures:big_dungeons",
-        "additionalstructures:boats",
-        "additionalstructures:bushes",
-        "additionalstructures:camps",
-        "additionalstructures:dead_trees",
-        "additionalstructures:dragon_fossils",
-        "additionalstructures:dungeon-spawners",
-        "additionalstructures:end_buildings",
-        "additionalstructures:end_crystals",
-        "additionalstructures:flotsam",
-        "additionalstructures:fossils",
-        "additionalstructures:ice_floes",
-        "additionalstructures:illager_houses",
-        "additionalstructures:meteor",
-        "additionalstructures:mushroom_houses",
-        "additionalstructures:nether_buildings",
-        "additionalstructures:oasis",
-        "additionalstructures:obsidian_structures",
-        "additionalstructures:pillars",
-        "additionalstructures:portals",
-        "additionalstructures:pyramids",
-        "additionalstructures:rocks",
-        "additionalstructures:ruins",
-        "additionalstructures:scarecrows",
-        "additionalstructures:shulker_cluster",
-        "additionalstructures:silverfish_cluster",
-        "additionalstructures:skulls",
-        "additionalstructures:snow_piles",
-        "additionalstructures:snowmen",
-        "additionalstructures:spawn_altars",
-        "additionalstructures:sphinx",
-        "additionalstructures:spider_nests",
-        "additionalstructures:statues",
-        "additionalstructures:stone_circles",
-        "additionalstructures:suspicious_patches",
-        "additionalstructures:temples",
-        "additionalstructures:tombs",
-        "additionalstructures:totems",
-        "additionalstructures:towers",
-        "additionalstructures:trees",
-        "additionalstructures:underground_bases",
-        "additionalstructures:underground_structures",
-        "additionalstructures:villager_structures",
-        "additionalstructures:wall_ruins",
-        "additionalstructures:wells",
-        "adventuredungeons:bygonedungeon",
-        "adventuredungeons:coldlair",
-        "adventuredungeons:murkydungeon",
-        "adventuredungeons:ruins_desert",
-        "adventuredungeons:ruins_snow",
-        "adventuredungeons:ruins_standard",
-        "adventuredungeons:trialrooms",
-        "adventuredungeons:underground_camp",
         "apotheosis:towers",
         "ati_structures:aboveground_large",
         "ati_structures:aboveground_medium",
@@ -72501,7 +71606,6 @@
         "golemdungeons:abandoned_factory",
         "golemdungeons:piglin_factory",
         "golemdungeons:sculk_factory",
-        "hunters_return:hunter_house",
         "incendium:greater_structures",
         "incendium:lesser_structures",
         "irons_spellbooks:ancient_battleground",
@@ -72722,7 +71826,6 @@
         "mvs:wheat_grain_bin",
         "mvs:windmill",
         "mvs:wooden_wheat_farm",
-        "phantasm:obsidian_tower",
         "repurposed_structures:ancient_cities_end",
         "repurposed_structures:ancient_cities_nether",
         "repurposed_structures:ancient_cities_overworld",
@@ -72896,234 +71999,6 @@
         "template_pool"
       ],
       "values": [
-        "additionalstructures:acacia_log",
-        "additionalstructures:big_jungle_log",
-        "additionalstructures:birch_log",
-        "additionalstructures:boat_1",
-        "additionalstructures:boat_2",
-        "additionalstructures:bone_1",
-        "additionalstructures:bone_2",
-        "additionalstructures:bush_1",
-        "additionalstructures:bush_2",
-        "additionalstructures:bush_3",
-        "additionalstructures:bush_4",
-        "additionalstructures:cactus_1",
-        "additionalstructures:cactus_2",
-        "additionalstructures:camp_1",
-        "additionalstructures:camp_2",
-        "additionalstructures:camp_3",
-        "additionalstructures:cobblestone_rock_1",
-        "additionalstructures:cobblestone_rock_2",
-        "additionalstructures:cobblestone_rock_3",
-        "additionalstructures:damaged_mushroom_1",
-        "additionalstructures:damaged_mushroom_2",
-        "additionalstructures:dead_tree_1",
-        "additionalstructures:dead_tree_2",
-        "additionalstructures:desert_pillars_1",
-        "additionalstructures:desert_pillars_2",
-        "additionalstructures:desert_tomb_1",
-        "additionalstructures:desert_tomb_2",
-        "additionalstructures:dragon_fossil_1",
-        "additionalstructures:dragon_fossil_2",
-        "additionalstructures:end_building_1",
-        "additionalstructures:end_crystal",
-        "additionalstructures:end_dungeon_1",
-        "additionalstructures:end_pillar_ruin_1",
-        "additionalstructures:end_pillar_ruin_2",
-        "additionalstructures:end_ruin_1",
-        "additionalstructures:end_spawn_altar_1",
-        "additionalstructures:end_spawn_altar_2",
-        "additionalstructures:end_tower_1",
-        "additionalstructures:end_tower_2",
-        "additionalstructures:end_tower_3",
-        "additionalstructures:end_tower_4",
-        "additionalstructures:end_wall_ruin_1",
-        "additionalstructures:end_wall_ruin_2",
-        "additionalstructures:end_wall_ruin_3",
-        "additionalstructures:fallen_dead_tree_1",
-        "additionalstructures:fallen_dead_tree_2",
-        "additionalstructures:fallen_dead_tree_3",
-        "additionalstructures:fallen_jungle_tree_1",
-        "additionalstructures:fallen_oak_tree_1",
-        "additionalstructures:fallen_oak_tree_2",
-        "additionalstructures:fallen_palm_tree_1",
-        "additionalstructures:fallen_palm_tree_2",
-        "additionalstructures:fallen_spruce_tree_1",
-        "additionalstructures:fallen_spruce_tree_2",
-        "additionalstructures:farm_1",
-        "additionalstructures:farm_2",
-        "additionalstructures:flotsam_1",
-        "additionalstructures:flotsam_2",
-        "additionalstructures:flotsam_3",
-        "additionalstructures:flotsam_4",
-        "additionalstructures:flotsam_5",
-        "additionalstructures:fossil_1",
-        "additionalstructures:fossil_2",
-        "additionalstructures:ice_floes_1",
-        "additionalstructures:ice_floes_2",
-        "additionalstructures:ice_floes_3",
-        "additionalstructures:ice_floes_4",
-        "additionalstructures:illager_house_1",
-        "additionalstructures:jungle_log",
-        "additionalstructures:jungle_tree_hole",
-        "additionalstructures:lava_fountain",
-        "additionalstructures:log_bundle",
-        "additionalstructures:maya_temple",
-        "additionalstructures:meteor",
-        "additionalstructures:mushroom_house_1",
-        "additionalstructures:mushroom_house_2",
-        "additionalstructures:nether_building_1",
-        "additionalstructures:nether_building_2",
-        "additionalstructures:nether_building_3",
-        "additionalstructures:nether_dungeon_1",
-        "additionalstructures:nether_dungeon_2",
-        "additionalstructures:nether_dungeon_3",
-        "additionalstructures:nether_pillar_1",
-        "additionalstructures:nether_pillar_2",
-        "additionalstructures:nether_spawn_altar_1",
-        "additionalstructures:nether_spawn_altar_2",
-        "additionalstructures:nether_spawn_altar_3",
-        "additionalstructures:nether_villager_house_1",
-        "additionalstructures:nether_wall_ruin_1",
-        "additionalstructures:nether_wall_ruin_2",
-        "additionalstructures:nether_wall_ruin_3",
-        "additionalstructures:nether_wall_ruin_4",
-        "additionalstructures:oak_log_1",
-        "additionalstructures:oak_log_2",
-        "additionalstructures:oasis_1",
-        "additionalstructures:oasis_2",
-        "additionalstructures:obsidian_pillar_1",
-        "additionalstructures:obsidian_pillar_2",
-        "additionalstructures:obsidian_pillar_3",
-        "additionalstructures:obsidian_pillar_4",
-        "additionalstructures:obsidian_pillar_5",
-        "additionalstructures:obsidian_spike_1",
-        "additionalstructures:obsidian_spike_2",
-        "additionalstructures:obsidian_spike_3",
-        "additionalstructures:obsidian_tree_1",
-        "additionalstructures:obsidian_tree_2",
-        "additionalstructures:obsidian_tree_3",
-        "additionalstructures:obsidian_tree_4",
-        "additionalstructures:palm_1",
-        "additionalstructures:palm_2",
-        "additionalstructures:palm_3",
-        "additionalstructures:palm_4",
-        "additionalstructures:pillar_ruin_1",
-        "additionalstructures:pillar_ruin_2",
-        "additionalstructures:pillar_ruin_3",
-        "additionalstructures:pyramid_1",
-        "additionalstructures:pyramid_2",
-        "additionalstructures:pyramid_dungeon",
-        "additionalstructures:red_sandstone_totem_1",
-        "additionalstructures:red_sandstone_totem_2",
-        "additionalstructures:ruin_1",
-        "additionalstructures:sandstone_rock_1",
-        "additionalstructures:sandstone_rock_2",
-        "additionalstructures:sandstone_rock_3",
-        "additionalstructures:sandstone_totem_1",
-        "additionalstructures:sandstone_totem_2",
-        "additionalstructures:sandstone_totem_3",
-        "additionalstructures:scarecrow",
-        "additionalstructures:sewage_system_1",
-        "additionalstructures:shulker_cluster_1",
-        "additionalstructures:shulker_cluster_2",
-        "additionalstructures:silverfish_cluster_1",
-        "additionalstructures:silverfish_cluster_2",
-        "additionalstructures:skeleton_skull",
-        "additionalstructures:snow_pile_1",
-        "additionalstructures:snow_pile_2",
-        "additionalstructures:snow_pile_3",
-        "additionalstructures:snowman_1",
-        "additionalstructures:snowman_2",
-        "additionalstructures:spawn_altar_1",
-        "additionalstructures:spawn_altar_2",
-        "additionalstructures:spawn_altar_3",
-        "additionalstructures:spawn_altar_4",
-        "additionalstructures:spawn_altar_5",
-        "additionalstructures:spawn_altar_6",
-        "additionalstructures:spawn_altar_7",
-        "additionalstructures:sphinx",
-        "additionalstructures:spider_nest_1",
-        "additionalstructures:spider_nest_2",
-        "additionalstructures:spider_nest_3",
-        "additionalstructures:spruce_log_1",
-        "additionalstructures:spruce_log_2",
-        "additionalstructures:standing_acacia_log",
-        "additionalstructures:standing_dark_oak_log",
-        "additionalstructures:standing_jungle_log",
-        "additionalstructures:standing_oak_log",
-        "additionalstructures:standing_spruce_log",
-        "additionalstructures:stone_circle_1",
-        "additionalstructures:stone_circle_2",
-        "additionalstructures:stone_circle_3",
-        "additionalstructures:stone_rock_1",
-        "additionalstructures:stone_rock_2",
-        "additionalstructures:stone_rock_3",
-        "additionalstructures:stone_rock_4",
-        "additionalstructures:suspicious_gravel_patch_1",
-        "additionalstructures:suspicious_gravel_patch_2",
-        "additionalstructures:suspicious_sand_patch_1",
-        "additionalstructures:suspicious_sand_patch_2",
-        "additionalstructures:suspicious_sand_patch_3",
-        "additionalstructures:suspicious_sand_patch_4",
-        "additionalstructures:temple_1",
-        "additionalstructures:temple_2",
-        "additionalstructures:tomb_1",
-        "additionalstructures:tomb_2",
-        "additionalstructures:tomb_3",
-        "additionalstructures:tomb_4",
-        "additionalstructures:tower_1",
-        "additionalstructures:tower_2",
-        "additionalstructures:underground_base_1",
-        "additionalstructures:underground_base_2",
-        "additionalstructures:underground_dungeon_1",
-        "additionalstructures:underground_dungeon_2",
-        "additionalstructures:underground_nether_portal",
-        "additionalstructures:underground_stollen_1",
-        "additionalstructures:villager_house_1",
-        "additionalstructures:villager_house_2",
-        "additionalstructures:villager_house_3",
-        "additionalstructures:villager_house_4",
-        "additionalstructures:villager_statue_1",
-        "additionalstructures:villager_statue_2",
-        "additionalstructures:villager_statue_3",
-        "additionalstructures:villager_statue_4",
-        "additionalstructures:villager_statue_5",
-        "additionalstructures:wall_ruin_1",
-        "additionalstructures:wall_ruin_2",
-        "additionalstructures:well_1",
-        "additionalstructures:well_2",
-        "additionalstructures:wither_skull",
-        "adventuredungeons:bygonedungeon/battleroom",
-        "adventuredungeons:bygonedungeon/behind",
-        "adventuredungeons:bygonedungeon/decors",
-        "adventuredungeons:bygonedungeon/loot",
-        "adventuredungeons:bygonedungeon/pots",
-        "adventuredungeons:bygonedungeon/rooms",
-        "adventuredungeons:bygonedungeon/saferoom",
-        "adventuredungeons:bygonedungeon/spawners",
-        "adventuredungeons:bygonedungeon/tableitem",
-        "adventuredungeons:bygonedungeon/vault",
-        "adventuredungeons:coldlair/center",
-        "adventuredungeons:coldlair/feature",
-        "adventuredungeons:coldlair/rooms",
-        "adventuredungeons:coldlair/vault",
-        "adventuredungeons:murkydungeon/center",
-        "adventuredungeons:murkydungeon/rooms",
-        "adventuredungeons:murkydungeon/rooms_failed",
-        "adventuredungeons:murkydungeon/vault",
-        "adventuredungeons:ruins_desert/desert_basement_ruined",
-        "adventuredungeons:ruins_desert/desert_house_ruined",
-        "adventuredungeons:ruins_desert/desert_sand",
-        "adventuredungeons:ruins_snow/snow_basement_ruined",
-        "adventuredungeons:ruins_snow/snow_house_ruined",
-        "adventuredungeons:ruins_standard/standard_basement_ruined",
-        "adventuredungeons:ruins_standard/standard_gravel",
-        "adventuredungeons:ruins_standard/standard_house_ruined",
-        "adventuredungeons:trialrooms/maincorridor",
-        "adventuredungeons:trialrooms/mainroom",
-        "adventuredungeons:trialrooms/vault",
-        "adventuredungeons:underground_camp/main",
         "apotheosis:tower_leaf",
         "apotheosis:tower_main",
         "apotheosis:tower_sand",
@@ -73641,11 +72516,6 @@
         "golemdungeons:sculk_factory/sculpture",
         "golemdungeons:sculk_factory/side_path",
         "golemdungeons:sculk_factory/treasure",
-        "hunters_return:hunter_house/hunter_base",
-        "hunters_return:hunter_house/hunter_illager_house",
-        "hunters_return:hunter_house/mob/hunter_guard",
-        "hunters_return:hunter_house/mob/hunter_illager",
-        "hunters_return:hunter_house/watch_tower",
         "incendium:anarchy/large_casts",
         "incendium:anarchy/large_force",
         "incendium:anarchy/starts",
@@ -74707,7 +73577,6 @@
         "mvs:well/wells/rocky_well/start_pool",
         "mvs:well/wells/snowy_well/start_pool",
         "mvs:well/wells/spruce_well/start_pool",
-        "phantasm:obsidian_tower/start_pool",
         "repurposed_structures:ancient_cities/end/chorus",
         "repurposed_structures:ancient_cities/end/city/entrance",
         "repurposed_structures:ancient_cities/end/city_center/walls",
@@ -75986,7 +74855,6 @@
         "minecraft:mega_jungle_trunk_placer",
         "minecraft:straight_trunk_placer",
         "minecraft:upwards_branching_trunk_placer",
-        "phantasm:pream_trunk_placer",
         "twilightforest:branching_trunk_placer",
         "twilightforest:trunk_mover_upper",
         "vintagedelight:vine_trunk_placer"
@@ -76044,7 +74912,6 @@
         "modifier"
       ],
       "values": [
-        "examplemod:backstab",
         "golemdungeons:giant",
         "golemdungeons:reforge",
         "golemdungeons:resistance",
@@ -76126,11 +74993,6 @@
         "modulargolems:wroughtnaut"
       ],
       "translations": {
-        "examplemod:backstab": {
-          "key": "modifier.examplemod.backstab",
-          "zh": "背刺",
-          "en": "背刺"
-        },
         "golemdungeons:giant": {
           "key": "modifier.golemdungeons.giant",
           "zh": "泰坦升级",
@@ -76848,9 +75710,6 @@
         "iss_magicfromtheeast:jiangshi_spawns",
         "mowziesmobs:mowzie_mob_spawns",
         "mynethersdelight:patch_powdery_cane",
-        "phantasm:behemoth_biome_modifier",
-        "phantasm:crystie_biome_modifier",
-        "phantasm:fallen_star_biome_modifier",
         "repurposed_structures:dungeons/badlands",
         "repurposed_structures:dungeons/dark_forest",
         "repurposed_structures:dungeons/deep",
@@ -76930,6 +75789,8 @@
       "values": [
         "artifacts:config_value",
         "farmersdelight:vanilla_crates_enabled",
+        "kiwi:eval",
+        "kiwi:is_loaded",
         "l2core:bool_config",
         "l2core:double_config",
         "l2core:int_config",
@@ -76946,6 +75807,7 @@
         "neoforge:or",
         "neoforge:tag_empty",
         "neoforge:true",
+        "passablefoliage:always_leaf_walking",
         "twilightdelight:item_absent",
         "twilightforest:uncrafting_table_enabled",
         "waystones:force_spawn_in_villages"
@@ -76986,7 +75848,6 @@
         "dungeonnowloading:vertex_domain_animation_state",
         "dungeonnowloading:whimper_animation_state",
         "dungeonnowloading:whimper_skin",
-        "hunters_return:hunter_variant",
         "mowziesmobs:optional_trade",
         "twilightforest:dwarf_rabbit_variant",
         "twilightforest:magic_painting_variant",
@@ -77247,6 +76108,7 @@
         "bookshelf:false",
         "bookshelf:mod_id",
         "farmersdelight:item_ability",
+        "kiwi:alternatives",
         "l2core:enchantment",
         "l2core:potion",
         "neoforge:block_tag",
@@ -77722,6 +76584,17 @@
         "success",
         "fail",
         "pass"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "ca.spottedleaf.starlight.interndep.flowsched.scheduler.ExceptionHandlingAction",
+      "aliases": [
+        "exception_handling_action"
+      ],
+      "values": [
+        "proceed",
+        "mark_broken"
       ],
       "translations": {}
     },
@@ -78338,26 +77211,22 @@
       "translations": {}
     },
     {
-      "id": "com.example.examplemod.client.tooltip.TooltipCategory",
+      "id": "com.example.examplemod.client.jade.CustomStatusEffectsClientProvider",
       "aliases": [
-        "tooltip_category"
+        "custom_status_effects_client_provider"
       ],
       "values": [
-        "identity",
-        "durability",
-        "attributes",
-        "tool",
-        "enchantments",
-        "effects",
-        "food",
-        "fuel",
-        "compost",
-        "cooldown",
-        "tags",
-        "components",
-        "container_preview",
-        "custom",
-        "debug"
+        "instance"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.example.examplemod.compat.jade.CustomStatusEffectsServerProvider",
+      "aliases": [
+        "custom_status_effects_server_provider"
+      ],
+      "values": [
+        "instance"
       ],
       "translations": {}
     },
@@ -81264,6 +80133,139 @@
         "fastfurnace",
         "fastworkbench",
         "fastsuite"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.ishland.c2me.base.common.config.ConfigSystem$LongChecks",
+      "aliases": [
+        "long_checks",
+        "config_system",
+        "config_system_long_checks"
+      ],
+      "values": [
+        "thread_count",
+        "positive_values_only",
+        "non_negative_value_only"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.ishland.c2me.base.common.scheduler.LockTokenImpl$Usage",
+      "aliases": [
+        "usage",
+        "lock_token_impl",
+        "lock_token_impl_usage"
+      ],
+      "values": [
+        "worldgen",
+        "lighting"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.ishland.c2me.base.common.threadpriority.ThreadPriorityPresets",
+      "aliases": [
+        "thread_priority_presets"
+      ],
+      "values": [
+        "unset",
+        "below_normal",
+        "low",
+        "lower",
+        "lowest"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.ishland.c2me.opts.dfc.common.ast.AstNode$ReturnType",
+      "aliases": [
+        "return_type",
+        "ast_node",
+        "ast_node_return_type"
+      ],
+      "values": [
+        "f64",
+        "f32"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.ishland.c2me.opts.dfc.common.ast.EvalType",
+      "aliases": [
+        "eval_type"
+      ],
+      "values": [
+        "normal",
+        "interpolation"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.ishland.c2me.opts.dfc.common.ast.misc.CoordinateNode$Axis",
+      "aliases": [
+        "axis",
+        "coordinate_node",
+        "coordinate_node_axis"
+      ],
+      "values": [
+        "x",
+        "y",
+        "z"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.ishland.c2me.opts.dfc.common.gen.opencl.OpenCLCGenFunctionContext$FunctionVariant",
+      "aliases": [
+        "function_variant",
+        "open_clcgen_function_context",
+        "open_clcgen_function_context_function_variant"
+      ],
+      "values": [
+        "uncached",
+        "flatcache_only",
+        "fully_cached",
+        "fully_cached_except_cache2d"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.ishland.c2me.opts.dfc.common.util.TreeUtils$AstNodeConsumer$IterationBehavior",
+      "aliases": [
+        "iteration_behavior",
+        "ast_node_consumer",
+        "tree_utils",
+        "tree_utils_ast_node_consumer_iteration_behavior"
+      ],
+      "values": [
+        "continue",
+        "stop_expanding"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.ishland.c2me.opts.scheduling.common.Config$AutoSaveMode",
+      "aliases": [
+        "auto_save_mode",
+        "config",
+        "config_auto_save_mode"
+      ],
+      "values": [
+        "vanilla",
+        "enhanced",
+        "periodic"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.ishland.flowsched.scheduler.ExceptionHandlingAction",
+      "aliases": [
+        "exception_handling_action"
+      ],
+      "values": [
+        "proceed",
+        "mark_broken"
       ],
       "translations": {}
     },
@@ -95609,20 +94611,6 @@
       "translations": {}
     },
     {
-      "id": "net.lyof.phantasm.entities.animations.BehemothAnimation",
-      "aliases": [
-        "behemoth_animation"
-      ],
-      "values": [
-        "idle",
-        "walking",
-        "sleeping",
-        "waking_up",
-        "waking_down"
-      ],
-      "translations": {}
-    },
-    {
       "id": "net.mehvahdjukaar.jeed.api.IEffectScreenExtension$CallReason",
       "aliases": [
         "call_reason",
@@ -97228,6 +96216,19 @@
       "translations": {}
     },
     {
+      "id": "net.minecraft.server.level.ThreadedLevelLightEngine$TaskType",
+      "aliases": [
+        "task_type",
+        "threaded_level_light_engine",
+        "threaded_level_light_engine_task_type"
+      ],
+      "values": [
+        "pre_update",
+        "post_update"
+      ],
+      "translations": {}
+    },
+    {
       "id": "net.minecraft.server.packs.PackType",
       "aliases": [
         "pack_type"
@@ -98321,7 +97322,6 @@
         "pillager",
         "witch",
         "ravager",
-        "hunters_return_hunter",
         "archer",
         "skirmisher",
         "legioner"
@@ -99483,6 +98483,42 @@
       "values": [
         "unspecified",
         "by_distance"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "net.minecraft.world.level.levelgen.DensityFunctions$BeardifierMarker",
+      "aliases": [
+        "beardifier_marker",
+        "density_functions",
+        "density_functions_beardifier_marker"
+      ],
+      "values": [
+        "instance"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "net.minecraft.world.level.levelgen.DensityFunctions$BlendAlpha",
+      "aliases": [
+        "blend_alpha",
+        "density_functions",
+        "density_functions_blend_alpha"
+      ],
+      "values": [
+        "instance"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "net.minecraft.world.level.levelgen.DensityFunctions$BlendOffset",
+      "aliases": [
+        "blend_offset",
+        "density_functions",
+        "density_functions_blend_offset"
+      ],
+      "values": [
+        "instance"
       ],
       "translations": {}
     },
@@ -106260,6 +105296,407 @@
         "down",
         "left",
         "right"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.RenderLayerEnum",
+      "aliases": [
+        "render_layer_enum"
+      ],
+      "values": [
+        "cutout_mipped",
+        "cutout",
+        "translucent"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.config.KiwiConfig$ConfigType",
+      "aliases": [
+        "config_type",
+        "kiwi_config",
+        "kiwi_config_config_type"
+      ],
+      "values": [
+        "common",
+        "client",
+        "server"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.config.KiwiConfig$PerformanceType",
+      "aliases": [
+        "performance_type",
+        "kiwi_config",
+        "kiwi_config_performance_type"
+      ],
+      "values": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.contributor.ITierProvider$Empty",
+      "aliases": [
+        "empty",
+        "itier_provider",
+        "itier_provider_empty"
+      ],
+      "values": [
+        "instance"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.customization.builder.BlockSpread$Type",
+      "aliases": [
+        "type",
+        "block_spread",
+        "block_spread_type"
+      ],
+      "values": [
+        "plane_y",
+        "plane_xz",
+        "plane_xyz"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.customization.builder.FacingLimitation",
+      "aliases": [
+        "facing_limitation"
+      ],
+      "values": [
+        "none",
+        "front_and_back",
+        "side"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.customization.network.CConvertItemPacket$Action",
+      "aliases": [
+        "action",
+        "cconvert_item_packet",
+        "cconvert_item_packet_action"
+      ],
+      "values": [
+        "convert_all",
+        "convert_one",
+        "convert_family"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.customization.placement.PlaceTarget$Type",
+      "aliases": [
+        "type",
+        "place_target",
+        "place_target_type"
+      ],
+      "values": [
+        "template",
+        "block"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.customization.shape.BlockShapeType",
+      "aliases": [
+        "block_shape_type"
+      ],
+      "values": [
+        "main",
+        "collision",
+        "interaction"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.loader.Platform$Type",
+      "aliases": [
+        "type",
+        "platform",
+        "platform_type"
+      ],
+      "values": [
+        "vanilla",
+        "fabric",
+        "quilt",
+        "forge",
+        "neoforge",
+        "unknown"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.network.KiwiPacket$Direction",
+      "aliases": [
+        "direction",
+        "kiwi_packet",
+        "kiwi_packet_direction"
+      ],
+      "values": [
+        "auto",
+        "to_server",
+        "to_client",
+        "custom"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.shadowed.com.ezylang.evalex.data.EvaluationValue$DataType",
+      "aliases": [
+        "data_type",
+        "evaluation_value",
+        "evaluation_value_data_type"
+      ],
+      "values": [
+        "string",
+        "number",
+        "boolean",
+        "date_time",
+        "duration",
+        "array",
+        "structure",
+        "expression_node",
+        "null",
+        "binary"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.shadowed.com.ezylang.evalex.operators.OperatorIfc$OperatorType",
+      "aliases": [
+        "operator_type",
+        "operator_ifc",
+        "operator_ifc_operator_type"
+      ],
+      "values": [
+        "prefix_operator",
+        "postfix_operator",
+        "infix_operator"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.shadowed.com.ezylang.evalex.parser.Token$TokenType",
+      "aliases": [
+        "token_type",
+        "token",
+        "token_token_type"
+      ],
+      "values": [
+        "brace_open",
+        "brace_close",
+        "comma",
+        "string_literal",
+        "number_literal",
+        "variable_or_constant",
+        "infix_operator",
+        "prefix_operator",
+        "postfix_operator",
+        "function",
+        "function_param_start",
+        "array_open",
+        "array_close",
+        "array_index",
+        "structure_separator"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.shadowed.org.yaml.snakeyaml.DumperOptions$FlowStyle",
+      "aliases": [
+        "flow_style",
+        "dumper_options",
+        "dumper_options_flow_style"
+      ],
+      "values": [
+        "flow",
+        "block",
+        "auto"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.shadowed.org.yaml.snakeyaml.DumperOptions$LineBreak",
+      "aliases": [
+        "line_break",
+        "dumper_options",
+        "dumper_options_line_break"
+      ],
+      "values": [
+        "win",
+        "mac",
+        "unix"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.shadowed.org.yaml.snakeyaml.DumperOptions$NonPrintableStyle",
+      "aliases": [
+        "non_printable_style",
+        "dumper_options",
+        "dumper_options_non_printable_style"
+      ],
+      "values": [
+        "binary",
+        "escape"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.shadowed.org.yaml.snakeyaml.DumperOptions$ScalarStyle",
+      "aliases": [
+        "scalar_style",
+        "dumper_options",
+        "dumper_options_scalar_style"
+      ],
+      "values": [
+        "double_quoted",
+        "single_quoted",
+        "literal",
+        "folded",
+        "plain"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.shadowed.org.yaml.snakeyaml.DumperOptions$Version",
+      "aliases": [
+        "version",
+        "dumper_options",
+        "dumper_options_version"
+      ],
+      "values": [
+        "v1_0",
+        "v1_1"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.shadowed.org.yaml.snakeyaml.comments.CommentType",
+      "aliases": [
+        "comment_type"
+      ],
+      "values": [
+        "blank_line",
+        "block",
+        "in_line"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.shadowed.org.yaml.snakeyaml.events.Event$ID",
+      "aliases": [
+        "id",
+        "event",
+        "event_id"
+      ],
+      "values": [
+        "alias",
+        "comment",
+        "documentend",
+        "documentstart",
+        "mappingend",
+        "mappingstart",
+        "scalar",
+        "sequenceend",
+        "sequencestart",
+        "streamend",
+        "streamstart"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.shadowed.org.yaml.snakeyaml.internal.Logger$Level",
+      "aliases": [
+        "level",
+        "logger",
+        "logger_level"
+      ],
+      "values": [
+        "warning"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.shadowed.org.yaml.snakeyaml.introspector.BeanAccess",
+      "aliases": [
+        "bean_access"
+      ],
+      "values": [
+        "default",
+        "field",
+        "property"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.shadowed.org.yaml.snakeyaml.nodes.NodeId",
+      "aliases": [
+        "node_id"
+      ],
+      "values": [
+        "scalar",
+        "sequence",
+        "mapping",
+        "anchor"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.shadowed.org.yaml.snakeyaml.tokens.Token$ID",
+      "aliases": [
+        "id",
+        "token",
+        "token_id"
+      ],
+      "values": [
+        "alias",
+        "anchor",
+        "blockend",
+        "blockentry",
+        "blockmappingstart",
+        "blocksequencestart",
+        "directive",
+        "documentend",
+        "documentstart",
+        "flowentry",
+        "flowmappingend",
+        "flowmappingstart",
+        "flowsequenceend",
+        "flowsequencestart",
+        "key",
+        "scalar",
+        "streamend",
+        "streamstart",
+        "tag",
+        "value",
+        "whitespace",
+        "comment",
+        "error"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "snownee.kiwi.util.client.SmartKey$State",
+      "aliases": [
+        "state",
+        "smart_key",
+        "smart_key_state"
+      ],
+      "values": [
+        "idle",
+        "shortpress",
+        "waitingfordoublepress",
+        "longpress"
       ],
       "translations": {}
     },

@@ -28,7 +28,7 @@ public class AttributeEventHandler {
         String wordId = stack.get(ModDataComponents.ACTIVE_RUNEWORD.get());
         if (wordId == null) return;
 
-        RunewordDefinition def = RunewordManager.RUNEWORDS.get(wordId);
+        RunewordDefinition def = RunewordManager.getAll().get(wordId);
         if (def == null) return;
 
         // 根据装备类型确定生效槽位（主手、副手、头、胸、腿、足）

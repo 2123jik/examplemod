@@ -1,7 +1,7 @@
 package com.example.examplemod.event;
 
 import com.example.examplemod.ExampleMod;
-import com.example.examplemod.network.XpFlightPayload;
+import com.example.examplemod.registry.ModPayloads;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ExperienceOrb;
@@ -55,10 +55,8 @@ public final class XpFlights {
 
             double distance = orb.position().distanceTo(target.position());
 
-            int duration = Math.max(
-                    8,
-                    Math.min(24, (int) Math.ceil(distance / 1.4))
-            );
+            int duration = Math.clamp((int) Math.ceil(distance / 1.4),
+                    8, 24);
 
             flight = new Flight(
                     target,
@@ -73,7 +71,7 @@ public final class XpFlights {
 
         if (!isValidTarget(level, flight.target)) {
             FLIGHTS.remove(orb);
-            broadcast(level, XpFlightPayload.stop(orb.getId()));
+            broadcast(level, ModPayloads.XpFlightPayload.stop(orb.getId()));
             return;
         }
 
@@ -92,7 +90,7 @@ public final class XpFlights {
 
         if (elapsed > flight.duration + MAX_SETTLE_TICKS) {
             FLIGHTS.remove(orb);
-            broadcast(level, XpFlightPayload.stop(orb.getId()));
+            broadcast(level, ModPayloads.XpFlightPayload.stop(orb.getId()));
             return;
         }
 
@@ -140,7 +138,7 @@ public final class XpFlights {
 
             if (orb.isRemoved() || !isValidTarget(level, flight.target)) {
                 iterator.remove();
-                broadcast(level, XpFlightPayload.stop(orb.getId()));
+                broadcast(level, ModPayloads.XpFlightPayload.stop(orb.getId()));
             }
         }
     }
@@ -202,16 +200,14 @@ public final class XpFlights {
                         .getPlayer(player.getUUID()) == player;
     }
 
-    private static XpFlightPayload startPacket(
+    private static ModPayloads.XpFlightPayload startPacket(
             ExperienceOrb orb,
             Flight flight
     ) {
-        return new XpFlightPayload(
+        return new ModPayloads.XpFlightPayload(
                 orb.getId(),
                 flight.target.getId(),
-                flight.start.x,
-                flight.start.y,
-                flight.start.z,
+                new Vec3(flight.start.x,flight.start.y,flight.start.z),
                 flight.startTick,
                 flight.duration
         );
@@ -219,7 +215,7 @@ public final class XpFlights {
 
     private static void broadcast(
             ServerLevel level,
-            XpFlightPayload payload
+            ModPayloads.XpFlightPayload payload
     ) {
         PacketDistributor.sendToPlayersInDimension(level, payload);
     }

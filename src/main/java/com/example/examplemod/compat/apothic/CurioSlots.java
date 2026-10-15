@@ -9,6 +9,8 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 
@@ -17,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@EventBusSubscriber
 public final class CurioSlots {
 
     /*
@@ -58,7 +60,7 @@ public final class CurioSlots {
 
     private CurioSlots() {
     }
-
+@SubscribeEvent
     public static void onRegister(RegisterEvent event) {
         if (event.getRegistryKey().equals(
                 BuiltInRegs.ENTITY_EQUIPMENT_SLOT.key()

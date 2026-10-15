@@ -1,6 +1,5 @@
 package com.example.examplemod.skill.gui;
 
-import com.example.examplemod.registry.ModAttachments;
 import com.example.examplemod.skill.*;
 import icyllis.modernui.annotation.NonNull;
 import icyllis.modernui.core.Context;
@@ -18,6 +17,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 
 import javax.annotation.Nullable;
+
+import static com.example.examplemod.registry.ModRegistry.SKILL_DATA;
 
 public class SkillTreeFragment extends Fragment {
 
@@ -190,7 +191,7 @@ public class SkillTreeFragment extends Fragment {
     private void updatePointsText() {
         var player = Minecraft.getInstance().player;
         if (player == null || tvPoints == null) return;
-        PlayerSkillData data = player.getData(ModAttachments.SKILL_DATA.get());
+        PlayerSkillData data = player.getData(SKILL_DATA.get());
         tvPoints.setText(Component.translatable("gui.examplemod.skill_tree.points", data.getPoints()).getString());
     }
 
@@ -208,7 +209,7 @@ public class SkillTreeFragment extends Fragment {
 
         if (currentBoundNode != node) {
             currentBoundNode = node;
-            PlayerSkillData data = player.getData(ModAttachments.SKILL_DATA.get());
+            PlayerSkillData data = player.getData(SKILL_DATA.get());
             tooltipCard.bindData(node, data, constellationView.areParentsMet(node, data));
 
             int unconstrained = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);

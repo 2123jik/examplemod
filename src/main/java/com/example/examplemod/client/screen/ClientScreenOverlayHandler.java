@@ -1,7 +1,7 @@
 package com.example.examplemod.client.screen;
 
 import com.example.examplemod.ExampleMod;
-import com.example.examplemod.network.SwapEquipmentPayload;
+import com.example.examplemod.registry.ModPayloads;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
@@ -198,7 +198,7 @@ public class ClientScreenOverlayHandler {
     }
 
     private static void sendClick(EquipmentSlot slot) {
-        PacketDistributor.sendToServer(new SwapEquipmentPayload(slot));
+        PacketDistributor.sendToServer(new ModPayloads.SwapEquipmentPayload(slot));
         Minecraft.getInstance().getSoundManager().play(
                 SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1.0F)
         );

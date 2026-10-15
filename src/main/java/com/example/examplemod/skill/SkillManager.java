@@ -1,6 +1,6 @@
 package com.example.examplemod.skill;
 
-import com.example.examplemod.registry.ModAttachments;
+import com.example.examplemod.registry.ModPayloads;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -15,6 +15,8 @@ import net.neoforged.neoforge.network.PacketDistributor;
 
 import java.util.List;
 
+import static com.example.examplemod.registry.ModRegistry.SKILL_DATA;
+
 public class SkillManager {
 
     /**
@@ -24,7 +26,7 @@ public class SkillManager {
         SkillNode node = SkillRegistry.NODES.get(nodeId);
         if (node == null) return false;
 
-        PlayerSkillData data = player.getData(ModAttachments.SKILL_DATA.get());
+        PlayerSkillData data = player.getData(SKILL_DATA.get());
         int currentRank = data.getRank(node.getId());
 
         // 1. 点数与满级校验
@@ -47,7 +49,7 @@ public class SkillManager {
         applySingleNodeModifier(player, node);
 
         // 5. 同步回客户端
-        PacketDistributor.sendToPlayer(player, new SyncSkillDataPayload(data));
+        PacketDistributor.sendToPlayer(player, new ModPayloads.SyncSkillDataPayload(data));
 
         return true;
     }
@@ -72,7 +74,7 @@ public class SkillManager {
             return;
         }
 
-        PlayerSkillData data = player.getData(ModAttachments.SKILL_DATA.get());
+        PlayerSkillData data = player.getData(SKILL_DATA.get());
         int currentRank = data.getRank(node.getId());
         List<SkillNode.AttributeBonus> bonuses = node.getBonuses();
 

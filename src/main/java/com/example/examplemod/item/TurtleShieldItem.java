@@ -3,7 +3,6 @@ package com.example.examplemod.item;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 

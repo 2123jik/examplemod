@@ -1,21 +1,32 @@
+import java.util.zip.ZipFile
+import groovy.io.FileType
+
 plugins {
     id 'java-library'
     id 'maven-publish'
     id 'net.neoforged.moddev' version '2.0.147'
     id 'idea'
 }
+
 configurations {
     exporterRuntime {
         canBeConsumed = false
         canBeResolved = true
     }
 }
+
 tasks.named('wrapper', Wrapper).configure {
     distributionType = Wrapper.DistributionType.BIN
 }
 
 version = mod_version
 group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 sourceSets.main.resources {
     srcDir('src/generated/resources')
@@ -25,92 +36,13 @@ sourceSets.main.resources {
 
 repositories {
     mavenCentral()
-    maven {
-        name = "Amadornes Maven"
-        url = "https://maven.amadornes.com/"
-    }
-    // 备用仓库（很多 1.21+ 的 Create 附属模组也会配置此镜像）
-    maven {
-        name = "ithundxr"
-        url = "https://maven.ithundxr.dev/snapshots"
-    }
-    maven {
-        name = "tterrag maven"
-        url = "https://maven.tterrag.com/"
-    }
-    maven {
-        url = "https://maven.theillusivec4.top/"
-    }
-    maven {
-        // Location of the maven for vazkii's mods
-        name 'blamejared'
-        url 'https://maven.blamejared.com'
-    }
-    maven {
-        url 'https://www.cursemaven.com'
-        content {
-            includeGroup "curse.maven"
-        }
-    }
-    maven {
-        name = "Modrinth"
-        url = "https://api.modrinth.com/maven"
-        content {
-            includeGroup "maven.modrinth"
-        }
-    }
-    mavenLocal();
-
+    maven { name = "Amadornes Maven"; url = "https://maven.amadornes.com/" }
+    maven { name = "ithundxr"; url = "https://maven.ithundxr.dev/snapshots" }
+    maven { name = "tterrag maven"; url = "https://maven.tterrag.com/" }
+    maven { url = "https://maven.theillusivec4.top/" }
+    maven { name = 'blamejared'; url = 'https://maven.blamejared.com' }
+    mavenLocal()
 }
-
-
-base {
-    archivesName = mod_id
-}
-
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
-
-// ============================================================
-//  DATA 精简模式：./gradlew runData -PdataOnly
-//  思路：不维护"必需 mod 白名单"，改为"排除纯客户端 mod"
-//  这样所有 L2 / Apothic 依赖链都自动带上，不会一轮轮漏
-// ============================================================
-def dataOnly = project.hasProperty('dataOnly')
-
-def modsDir = 'C:\\Users\\lyj\\AppData\\Roaming\\PrismLauncher\\instances\\hostility\\minecraft\\mods'
-
-// 所有模式都排除：开发环境自身 / 与 datagen 无关
-def baseExclude = [
-        'ProbeJS-7.7.2.jar',
-        'kubejs-neoforge-2101.7.2-build.321.jar',
-        'rhino-2101.2.7-build.81.jar',
-        'examplemod-1.0.0.jar',
-        'iris-*.jar', 'Iris-*.jar',
-        'EuphoriaPatcher-*.jar', 'euphoria*.jar',
-        'MouseTweaks-*.jar', 'mousetweaks*.jar',
-        'sodium-*.jar', 'Sodium-*.jar','chloride-NEOFORGE-mc1.21.1-v1.8.1.jar'
-]
-
-// data 模式额外排除：纯客户端 / UI / 渲染 / 输入交互
-// datagen 里一行都不用，且它们经常是崩溃来源
-def dataExtraExclude = [
-        'iris-*.jar', 'Iris-*.jar',
-        'EuphoriaPatcher-*.jar', 'euphoria*.jar',
-        'MouseTweaks-*.jar', 'mousetweaks*.jar',
-        'sodium-*.jar', 'Sodium-*.jar',
-        'embeddium-*.jar', 'Embeddium-*.jar',
-        'ModernUI-*.jar', 'modernui-*.jar',
-        'jade-*.jar', 'Jade-*.jar', 'JadeAddons*.jar',
-        'jeed-*.jar',
-        'journeymap-*.jar', 'JourneyMap*.jar',
-        'trashslot-*.jar', 'TrashSlot-*.jar',
-        'StylishEffects*.jar', 'stylisheffects-*.jar',
-        'entityculling-*.jar', 'EntityCulling*.jar',
-        'TRender-*.jar', 'trender-*.jar',
-        'simplytooltips-*.jar',
-        'collapsible_groups*.jar',
-        'powerful_dummy*.jar',
-]
 
 neoForge {
     version = project.neo_version
@@ -120,26 +52,29 @@ neoForge {
         minecraftVersion = project.parchment_minecraft_version
     }
 
+    // 恢复标准运行配置（包含 client / runClient）
     runs {
         client {
             client()
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
+
         server {
             server()
             programArgument '--nogui'
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
+
         gameTestServer {
             type = "gameTestServer"
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
+
         data {
             data()
-            programArguments.addAll '--mod', project.mod_id, '--all',
-                    '--output', file('src/generated/resources/').getAbsolutePath(),
-                    '--existing', file('src/main/resources/').getAbsolutePath()
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
         }
+
         configureEach {
             systemProperty 'forge.logging.markers', 'REGISTRIES'
             logLevel = org.slf4j.event.Level.DEBUG
@@ -153,31 +88,119 @@ neoForge {
     }
 }
 
-configurations {
-    runtimeClasspath.extendsFrom localRuntime
-}
+// PrismLauncher 模组路径
+def modsDir = 'C:\\Users\\lyj\\AppData\\Roaming\\PrismLauncher\\instances\\hostility\\minecraft\\mods'
 
-dependencies {
-    // 编译时：全部 jar 参与，保证 IDE 索引正常
-    compileOnly fileTree(dir: modsDir, include: ['*.jar'], exclude: baseExclude)
-    compileOnly files("libs/l2core-3.0.8+12.jar")
-    compileOnly files("libs/l2menustacker-3.0.10.jar")
-    compileOnly files("libs/l2damagetracker-3.0.5.jar")
-    compileOnly files("libs/l2tabs-3.0.5+7.jar")
-    compileOnly files("libs/l2serial-3.0.9+5.jar")
-    jarJar(implementation("com.tterrag.registrate:Registrate:MC1.21-1.3.0+67"))
-    exporterRuntime 'com.github.javaparser:javaparser-core:3.26.2'
-    compileOnly 'com.github.javaparser:javaparser-core:3.26.2'
-    if (dataOnly) {
-        runtimeOnly fileTree(dir: modsDir, include: ['*.jar'],
-                exclude: baseExclude + dataExtraExclude)
-        println "[build.gradle] ===== DATA 模式 ====="
-        println "[build.gradle] 排除 jar 数 = ${(baseExclude + dataExtraExclude).size()}"
-    } else {
-        runtimeOnly fileTree(dir: modsDir, include: ['*.jar'], exclude: baseExclude)
+// ==============================================================================
+// 🎯 启动器模组【统一白名单】
+// 包含所有模组（包括神化系列），只需写前缀，版本号自动匹配，坚决不手写版本！
+// ==============================================================================
+def launcherModWhitelist = [
+        // --- 1. 神化全家桶 ---
+        'Placebo',
+        'ApothicAttributes',
+        'Apotheosis',
+        'GatewaysToEternity',
+
+        // --- 2. L2 全家桶 ---
+        'l2hostility',
+        'l2artifacts',
+        'l2backpack',
+        'modulargolems',
+        'l2library',
+        'l2complements',
+
+        // --- 3. 核心玩法、维度与 UI ---
+        'irons_spellbooks',
+        'iss_magicfromtheeast',
+        'Jade',
+        "L_Ender's Cataclysm",
+        'ModernUI',
+        'solcarrot',
+        'tunes_n_tomes',
+        'twilightforest'
+]
+
+// ==============================================================================
+// 🛠️ 自动化引擎：智能寻找匹配的最新 Jar 包
+// ==============================================================================
+def findModJarFile = { String prefix ->
+    def modsFolder = file(modsDir)
+    if (!modsFolder.exists()) return null
+    def pLower = prefix.toLowerCase()
+    return modsFolder.listFiles().find { f ->
+        if (!f.name.endsWith(".jar")) return false
+        def nameLower = f.name.toLowerCase()
+        nameLower.startsWith(pLower + "-") ||
+                nameLower.startsWith(pLower + "_") ||
+                nameLower.startsWith(pLower + " ") ||
+                nameLower.startsWith(pLower + ".")
     }
 }
 
+// 收集白名单匹配成功的 Jar
+def resolvedWhitelistJars = []
+launcherModWhitelist.each { prefix ->
+    def matchedJar = findModJarFile(prefix)
+    if (matchedJar) {
+        resolvedWhitelistJars.add(matchedJar)
+    } else {
+        println "⚠️ [白名单提示] 启动器 mods 目录中暂未匹配到前缀为 [${prefix}] 的 Jar 包"
+    }
+}
+
+// ==============================================================================
+// 🛠️ 自动化引擎：自动解压白名单 Jar 内部的 Jar-in-Jar (如 l2core, l2serial 等)
+// ==============================================================================
+def extractedJarInJarDir = layout.buildDirectory.dir("extracted-jarjar").get().asFile
+
+def extractJarInJars = {
+    if (!extractedJarInJarDir.exists()) extractedJarInJarDir.mkdirs()
+    resolvedWhitelistJars.each { jarFile ->
+        try {
+            def zip = new ZipFile(jarFile)
+            zip.entries().findAll { entry ->
+                !entry.directory && (entry.name.startsWith("META-INF/jarjar/") || entry.name.startsWith("META-INF/jars/")) && entry.name.endsWith(".jar")
+            }.each { entry ->
+                def subJarName = new File(entry.name).name
+                def targetFile = new File(extractedJarInJarDir, subJarName)
+                // 增量提取：仅当文件不存在或修改过时写入
+                if (!targetFile.exists() || targetFile.length() != entry.size) {
+                    targetFile.withOutputStream { os ->
+                        os << zip.getInputStream(entry)
+                    }
+                    println "⚡ [Jar-in-Jar 自动提取] 从 ${jarFile.name} 提取出: ${subJarName}"
+                }
+            }
+            zip.close()
+        } catch (Exception ignored) {}
+    }
+}
+
+extractJarInJars()
+
+// ==============================================================================
+// 📦 依赖配置 (纯本地闭环，没有任何远程 Mod 依赖)
+// ==============================================================================
+dependencies {
+    // 1. 白名单模组内置的 Jar-in-Jar (如 l2core, l2serial, l2damagetracker)
+    compileOnly fileTree(dir: extractedJarInJarDir, include: ['*.jar'])
+
+    // 2. 本地 libs 文件夹 (备用纯本地扩展)
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'], exclude: ['*-sources.jar', '*-javadoc.jar'])
+
+    // 3. 统一加载白名单里的启动器模组 (神化、L2、灾变、铁魔法等统统由此引入)
+    compileOnly files(resolvedWhitelistJars)
+
+    // 4. 原生框架必要依赖
+    jarJar(implementation("com.tterrag.registrate:Registrate:MC1.21-1.3.0+67"))
+    exporterRuntime 'com.github.javaparser:javaparser-core:3.26.2'
+    compileOnly 'com.github.javaparser:javaparser-core:3.26.2'
+}
+
+// ==============================================================================
+// 📋 任务与工程构建配置
+// ==============================================================================
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
     var replaceProperties = [
             minecraft_version      : minecraft_version,
@@ -214,66 +237,168 @@ tasks.withType(JavaCompile).configureEach {
 
 idea {
     module {
-        downloadSources = true
-        downloadJavadoc = true
+        downloadSources = false
+        downloadJavadoc = false
     }
 }
 
 tasks.register('removeComments') {
     description = '使用 JavaParser 删除 src/main/java 下所有 Java 文件的注释'
-
-    // ✅ 在配置阶段就获取目录路径，赋值给变量
     def srcDir = file('src/main/java/com/example/examplemod')
-
     doLast {
-        // 执行阶段只使用变量，不再调用 file() 方法
         RemoveComments.process(srcDir)
     }
 }
+
 def baseModDir = "C:/mod"
 def srcSubDir = "src/main/java"
-
-def targetMod = project.findProperty('target') ?: "irons-spells-n-spellbooks-1.21"
+def targetMod = project.findProperty('target') ?: "L2Archery-1.21"
 
 tasks.register('runExporter', JavaExec) {
     group = 'JavaPromptGenerator'
     description = 'Exports AST for the specified mod code'
-
     classpath = sourceSets.main.output + configurations.exporterRuntime
     mainClass = 'main.JavaPromptGenerator'
-
-    // 动态拼接路径
     def targetSrcDir = file("${baseModDir}/${targetMod}/${srcSubDir}")
     def outputAstFile = file("${targetSrcDir}/all_code_ast.txt")
-
     args = [
             targetSrcDir.absolutePath,
             outputAstFile.absolutePath
     ]
 }
 
+// 构建后自动将产物覆盖拷贝到 PrismLauncher mods 目录
 tasks.register('copyJarToPrismMods', Copy) {
     group = 'build'
     description = '将构建生成的 Mod Jar 自动覆盖复制到 PrismLauncher mods 目录'
-
     dependsOn tasks.named('jar')
 
     from(layout.buildDirectory.dir('libs')) {
-        // 只复制当前 Mod 生成的 jar
         include("${base.archivesName.get()}-*.jar")
-
-        // 排除源码包和文档包
         exclude('*-sources.jar')
         exclude('*-javadoc.jar')
     }
 
     into(file(modsDir))
-
-    // 目标目录中存在同名文件时覆盖
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
-// build 成功或失败后执行复制任务
 tasks.named('build') {
     finalizedBy(tasks.named('copyJarToPrismMods'))
+}
+
+// 模组实际引用分析器
+tasks.register('findUsedMods') {
+    group = 'developer'
+    description = '精准分析当前代码实际引用了哪些第三方模组的 JAR'
+
+    def srcDir = layout.projectDirectory.dir('src/main/java').asFile
+    def classpathCollection = configurations.compileClasspath
+
+    inputs.dir(srcDir).withPropertyName('srcDir').optional()
+    inputs.files(classpathCollection).withPropertyName('classpathCollection')
+
+    doLast {
+        if (!srcDir.exists()) {
+            println "❌ 未找到源码目录: ${srcDir}"
+            return
+        }
+
+        def javaFiles = []
+        srcDir.eachFileRecurse(FileType.FILES) { f ->
+            if (f.name.endsWith('.java')) {
+                javaFiles.add(f)
+            }
+        }
+
+        if (javaFiles.isEmpty()) {
+            println "❌ 源码目录下没有 Java 文件！"
+            return
+        }
+
+        def myPackages = [] as Set
+        javaFiles.each { f ->
+            f.eachLine { line ->
+                def m = line =~ /^\s*package\s+([a-zA-Z0-9_.]+);/
+                if (m) myPackages.add(m[0][1])
+            }
+        }
+
+        def importedClasses = [] as Set
+        def wildcardPackages = [] as Set
+
+        javaFiles.each { f ->
+            f.eachLine { line ->
+                def m = line =~ /^\s*import\s+(?:static\s+)?([a-zA-Z0-9_.]+)(?:\.\*)?;/
+                if (m) {
+                    def fullPath = m[0][1]
+                    if (!fullPath.startsWith('java.') &&
+                            !fullPath.startsWith('javax.') &&
+                            !fullPath.startsWith('net.minecraft.') &&
+                            !fullPath.startsWith('net.neoforged.') &&
+                            !myPackages.any { fullPath.startsWith(it) }) {
+
+                        if (line.contains('.*;')) {
+                            wildcardPackages.add(fullPath.replace('.', '/'))
+                        } else {
+                            importedClasses.add(fullPath.replace('.', '/') + '.class')
+                        }
+                    }
+                }
+            }
+        }
+
+        if (importedClasses.isEmpty() && wildcardPackages.isEmpty()) {
+            println "ℹ️ 你的代码没有调用任何第三方模组的类（只调用了原版/NeoForge）。"
+            return
+        }
+
+        println "🔍 正在从白名单依赖中比对 ${importedClasses.size()} 个外部引用类的归属..."
+
+        def usedJars = [:]
+
+        def jarsToCheck = classpathCollection.files.findAll {
+            it.name.endsWith('.jar') && !it.name.contains('minecraft') && !it.name.contains('neoforge')
+        }
+
+        jarsToCheck.each { jarFile ->
+            try {
+                def zip = new ZipFile(jarFile)
+                def matched = []
+                importedClasses.each { classEntry ->
+                    if (zip.getEntry(classEntry) != null) {
+                        matched.add(classEntry.replace('/', '.').replace('.class', ''))
+                    }
+                }
+                wildcardPackages.each { pkgEntry ->
+                    if (zip.entries().any { it.name.startsWith(pkgEntry) }) {
+                        matched.add(pkgEntry.replace('/', '.') + '.*')
+                    }
+                }
+                if (!matched.isEmpty()) {
+                    usedJars[jarFile.name] = matched
+                }
+                zip.close()
+            } catch (Exception ignored) {
+            }
+        }
+
+        println "\n" + "=" * 70
+        println "🎯 你的项目源码【实际 import 调用】的第三方模组清单 (共 ${usedJars.size()} 个) :"
+        println "=" * 70
+
+        if (usedJars.isEmpty()) {
+            println "⚠️ 发现了外部引用，但未在已加载的 Jar 中找到对应类，请检查白名单是否遗漏。"
+        } else {
+            usedJars.each { jarName, classes ->
+                println "\n📦 [模组 Jar]: ${jarName}"
+                classes.each { cls ->
+                    println "    └─ 调用了: ${cls}"
+                }
+            }
+        }
+        println "\n" + "=" * 70
+        println "💡 结论：白名单生效中，当前项目仅依赖上述实际引用的模组！"
+        println "=" * 70
+    }
 }

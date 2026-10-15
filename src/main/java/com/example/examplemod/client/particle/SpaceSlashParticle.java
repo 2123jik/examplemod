@@ -1,7 +1,6 @@
 package com.example.examplemod.client.particle;
 
 import com.example.examplemod.client.shader.ModShaders;
-import com.example.examplemod.registry.ModParticles;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -15,6 +14,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
+
+import static com.example.examplemod.registry.ModRegistry.DAMAGE_SPARK;
 
 public final class SpaceSlashParticle extends Particle {
     private final float slashLength;
@@ -90,7 +91,7 @@ public final class SpaceSlashParticle extends Particle {
 
     public static void spawnSpaceSlash(ClientLevel level, Entity target) {
         level.addParticle(
-                ModParticles.DAMAGE_SPARK.get(),
+               DAMAGE_SPARK.get(),
                 target.getX(),
                 target.getY(0.55),
                 target.getZ(),

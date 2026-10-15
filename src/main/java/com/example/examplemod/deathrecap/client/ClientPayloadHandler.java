@@ -1,12 +1,12 @@
 package com.example.examplemod.deathrecap.client;
 
-import com.example.examplemod.deathrecap.DeathRecapPayload;
+import com.example.examplemod.registry.ModPayloads;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 public class ClientPayloadHandler {
-    public static void handleDeathRecap(DeathRecapPayload payload, IPayloadContext context) {
+    public static void handleDeathRecap(ModPayloads.DeathRecapPayload payload, IPayloadContext context) {
         context.enqueueWork(() -> {
             ClientDeathRecapCache.setRecords(payload.records());
             if (Minecraft.getInstance().player != null) {

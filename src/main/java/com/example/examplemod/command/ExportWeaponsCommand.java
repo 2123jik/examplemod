@@ -5,12 +5,17 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.Monster;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
 import java.nio.file.Path;
+import java.util.*;
 
 @EventBusSubscriber
 public class ExportWeaponsCommand {
@@ -35,6 +40,54 @@ public class ExportWeaponsCommand {
                             StringArgumentType.getString(context, "path")
                         ))
                 )
+        );
+        dispatcher.register(
+                Commands.literal("dumpmonster")
+                        .executes(ctx -> {
+                            var level = ctx.getSource().getLevel();
+                            Set<Class<?>> classes = new HashSet<>();
+                            Map<Class<?>, EntityType<?>> classToType = new HashMap<>();
+
+                            for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
+                                Entity instance = type.create(level);
+                                if (instance == null) continue;
+                                Class<?> clazz = instance.getClass();
+                                instance.discard();
+                                if (!(instance instanceof Monster)) continue;
+                                classes.add(clazz);
+                                classToType.put(clazz, type);
+                            }
+
+                            Map<Class<?>, TreeSet<String>> byParent = new TreeMap<>(
+                                    Comparator.comparing(Class::getName));
+
+                            for (Class<?> clazz : classes) {
+                                boolean hasChild = false;
+                                for (Class<?> other : classes) {
+                                    if (other != clazz && clazz.isAssignableFrom(other)) {
+                                        hasChild = true;
+                                        break;
+                                    }
+                                }
+                                if (hasChild) continue;
+
+                                Class<?> parent = clazz.getSuperclass();
+                                String entry = clazz.getName() + "    "
+                                        + BuiltInRegistries.ENTITY_TYPE.getKey(classToType.get(clazz));
+                                byParent.computeIfAbsent(parent, k -> new TreeSet<>()).add(entry);
+                            }
+
+                            StringBuilder sb = new StringBuilder();
+                            byParent.forEach((parent, leaves) -> {
+                                sb.append("=== ").append(parent.getName()).append(" ===\n");
+                                for (String leaf : leaves) {
+                                    sb.append("  ").append(leaf).append('\n');
+                                }
+                            });
+                            System.out.println(sb);
+                            ctx.getSource().sendSuccess(() -> Component.literal("已打印"), false);
+                            return 1;
+                        })
         );
     }
 

@@ -2,7 +2,7 @@ package com.example.examplemod.client;
 
 import com.example.examplemod.ExampleMod;
 import com.example.examplemod.event.XpFlights;
-import com.example.examplemod.network.XpFlightPayload;
+import com.example.examplemod.registry.ModPayloads;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
@@ -47,7 +47,7 @@ public final class XpFlightClient {
     private XpFlightClient() {
     }
 
-    public static void receive(XpFlightPayload packet) {
+    public static void receive(ModPayloads.XpFlightPayload packet) {
         ClientLevel level = Minecraft.getInstance().level;
         if (level == null) {
             return;
@@ -62,7 +62,7 @@ public final class XpFlightClient {
 
         FLIGHTS.put(packet.orbId(), new Flight(
                 packet.playerId(),
-                new Vec3(packet.x(), packet.y(), packet.z()),
+                packet.pos(),
                 packet.startTick(),
                 packet.duration()
         ));

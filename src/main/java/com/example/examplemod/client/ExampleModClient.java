@@ -9,25 +9,17 @@ import com.example.examplemod.client.particle.AmbientParticleRenderer;
 import com.example.examplemod.client.particle.SpaceSlashParticle;
 import com.example.examplemod.client.render.ExampleShaders;
 import com.example.examplemod.client.render.TierSkyRenderer;
-import com.example.examplemod.client.tooltip.ModelStageRenderer;
-import com.example.examplemod.client.tooltip.TooltipHandler;
-import com.example.examplemod.client.tooltip.TooltipRules;
-import com.example.examplemod.client.tooltip.VisualComponents;
-import com.example.examplemod.registry.ModEntities;
-import com.example.examplemod.registry.ModParticles;
+import com.example.examplemod.registry.ModMobEffects;
 import com.example.examplemod.skill.gui.SkillTreeFragment;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.vertex.PoseStack;
 import dev.shadowsoffire.apothic_attributes.api.ALObjects;
 import icyllis.modernui.mc.MuiModApi;
-import io.redspace.ironsspellbooks.entity.spells.lightning_lance.LightningLanceRenderer;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.culling.Frustum;
-import net.minecraft.client.renderer.entity.CaveSpiderRenderer;
-import net.minecraft.client.renderer.entity.EnderDragonRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.resources.model.BakedModel;
@@ -42,6 +34,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
@@ -49,6 +42,8 @@ import net.neoforged.neoforge.common.NeoForge;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.Map;
+
+import static com.example.examplemod.registry.ModRegistry.DAMAGE_SPARK;
 
 @Mod(value = ExampleMod.MOD_ID, dist = Dist.CLIENT)
 public final class ExampleModClient {
@@ -70,17 +65,11 @@ public final class ExampleModClient {
         modBus.addListener(this::onRegisterShaders);
         modBus.addListener(this::registerRenderers);
         modBus.addListener(this::registerKeys);
-        modBus.addListener(this::registerTooltipComponents);
-        modBus.addListener(this::registerReloadListeners);
         modBus.addListener(this::onModifyBakingResult);
         modBus.addListener(this::onRegisterParticleProviders);
         modBus.addListener(this::registerGuiLayers);
 
         // ==================== 2. NeoForge 游戏总线注册 (游戏运行与渲染阶段) ====================
-        NeoForge.EVENT_BUS.register(TooltipHandler.class);
-        NeoForge.EVENT_BUS.register(ModelStageRenderer.class);
-
-        NeoForge.EVENT_BUS.addListener(this::onKeyInput);
         NeoForge.EVENT_BUS.addListener(this::onClientTick);
         NeoForge.EVENT_BUS.addListener(this::onRenderLevel);
         NeoForge.EVENT_BUS.addListener(this::onRenderEntity);
@@ -101,28 +90,19 @@ public final class ExampleModClient {
         }
     }
 
+
+
     private void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(ModEntities.SUMMONED_SUPPORT_DRAGON.get(), EnderDragonRenderer::new);
         event.registerEntityRenderer(EntityType.EXPERIENCE_ORB, HiddenExperienceOrbRenderer::new);
-        event.registerEntityRenderer(ModEntities.CUSTOM_LIGHTNING_LANCE.get(), LightningLanceRenderer::new);
-        event.registerEntityRenderer(ModEntities.SUMMONED_CAVE_SPIDER.get(), CaveSpiderRenderer::new);
     }
 
     private void registerKeys(RegisterKeyMappingsEvent event) {
         event.register(OPEN_SKILL_TREE);
     }
 
-    private void registerTooltipComponents(RegisterClientTooltipComponentFactoriesEvent event) {
-        VisualComponents.registerFactories(event);
-    }
-
-    private void registerReloadListeners(RegisterClientReloadListenersEvent event) {
-        event.registerReloadListener(TooltipRules.INSTANCE);
-    }
-
     private void onRegisterParticleProviders(RegisterParticleProvidersEvent event) {
         event.registerSpecial(ALObjects.Particles.APOTH_CRIT.get(), (type, level, x, y, z, vx, vy, vz) -> null);
-        event.registerSpriteSet(ModParticles.DAMAGE_SPARK.get(), SpaceSlashParticle.Provider::new);
+        event.registerSpriteSet(DAMAGE_SPARK.get(), SpaceSlashParticle.Provider::new);
     }
 
     private void registerGuiLayers(RegisterGuiLayersEvent event) {
@@ -150,13 +130,13 @@ public final class ExampleModClient {
     // NeoForge 游戏总线事件回调 (快捷键、环境及世界渲染)
     // -----------------------------------------------------------------------------------------
 
-    private void onKeyInput(InputEvent.Key event) {
-        if (OPEN_SKILL_TREE.consumeClick()) {
+    private void onClientTick(ClientTickEvent.Post event) {
+        // 1. 处理自定义按键
+        while (OPEN_SKILL_TREE.consumeClick()) {
             MuiModApi.openScreen(new SkillTreeFragment());
         }
-    }
 
-    private void onClientTick(ClientTickEvent.Post event) {
+        // 2. 环境状态更新
         ClientEnvironmentState.tick(Minecraft.getInstance());
     }
 

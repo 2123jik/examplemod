@@ -1,7 +1,6 @@
 package com.example.examplemod.compat.emi;
 
-import com.example.examplemod.ExampleMod;
-import com.example.examplemod.network.RequestEmiCraftingPayload;
+import com.example.examplemod.registry.ModPayloads;
 import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
@@ -9,9 +8,8 @@ import dev.emi.emi.api.recipe.EmiPlayerInventory;
 import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.recipe.handler.EmiCraftContext;
 import dev.emi.emi.api.recipe.handler.EmiRecipeHandler;
-import dev.emi.emi.api.widget.Bounds;
-import dev.emi.emi.registry.EmiRecipeFiller;
 import dev.emi.emi.api.stack.EmiStack;
+import dev.emi.emi.registry.EmiRecipeFiller;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -137,7 +135,7 @@ public final class ExampleModEmiPlugin implements EmiPlugin {
                     : Math.max(1, context.getAmount());
 
             PacketDistributor.sendToServer(
-                    new RequestEmiCraftingPayload(
+                    new ModPayloads.RequestEmiCraftingPayload(
                             recipe.getId(),
                             requestedSets
                     )

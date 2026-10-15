@@ -28,8 +28,8 @@ public class TooltipEventHandler {
         List<Component> tooltip = event.getToolTip();
         if (tooltip.isEmpty()) return;
         String wordId = stack.get(ModDataComponents.ACTIVE_RUNEWORD.get());
-        if (wordId != null && RunewordManager.RUNEWORDS.containsKey(wordId)) {
-            RunewordDefinition def = RunewordManager.RUNEWORDS.get(wordId);
+        if (wordId != null && RunewordManager.getAll().containsKey(wordId)) {
+            RunewordDefinition def = RunewordManager.getAll().get(wordId);
 
             Component currentFullName = tooltip.get(0);
 

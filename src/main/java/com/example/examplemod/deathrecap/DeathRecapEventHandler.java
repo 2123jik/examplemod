@@ -1,5 +1,6 @@
 package com.example.examplemod.deathrecap;
 
+import com.example.examplemod.registry.ModPayloads;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -32,7 +33,7 @@ public class DeathRecapEventHandler {
 
             List<DamageEventSnapshot> records = PlayerDamageTracker.getAndClear(player.getUUID());
             if (!records.isEmpty()) {
-                PacketDistributor.sendToPlayer(player, new DeathRecapPayload(records));
+                PacketDistributor.sendToPlayer(player, new ModPayloads.DeathRecapPayload(records));
             }
         }
     }

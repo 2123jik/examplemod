@@ -3,7 +3,6 @@ package com.example.examplemod.client.screen;
 
 import com.example.examplemod.ExampleMod;
 import com.example.examplemod.menu.EquipmentCabinetMenu;
-import com.example.examplemod.registry.ModMenus;
 import icyllis.modernui.mc.neoforge.MenuScreenFactory;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.neoforged.api.distmarker.Dist;
@@ -15,6 +14,8 @@ import net.neoforged.neoforge.client.event.ScreenEvent;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.VarHandle;
 
+import static com.example.examplemod.registry.ModRegistry.CABINET_MENU;
+
 @EventBusSubscriber(
         modid = ExampleMod.MOD_ID,
         value = Dist.CLIENT
@@ -25,7 +26,7 @@ public final class EquipmentCabinetClient {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(
-                ModMenus.CABINET_MENU.get(),
+                CABINET_MENU.get(),
                 MenuScreenFactory.create(EquipmentCabinetFragment::new)
         );
     }

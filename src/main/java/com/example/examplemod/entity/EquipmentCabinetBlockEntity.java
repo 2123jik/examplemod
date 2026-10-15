@@ -1,9 +1,7 @@
 // EquipmentCabinetBlockEntity.java
 package com.example.examplemod.entity;
 
-import com.example.examplemod.ExampleMod;
 import com.example.examplemod.menu.EquipmentCabinetMenu;
-import com.example.examplemod.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -21,6 +19,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.wrapper.InvWrapper;
 
+import static com.example.examplemod.registry.ModRegistry.CABINET_ENTITY;
+
 public final class EquipmentCabinetBlockEntity extends BlockEntity
         implements Container, MenuProvider {
 
@@ -30,7 +30,7 @@ public final class EquipmentCabinetBlockEntity extends BlockEntity
             NonNullList.withSize(CAPACITY, ItemStack.EMPTY);
 
     public EquipmentCabinetBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlocks.CABINET_ENTITY.get(), pos, state);
+        super(CABINET_ENTITY.get(), pos, state);
     }
     /*
      * 包装已有 Container，直接使用 items 库存。

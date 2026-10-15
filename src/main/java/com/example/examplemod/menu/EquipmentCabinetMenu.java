@@ -1,9 +1,7 @@
 // EquipmentCabinetMenu.java
 package com.example.examplemod.menu;
 
-import com.example.examplemod.ExampleMod;
 import com.example.examplemod.entity.EquipmentCabinetBlockEntity;
-import com.example.examplemod.registry.ModMenus;
 import dev.shadowsoffire.apotheosis.affix.salvaging.SalvagingMenu;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.sounds.SoundEvents;
@@ -19,6 +17,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
+
+import static com.example.examplemod.registry.ModRegistry.CABINET_MENU;
 
 /**
  * 所有真实物品移动由服务端 Menu 完成。
@@ -40,7 +40,7 @@ public final class EquipmentCabinetMenu extends AbstractContainerMenu {
     }
 
     public EquipmentCabinetMenu(int id, Inventory inventory, Container cabinet) {
-        super(ModMenus.CABINET_MENU.get(), id);
+        super(CABINET_MENU.get(), id);
         checkContainerSize(cabinet, CABINET_SLOTS);
         this.cabinet = cabinet;
         cabinet.startOpen(inventory.player);

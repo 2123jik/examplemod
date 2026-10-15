@@ -1,9 +1,7 @@
 package com.example.examplemod.client.screen;
 
 import com.example.examplemod.ExampleMod;
-import com.example.examplemod.network.OpenShopSelectorPayload;
-import com.example.examplemod.network.SleepButtonPayload;
-import com.example.examplemod.network.SortToBackpackPayload;
+import com.example.examplemod.registry.ModPayloads;
 import dev.xkmc.l2backpack.content.common.BaseOpenableScreen;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
@@ -37,11 +35,11 @@ public final class ContainerScreenButtons {
             int y = invScreen.getGuiTop() + 168;
 
             event.addListener(Button.builder(Component.translatable("examplemod.button.open_shop"),
-                    btn -> PacketDistributor.sendToServer(OpenShopSelectorPayload.INSTANCE))
+                    btn -> PacketDistributor.sendToServer(new ModPayloads.OpenShopSelectorPayload()))
                     .bounds(x, y, width, height).build());
 
             event.addListener(Button.builder(Component.translatable("examplemod.button.sleep"),
-                    btn -> PacketDistributor.sendToServer(SleepButtonPayload.INSTANCE))
+                    btn -> PacketDistributor.sendToServer(new ModPayloads.SleepButtonPayload()))
                     .bounds(x + width, y, width, height).build());
         }
 
@@ -64,7 +62,7 @@ public final class ContainerScreenButtons {
 
             Button sortBtn = Button.builder(Component.literal("⮯"), btn -> {
                         boolean fromContainer = !isPlayerInv && !Screen.hasShiftDown();
-                        PacketDistributor.sendToServer(new SortToBackpackPayload(fromContainer));
+                        PacketDistributor.sendToServer(new ModPayloads.SortToBackpackPayload(fromContainer));
                     })
                     .bounds(left + width - 20, top + 4, 14, 14)
                     .tooltip(Tooltip.create(Component.literal(isPlayerInv ? "物品存入背包" : "存入背包 (Shift: 存玩家背包)")))

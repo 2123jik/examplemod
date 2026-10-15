@@ -3,9 +3,8 @@ package com.example.examplemod.mixin.solcarrot;
 import com.cazsius.solcarrot.tracking.FoodList;
 import com.cazsius.solcarrot.tracking.MaxHealthHandler;
 import com.cazsius.solcarrot.tracking.ProgressInfo;
-import com.example.examplemod.registry.ModAttachments;
+import com.example.examplemod.registry.ModPayloads;
 import com.example.examplemod.skill.PlayerSkillData;
-import com.example.examplemod.skill.SyncSkillDataPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -20,6 +19,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import static com.example.examplemod.registry.ModRegistry.SKILL_DATA;
 
 @Mixin(value = MaxHealthHandler.class, remap = false)
 public abstract class MaxHealthHandlerMixin {
@@ -53,15 +54,15 @@ public abstract class MaxHealthHandlerMixin {
         int milestonesAchieved = progressInfo.milestonesAchieved();
 
         // 4. 将技能点结算给玩家
-        PlayerSkillData skillData = player.getData(ModAttachments.SKILL_DATA.get());
+        PlayerSkillData skillData = player.getData(SKILL_DATA.get());
 
         // 设定每个里程碑奖励几个技能点（例如 1 点）
-        int pointsPerMilestone = 1;
+        int pointsPerMilestone = 5;
         boolean hasChanged = skillData.updateFoodMilestones(milestonesAchieved, pointsPerMilestone);
 
         // 如果点数增加了（吃新食物达成了里程碑），立刻发包通知客户端刷新 UI
         if (hasChanged && player instanceof ServerPlayer serverPlayer) {
-            PacketDistributor.sendToPlayer(serverPlayer, new SyncSkillDataPayload(skillData));
+            PacketDistributor.sendToPlayer(serverPlayer, new ModPayloads.SyncSkillDataPayload(skillData));
         }
 
         // 返回给 SoL 的 FoodTracker，用于触发原版的升级音效和粒子
