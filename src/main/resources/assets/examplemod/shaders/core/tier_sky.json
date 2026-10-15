@@ -1,0 +1,54 @@
+{
+  "blend": {
+    "func": "add",
+    "srcrgb": "srcalpha",
+    "dstrgb": "1-srcalpha"
+  },
+  "vertex": "examplemod:tier_sky",
+  "fragment": "examplemod:tier_sky",
+  "attributes": [
+    "Position",
+    "Color"
+  ],
+  "samplers": [
+    {
+      "name": "Sampler0"
+    }
+  ],
+  "uniforms": [
+    {
+      "name": "ModelViewMat",
+      "type": "matrix4x4",
+      "count": 16,
+      "values": [
+        1.0, 0.0, 0.0, 0.0,
+        0.0, 1.0, 0.0, 0.0,
+        0.0, 0.0, 1.0, 0.0,
+        0.0, 0.0, 0.0, 1.0
+      ]
+    },
+    {
+      "name": "ProjMat",
+      "type": "matrix4x4",
+      "count": 16,
+      "values": [
+        1.0, 0.0, 0.0, 0.0,
+        0.0, 1.0, 0.0, 0.0,
+        0.0, 0.0, 1.0, 0.0,
+        0.0, 0.0, 0.0, 1.0
+      ]
+    },
+    {
+      "name": "TierTime",
+      "type": "float",
+      "count": 1,
+      "values": [0.0]
+    },
+    {
+      "name": "PulseStrength",
+      "type": "float",
+      "count": 1,
+      "values": [0.0]
+    }
+  ]
+}

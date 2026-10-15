@@ -1,0 +1,49 @@
+{
+  "type": "apotheosis:attribute",
+  "attribute": "examplemod:convert_ice_to_ender",
+  "categories": [
+    "apotheosis:melee_weapon",
+    "apotheosis:bow",
+    "apotheosis:trident",
+    "irons_apothic:staff",
+    "irons_apothic:spellbook"
+  ],
+  "definition": {
+    "affix_type": "stat",
+    "exclusive_set": [
+      "examplemod:damage_conversion"
+    ],
+    "weights": {
+      "quality": 0.12,
+      "weight": 1
+    }
+  },
+  "operation": "add_value",
+  "values": {
+    "apotheosis:common": {
+      "min": 0.1,
+      "max": 0.2,
+      "step": 0.02
+    },
+    "apotheosis:uncommon": {
+      "min": 0.15,
+      "max": 0.27,
+      "step": 0.02
+    },
+    "apotheosis:rare": {
+      "min": 0.2,
+      "max": 0.4,
+      "step": 0.02
+    },
+    "apotheosis:epic": {
+      "min": 0.3,
+      "max": 0.5,
+      "step": 0.02
+    },
+    "apotheosis:mythic": {
+      "min": 0.4,
+      "max": 0.6,
+      "step": 0.02
+    }
+  }
+}

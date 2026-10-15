@@ -1,0 +1,47 @@
+{
+  "type": "apotheosis:attribute",
+  "attribute": "irons_spellbooks:summon_damage",
+  "categories": [
+    "apotheosis:helmet",
+    "apotheosis:chestplate",
+    "apotheosis:leggings",
+    "apotheosis:boots",
+    "apotheosis:shield",
+    "apotheosis:melee_weapon",
+    "apotheosis:bow",
+    "apotheosis:trident",
+    "irons_apothic:staff",
+    "irons_apothic:spellbook"
+  ],
+  "definition": {
+    "affix_type": "stat",
+    "exclusive_set": [],
+    "weights": {
+      "quality": 0.1,
+      "weight": 20
+    }
+  },
+  "operation": "add_value",
+  "values": {
+    "apotheosis:uncommon": {
+      "min": 0.08,
+      "max": 0.16,
+      "step": 0.02
+    },
+    "apotheosis:rare": {
+      "min": 0.14,
+      "max": 0.24,
+      "step": 0.02
+    },
+    "apotheosis:epic": {
+      "min": 0.2,
+      "max": 0.35,
+      "step": 0.02
+    },
+    "apotheosis:mythic": {
+      "min": 0.3,
+      "max": 0.5,
+      "step": 0.02
+    }
+  }
+}

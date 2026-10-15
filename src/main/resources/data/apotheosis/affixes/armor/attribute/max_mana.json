@@ -1,0 +1,39 @@
+{
+  "type": "apotheosis:attribute",
+  "attribute": "irons_spellbooks:max_mana",
+  "categories": [
+    "apotheosis:helmet",
+    "apotheosis:chestplate"
+  ],
+  "definition": {
+    "affix_type": "stat",
+    "exclusive_set": [],
+    "weights": {
+      "quality": 0.1,
+      "weight": 20
+    }
+  },
+  "operation": "add_value",
+  "values": {
+    "apotheosis:uncommon": {
+      "min": 25.0,
+      "max": 60.0,
+      "step": 5.0
+    },
+    "apotheosis:rare": {
+      "min": 50.0,
+      "max": 100.0,
+      "step": 5.0
+    },
+    "apotheosis:epic": {
+      "min": 80.0,
+      "max": 160.0,
+      "step": 10.0
+    },
+    "apotheosis:mythic": {
+      "min": 140.0,
+      "max": 250.0,
+      "step": 10.0
+    }
+  }
+}
