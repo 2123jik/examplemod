@@ -1,0 +1,48 @@
+{
+  "id": "asylum",
+  "name_en": "Asylum",
+  "name_cn": "庇护所",
+  "sockets_required": 6,
+  "all_spell_levels": 4,
+  "valid_base_tags": [
+    "#examplemod:base/blunt",
+    "#examplemod:base/two_handed_swords",
+    "#examplemod:base/polearms_spears",
+    "#examplemod:base/staves",
+    "#examplemod:base/bows"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_25_gul",
+    "examplemod:runes/rune_32_cham",
+    "examplemod:runes/rune_15_hel",
+    "examplemod:runes/rune_31_jah",
+    "examplemod:runes/rune_14_dol",
+    "examplemod:runes/rune_22_um"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:holy_spell_power",
+      "amount": 0.65,
+      "operation": "MULTIPLY_BASE",
+      "description": "庇护所光环+天堂之拳"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 13.0,
+      "operation": "ADD_VALUE",
+      "description": "+13 伤害"
+    },
+    {
+      "attribute": "examplemod:open_wounds",
+      "amount": 30.0,
+      "operation": "ADD_VALUE",
+      "description": "30% 撕开伤口"
+    },
+    {
+      "attribute": "examplemod:freeze_target",
+      "amount": 3.0,
+      "operation": "ADD_VALUE",
+      "description": "冻结目标 +3"
+    }
+  ]
+}

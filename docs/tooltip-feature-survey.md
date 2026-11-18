@@ -121,18 +121,18 @@ CurseForge 页面在本次环境中始终返回 Cloudflare JavaScript challenge/
 
 ## 4. 当前工程对接结论
 
-当前模板是 NeoForge 1.21.1、Java 21 工程。客户端入口为 [`ExampleModClient.java`](../src/main/java/com/nf121/examplemod/ExampleModClient.java:22)，通用入口为 [`ExampleMod.java`](../src/main/java/com/nf121/examplemod/ExampleMod.java:8)，配置注册位于 [`ExampleMod.java`](../src/main/java/com/nf121/examplemod/ExampleMod.java:12)，配置定义位于 [`Config.java`](../src/main/java/com/nf121/examplemod/Config.java:5)。实现代码位于 [`tooltip/`](../src/main/java/com/nf121/examplemod/tooltip/)。
+当前模板是 NeoForge 1.21.1、Java 21 工程。客户端入口为 [`ExampleModClient.java`](../src/main/java/com/example/examplemod/ExampleModClient.java:22)，通用入口为 [`ExampleMod.java`](../src/main/java/com/example/examplemod/ExampleMod.java:8)，配置注册位于 [`ExampleMod.java`](../src/main/java/com/example/examplemod/ExampleMod.java:12)，配置定义位于 [`Config.java`](../src/main/java/com/example/examplemod/Config.java:5)。实现代码位于 [`tooltip/`](../src/main/java/com/example/examplemod/tooltip/)。
 
 ### 当前实现状态
 
 已实现并接入运行链：
 
 1. 通过 `ItemTooltipEvent` 保留原版内容，增量输出耐久值/百分比、属性及装备比较、工具规则、食物营养与食物效果、药水效果名称/等级/持续时间、燃料、堆肥、冷却、附魔等级与上限、Data Component、Custom Data、注册名、Tag、地图 ID 和容器总堆数/总物品数。
-2. 通过 [`TooltipContribution.java`](../src/main/java/com/nf121/examplemod/tooltip/TooltipContribution.java:6) 与 [`TooltipLayout.java`](../src/main/java/com/nf121/examplemod/tooltip/TooltipLayout.java:8) 完成分类、排序、优先级、去重、最大行数和扩展贡献汇总。
-3. 通过 [`TooltipInteraction.java`](../src/main/java/com/nf121/examplemod/tooltip/TooltipInteraction.java:13) 实现 P 键固定、鼠标滚轮分页和原版 TooltipComponent 兼容的固定提示。
-4. 通过 [`ExampleModClient.java`](../src/main/java/com/nf121/examplemod/ExampleModClient.java:33) 实现持物 HUD、掉落物/方块/实体注视 HUD、生命/护甲信息、最大宽度、配置颜色和稀有度边框主题。
-5. 通过 [`TooltipRules.java`](../src/main/java/com/nf121/examplemod/tooltip/TooltipRules.java:20) 支持资源包 `tooltips/*.json` 的自定义文本、版本字段和第二语言字段，并使用客户端资源重载生命周期热更新。
-6. 通过 [`TooltipContributors.java`](../src/main/java/com/nf121/examplemod/tooltip/TooltipContributors.java:12) 提供第三方模组注入结构化 Tooltip 贡献和原始事件处理器的扩展入口。
+2. 通过 [`TooltipContribution.java`](../src/main/java/com/example/examplemod/tooltip/TooltipContribution.java:6) 与 [`TooltipLayout.java`](../src/main/java/com/example/examplemod/tooltip/TooltipLayout.java:8) 完成分类、排序、优先级、去重、最大行数和扩展贡献汇总。
+3. 通过 [`TooltipInteraction.java`](../src/main/java/com/example/examplemod/tooltip/TooltipInteraction.java:13) 实现 P 键固定、鼠标滚轮分页和原版 TooltipComponent 兼容的固定提示。
+4. 通过 [`ExampleModClient.java`](../src/main/java/com/example/examplemod/ExampleModClient.java:33) 实现持物 HUD、掉落物/方块/实体注视 HUD、生命/护甲信息、最大宽度、配置颜色和稀有度边框主题。
+5. 通过 [`TooltipRules.java`](../src/main/java/com/example/examplemod/tooltip/TooltipRules.java:20) 支持资源包 `tooltips/*.json` 的自定义文本、版本字段和第二语言字段，并使用客户端资源重载生命周期热更新。
+6. 通过 [`TooltipContributors.java`](../src/main/java/com/example/examplemod/tooltip/TooltipContributors.java:12) 提供第三方模组注入结构化 Tooltip 贡献和原始事件处理器的扩展入口。
 7. 已执行 `gradlew.bat clean build`，构建通过。
 
 ### 尚未完整实现的集合项

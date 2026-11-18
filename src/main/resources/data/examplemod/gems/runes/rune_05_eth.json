@@ -1,0 +1,50 @@
+{
+  "type": "apotheosis:gem",
+  "min_purity": "cracked",
+  "unique": false,
+  "weights": {
+    "haven":    { "weight": 22, "quality": 0.0 },
+    "frontier": { "weight": 18, "quality": 1.0 },
+    "ascent":   { "weight": 12, "quality": 2.0 },
+    "summit":   { "weight": 8, "quality": 3.5 },
+    "pinnacle": { "weight": 5, "quality": 5.0 }
+  },
+  "bonuses": [
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "weapons",
+        "types": [
+          "apotheosis:melee_weapon",
+          "apotheosis:trident",
+          "apotheosis:bow"
+        ]
+      },
+      "attribute": "apothic_attributes:armor_shred",
+      "operation": "add_value",
+      "values": { "cracked": 0.048, "chipped": 0.066, "flawed": 0.090, "normal": 0.120, "flawless": 0.150, "perfect": 0.180 }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "armor",
+        "types": [
+          "apotheosis:helmet",
+          "apotheosis:chestplate",
+          "apotheosis:leggings",
+          "apotheosis:boots"
+        ]
+      },
+      "attribute": "irons_spellbooks:mana_regen",
+      "operation": "add_multiplied_base",
+      "values": { "cracked": 0.060, "chipped": 0.083, "flawed": 0.112, "normal": 0.150, "flawless": 0.188, "perfect": 0.225 }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": "apotheosis:shield",
+      "attribute": "irons_spellbooks:mana_regen",
+      "operation": "add_multiplied_base",
+      "values": { "cracked": 0.060, "chipped": 0.083, "flawed": 0.112, "normal": 0.150, "flawless": 0.188, "perfect": 0.225 }
+    }
+  ]
+}

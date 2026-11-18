@@ -3,43 +3,38 @@
   "name_en": "Splendor",
   "name_cn": "灿烂",
   "sockets_required": 2,
+  "all_spell_levels": 1,
   "valid_base_tags": [
     "#examplemod:base/shields"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 5,
-      "rune_name": "Eth (爱斯)",
-      "pattern": "minecraft:flow",
-      "material": "minecraft:copper_ingot"
-    },
-    {
-      "step": 2,
-      "rune_id": 17,
-      "rune_name": "Lum (卢姆)",
-      "pattern": "minecraft:eye",
-      "material": "minecraft:lapis_lazuli"
-    }
+    "examplemod:runes/rune_05_eth",
+    "examplemod:runes/rune_17_lum"
   ],
   "attributes": [
     {
-      "attribute": "irons_spellbooks:spell_power",
-      "amount": 0.1,
+      "attribute": "irons_spellbooks:cast_time_reduction",
+      "amount": 0.25,
       "operation": "MULTIPLY_BASE",
-      "description": "+10% 法强"
+      "description": "+25% 快速施法"
     },
     {
       "attribute": "irons_spellbooks:mana_regen",
-      "amount": 0.3,
+      "amount": 0.2,
       "operation": "MULTIPLY_BASE",
-      "description": "+30% 回蓝速度"
+      "description": "+20% 回蓝"
     },
     {
-      "attribute": "apothic_attributes:experience_gained",
-      "amount": 0.3,
-      "operation": "MULTIPLY_BASE",
-      "description": "+30% 打宝经验"
+      "attribute": "l2weaponry:reflect_time",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+20% 格挡提速"
+    },
+    {
+      "attribute": "minecraft:generic.luck",
+      "amount": 1.5,
+      "operation": "ADD_VALUE",
+      "description": "+1.5 幸运"
     }
   ]
 }

@@ -3,57 +3,46 @@
   "name_en": "Bramble",
   "name_cn": "荆棘",
   "sockets_required": 4,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/chestplates"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 8,
-      "rune_name": "Ral (拉尔)",
-      "pattern": "more_armor_trims:fever",
-      "material": "minecraft:redstone"
-    },
-    {
-      "step": 2,
-      "rune_id": 27,
-      "rune_name": "Ohm (欧姆)",
-      "pattern": "more_armor_trims:myth",
-      "material": "cataclysm:ancient_metal_ingot"
-    },
-    {
-      "step": 3,
-      "rune_id": 29,
-      "rune_name": "Sur (瑟)",
-      "pattern": "minecraft:silence",
-      "material": "cataclysm:cursium_ingot"
-    },
-    {
-      "step": 4,
-      "rune_id": 5,
-      "rune_name": "Eth (爱斯)",
-      "pattern": "minecraft:flow",
-      "material": "minecraft:copper_ingot"
-    }
+    "examplemod:runes/rune_08_ral",
+    "examplemod:runes/rune_27_ohm",
+    "examplemod:runes/rune_29_sur",
+    "examplemod:runes/rune_05_eth"
   ],
   "attributes": [
     {
       "attribute": "irons_spellbooks:nature_spell_power",
-      "amount": 0.55,
+      "amount": 0.5,
       "operation": "MULTIPLY_BASE",
-      "description": "+55% 剧毒法强提升"
+      "description": "+50% 毒素/自然法强"
     },
     {
-      "attribute": "l2damagetracker:damage_reduction",
-      "amount": 0.15,
-      "operation": "MULTIPLY_BASE",
-      "description": "+15% 反伤免伤"
+      "attribute": "examplemod:thorns_damage",
+      "amount": 18.0,
+      "operation": "ADD_VALUE",
+      "description": "荆棘灵气反伤"
     },
     {
-      "attribute": "irons_spellbooks:mana_regen",
-      "amount": 0.35,
+      "attribute": "examplemod:life_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回血"
+    },
+    {
+      "attribute": "irons_spellbooks:max_mana",
+      "amount": 0.05,
       "operation": "MULTIPLY_BASE",
-      "description": "+35% 回蓝"
+      "description": "+5% 法力上限"
+    },
+    {
+      "attribute": "irons_spellbooks:nature_magic_resist",
+      "amount": 0.7,
+      "operation": "MULTIPLY_BASE",
+      "description": "+70% 毒抗"
     }
   ]
 }

@@ -2915,97 +2915,50 @@
         "cataclysm:charge_time",
         "cataclysm:eat_speed",
         "cataclysm:nature_heal",
-        "examplemod:convert_blood_to_dune",
+        "examplemod:cannot_be_frozen",
         "examplemod:convert_blood_to_eldritch",
         "examplemod:convert_blood_to_ender",
-        "examplemod:convert_blood_to_evocation",
-        "examplemod:convert_blood_to_holy",
-        "examplemod:convert_blood_to_melody",
-        "examplemod:convert_blood_to_symmetry",
         "examplemod:convert_dune_to_evocation",
         "examplemod:convert_dune_to_holy",
-        "examplemod:convert_dune_to_melody",
-        "examplemod:convert_dune_to_symmetry",
         "examplemod:convert_eldritch_to_dune",
         "examplemod:convert_eldritch_to_evocation",
-        "examplemod:convert_eldritch_to_holy",
-        "examplemod:convert_eldritch_to_melody",
-        "examplemod:convert_eldritch_to_symmetry",
         "examplemod:convert_ender_to_dune",
         "examplemod:convert_ender_to_eldritch",
-        "examplemod:convert_ender_to_evocation",
-        "examplemod:convert_ender_to_holy",
-        "examplemod:convert_ender_to_melody",
-        "examplemod:convert_ender_to_symmetry",
         "examplemod:convert_evocation_to_holy",
         "examplemod:convert_evocation_to_melody",
-        "examplemod:convert_evocation_to_symmetry",
-        "examplemod:convert_fire_to_blood",
-        "examplemod:convert_fire_to_dune",
-        "examplemod:convert_fire_to_eldritch",
-        "examplemod:convert_fire_to_ender",
-        "examplemod:convert_fire_to_evocation",
-        "examplemod:convert_fire_to_holy",
         "examplemod:convert_fire_to_ice",
         "examplemod:convert_fire_to_lightning",
-        "examplemod:convert_fire_to_melody",
-        "examplemod:convert_fire_to_nature",
-        "examplemod:convert_fire_to_spirit",
-        "examplemod:convert_fire_to_symmetry",
         "examplemod:convert_holy_to_melody",
         "examplemod:convert_holy_to_symmetry",
-        "examplemod:convert_ice_to_blood",
-        "examplemod:convert_ice_to_dune",
-        "examplemod:convert_ice_to_eldritch",
-        "examplemod:convert_ice_to_ender",
-        "examplemod:convert_ice_to_evocation",
-        "examplemod:convert_ice_to_holy",
         "examplemod:convert_ice_to_lightning",
-        "examplemod:convert_ice_to_melody",
         "examplemod:convert_ice_to_nature",
-        "examplemod:convert_ice_to_spirit",
-        "examplemod:convert_ice_to_symmetry",
-        "examplemod:convert_lightning_to_blood",
-        "examplemod:convert_lightning_to_dune",
-        "examplemod:convert_lightning_to_eldritch",
-        "examplemod:convert_lightning_to_ender",
-        "examplemod:convert_lightning_to_evocation",
-        "examplemod:convert_lightning_to_holy",
-        "examplemod:convert_lightning_to_melody",
         "examplemod:convert_lightning_to_nature",
         "examplemod:convert_lightning_to_spirit",
-        "examplemod:convert_lightning_to_symmetry",
         "examplemod:convert_melody_to_symmetry",
         "examplemod:convert_nature_to_blood",
-        "examplemod:convert_nature_to_dune",
-        "examplemod:convert_nature_to_eldritch",
-        "examplemod:convert_nature_to_ender",
-        "examplemod:convert_nature_to_evocation",
-        "examplemod:convert_nature_to_holy",
-        "examplemod:convert_nature_to_melody",
         "examplemod:convert_nature_to_spirit",
-        "examplemod:convert_nature_to_symmetry",
-        "examplemod:convert_physical_to_blood",
-        "examplemod:convert_physical_to_dune",
-        "examplemod:convert_physical_to_eldritch",
-        "examplemod:convert_physical_to_ender",
-        "examplemod:convert_physical_to_evocation",
         "examplemod:convert_physical_to_fire",
-        "examplemod:convert_physical_to_holy",
         "examplemod:convert_physical_to_ice",
-        "examplemod:convert_physical_to_lightning",
-        "examplemod:convert_physical_to_melody",
-        "examplemod:convert_physical_to_nature",
-        "examplemod:convert_physical_to_spirit",
-        "examplemod:convert_physical_to_symmetry",
         "examplemod:convert_spirit_to_blood",
-        "examplemod:convert_spirit_to_dune",
-        "examplemod:convert_spirit_to_eldritch",
         "examplemod:convert_spirit_to_ender",
-        "examplemod:convert_spirit_to_evocation",
-        "examplemod:convert_spirit_to_holy",
-        "examplemod:convert_spirit_to_melody",
-        "examplemod:convert_spirit_to_symmetry",
+        "examplemod:damage_to_demons",
+        "examplemod:damage_to_mana",
+        "examplemod:damage_to_undead",
+        "examplemod:fire_penetration",
+        "examplemod:freeze_target",
+        "examplemod:hit_blind",
+        "examplemod:holy_fire_aura",
+        "examplemod:holy_freeze_aura",
+        "examplemod:holy_shock_aura",
+        "examplemod:ice_penetration",
+        "examplemod:life_on_kill",
+        "examplemod:lightning_penetration",
+        "examplemod:mana_on_kill",
+        "examplemod:mana_steal",
+        "examplemod:open_wounds",
+        "examplemod:poison_penetration",
+        "examplemod:prevent_heal",
+        "examplemod:thorns_damage",
         "irons_lib:armor_pierce",
         "irons_lib:arrow_damage",
         "irons_lib:crit_damage",
@@ -3297,10 +3250,8 @@
           "zh": "% 生命值自然恢复速度",
           "en": "% Nature Heal"
         },
-        "examplemod:convert_blood_to_dune": {
-          "key": "attribute.examplemod.convert_blood_to_dune",
-          "zh": "猩红伤害转化为沙丘伤害",
-          "en": " Blood Damage converted to Dune"
+        "examplemod:cannot_be_frozen": {
+          "key": "无法冰冻 (≥1生效)"
         },
         "examplemod:convert_blood_to_eldritch": {
           "key": "attribute.examplemod.convert_blood_to_eldritch",
@@ -3312,26 +3263,6 @@
           "zh": "猩红伤害转化为末影伤害",
           "en": " Blood Damage converted to Ender"
         },
-        "examplemod:convert_blood_to_evocation": {
-          "key": "attribute.examplemod.convert_blood_to_evocation",
-          "zh": "猩红伤害转化为唤魔伤害",
-          "en": " Blood Damage converted to Evocation"
-        },
-        "examplemod:convert_blood_to_holy": {
-          "key": "attribute.examplemod.convert_blood_to_holy",
-          "zh": "猩红伤害转化为神圣伤害",
-          "en": " Blood Damage converted to Holy"
-        },
-        "examplemod:convert_blood_to_melody": {
-          "key": "attribute.examplemod.convert_blood_to_melody",
-          "zh": "猩红伤害转化为旋律伤害",
-          "en": " Blood Damage converted to Melody"
-        },
-        "examplemod:convert_blood_to_symmetry": {
-          "key": "attribute.examplemod.convert_blood_to_symmetry",
-          "zh": "猩红伤害转化为两仪伤害",
-          "en": " Blood Damage converted to Symmetry"
-        },
         "examplemod:convert_dune_to_evocation": {
           "key": "attribute.examplemod.convert_dune_to_evocation",
           "zh": "沙丘伤害转化为唤魔伤害",
@@ -3341,16 +3272,6 @@
           "key": "attribute.examplemod.convert_dune_to_holy",
           "zh": "沙丘伤害转化为神圣伤害",
           "en": " Dune Damage converted to Holy"
-        },
-        "examplemod:convert_dune_to_melody": {
-          "key": "attribute.examplemod.convert_dune_to_melody",
-          "zh": "沙丘伤害转化为旋律伤害",
-          "en": " Dune Damage converted to Melody"
-        },
-        "examplemod:convert_dune_to_symmetry": {
-          "key": "attribute.examplemod.convert_dune_to_symmetry",
-          "zh": "沙丘伤害转化为两仪伤害",
-          "en": " Dune Damage converted to Symmetry"
         },
         "examplemod:convert_eldritch_to_dune": {
           "key": "attribute.examplemod.convert_eldritch_to_dune",
@@ -3362,21 +3283,6 @@
           "zh": "邪术伤害转化为唤魔伤害",
           "en": " Eldritch Damage converted to Evocation"
         },
-        "examplemod:convert_eldritch_to_holy": {
-          "key": "attribute.examplemod.convert_eldritch_to_holy",
-          "zh": "邪术伤害转化为神圣伤害",
-          "en": " Eldritch Damage converted to Holy"
-        },
-        "examplemod:convert_eldritch_to_melody": {
-          "key": "attribute.examplemod.convert_eldritch_to_melody",
-          "zh": "邪术伤害转化为旋律伤害",
-          "en": " Eldritch Damage converted to Melody"
-        },
-        "examplemod:convert_eldritch_to_symmetry": {
-          "key": "attribute.examplemod.convert_eldritch_to_symmetry",
-          "zh": "邪术伤害转化为两仪伤害",
-          "en": " Eldritch Damage converted to Symmetry"
-        },
         "examplemod:convert_ender_to_dune": {
           "key": "attribute.examplemod.convert_ender_to_dune",
           "zh": "末影伤害转化为沙丘伤害",
@@ -3386,26 +3292,6 @@
           "key": "attribute.examplemod.convert_ender_to_eldritch",
           "zh": "末影伤害转化为邪术伤害",
           "en": " Ender Damage converted to Eldritch"
-        },
-        "examplemod:convert_ender_to_evocation": {
-          "key": "attribute.examplemod.convert_ender_to_evocation",
-          "zh": "末影伤害转化为唤魔伤害",
-          "en": " Ender Damage converted to Evocation"
-        },
-        "examplemod:convert_ender_to_holy": {
-          "key": "attribute.examplemod.convert_ender_to_holy",
-          "zh": "末影伤害转化为神圣伤害",
-          "en": " Ender Damage converted to Holy"
-        },
-        "examplemod:convert_ender_to_melody": {
-          "key": "attribute.examplemod.convert_ender_to_melody",
-          "zh": "末影伤害转化为旋律伤害",
-          "en": " Ender Damage converted to Melody"
-        },
-        "examplemod:convert_ender_to_symmetry": {
-          "key": "attribute.examplemod.convert_ender_to_symmetry",
-          "zh": "末影伤害转化为两仪伤害",
-          "en": " Ender Damage converted to Symmetry"
         },
         "examplemod:convert_evocation_to_holy": {
           "key": "attribute.examplemod.convert_evocation_to_holy",
@@ -3417,41 +3303,6 @@
           "zh": "唤魔伤害转化为旋律伤害",
           "en": " Evocation Damage converted to Melody"
         },
-        "examplemod:convert_evocation_to_symmetry": {
-          "key": "attribute.examplemod.convert_evocation_to_symmetry",
-          "zh": "唤魔伤害转化为两仪伤害",
-          "en": " Evocation Damage converted to Symmetry"
-        },
-        "examplemod:convert_fire_to_blood": {
-          "key": "attribute.examplemod.convert_fire_to_blood",
-          "zh": "炽焰伤害转化为猩红伤害",
-          "en": " Fire Damage converted to Blood"
-        },
-        "examplemod:convert_fire_to_dune": {
-          "key": "attribute.examplemod.convert_fire_to_dune",
-          "zh": "炽焰伤害转化为沙丘伤害",
-          "en": " Fire Damage converted to Dune"
-        },
-        "examplemod:convert_fire_to_eldritch": {
-          "key": "attribute.examplemod.convert_fire_to_eldritch",
-          "zh": "炽焰伤害转化为邪术伤害",
-          "en": " Fire Damage converted to Eldritch"
-        },
-        "examplemod:convert_fire_to_ender": {
-          "key": "attribute.examplemod.convert_fire_to_ender",
-          "zh": "炽焰伤害转化为末影伤害",
-          "en": " Fire Damage converted to Ender"
-        },
-        "examplemod:convert_fire_to_evocation": {
-          "key": "attribute.examplemod.convert_fire_to_evocation",
-          "zh": "炽焰伤害转化为唤魔伤害",
-          "en": " Fire Damage converted to Evocation"
-        },
-        "examplemod:convert_fire_to_holy": {
-          "key": "attribute.examplemod.convert_fire_to_holy",
-          "zh": "炽焰伤害转化为神圣伤害",
-          "en": " Fire Damage converted to Holy"
-        },
         "examplemod:convert_fire_to_ice": {
           "key": "attribute.examplemod.convert_fire_to_ice",
           "zh": "炽焰伤害转化为冰霜伤害",
@@ -3461,26 +3312,6 @@
           "key": "attribute.examplemod.convert_fire_to_lightning",
           "zh": "炽焰伤害转化为雷霆伤害",
           "en": " Fire Damage converted to Lightning"
-        },
-        "examplemod:convert_fire_to_melody": {
-          "key": "attribute.examplemod.convert_fire_to_melody",
-          "zh": "炽焰伤害转化为旋律伤害",
-          "en": " Fire Damage converted to Melody"
-        },
-        "examplemod:convert_fire_to_nature": {
-          "key": "attribute.examplemod.convert_fire_to_nature",
-          "zh": "炽焰伤害转化为自然伤害",
-          "en": " Fire Damage converted to Nature"
-        },
-        "examplemod:convert_fire_to_spirit": {
-          "key": "attribute.examplemod.convert_fire_to_spirit",
-          "zh": "炽焰伤害转化为魂灵伤害",
-          "en": " Fire Damage converted to Spirit"
-        },
-        "examplemod:convert_fire_to_symmetry": {
-          "key": "attribute.examplemod.convert_fire_to_symmetry",
-          "zh": "炽焰伤害转化为两仪伤害",
-          "en": " Fire Damage converted to Symmetry"
         },
         "examplemod:convert_holy_to_melody": {
           "key": "attribute.examplemod.convert_holy_to_melody",
@@ -3492,95 +3323,15 @@
           "zh": "神圣伤害转化为两仪伤害",
           "en": " Holy Damage converted to Symmetry"
         },
-        "examplemod:convert_ice_to_blood": {
-          "key": "attribute.examplemod.convert_ice_to_blood",
-          "zh": "冰霜伤害转化为猩红伤害",
-          "en": " Ice Damage converted to Blood"
-        },
-        "examplemod:convert_ice_to_dune": {
-          "key": "attribute.examplemod.convert_ice_to_dune",
-          "zh": "冰霜伤害转化为沙丘伤害",
-          "en": " Ice Damage converted to Dune"
-        },
-        "examplemod:convert_ice_to_eldritch": {
-          "key": "attribute.examplemod.convert_ice_to_eldritch",
-          "zh": "冰霜伤害转化为邪术伤害",
-          "en": " Ice Damage converted to Eldritch"
-        },
-        "examplemod:convert_ice_to_ender": {
-          "key": "attribute.examplemod.convert_ice_to_ender",
-          "zh": "冰霜伤害转化为末影伤害",
-          "en": " Ice Damage converted to Ender"
-        },
-        "examplemod:convert_ice_to_evocation": {
-          "key": "attribute.examplemod.convert_ice_to_evocation",
-          "zh": "冰霜伤害转化为唤魔伤害",
-          "en": " Ice Damage converted to Evocation"
-        },
-        "examplemod:convert_ice_to_holy": {
-          "key": "attribute.examplemod.convert_ice_to_holy",
-          "zh": "冰霜伤害转化为神圣伤害",
-          "en": " Ice Damage converted to Holy"
-        },
         "examplemod:convert_ice_to_lightning": {
           "key": "attribute.examplemod.convert_ice_to_lightning",
           "zh": "冰霜伤害转化为雷霆伤害",
           "en": " Ice Damage converted to Lightning"
         },
-        "examplemod:convert_ice_to_melody": {
-          "key": "attribute.examplemod.convert_ice_to_melody",
-          "zh": "冰霜伤害转化为旋律伤害",
-          "en": " Ice Damage converted to Melody"
-        },
         "examplemod:convert_ice_to_nature": {
           "key": "attribute.examplemod.convert_ice_to_nature",
           "zh": "冰霜伤害转化为自然伤害",
           "en": " Ice Damage converted to Nature"
-        },
-        "examplemod:convert_ice_to_spirit": {
-          "key": "attribute.examplemod.convert_ice_to_spirit",
-          "zh": "冰霜伤害转化为魂灵伤害",
-          "en": " Ice Damage converted to Spirit"
-        },
-        "examplemod:convert_ice_to_symmetry": {
-          "key": "attribute.examplemod.convert_ice_to_symmetry",
-          "zh": "冰霜伤害转化为两仪伤害",
-          "en": " Ice Damage converted to Symmetry"
-        },
-        "examplemod:convert_lightning_to_blood": {
-          "key": "attribute.examplemod.convert_lightning_to_blood",
-          "zh": "雷霆伤害转化为猩红伤害",
-          "en": " Lightning Damage converted to Blood"
-        },
-        "examplemod:convert_lightning_to_dune": {
-          "key": "attribute.examplemod.convert_lightning_to_dune",
-          "zh": "雷霆伤害转化为沙丘伤害",
-          "en": " Lightning Damage converted to Dune"
-        },
-        "examplemod:convert_lightning_to_eldritch": {
-          "key": "attribute.examplemod.convert_lightning_to_eldritch",
-          "zh": "雷霆伤害转化为邪术伤害",
-          "en": " Lightning Damage converted to Eldritch"
-        },
-        "examplemod:convert_lightning_to_ender": {
-          "key": "attribute.examplemod.convert_lightning_to_ender",
-          "zh": "雷霆伤害转化为末影伤害",
-          "en": " Lightning Damage converted to Ender"
-        },
-        "examplemod:convert_lightning_to_evocation": {
-          "key": "attribute.examplemod.convert_lightning_to_evocation",
-          "zh": "雷霆伤害转化为唤魔伤害",
-          "en": " Lightning Damage converted to Evocation"
-        },
-        "examplemod:convert_lightning_to_holy": {
-          "key": "attribute.examplemod.convert_lightning_to_holy",
-          "zh": "雷霆伤害转化为神圣伤害",
-          "en": " Lightning Damage converted to Holy"
-        },
-        "examplemod:convert_lightning_to_melody": {
-          "key": "attribute.examplemod.convert_lightning_to_melody",
-          "zh": "雷霆伤害转化为旋律伤害",
-          "en": " Lightning Damage converted to Melody"
         },
         "examplemod:convert_lightning_to_nature": {
           "key": "attribute.examplemod.convert_lightning_to_nature",
@@ -3592,11 +3343,6 @@
           "zh": "雷霆伤害转化为魂灵伤害",
           "en": " Lightning Damage converted to Spirit"
         },
-        "examplemod:convert_lightning_to_symmetry": {
-          "key": "attribute.examplemod.convert_lightning_to_symmetry",
-          "zh": "雷霆伤害转化为两仪伤害",
-          "en": " Lightning Damage converted to Symmetry"
-        },
         "examplemod:convert_melody_to_symmetry": {
           "key": "attribute.examplemod.convert_melody_to_symmetry",
           "zh": "旋律伤害转化为两仪伤害",
@@ -3607,150 +3353,84 @@
           "zh": "自然伤害转化为猩红伤害",
           "en": " Nature Damage converted to Blood"
         },
-        "examplemod:convert_nature_to_dune": {
-          "key": "attribute.examplemod.convert_nature_to_dune",
-          "zh": "自然伤害转化为沙丘伤害",
-          "en": " Nature Damage converted to Dune"
-        },
-        "examplemod:convert_nature_to_eldritch": {
-          "key": "attribute.examplemod.convert_nature_to_eldritch",
-          "zh": "自然伤害转化为邪术伤害",
-          "en": " Nature Damage converted to Eldritch"
-        },
-        "examplemod:convert_nature_to_ender": {
-          "key": "attribute.examplemod.convert_nature_to_ender",
-          "zh": "自然伤害转化为末影伤害",
-          "en": " Nature Damage converted to Ender"
-        },
-        "examplemod:convert_nature_to_evocation": {
-          "key": "attribute.examplemod.convert_nature_to_evocation",
-          "zh": "自然伤害转化为唤魔伤害",
-          "en": " Nature Damage converted to Evocation"
-        },
-        "examplemod:convert_nature_to_holy": {
-          "key": "attribute.examplemod.convert_nature_to_holy",
-          "zh": "自然伤害转化为神圣伤害",
-          "en": " Nature Damage converted to Holy"
-        },
-        "examplemod:convert_nature_to_melody": {
-          "key": "attribute.examplemod.convert_nature_to_melody",
-          "zh": "自然伤害转化为旋律伤害",
-          "en": " Nature Damage converted to Melody"
-        },
         "examplemod:convert_nature_to_spirit": {
           "key": "attribute.examplemod.convert_nature_to_spirit",
           "zh": "自然伤害转化为魂灵伤害",
           "en": " Nature Damage converted to Spirit"
-        },
-        "examplemod:convert_nature_to_symmetry": {
-          "key": "attribute.examplemod.convert_nature_to_symmetry",
-          "zh": "自然伤害转化为两仪伤害",
-          "en": " Nature Damage converted to Symmetry"
-        },
-        "examplemod:convert_physical_to_blood": {
-          "key": "attribute.examplemod.convert_physical_to_blood",
-          "zh": "物理伤害转化为猩红伤害",
-          "en": " Physical Damage converted to Blood"
-        },
-        "examplemod:convert_physical_to_dune": {
-          "key": "attribute.examplemod.convert_physical_to_dune",
-          "zh": "物理伤害转化为沙丘伤害",
-          "en": " Physical Damage converted to Dune"
-        },
-        "examplemod:convert_physical_to_eldritch": {
-          "key": "attribute.examplemod.convert_physical_to_eldritch",
-          "zh": "物理伤害转化为邪术伤害",
-          "en": " Physical Damage converted to Eldritch"
-        },
-        "examplemod:convert_physical_to_ender": {
-          "key": "attribute.examplemod.convert_physical_to_ender",
-          "zh": "物理伤害转化为末影伤害",
-          "en": " Physical Damage converted to Ender"
-        },
-        "examplemod:convert_physical_to_evocation": {
-          "key": "attribute.examplemod.convert_physical_to_evocation",
-          "zh": "物理伤害转化为唤魔伤害",
-          "en": " Physical Damage converted to Evocation"
         },
         "examplemod:convert_physical_to_fire": {
           "key": "attribute.examplemod.convert_physical_to_fire",
           "zh": "物理伤害转化为炽焰伤害",
           "en": " Physical Damage converted to Fire"
         },
-        "examplemod:convert_physical_to_holy": {
-          "key": "attribute.examplemod.convert_physical_to_holy",
-          "zh": "物理伤害转化为神圣伤害",
-          "en": " Physical Damage converted to Holy"
-        },
         "examplemod:convert_physical_to_ice": {
           "key": "attribute.examplemod.convert_physical_to_ice",
           "zh": "物理伤害转化为冰霜伤害",
           "en": " Physical Damage converted to Ice"
-        },
-        "examplemod:convert_physical_to_lightning": {
-          "key": "attribute.examplemod.convert_physical_to_lightning",
-          "zh": "物理伤害转化为雷霆伤害",
-          "en": " Physical Damage converted to Lightning"
-        },
-        "examplemod:convert_physical_to_melody": {
-          "key": "attribute.examplemod.convert_physical_to_melody",
-          "zh": "物理伤害转化为旋律伤害",
-          "en": " Physical Damage converted to Melody"
-        },
-        "examplemod:convert_physical_to_nature": {
-          "key": "attribute.examplemod.convert_physical_to_nature",
-          "zh": "物理伤害转化为自然伤害",
-          "en": " Physical Damage converted to Nature"
-        },
-        "examplemod:convert_physical_to_spirit": {
-          "key": "attribute.examplemod.convert_physical_to_spirit",
-          "zh": "物理伤害转化为魂灵伤害",
-          "en": " Physical Damage converted to Spirit"
-        },
-        "examplemod:convert_physical_to_symmetry": {
-          "key": "attribute.examplemod.convert_physical_to_symmetry",
-          "zh": "物理伤害转化为两仪伤害",
-          "en": " Physical Damage converted to Symmetry"
         },
         "examplemod:convert_spirit_to_blood": {
           "key": "attribute.examplemod.convert_spirit_to_blood",
           "zh": "魂灵伤害转化为猩红伤害",
           "en": " Spirit Damage converted to Blood"
         },
-        "examplemod:convert_spirit_to_dune": {
-          "key": "attribute.examplemod.convert_spirit_to_dune",
-          "zh": "魂灵伤害转化为沙丘伤害",
-          "en": " Spirit Damage converted to Dune"
-        },
-        "examplemod:convert_spirit_to_eldritch": {
-          "key": "attribute.examplemod.convert_spirit_to_eldritch",
-          "zh": "魂灵伤害转化为邪术伤害",
-          "en": " Spirit Damage converted to Eldritch"
-        },
         "examplemod:convert_spirit_to_ender": {
           "key": "attribute.examplemod.convert_spirit_to_ender",
           "zh": "魂灵伤害转化为末影伤害",
           "en": " Spirit Damage converted to Ender"
         },
-        "examplemod:convert_spirit_to_evocation": {
-          "key": "attribute.examplemod.convert_spirit_to_evocation",
-          "zh": "魂灵伤害转化为唤魔伤害",
-          "en": " Spirit Damage converted to Evocation"
+        "examplemod:damage_to_demons": {
+          "key": "% 对恶魔伤害"
         },
-        "examplemod:convert_spirit_to_holy": {
-          "key": "attribute.examplemod.convert_spirit_to_holy",
-          "zh": "魂灵伤害转化为神圣伤害",
-          "en": " Spirit Damage converted to Holy"
+        "examplemod:damage_to_mana": {
+          "key": "% 受损的生命转换成法力"
         },
-        "examplemod:convert_spirit_to_melody": {
-          "key": "attribute.examplemod.convert_spirit_to_melody",
-          "zh": "魂灵伤害转化为旋律伤害",
-          "en": " Spirit Damage converted to Melody"
+        "examplemod:damage_to_undead": {
+          "key": "% 对不死生物伤害"
         },
-        "examplemod:convert_spirit_to_symmetry": {
-          "key": "attribute.examplemod.convert_spirit_to_symmetry",
-          "zh": "魂灵伤害转化为两仪伤害",
-          "en": " Spirit Damage converted to Symmetry"
+        "examplemod:fire_penetration": {
+          "key": "% 降低敌人火焰抗性"
+        },
+        "examplemod:freeze_target": {
+          "key": "附加冰冷值"
+        },
+        "examplemod:hit_blind": {
+          "key": "% 几率致盲削弱目标"
+        },
+        "examplemod:holy_fire_aura": {
+          "key": "圣火灵气等级"
+        },
+        "examplemod:holy_freeze_aura": {
+          "key": "神圣冰冻灵气等级"
+        },
+        "examplemod:holy_shock_aura": {
+          "key": "神圣冲击灵气等级"
+        },
+        "examplemod:ice_penetration": {
+          "key": "% 降低敌人冰冷抗性"
+        },
+        "examplemod:life_on_kill": {
+          "key": "击杀回复生命"
+        },
+        "examplemod:lightning_penetration": {
+          "key": "% 降低敌人闪电抗性"
+        },
+        "examplemod:mana_on_kill": {
+          "key": "击杀回复法力"
+        },
+        "examplemod:mana_steal": {
+          "key": "% 击中时偷取法力"
+        },
+        "examplemod:open_wounds": {
+          "key": "% 几率撕开敌人伤口"
+        },
+        "examplemod:poison_penetration": {
+          "key": "% 降低敌人毒素抗性"
+        },
+        "examplemod:prevent_heal": {
+          "key": "防止目标自疗 (≥1生效)"
+        },
+        "examplemod:thorns_damage": {
+          "key": "攻击者受到反伤"
         },
         "irons_lib:armor_pierce": {
           "key": "attribute.name.irons_lib.armor_pierce",
@@ -6162,10 +5842,12 @@
         "twilightdelight:canopy_cabinet",
         "twilightdelight:chaos_stew_block",
         "twilightdelight:dark_cabinet",
+        "twilightdelight:delicious_in_maze",
         "twilightdelight:fiddlehead_clump",
         "twilightdelight:fiddlehead_clump_upper",
         "twilightdelight:fiery_cooking_pot",
         "twilightdelight:fiery_snakes_block",
+        "twilightdelight:ghastling_mousse_cake",
         "twilightdelight:ironwood_leaves",
         "twilightdelight:ironwood_log",
         "twilightdelight:ironwood_sapling",
@@ -15410,6 +15092,11 @@
           "zh": "黑木橱柜",
           "en": "Dark Cabinet"
         },
+        "twilightdelight:delicious_in_maze": {
+          "key": "block.twilightdelight.delicious_in_maze",
+          "zh": "迷宫饭",
+          "en": "Delicious In Maze"
+        },
         "twilightdelight:fiddlehead_clump": {
           "key": "block.twilightdelight.fiddlehead_clump",
           "en": "Fiddlehead Clump"
@@ -15427,6 +15114,11 @@
           "key": "block.twilightdelight.fiery_snakes_block",
           "zh": "炽汁蛇宴",
           "en": "Fiery Snakes Block"
+        },
+        "twilightdelight:ghastling_mousse_cake": {
+          "key": "block.twilightdelight.ghastling_mousse_cake",
+          "zh": "迷你恶魂慕斯蛋糕",
+          "en": "Ghastling Mousse Cake"
         },
         "twilightdelight:ironwood_leaves": {
           "key": "block.twilightdelight.ironwood_leaves",
@@ -15515,10 +15207,12 @@
         },
         "twilightdelight:twilight_rich_soil": {
           "key": "block.twilightdelight.twilight_rich_soil",
+          "zh": "暮色沃土",
           "en": "Twilight Rich Soil"
         },
         "twilightdelight:twilight_rich_soil_farmland": {
           "key": "block.twilightdelight.twilight_rich_soil_farmland",
+          "zh": "暮色沃土耕地",
           "en": "Twilight Rich Soil Farmland"
         },
         "twilightforest:acacia_banister": {
@@ -21350,12 +21044,16 @@
         "examplemod:active_runeword",
         "examplemod:already_identified",
         "examplemod:brewing_data",
+        "examplemod:corruption",
+        "examplemod:corruption_checked",
         "examplemod:furnace_data",
         "examplemod:is_unidentified",
         "examplemod:item_instance_uuid",
         "examplemod:mimic_cat",
-        "examplemod:trim_history",
+        "examplemod:modifier_id",
+        "examplemod:modifier_level",
         "examplemod:unidentified_scroll_info",
+        "examplemod:wand_slots",
         "farmersdelight:container",
         "farmersdelight:cooking_time_length",
         "farmersdelight:meal",
@@ -27462,10 +27160,12 @@
         "examplemod:iss_magicfromtheeast_splitting_shuriken_spelltrait",
         "examplemod:iss_magicfromtheeast_sword_dance_spelltrait",
         "examplemod:iss_magicfromtheeast_underworld_aid_spelltrait",
+        "examplemod:modifier_gem",
         "examplemod:portable_anvil",
         "examplemod:portable_brewing_stand",
         "examplemod:portable_furnace",
         "examplemod:portable_stonecutter",
+        "examplemod:test_wand",
         "examplemod:turtle_shield",
         "farmersdelight:acacia_cabinet",
         "farmersdelight:apple_cider",
@@ -31310,52 +31010,73 @@
         "tunes_n_tomes:melody_rune",
         "tunes_n_tomes:melody_spell_book",
         "tunes_n_tomes:melody_upgrade_orb",
+        "twilightdelight:antler",
+        "twilightdelight:antler_bow",
+        "twilightdelight:antler_wine",
         "twilightdelight:aurora_pie",
         "twilightdelight:aurora_pie_slice",
         "twilightdelight:berry_stick",
         "twilightdelight:borer_tear_soup",
         "twilightdelight:bowl_of_chaos_stew",
+        "twilightdelight:bowl_of_ghastling_mousse_cake",
         "twilightdelight:canopy_cabinet",
         "twilightdelight:chaos_ink_drink",
         "twilightdelight:chaos_stew_block",
         "twilightdelight:chocolate_113",
         "twilightdelight:chocolate_wafer",
+        "twilightdelight:cooked_helmet_crab_claw",
         "twilightdelight:cooked_insect",
         "twilightdelight:cooked_meef_slice",
         "twilightdelight:cooked_naga_meat",
         "twilightdelight:cooked_naga_piece",
         "twilightdelight:cooked_tomahawk_smeak",
+        "twilightdelight:cooked_tomahawk_smeaxe",
         "twilightdelight:cooked_venison_rib",
+        "twilightdelight:crab_claw_pasta",
         "twilightdelight:dark_cabinet",
+        "twilightdelight:deadbug_stick",
+        "twilightdelight:delicious_in_maze",
         "twilightdelight:experiment_110",
         "twilightdelight:experiment_113",
         "twilightdelight:fiddlehead_clump",
+        "twilightdelight:fiery_blood_curd",
         "twilightdelight:fiery_cooking_pot",
         "twilightdelight:fiery_knife",
         "twilightdelight:fiery_snakes_block",
+        "twilightdelight:fried_hydra_chop",
         "twilightdelight:fried_insect",
         "twilightdelight:ghast_brain_salad",
         "twilightdelight:ghast_burger",
+        "twilightdelight:ghast_tentacle_salad",
+        "twilightdelight:ghastling_mousse_cake",
         "twilightdelight:glacier_ice_tea",
         "twilightdelight:glow_113",
         "twilightdelight:glow_venison_rib_with_pasta",
+        "twilightdelight:glowing_curry_rice",
         "twilightdelight:glowstew",
         "twilightdelight:grilled_ghast",
         "twilightdelight:grilled_tomahawk_smeak",
+        "twilightdelight:helmet_crab_claw",
         "twilightdelight:honey_113",
         "twilightdelight:hydra_burger",
         "twilightdelight:hydra_piece",
+        "twilightdelight:hydra_skewer",
+        "twilightdelight:hydra_stew",
+        "twilightdelight:hydra_stuffed_potato",
         "twilightdelight:ice_knife",
+        "twilightdelight:insect_roll",
         "twilightdelight:ironwood_knife",
         "twilightdelight:ironwood_leaves",
         "twilightdelight:ironwood_log",
         "twilightdelight:ironwood_sapling",
+        "twilightdelight:jack_phantom",
         "twilightdelight:knightmetal_knife",
         "twilightdelight:lily_chicken_block",
         "twilightdelight:liveroot_pork_fried_rice",
         "twilightdelight:liveroot_venison_noodle_soup",
         "twilightdelight:magic_cake_scroll",
         "twilightdelight:mangrove_cabinet",
+        "twilightdelight:maze_slime_wafer",
         "twilightdelight:maze_stove",
         "twilightdelight:meef_wellington_block",
         "twilightdelight:meef_wrap",
@@ -31368,7 +31089,12 @@
         "twilightdelight:naga_meatball_congee",
         "twilightdelight:naga_skewers",
         "twilightdelight:naga_stew",
+        "twilightdelight:omazeo",
+        "twilightdelight:phantom_bone",
+        "twilightdelight:phantom_bone_broth",
+        "twilightdelight:phantom_energy_bar",
         "twilightdelight:phytochemical_juice",
+        "twilightdelight:plate_of_delicious_in_maze",
         "twilightdelight:plate_of_fiery_snakes",
         "twilightdelight:plate_of_lily_chicken",
         "twilightdelight:plate_of_meef_wellington",
@@ -31378,15 +31104,24 @@
         "twilightdelight:raw_naga_meat",
         "twilightdelight:raw_naga_piece",
         "twilightdelight:raw_tomahawk_smeak",
+        "twilightdelight:raw_tomahawk_smeaxe",
         "twilightdelight:raw_venison_rib",
+        "twilightdelight:red_thread_pasta",
+        "twilightdelight:redcanp",
+        "twilightdelight:regret_soup",
         "twilightdelight:saucy_grilled_naga_block",
+        "twilightdelight:slime_wafer",
         "twilightdelight:sorting_cabinet",
         "twilightdelight:steeleaf_knife",
+        "twilightdelight:stuffed_crab_claw",
         "twilightdelight:tear_drink",
         "twilightdelight:teardrop_sword",
+        "twilightdelight:thickcut_ghast_fries",
         "twilightdelight:thorn_rose_tea",
         "twilightdelight:thousand_plant_stew",
         "twilightdelight:time_cabinet",
+        "twilightdelight:tomato_sauce_113",
+        "twilightdelight:tomb_of_the_phantom",
         "twilightdelight:torchberries_crate",
         "twilightdelight:torchberry_cookie",
         "twilightdelight:torchberry_juice",
@@ -31399,7 +31134,10 @@
         "twilightdelight:twilight_oak_cabinet",
         "twilightdelight:twilight_rich_soil",
         "twilightdelight:twilight_rich_soil_farmland",
+        "twilightdelight:twilight_salad",
         "twilightdelight:twilight_spring",
+        "twilightdelight:velvet_antler_slice",
+        "twilightdelight:velvet_antler_stewed_chicken_soup",
         "twilightdelight:witchcraft_bone",
         "twilightdelight:witchcraft_bone_broth",
         "twilightdelight:witchcraft_bone_meal",
@@ -36583,6 +36321,9 @@
           "zh": "无常索命",
           "en": "Impermanence's Verdict"
         },
+        "examplemod:modifier_gem": {
+          "key": "item.examplemod.modifier_gem"
+        },
         "examplemod:portable_anvil": {
           "key": "item.examplemod.portable_anvil"
         },
@@ -36594,6 +36335,9 @@
         },
         "examplemod:portable_stonecutter": {
           "key": "item.examplemod.portable_stonecutter"
+        },
+        "examplemod:test_wand": {
+          "key": "item.examplemod.test_wand"
         },
         "examplemod:turtle_shield": {
           "key": "item.examplemod.turtle_shield"
@@ -54287,6 +54031,21 @@
           "key": "item.tunes_n_tomes.melody_upgrade_orb",
           "en": "Melodic Upgrade Orb"
         },
+        "twilightdelight:antler": {
+          "key": "item.twilightdelight.antler",
+          "zh": "鹿角",
+          "en": "Antler"
+        },
+        "twilightdelight:antler_bow": {
+          "key": "item.twilightdelight.antler_bow",
+          "zh": "鹿角弓",
+          "en": "Antler Bow"
+        },
+        "twilightdelight:antler_wine": {
+          "key": "item.twilightdelight.antler_wine",
+          "zh": "鹿角酒",
+          "en": "Antler Wine"
+        },
         "twilightdelight:aurora_pie": {
           "key": "block.twilightdelight.aurora_pie",
           "zh": "极光冰晶派",
@@ -54311,6 +54070,11 @@
           "key": "item.twilightdelight.bowl_of_chaos_stew",
           "zh": "盘装巫妖乱炖",
           "en": "Bowl of Chaos Stew"
+        },
+        "twilightdelight:bowl_of_ghastling_mousse_cake": {
+          "key": "item.twilightdelight.bowl_of_ghastling_mousse_cake",
+          "zh": "碗装迷你恶魂慕斯蛋糕",
+          "en": "Bowl of Ghastling Mousse Cake"
         },
         "twilightdelight:canopy_cabinet": {
           "key": "block.twilightdelight.canopy_cabinet",
@@ -54337,6 +54101,11 @@
           "zh": "巧克力夹心薄饼",
           "en": "Chocolate Wafer"
         },
+        "twilightdelight:cooked_helmet_crab_claw": {
+          "key": "item.twilightdelight.cooked_helmet_crab_claw",
+          "zh": "熟骑居蟹钳",
+          "en": "Cooked Helmet Crab Claw"
+        },
         "twilightdelight:cooked_insect": {
           "key": "item.twilightdelight.cooked_insect",
           "zh": "熟虫肉",
@@ -54362,15 +54131,35 @@
           "zh": "熟战斧牛头人肋排",
           "en": "Cooked Tomahawk Smeak"
         },
+        "twilightdelight:cooked_tomahawk_smeaxe": {
+          "key": "item.twilightdelight.cooked_tomahawk_smeaxe",
+          "zh": "真·烤·战斧·牛排",
+          "en": "Cooked Tomahawk Smeaxe"
+        },
         "twilightdelight:cooked_venison_rib": {
           "key": "item.twilightdelight.cooked_venison_rib",
           "zh": "鹿肉肋排",
           "en": "Cooked Venison Rib"
         },
+        "twilightdelight:crab_claw_pasta": {
+          "key": "item.twilightdelight.crab_claw_pasta",
+          "zh": "蟹钳意面",
+          "en": "Crab Claw Pasta"
+        },
         "twilightdelight:dark_cabinet": {
           "key": "block.twilightdelight.dark_cabinet",
           "zh": "黑木橱柜",
           "en": "Dark Cabinet"
+        },
+        "twilightdelight:deadbug_stick": {
+          "key": "item.twilightdelight.deadbug_stick",
+          "zh": "生虫串",
+          "en": "Deadbug Stick"
+        },
+        "twilightdelight:delicious_in_maze": {
+          "key": "block.twilightdelight.delicious_in_maze",
+          "zh": "迷宫饭",
+          "en": "Delicious In Maze"
         },
         "twilightdelight:experiment_110": {
           "key": "item.twilightdelight.experiment_110",
@@ -54385,6 +54174,11 @@
         "twilightdelight:fiddlehead_clump": {
           "key": "block.twilightdelight.fiddlehead_clump",
           "en": "Fiddlehead Clump"
+        },
+        "twilightdelight:fiery_blood_curd": {
+          "key": "item.twilightdelight.fiery_blood_curd",
+          "zh": "炽热毛血旺",
+          "en": "Fiery Blood Curd"
         },
         "twilightdelight:fiery_cooking_pot": {
           "key": "block.twilightdelight.fiery_cooking_pot",
@@ -54401,6 +54195,11 @@
           "zh": "炽汁蛇宴",
           "en": "Fiery Snakes Block"
         },
+        "twilightdelight:fried_hydra_chop": {
+          "key": "item.twilightdelight.fried_hydra_chop",
+          "zh": "炸九头蛇肉排",
+          "en": "Fried Hydra Chop"
+        },
         "twilightdelight:fried_insect": {
           "key": "item.twilightdelight.fried_insect",
           "zh": "小炒肥虫",
@@ -54415,6 +54214,16 @@
           "key": "item.twilightdelight.ghast_burger",
           "zh": "恶魂汉堡",
           "en": "Ghast Burger"
+        },
+        "twilightdelight:ghast_tentacle_salad": {
+          "key": "item.twilightdelight.ghast_tentacle_salad",
+          "zh": "凉拌恶魂触手",
+          "en": "Ghast Tentacle Salad"
+        },
+        "twilightdelight:ghastling_mousse_cake": {
+          "key": "block.twilightdelight.ghastling_mousse_cake",
+          "zh": "迷你恶魂慕斯蛋糕",
+          "en": "Ghastling Mousse Cake"
         },
         "twilightdelight:glacier_ice_tea": {
           "key": "item.twilightdelight.glacier_ice_tea",
@@ -54431,6 +54240,11 @@
           "zh": "荧光浇汁鹿排配意面",
           "en": "Glow Venison Rib with Pasta"
         },
+        "twilightdelight:glowing_curry_rice": {
+          "key": "item.twilightdelight.glowing_curry_rice",
+          "zh": "荧光咖喱盖浇饭",
+          "en": "Glowing Curry Rice"
+        },
         "twilightdelight:glowstew": {
           "key": "item.twilightdelight.glowstew",
           "zh": "荧光煲",
@@ -54445,6 +54259,11 @@
           "key": "item.twilightdelight.grilled_tomahawk_smeak",
           "zh": "战斧牛排",
           "en": "Grilled Tomahawk Smeak"
+        },
+        "twilightdelight:helmet_crab_claw": {
+          "key": "item.twilightdelight.helmet_crab_claw",
+          "zh": "骑居蟹钳",
+          "en": "Helmet Crab Claw"
         },
         "twilightdelight:honey_113": {
           "key": "item.twilightdelight.honey_113",
@@ -54461,10 +54280,30 @@
           "zh": "九头蛇肉块",
           "en": "Hydra Piece"
         },
+        "twilightdelight:hydra_skewer": {
+          "key": "item.twilightdelight.hydra_skewer",
+          "zh": "九头蛇烤串",
+          "en": "Hydra Skewer"
+        },
+        "twilightdelight:hydra_stew": {
+          "key": "item.twilightdelight.hydra_stew",
+          "zh": "九头蛇肉炖",
+          "en": "Hydra Stew"
+        },
+        "twilightdelight:hydra_stuffed_potato": {
+          "key": "item.twilightdelight.hydra_stuffed_potato",
+          "zh": "九头蛇填馅马铃薯",
+          "en": "Hydra Stuffed Potato"
+        },
         "twilightdelight:ice_knife": {
           "key": "item.twilightdelight.ice_knife",
           "zh": "冰刀",
           "en": "Ice Knife"
+        },
+        "twilightdelight:insect_roll": {
+          "key": "item.twilightdelight.insect_roll",
+          "zh": "虫肉寿司",
+          "en": "Insect Roll"
         },
         "twilightdelight:ironwood_knife": {
           "key": "item.twilightdelight.ironwood_knife",
@@ -54485,6 +54324,11 @@
           "key": "block.twilightdelight.ironwood_sapling",
           "zh": "铁树树苗",
           "en": "Ironwood Sapling"
+        },
+        "twilightdelight:jack_phantom": {
+          "key": "item.twilightdelight.jack_phantom",
+          "zh": "杰克幻影",
+          "en": "Jack Phantom"
         },
         "twilightdelight:knightmetal_knife": {
           "key": "item.twilightdelight.knightmetal_knife",
@@ -54515,6 +54359,11 @@
           "key": "block.twilightdelight.mangrove_cabinet",
           "zh": "红木橱柜",
           "en": "Mangrove Cabinet"
+        },
+        "twilightdelight:maze_slime_wafer": {
+          "key": "item.twilightdelight.maze_slime_wafer",
+          "zh": "迷宫史莱姆夹心薄饼",
+          "en": "Maze Slime Wafer"
         },
         "twilightdelight:maze_stove": {
           "key": "block.twilightdelight.maze_stove",
@@ -54576,10 +54425,35 @@
           "zh": "娜迦炖菜",
           "en": "Naga Stew"
         },
+        "twilightdelight:omazeo": {
+          "key": "item.twilightdelight.omazeo",
+          "zh": "迷宫奥利奥",
+          "en": "Omazeo"
+        },
+        "twilightdelight:phantom_bone": {
+          "key": "item.twilightdelight.phantom_bone",
+          "zh": "幻影之骨",
+          "en": "Phantom Bone"
+        },
+        "twilightdelight:phantom_bone_broth": {
+          "key": "item.twilightdelight.phantom_bone_broth",
+          "zh": "幻影大骨汤",
+          "en": "Phantom Bone Broth"
+        },
+        "twilightdelight:phantom_energy_bar": {
+          "key": "item.twilightdelight.phantom_energy_bar",
+          "zh": "幻影能量棒",
+          "en": "Phantom Energy Bar"
+        },
         "twilightdelight:phytochemical_juice": {
           "key": "item.twilightdelight.phytochemical_juice",
           "zh": "植物素汁",
           "en": "Phytochemical Juice"
+        },
+        "twilightdelight:plate_of_delicious_in_maze": {
+          "key": "item.twilightdelight.plate_of_delicious_in_maze",
+          "zh": "盘装迷宫饭",
+          "en": "Plate of Delicious In Maze"
         },
         "twilightdelight:plate_of_fiery_snakes": {
           "key": "item.twilightdelight.plate_of_fiery_snakes",
@@ -54626,15 +54500,40 @@
           "zh": "生战斧牛头人肋排",
           "en": "Raw Tomahawk Smeak"
         },
+        "twilightdelight:raw_tomahawk_smeaxe": {
+          "key": "item.twilightdelight.raw_tomahawk_smeaxe",
+          "zh": "真·战斧·牛排",
+          "en": "Raw Tomahawk Smeaxe"
+        },
         "twilightdelight:raw_venison_rib": {
           "key": "item.twilightdelight.raw_venison_rib",
           "zh": "生鹿肉肋条",
           "en": "Raw Venison Rib"
         },
+        "twilightdelight:red_thread_pasta": {
+          "key": "item.twilightdelight.red_thread_pasta",
+          "zh": "红线意面",
+          "en": "Red Thread Pasta"
+        },
+        "twilightdelight:redcanp": {
+          "key": "item.twilightdelight.redcanp",
+          "zh": "红帽罐头",
+          "en": "Redcanp"
+        },
+        "twilightdelight:regret_soup": {
+          "key": "item.twilightdelight.regret_soup",
+          "zh": "悔恨之汤",
+          "en": "Regret Soup"
+        },
         "twilightdelight:saucy_grilled_naga_block": {
           "key": "block.twilightdelight.saucy_grilled_naga_block",
           "zh": "娜迦肉排宴",
           "en": "Saucy Grilled Naga Block"
+        },
+        "twilightdelight:slime_wafer": {
+          "key": "item.twilightdelight.slime_wafer",
+          "zh": "史莱姆夹心薄饼",
+          "en": "Slime Wafer"
         },
         "twilightdelight:sorting_cabinet": {
           "key": "block.twilightdelight.sorting_cabinet",
@@ -54646,6 +54545,11 @@
           "zh": "钢叶刀",
           "en": "Steeleaf Knife"
         },
+        "twilightdelight:stuffed_crab_claw": {
+          "key": "item.twilightdelight.stuffed_crab_claw",
+          "zh": "填馅蟹钳",
+          "en": "Stuffed Crab Claw"
+        },
         "twilightdelight:tear_drink": {
           "key": "item.twilightdelight.tear_drink",
           "zh": "盈泪之饮",
@@ -54655,6 +54559,11 @@
           "key": "item.twilightdelight.teardrop_sword",
           "zh": "盈泪之剑",
           "en": "Teardrop Sword"
+        },
+        "twilightdelight:thickcut_ghast_fries": {
+          "key": "item.twilightdelight.thickcut_ghast_fries",
+          "zh": "恶魂粗薯",
+          "en": "Thickcut Ghast Fries"
         },
         "twilightdelight:thorn_rose_tea": {
           "key": "item.twilightdelight.thorn_rose_tea",
@@ -54670,6 +54579,16 @@
           "key": "block.twilightdelight.time_cabinet",
           "zh": "时光木橱柜",
           "en": "Time Cabinet"
+        },
+        "twilightdelight:tomato_sauce_113": {
+          "key": "item.twilightdelight.tomato_sauce_113",
+          "zh": "113蘸番茄酱",
+          "en": "Tomato Sauce 113"
+        },
+        "twilightdelight:tomb_of_the_phantom": {
+          "key": "item.twilightdelight.tomb_of_the_phantom",
+          "zh": "幻影之墓",
+          "en": "Tomb of the Phantom"
         },
         "twilightdelight:torchberries_crate": {
           "key": "block.twilightdelight.torchberries_crate",
@@ -54723,16 +54642,33 @@
         },
         "twilightdelight:twilight_rich_soil": {
           "key": "block.twilightdelight.twilight_rich_soil",
+          "zh": "暮色沃土",
           "en": "Twilight Rich Soil"
         },
         "twilightdelight:twilight_rich_soil_farmland": {
           "key": "block.twilightdelight.twilight_rich_soil_farmland",
+          "zh": "暮色沃土耕地",
           "en": "Twilight Rich Soil Farmland"
+        },
+        "twilightdelight:twilight_salad": {
+          "key": "item.twilightdelight.twilight_salad",
+          "zh": "暮色沙拉",
+          "en": "Twilight Salad"
         },
         "twilightdelight:twilight_spring": {
           "key": "item.twilightdelight.twilight_spring",
           "zh": "暮色山泉™",
           "en": "Twilight Spring"
+        },
+        "twilightdelight:velvet_antler_slice": {
+          "key": "item.twilightdelight.velvet_antler_slice",
+          "zh": "鹿茸片",
+          "en": "Velvet Antler Slice"
+        },
+        "twilightdelight:velvet_antler_stewed_chicken_soup": {
+          "key": "item.twilightdelight.velvet_antler_stewed_chicken_soup",
+          "zh": "鹿茸炖鸡汤",
+          "en": "Velvet Antler Stewed Chicken Soup"
         },
         "twilightdelight:witchcraft_bone": {
           "key": "item.twilightdelight.witchcraft_bone",
@@ -61323,6 +61259,7 @@
         "curios:curios_container",
         "dungeonnowloading:mending_table",
         "examplemod:equipment_cabinet",
+        "examplemod:wand_edit",
         "farmersdelight:cooking_pot",
         "irons_lib:transmog_menu",
         "irons_spellbooks:arcane_anvil_menu",
@@ -61633,6 +61570,7 @@
         "twilightdelight:fire_range",
         "twilightdelight:frozen_range",
         "twilightdelight:lich_charge",
+        "twilightdelight:phantom_blessing",
         "twilightdelight:poison_range",
         "twilightdelight:temporal_sadness",
         "twilightdelight:twilight_aura",
@@ -62688,6 +62626,11 @@
           "zh": "巫妖充能",
           "en": "Lich Charge"
         },
+        "twilightdelight:phantom_blessing": {
+          "key": "effect.twilightdelight.phantom_blessing",
+          "zh": "幻影之佑",
+          "en": "Phantom Blessing"
+        },
         "twilightdelight:poison_range": {
           "key": "effect.twilightdelight.poison_range",
           "zh": "范围剧毒",
@@ -63365,7 +63308,7 @@
         "apothic_spawners:spawner_modifier",
         "cataclysm:amethyst_bless",
         "cataclysm:weapon_fusion",
-        "examplemod:runeword_smithing",
+        "examplemod:rune_upgrade",
         "farmersdelight:cooking",
         "farmersdelight:cutting",
         "farmersdelight:dough",
@@ -74675,7 +74618,11 @@
         "curios:inventory",
         "dungeonnowloading:dnl_arm_pose",
         "dungeonnowloading:fairkeeper_chest_positions",
+        "examplemod:active_auras",
+        "examplemod:freeze_cooldown",
         "examplemod:skill_data",
+        "examplemod:spell_backpack",
+        "examplemod:spell_transform",
         "examplemod:timed_modifiers",
         "irons_spellbooks:cape_data",
         "irons_spellbooks:echoing_strikes_data",
@@ -74728,6 +74675,7 @@
         "twilightforest:twilightforest_banished",
         "twilightforest:yeti_throwing",
         "twilightforest:zombified_player",
+        "viscript_lib:stages",
         "viscript_shop:money"
       ],
       "translations": {}
@@ -75123,8 +75071,10 @@
         "artifacts:roll_loot_table",
         "bagus_lib:loot_in_loot",
         "bagus_lib:one_in_loot",
+        "balm:loot_modifiers",
         "dimdungeons:no_dungeon_drops",
         "examplemod:entity_loot",
+        "examplemod:quality_roll",
         "examplemod:replace_weapons",
         "farmersdelight:add_item",
         "farmersdelight:add_loot_table",
@@ -75149,6 +75099,7 @@
         "neoforge:add_table",
         "repurposed_structures:import_modded_loot",
         "twilightdelight:naga_meat",
+        "twilightdelight:random_count",
         "twilightforest:fiery_pick_smelting",
         "twilightforest:giant_block_grouping"
       ],
@@ -75228,6 +75179,7 @@
         "twilightforest:fortification_shields",
         "twilightforest:is_gradually_gliding",
         "twilightforest:is_using_goggles_zoom_modifier",
+        "viscript_lib:stages",
         "viscript_shop:money"
       ],
       "translations": {}
@@ -76256,35 +76208,6 @@
       "translations": {}
     },
     {
-      "id": "com.example.examplemod.client.environment.DayPhase",
-      "aliases": [
-        "day_phase"
-      ],
-      "values": [
-        "dawn",
-        "morning",
-        "noon",
-        "dusk",
-        "evening",
-        "midnight"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.example.examplemod.client.environment.VisualTier",
-      "aliases": [
-        "visual_tier"
-      ],
-      "values": [
-        "haven",
-        "frontier",
-        "ascent",
-        "summit",
-        "pinnacle"
-      ],
-      "translations": {}
-    },
-    {
       "id": "com.example.examplemod.client.jade.CustomStatusEffectsClientProvider",
       "aliases": [
         "custom_status_effects_client_provider"
@@ -76325,6 +76248,97 @@
       "translations": {}
     },
     {
+      "id": "com.example.examplemod.compat.logic.GTLang",
+      "aliases": [
+        "gtlang"
+      ],
+      "values": [
+        "tooltip_fill",
+        "tooltip_block",
+        "tooltip_vine",
+        "tooltip_struck",
+        "tooltip_affinity",
+        "tooltip_spell",
+        "tooltip_cost",
+        "tooltip_cost_cont",
+        "tooltip_cost_capped",
+        "tooltip_focus",
+        "tooltip_mob_use",
+        "tooltip_ritual_form",
+        "tooltip_ritual_start",
+        "tooltip_selected",
+        "chance_effect",
+        "chance_explode",
+        "plantable",
+        "plantable_water",
+        "spawn",
+        "biome_plains",
+        "biome_flowery",
+        "biome_ocean",
+        "biome_correct",
+        "biome_wrong",
+        "tooltip_magic",
+        "tooltip_abyss",
+        "tooltip_cooldown",
+        "overlay_destroy",
+        "overlay_mana",
+        "overlay_focus",
+        "desc_damage",
+        "desc_heal",
+        "hp",
+        "desc_fire",
+        "desc_explosion",
+        "desc_freezing",
+        "desc_projectile",
+        "desc_lightning",
+        "desc_magic",
+        "desc_falling_block",
+        "desc_space",
+        "desc_dmg",
+        "desc_ground",
+        "desc_shift",
+        "jei_strike_item",
+        "jei_strike_block",
+        "jei_transform",
+        "jei_ritual",
+        "hex_status",
+        "hex_cost",
+        "hex_bonus",
+        "hex_bonus_mana",
+        "hex_bonus_focus",
+        "hex_bonus_both"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.example.examplemod.compat.logic.HexDirection",
+      "aliases": [
+        "hex_direction"
+      ],
+      "values": [
+        "right",
+        "lower_right",
+        "lower_left",
+        "left",
+        "upper_left",
+        "upper_right"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.example.examplemod.compat.logic.LocateResult$ResultType",
+      "aliases": [
+        "result_type",
+        "locate_result",
+        "locate_result_result_type"
+      ],
+      "values": [
+        "cell",
+        "arrow"
+      ],
+      "translations": {}
+    },
+    {
       "id": "com.example.examplemod.deathrecap.client.DeathRecapScreen$Tab",
       "aliases": [
         "tab",
@@ -76339,6 +76353,57 @@
       "translations": {}
     },
     {
+      "id": "com.example.examplemod.engine.ModifierCatalog$Category",
+      "aliases": [
+        "category",
+        "modifier_catalog",
+        "modifier_catalog_category"
+      ],
+      "values": [
+        "salvo",
+        "multicast",
+        "mimic",
+        "level_boost",
+        "wide_amplify",
+        "trigger_expire",
+        "trigger_tick",
+        "trigger_hit",
+        "trigger_entangle",
+        "passive_cooldown",
+        "passive_reserve_cap",
+        "passive_regen",
+        "passive_expand",
+        "passive_vine",
+        "passive_guardian",
+        "passive_resonance",
+        "passive_barrier",
+        "passive_hammer",
+        "passive_prism",
+        "passive_charge_mode",
+        "passive_flying_sword",
+        "passive_converter",
+        "post_slot",
+        "stat_modifier"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.example.examplemod.loot.DiabloQualityRoller$EquipmentQuality",
+      "aliases": [
+        "equipment_quality",
+        "diablo_quality_roller",
+        "diablo_quality_roller_equipment_quality"
+      ],
+      "values": [
+        "unique",
+        "set",
+        "rare",
+        "magic",
+        "white"
+      ],
+      "translations": {}
+    },
+    {
       "id": "com.example.examplemod.registry.ModMobEffects$ShredType",
       "aliases": [
         "shred_type",
@@ -76348,6 +76413,38 @@
       "values": [
         "flat",
         "total"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.example.examplemod.runeword.EquipmentQualityClientRenderer$Quality",
+      "aliases": [
+        "quality",
+        "equipment_quality_client_renderer",
+        "equipment_quality_client_renderer_quality"
+      ],
+      "values": [
+        "unique",
+        "set",
+        "rare",
+        "magic",
+        "base",
+        "none"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.example.examplemod.runeword.RunewordSpellProcs$Trigger",
+      "aliases": [
+        "trigger",
+        "runeword_spell_procs",
+        "runeword_spell_procs_trigger"
+      ],
+      "values": [
+        "on_strike",
+        "on_struck",
+        "on_cast",
+        "on_kill"
       ],
       "translations": {}
     },
@@ -76555,569 +76652,6 @@
       "id": "com.github.L_Ender.lionfishapi.server.animation.AnimationHandler",
       "aliases": [
         "animation_handler"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.callback.IPlayerStateCallback$Result",
-      "aliases": [
-        "result",
-        "iplayer_state_callback",
-        "iplayer_state_callback_result"
-      ],
-      "values": [
-        "true",
-        "false",
-        "pass"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.client.CrosshairType",
-      "aliases": [
-        "crosshair_type"
-      ],
-      "values": [
-        "adaptive",
-        "dynamic",
-        "static",
-        "static_with_1pp",
-        "dynamic_with_1pp"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.client.CrosshairVisibility",
-      "aliases": [
-        "crosshair_visibility"
-      ],
-      "values": [
-        "always",
-        "never",
-        "when_aiming",
-        "when_in_range",
-        "when_aiming_or_in_range"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.client.Perspective",
-      "aliases": [
-        "perspective"
-      ],
-      "values": [
-        "first_person",
-        "third_person_back",
-        "third_person_front",
-        "shoulder_surfing"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.client.TurningMode",
-      "aliases": [
-        "turning_mode"
-      ],
-      "values": [
-        "always",
-        "never",
-        "requires_target"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.client.ViewBobbingMode",
-      "aliases": [
-        "view_bobbing_mode"
-      ],
-      "values": [
-        "inherit",
-        "on",
-        "off"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.client.world.phys.PickOrigin",
-      "aliases": [
-        "pick_origin"
-      ],
-      "values": [
-        "player",
-        "camera"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.client.world.phys.PickVector",
-      "aliases": [
-        "pick_vector"
-      ],
-      "values": [
-        "player",
-        "camera"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.model.CrosshairType",
-      "aliases": [
-        "crosshair_type"
-      ],
-      "values": [
-        "adaptive",
-        "dynamic",
-        "static",
-        "static_with_1pp",
-        "dynamic_with_1pp"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.model.CrosshairVisibility",
-      "aliases": [
-        "crosshair_visibility"
-      ],
-      "values": [
-        "always",
-        "never",
-        "when_aiming",
-        "when_in_range",
-        "when_aiming_or_in_range"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.model.Perspective",
-      "aliases": [
-        "perspective"
-      ],
-      "values": [
-        "first_person",
-        "third_person_back",
-        "third_person_front",
-        "shoulder_surfing"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.model.PickOrigin",
-      "aliases": [
-        "pick_origin"
-      ],
-      "values": [
-        "player",
-        "camera"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.model.PickVector",
-      "aliases": [
-        "pick_vector"
-      ],
-      "values": [
-        "player",
-        "camera"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.model.TurningMode",
-      "aliases": [
-        "turning_mode"
-      ],
-      "values": [
-        "always",
-        "never",
-        "requires_target"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.api.model.ViewBobbingMode",
-      "aliases": [
-        "view_bobbing_mode"
-      ],
-      "values": [
-        "inherit",
-        "on",
-        "off"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.CameraEntityDeltaMovementTickEventHandler",
-      "aliases": [
-        "camera_entity_delta_movement_tick_event_handler"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeCameraCouplingEventHandlerImpl",
-      "aliases": [
-        "compute_camera_coupling_event_handler_impl"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeCameraDragEventHandlerImpl",
-      "aliases": [
-        "compute_camera_drag_event_handler_impl"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeCameraEntityTransparencyEventHandlerImpl",
-      "aliases": [
-        "compute_camera_entity_transparency_event_handler_impl"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeCameraEntityTransparencyEventHandlerImpl$Aiming",
-      "aliases": [
-        "aiming",
-        "compute_camera_entity_transparency_event_handler_impl",
-        "compute_camera_entity_transparency_event_handler_impl_aiming"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeCameraEntityTransparencyEventHandlerImpl$Climbing",
-      "aliases": [
-        "climbing",
-        "compute_camera_entity_transparency_event_handler_impl",
-        "compute_camera_entity_transparency_event_handler_impl_climbing"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeCameraSwayEventHandlerImpl",
-      "aliases": [
-        "compute_camera_sway_event_handler_impl"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputePlayerAimStateEventHandlerImpl",
-      "aliases": [
-        "compute_player_aim_state_event_handler_impl"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputePlayerAttackStateEventHandlerImpl$Post",
-      "aliases": [
-        "post",
-        "compute_player_attack_state_event_handler_impl",
-        "compute_player_attack_state_event_handler_impl_post"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputePlayerAttackStateEventHandlerImpl$Pre",
-      "aliases": [
-        "pre",
-        "compute_player_attack_state_event_handler_impl",
-        "compute_player_attack_state_event_handler_impl_pre"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputePlayerInteractionStateEventHandlerImpl$Post",
-      "aliases": [
-        "post",
-        "compute_player_interaction_state_event_handler_impl",
-        "compute_player_interaction_state_event_handler_impl_post"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputePlayerInteractionStateEventHandlerImpl$Pre",
-      "aliases": [
-        "pre",
-        "compute_player_interaction_state_event_handler_impl",
-        "compute_player_interaction_state_event_handler_impl_pre"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputePlayerPickStateEventHandlerImpl$Post",
-      "aliases": [
-        "post",
-        "compute_player_pick_state_event_handler_impl",
-        "compute_player_pick_state_event_handler_impl_post"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputePlayerPickStateEventHandlerImpl$Pre",
-      "aliases": [
-        "pre",
-        "compute_player_pick_state_event_handler_impl",
-        "compute_player_pick_state_event_handler_impl_pre"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputePlayerRideBoatStateEventHandlerImpl",
-      "aliases": [
-        "compute_player_ride_boat_state_event_handler_impl"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputePlayerUseItemStateEventHandlerImpl$Post",
-      "aliases": [
-        "post",
-        "compute_player_use_item_state_event_handler_impl",
-        "compute_player_use_item_state_event_handler_impl_post"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputePlayerUseItemStateEventHandlerImpl$Pre",
-      "aliases": [
-        "pre",
-        "compute_player_use_item_state_event_handler_impl",
-        "compute_player_use_item_state_event_handler_impl_pre"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeTargetCameraOffsetEventHandlerImpl$AimingModifiersAndMultipliers",
-      "aliases": [
-        "aiming_modifiers_and_multipliers",
-        "compute_target_camera_offset_event_handler_impl",
-        "compute_target_camera_offset_event_handler_impl_aiming_modifiers_and_multipliers"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeTargetCameraOffsetEventHandlerImpl$CenterWhenLookingDown",
-      "aliases": [
-        "center_when_looking_down",
-        "compute_target_camera_offset_event_handler_impl",
-        "compute_target_camera_offset_event_handler_impl_center_when_looking_down"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeTargetCameraOffsetEventHandlerImpl$ClimbingModifiersAndMultipliers",
-      "aliases": [
-        "climbing_modifiers_and_multipliers",
-        "compute_target_camera_offset_event_handler_impl",
-        "compute_target_camera_offset_event_handler_impl_climbing_modifiers_and_multipliers"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeTargetCameraOffsetEventHandlerImpl$DynamicOffsets",
-      "aliases": [
-        "dynamic_offsets",
-        "compute_target_camera_offset_event_handler_impl",
-        "compute_target_camera_offset_event_handler_impl_dynamic_offsets"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeTargetCameraOffsetEventHandlerImpl$EntityScale",
-      "aliases": [
-        "entity_scale",
-        "compute_target_camera_offset_event_handler_impl",
-        "compute_target_camera_offset_event_handler_impl_entity_scale"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeTargetCameraOffsetEventHandlerImpl$FallFlyingModifiersAndMultipliers",
-      "aliases": [
-        "fall_flying_modifiers_and_multipliers",
-        "compute_target_camera_offset_event_handler_impl",
-        "compute_target_camera_offset_event_handler_impl_fall_flying_modifiers_and_multipliers"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeTargetCameraOffsetEventHandlerImpl$OffsetLimits",
-      "aliases": [
-        "offset_limits",
-        "compute_target_camera_offset_event_handler_impl",
-        "compute_target_camera_offset_event_handler_impl_offset_limits"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeTargetCameraOffsetEventHandlerImpl$PassengerModifiersAndMultipliers",
-      "aliases": [
-        "passenger_modifiers_and_multipliers",
-        "compute_target_camera_offset_event_handler_impl",
-        "compute_target_camera_offset_event_handler_impl_passenger_modifiers_and_multipliers"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeTargetCameraOffsetEventHandlerImpl$SprintingModifiersAndMultipliers",
-      "aliases": [
-        "sprinting_modifiers_and_multipliers",
-        "compute_target_camera_offset_event_handler_impl",
-        "compute_target_camera_offset_event_handler_impl_sprinting_modifiers_and_multipliers"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeTemporaryFirstPersonStateEventHandlerImpl$ConstrainedSpace",
-      "aliases": [
-        "constrained_space",
-        "compute_temporary_first_person_state_event_handler_impl",
-        "compute_temporary_first_person_state_event_handler_impl_constrained_space"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.ComputeTemporaryFirstPersonStateEventHandlerImpl$WhenAiming",
-      "aliases": [
-        "when_aiming",
-        "compute_temporary_first_person_state_event_handler_impl",
-        "compute_temporary_first_person_state_event_handler_impl_when_aiming"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.client.event.handler.SetupCameraRotationEventHandlerImpl",
-      "aliases": [
-        "setup_camera_rotation_event_handler_impl"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.compat.Mods",
-      "aliases": [
-        "mods"
-      ],
-      "values": [
-        "cgm",
-        "cobblemon",
-        "create",
-        "curios",
-        "emf",
-        "epic_fight",
-        "iris",
-        "mts",
-        "neat",
-        "oculus",
-        "skin_layers",
-        "the_one_probe",
-        "tslat_entity_status",
-        "wildfire_gender"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.compat.cobblemon.event.handler.CobblemonEventHandler",
-      "aliases": [
-        "cobblemon_event_handler"
-      ],
-      "values": [
-        "instance"
-      ],
-      "translations": {}
-    },
-    {
-      "id": "com.github.exopandora.shouldersurfing.compat.create.event.handler.CreateModEventHandler",
-      "aliases": [
-        "create_mod_event_handler"
       ],
       "values": [
         "instance"
@@ -79383,20 +78917,6 @@
       "translations": {}
     },
     {
-      "id": "com.kingcontaria.fastquit.config.ModConfig$ShowSavingTime",
-      "aliases": [
-        "show_saving_time",
-        "mod_config",
-        "mod_config_show_saving_time"
-      ],
-      "values": [
-        "false",
-        "toast_only",
-        "true"
-      ],
-      "translations": {}
-    },
-    {
       "id": "com.lowdragmc.lowdraglib2.client.LDLibClientConfig$FontRenderMode",
       "aliases": [
         "font_render_mode",
@@ -80375,6 +79895,20 @@
         "always",
         "dev_only",
         "production_only",
+        "manual"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.lowdragmc.lowdraglib2.test.syncdata.bench.SyncBenchProfiles$Mode",
+      "aliases": [
+        "mode",
+        "sync_bench_profiles",
+        "sync_bench_profiles_mode"
+      ],
+      "values": [
+        "idle",
+        "auto",
         "manual"
       ],
       "translations": {}
@@ -82136,6 +81670,95 @@
       "translations": {}
     },
     {
+      "id": "com.viscript_lib.ai.AiCapability",
+      "aliases": [
+        "ai_capability"
+      ],
+      "values": [
+        "registry_read",
+        "world_read",
+        "project_edit",
+        "runtime_apply"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.viscript_lib.ai.AiEditRequest$Kind",
+      "aliases": [
+        "kind",
+        "ai_edit_request",
+        "ai_edit_request_kind"
+      ],
+      "values": [
+        "project",
+        "runtime"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.viscript_lib.gui.ai.AiChatClient$Phase",
+      "aliases": [
+        "phase",
+        "ai_chat_client",
+        "ai_chat_client_phase"
+      ],
+      "values": [
+        "waiting",
+        "reasoning",
+        "tool_arguments",
+        "answer"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.viscript_lib.gui.ai.AiChatClient$ResponseFailure",
+      "aliases": [
+        "response_failure",
+        "ai_chat_client",
+        "ai_chat_client_response_failure"
+      ],
+      "values": [
+        "output_limit",
+        "context_limit",
+        "tool_arguments",
+        "format",
+        "incomplete"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.viscript_lib.gui.ai.AiChatSession$State",
+      "aliases": [
+        "state",
+        "ai_chat_session",
+        "ai_chat_session_state"
+      ],
+      "values": [
+        "running",
+        "answered",
+        "pending",
+        "applied",
+        "undone",
+        "discarded",
+        "stopped",
+        "failed"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "com.viscript_lib.stage.StageMatchMode",
+      "aliases": [
+        "stage_match_mode"
+      ],
+      "values": [
+        "AND",
+        "OR",
+        "NOT",
+        "NOR"
+      ],
+      "translations": {}
+    },
+    {
       "id": "com.viscript_lib.util.item.ItemStackCompareMode",
       "aliases": [
         "item_stack_compare_mode"
@@ -82793,7 +82416,8 @@
       ],
       "values": [
         "detail_not_available",
-        "modified_item"
+        "modified_item",
+        "recursive_reference"
       ],
       "translations": {}
     },
@@ -82847,6 +82471,9 @@
         "toggle_tooltips",
         "player_action",
         "preserve_components",
+        "drop_experience",
+        "explode",
+        "lightning_strike",
         "dyed_randomly"
       ],
       "translations": {}
@@ -82983,6 +82610,7 @@
         "block",
         "blocks_on_fire",
         "block_entity_type",
+        "block_interaction",
         "bonus_multiplier",
         "can_always_eat",
         "can_see_sky",
@@ -82997,6 +82625,7 @@
         "custom_color",
         "custom_name",
         "damage",
+        "damage_entity",
         "damage_per_block",
         "decoration",
         "default_mining_speed",
@@ -83082,6 +82711,7 @@
         "probability",
         "property",
         "provider",
+        "radius",
         "range",
         "ranged_any",
         "ranged_both",
@@ -84653,6 +84283,18 @@
         "projectile_hit",
         "hurt",
         "shield_block"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "dev.muon.irons_apothic.util.SpellCastInterruptMode",
+      "aliases": [
+        "spell_cast_interrupt_mode"
+      ],
+      "values": [
+        "force_complete",
+        "cancel",
+        "fail"
       ],
       "translations": {}
     },
@@ -88039,6 +87681,8 @@
         "cooked_meef_slice",
         "raw_tomahawk_smeak",
         "cooked_tomahawk_smeak",
+        "raw_tomahawk_smeaxe",
+        "cooked_tomahawk_smeaxe",
         "raw_insect",
         "cooked_insect",
         "torchberry_cookie",
@@ -88051,6 +87695,8 @@
         "naga_stew",
         "naga_meatball_congee",
         "chocolate_wafer",
+        "slime_wafer",
+        "maze_slime_wafer",
         "experiment_113",
         "chocolate_113",
         "milky_113",
@@ -88078,6 +87724,19 @@
         "plate_of_fiery_snakes",
         "plate_of_meef_wellington",
         "plate_of_saucy_grilled_naga",
+        "red_thread_pasta",
+        "hydra_skewer",
+        "fiery_blood_curd",
+        "hydra_stuffed_potato",
+        "hydra_stew",
+        "fried_hydra_chop",
+        "insect_roll",
+        "twilight_salad",
+        "glowing_curry_rice",
+        "deadbug_stick",
+        "velvet_antler_slice",
+        "antler_wine",
+        "velvet_antler_stewed_chicken_soup",
         "witchcraft_bone_broth",
         "magic_cake_scroll",
         "bowl_of_chaos_stew",
@@ -88086,7 +87745,22 @@
         "phytochemical_juice",
         "glacier_ice_tea",
         "twilight_spring",
-        "tear_drink"
+        "tear_drink",
+        "cooked_helmet_crab_claw",
+        "crab_claw_pasta",
+        "stuffed_crab_claw",
+        "omazeo",
+        "redcanp",
+        "phantom_bone_broth",
+        "tomb_of_the_phantom",
+        "phantom_energy_bar",
+        "jack_phantom",
+        "plate_of_delicious_in_maze",
+        "tomato_sauce_113",
+        "regret_soup",
+        "ghast_tentacle_salad",
+        "thickcut_ghast_fries",
+        "bowl_of_ghastling_mousse_cake"
       ],
       "translations": {}
     },
@@ -88098,9 +87772,12 @@
       "values": [
         "regular",
         "fire_proof",
+        "tomahawk",
+        "cooked_tomahawk",
         "stick",
         "sauce",
         "bowl",
+        "bucket",
         "drink",
         "rose_tea"
       ],
@@ -88116,9 +87793,12 @@
         "fast",
         "drumstick",
         "hydra_piece",
+        "tomahawk",
+        "cooked_tomahawk",
         "stick",
         "sauce",
         "bowl",
+        "bucket",
         "drink",
         "rose"
       ],
@@ -93709,6 +93389,40 @@
       "values": [
         "ordered",
         "unordered"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "net.mezzdev.config.modshade.net.mezzdev.atomicfile.AtomicMovePolicy",
+      "aliases": [
+        "atomic_move_policy"
+      ],
+      "values": [
+        "require_atomic",
+        "allow_non_atomic"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "net.mezzdev.config.modshade.net.mezzdev.atomicfile.ParentDirectoryPolicy",
+      "aliases": [
+        "parent_directory_policy"
+      ],
+      "values": [
+        "create_if_missing",
+        "require_existing"
+      ],
+      "translations": {}
+    },
+    {
+      "id": "net.mezzdev.config.modshade.net.mezzdev.atomicfile.PermissionPolicy",
+      "aliases": [
+        "permission_policy"
+      ],
+      "values": [
+        "use_staging_permissions",
+        "preserve_posix_permissions",
+        "preserve_acl"
       ],
       "translations": {}
     },

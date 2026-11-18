@@ -3,56 +3,45 @@
   "name_en": "Duress",
   "name_cn": "强制",
   "sockets_required": 3,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/chestplates"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 13,
-      "rune_name": "Shael (夏勒)",
-      "pattern": "minecraft:flow",
-      "material": "minecraft:amethyst_shard"
-    },
-    {
-      "step": 2,
-      "rune_id": 22,
-      "rune_name": "Um (乌姆)",
-      "pattern": "more_armor_trims:storm",
-      "material": "twilightforest:steeleaf_ingot"
-    },
-    {
-      "step": 3,
-      "rune_id": 10,
-      "rune_name": "Thul (书尔)",
-      "pattern": "minecraft:coast",
-      "material": "minecraft:lapis_lazuli"
-    }
+    "examplemod:runes/rune_13_shael",
+    "examplemod:runes/rune_22_um",
+    "examplemod:runes/rune_10_thul"
   ],
   "attributes": [
     {
       "attribute": "apothic_attributes:current_hp_damage",
       "amount": 0.04,
-      "operation": "ADDITION",
+      "operation": "ADD_VALUE",
       "description": "15% 压碎打击"
     },
     {
-      "attribute": "apothic_attributes:crit_damage",
-      "amount": 0.35,
-      "operation": "MULTIPLY_BASE",
-      "description": "+35% 暴击伤害"
+      "attribute": "examplemod:open_wounds",
+      "amount": 33.0,
+      "operation": "ADD_VALUE",
+      "description": "33% 撕开伤口"
     },
     {
-      "attribute": "apothic_attributes:armor_pierce",
-      "amount": 4.0,
-      "operation": "ADDITION",
-      "description": "33% 撕裂创口"
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 3.5,
+      "operation": "ADD_VALUE",
+      "description": "+3.5 增强伤害"
     },
     {
       "attribute": "minecraft:generic.armor",
       "amount": 7.0,
-      "operation": "ADDITION",
+      "operation": "ADD_VALUE",
       "description": "+7 护甲"
+    },
+    {
+      "attribute": "irons_spellbooks:ice_magic_resist",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 冰抗"
     }
   ]
 }

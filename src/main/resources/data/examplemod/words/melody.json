@@ -3,50 +3,39 @@
   "name_en": "Melody",
   "name_cn": "旋律",
   "sockets_required": 3,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/bows"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 13,
-      "rune_name": "Shael (夏勒)",
-      "pattern": "minecraft:flow",
-      "material": "minecraft:amethyst_shard"
-    },
-    {
-      "step": 2,
-      "rune_id": 18,
-      "rune_name": "Ko (科)",
-      "pattern": "minecraft:spire",
-      "material": "minecraft:emerald"
-    },
-    {
-      "step": 3,
-      "rune_id": 4,
-      "rune_name": "Nef (那夫)",
-      "pattern": "minecraft:shaper",
-      "material": "minecraft:copper_ingot"
-    }
+    "examplemod:runes/rune_13_shael",
+    "examplemod:runes/rune_18_ko",
+    "examplemod:runes/rune_04_nef"
   ],
   "attributes": [
     {
       "attribute": "apothic_attributes:arrow_damage",
-      "amount": 0.35,
+      "amount": 0.4,
       "operation": "MULTIPLY_BASE",
-      "description": "+35% 箭矢伤害"
+      "description": "+40% 弓弩增伤"
+    },
+    {
+      "attribute": "examplemod:damage_to_undead",
+      "amount": 300.0,
+      "operation": "ADD_VALUE",
+      "description": "+300% 对不死伤害"
     },
     {
       "attribute": "apothic_attributes:draw_speed",
-      "amount": 0.25,
+      "amount": 0.2,
       "operation": "MULTIPLY_BASE",
-      "description": "+25% 拉弓提速"
+      "description": "+20% 攻速"
     },
     {
       "attribute": "apothic_attributes:dodge_chance",
       "amount": 0.1,
-      "operation": "ADDITION",
-      "description": "+10% 敏捷闪避"
+      "operation": "ADD_VALUE",
+      "description": "+10% 闪避"
     }
   ]
 }

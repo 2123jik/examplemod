@@ -1,0 +1,50 @@
+{
+  "type": "apotheosis:gem",
+  "min_purity": "cracked",
+  "unique": false,
+  "weights": {
+    "haven":    { "weight": 0, "quality": 0.0 },
+    "frontier": { "weight": 0, "quality": 1.0 },
+    "ascent":   { "weight": 4, "quality": 2.0 },
+    "summit":   { "weight": 8, "quality": 3.5 },
+    "pinnacle": { "weight": 10, "quality": 5.0 }
+  },
+  "bonuses": [
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "weapons",
+        "types": [
+          "apotheosis:melee_weapon",
+          "apotheosis:trident",
+          "apotheosis:bow"
+        ]
+      },
+      "attribute": "examplemod:freeze_target",
+      "operation": "add_value",
+      "values": { "cracked": 1.200, "chipped": 1.650, "flawed": 2.250, "normal": 3.000, "flawless": 3.750, "perfect": 4.500 }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "armor",
+        "types": [
+          "apotheosis:helmet",
+          "apotheosis:chestplate",
+          "apotheosis:leggings",
+          "apotheosis:boots"
+        ]
+      },
+      "attribute": "examplemod:cannot_be_frozen",
+      "operation": "add_value",
+      "values": { "cracked": 1.000, "chipped": 1.375, "flawed": 1.875, "normal": 2.500, "flawless": 3.125, "perfect": 3.750 }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": "apotheosis:shield",
+      "attribute": "examplemod:cannot_be_frozen",
+      "operation": "add_value",
+      "values": { "cracked": 1.000, "chipped": 1.375, "flawed": 1.875, "normal": 2.500, "flawless": 3.125, "perfect": 3.750 }
+    }
+  ]
+}

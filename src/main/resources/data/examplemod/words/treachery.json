@@ -3,50 +3,39 @@
   "name_en": "Treachery",
   "name_cn": "背叛",
   "sockets_required": 3,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/chestplates"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 13,
-      "rune_name": "Shael (夏勒)",
-      "pattern": "minecraft:flow",
-      "material": "minecraft:amethyst_shard"
-    },
-    {
-      "step": 2,
-      "rune_id": 10,
-      "rune_name": "Thul (书尔)",
-      "pattern": "minecraft:coast",
-      "material": "minecraft:lapis_lazuli"
-    },
-    {
-      "step": 3,
-      "rune_id": 20,
-      "rune_name": "Lem (蓝姆)",
-      "pattern": "more_armor_trims:greed",
-      "material": "minecraft:gold_ingot"
-    }
+    "examplemod:runes/rune_13_shael",
+    "examplemod:runes/rune_10_thul",
+    "examplemod:runes/rune_20_lem"
   ],
   "attributes": [
     {
       "attribute": "minecraft:generic.attack_speed",
       "amount": 0.45,
       "operation": "MULTIPLY_BASE",
-      "description": "+45% 极速狂攻"
+      "description": "+45% 极速攻速"
     },
     {
       "attribute": "artifacts:generic.invincibility_ticks",
-      "amount": 12.0,
-      "operation": "ADDITION",
-      "description": "能量消解无敌帧延长"
+      "amount": 10.0,
+      "operation": "ADD_VALUE",
+      "description": "延长无敌帧"
     },
     {
       "attribute": "l2damagetracker:damage_reduction",
-      "amount": 0.15,
+      "amount": 0.1,
       "operation": "MULTIPLY_BASE",
-      "description": "15% 全域减伤"
+      "description": "+10% 减伤"
+    },
+    {
+      "attribute": "irons_spellbooks:ice_magic_resist",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 冰抗"
     }
   ]
 }

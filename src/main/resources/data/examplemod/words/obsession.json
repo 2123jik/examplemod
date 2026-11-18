@@ -1,0 +1,50 @@
+{
+  "id": "obsession",
+  "name_en": "Obsession",
+  "name_cn": "执念",
+  "sockets_required": 6,
+  "all_spell_levels": 4,
+  "valid_base_tags": [
+    "#examplemod:base/staves"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_33_zod",
+    "examplemod:runes/rune_24_ist",
+    "examplemod:runes/rune_20_lem",
+    "examplemod:runes/rune_17_lum",
+    "examplemod:runes/rune_16_io",
+    "examplemod:runes/rune_04_nef"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:spell_power",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 终极法强"
+    },
+    {
+      "attribute": "irons_spellbooks:mana_regen",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 回蓝"
+    },
+    {
+      "attribute": "minecraft:generic.max_health",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 生命上限"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.65,
+      "operation": "MULTIPLY_BASE",
+      "description": "+65% 全抗"
+    },
+    {
+      "attribute": "minecraft:generic.luck",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 幸运"
+    }
+  ]
+}

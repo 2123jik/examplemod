@@ -1,0 +1,13 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "examplemod:item/d2_gems/d2_sapphire_chipped"
+  },
+  "overrides": [
+    { "predicate": { "apotheosis:purity": 1.0 }, "model": "examplemod:item/d2_gems/d2_sapphire_chipped" },
+    { "predicate": { "apotheosis:purity": 2.0 }, "model": "examplemod:item/d2_gems/d2_sapphire_flawed" },
+    { "predicate": { "apotheosis:purity": 3.0 }, "model": "examplemod:item/d2_gems/d2_sapphire_normal" },
+    { "predicate": { "apotheosis:purity": 4.0 }, "model": "examplemod:item/d2_gems/d2_sapphire_flawless" },
+    { "predicate": { "apotheosis:purity": 5.0 }, "model": "examplemod:item/d2_gems/d2_sapphire_perfect" }
+  ]
+}

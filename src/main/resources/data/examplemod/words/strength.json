@@ -3,43 +3,38 @@
   "name_en": "Strength",
   "name_cn": "力量",
   "sockets_required": 2,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/melee"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 11,
-      "rune_name": "Amn (安姆)",
-      "pattern": "more_armor_trims:ram",
-      "material": "minecraft:iron_ingot"
-    },
-    {
-      "step": 2,
-      "rune_id": 3,
-      "rune_name": "Tir (特尔)",
-      "pattern": "minecraft:wayfinder",
-      "material": "minecraft:copper_ingot"
-    }
+    "examplemod:runes/rune_11_amn",
+    "examplemod:runes/rune_03_tir"
   ],
   "attributes": [
     {
       "attribute": "apothic_attributes:current_hp_damage",
       "amount": 0.05,
-      "operation": "ADDITION",
+      "operation": "ADD_VALUE",
       "description": "25% 压碎打击"
     },
     {
       "attribute": "apothic_attributes:life_steal",
       "amount": 0.07,
-      "operation": "ADDITION",
+      "operation": "ADD_VALUE",
       "description": "7% 吸血"
     },
     {
       "attribute": "minecraft:generic.attack_damage",
       "amount": 3.5,
-      "operation": "ADDITION",
-      "description": "+3.5 点伤"
+      "operation": "ADD_VALUE",
+      "description": "+3.5 伤害"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
     }
   ]
 }

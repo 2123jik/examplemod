@@ -3,50 +3,39 @@
   "name_en": "Delirium",
   "name_cn": "谵妄",
   "sockets_required": 3,
+  "all_spell_levels": 2,
   "valid_base_tags": [
     "#examplemod:base/helmets"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 20,
-      "rune_name": "Lem (蓝姆)",
-      "pattern": "more_armor_trims:greed",
-      "material": "minecraft:gold_ingot"
-    },
-    {
-      "step": 2,
-      "rune_id": 24,
-      "rune_name": "Ist (伊斯特)",
-      "pattern": "more_armor_trims:witness",
-      "material": "minecraft:diamond"
-    },
-    {
-      "step": 3,
-      "rune_id": 16,
-      "rune_name": "Io (艾欧)",
-      "pattern": "more_armor_trims:horizon",
-      "material": "minecraft:amethyst_shard"
-    }
+    "examplemod:runes/rune_20_lem",
+    "examplemod:runes/rune_24_ist",
+    "examplemod:runes/rune_16_io"
   ],
   "attributes": [
     {
-      "attribute": "irons_spellbooks:spell_power",
-      "amount": 0.25,
-      "operation": "MULTIPLY_BASE",
-      "description": "全技能+2"
+      "attribute": "minecraft:generic.armor",
+      "amount": 7.0,
+      "operation": "ADD_VALUE",
+      "description": "+7 护甲"
     },
     {
       "attribute": "apothic_attributes:dodge_chance",
-      "amount": 0.2,
-      "operation": "ADDITION",
-      "description": "致幻迷乱 +20% 闪避"
+      "amount": 0.18,
+      "operation": "ADD_VALUE",
+      "description": "+18% 闪避"
+    },
+    {
+      "attribute": "minecraft:generic.luck",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 幸运(寻宝)"
     },
     {
       "attribute": "apothic_attributes:experience_gained",
-      "amount": 0.5,
+      "amount": 0.45,
       "operation": "MULTIPLY_BASE",
-      "description": "+50% 寻宝加成"
+      "description": "+45% 经验获取"
     }
   ]
 }

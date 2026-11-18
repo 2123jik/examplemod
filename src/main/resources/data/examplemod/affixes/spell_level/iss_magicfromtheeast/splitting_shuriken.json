@@ -1,0 +1,48 @@
+{
+  "type": "examplemod:spell_level",
+  "spell": "iss_magicfromtheeast:splitting_shuriken",
+  "categories": [
+    "apotheosis:helmet",
+    "apotheosis:chestplate",
+    "apotheosis:leggings",
+    "apotheosis:boots",
+    "apotheosis:melee_weapon",
+    "apotheosis:bow",
+    "apotheosis:trident",
+    "irons_apothic:staff",
+    "irons_apothic:spellbook"
+  ],
+"definition": {
+    "affix_type": "stat",
+    "exclusive_set": [],
+    "weights": {
+      "haven":    { "weight": 0 },
+      "frontier": { "weight": 0 },
+      "ascent":   { "weight": 2, "quality": 0.2 },
+      "summit":   { "weight": 5, "quality": 0.5 },
+      "pinnacle": { "weight": 8, "quality": 1.0 }
+    }
+  },
+  "values": {
+    "apotheosis:uncommon": {
+      "min": 1,
+      "max": 1,
+      "step": 1
+    },
+    "apotheosis:rare": {
+      "min": 1,
+      "max": 2,
+      "step": 1
+    },
+    "apotheosis:epic": {
+      "min": 1,
+      "max": 3,
+      "step": 1
+    },
+    "apotheosis:mythic": {
+      "min": 2,
+      "max": 4,
+      "step": 1
+    }
+  }
+}

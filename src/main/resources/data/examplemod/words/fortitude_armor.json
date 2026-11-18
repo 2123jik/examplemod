@@ -3,63 +3,52 @@
   "name_en": "Fortitude (Armor)",
   "name_cn": "刚毅 (防具)",
   "sockets_required": 4,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/chestplates"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 1,
-      "rune_name": "El (艾尔)",
-      "pattern": "minecraft:sentry",
-      "material": "minecraft:iron_ingot"
-    },
-    {
-      "step": 2,
-      "rune_id": 12,
-      "rune_name": "Sol (索尔)",
-      "pattern": "minecraft:snout",
-      "material": "minecraft:gold_ingot"
-    },
-    {
-      "step": 3,
-      "rune_id": 14,
-      "rune_name": "Dol (多尔)",
-      "pattern": "more_armor_trims:wraith",
-      "material": "minecraft:quartz"
-    },
-    {
-      "step": 4,
-      "rune_id": 28,
-      "rune_name": "Lo (罗)",
-      "pattern": "minecraft:bolt",
-      "material": "cataclysm:ignitium_ingot"
-    }
+    "examplemod:runes/rune_01_el",
+    "examplemod:runes/rune_12_sol",
+    "examplemod:runes/rune_14_dol",
+    "examplemod:runes/rune_28_lo"
   ],
   "attributes": [
     {
       "attribute": "minecraft:generic.attack_damage",
       "amount": 8.0,
-      "operation": "ADDITION",
-      "description": "+300% 物理硬增伤"
+      "operation": "ADD_VALUE",
+      "description": "+8 物理增伤"
+    },
+    {
+      "attribute": "irons_spellbooks:cast_time_reduction",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 快速施法"
     },
     {
       "attribute": "minecraft:generic.armor",
       "amount": 12.0,
-      "operation": "ADDITION",
-      "description": "寒冰装甲 +12 护甲"
+      "operation": "ADD_VALUE",
+      "description": "+12 护甲"
     },
     {
       "attribute": "minecraft:generic.max_health",
       "amount": 15.0,
-      "operation": "ADDITION",
-      "description": "+15 生命上限"
+      "operation": "ADD_VALUE",
+      "description": "+15 生命"
+    },
+    {
+      "attribute": "examplemod:damage_to_mana",
+      "amount": 12.0,
+      "operation": "ADD_VALUE",
+      "description": "12% 受损生命转法力"
     },
     {
       "attribute": "irons_spellbooks:spell_resist",
-      "amount": 0.35,
+      "amount": 0.3,
       "operation": "MULTIPLY_BASE",
-      "description": "+35% 全抗"
+      "description": "+30% 全抗"
     }
   ]
 }

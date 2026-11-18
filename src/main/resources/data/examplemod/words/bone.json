@@ -3,50 +3,45 @@
   "name_en": "Bone",
   "name_cn": "白骨",
   "sockets_required": 3,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/chestplates"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 12,
-      "rune_name": "Sol (索尔)",
-      "pattern": "minecraft:snout",
-      "material": "minecraft:gold_ingot"
-    },
-    {
-      "step": 2,
-      "rune_id": 22,
-      "rune_name": "Um (乌姆)",
-      "pattern": "more_armor_trims:storm",
-      "material": "twilightforest:steeleaf_ingot"
-    },
-    {
-      "step": 3,
-      "rune_id": 22,
-      "rune_name": "Um (乌姆)",
-      "pattern": "more_armor_trims:storm",
-      "material": "twilightforest:steeleaf_ingot"
-    }
+    "examplemod:runes/rune_12_sol",
+    "examplemod:runes/rune_22_um",
+    "examplemod:runes/rune_22_um"
   ],
   "attributes": [
     {
       "attribute": "irons_spellbooks:eldritch_spell_power",
       "amount": 0.35,
       "operation": "MULTIPLY_BASE",
-      "description": "死灵法术+35%"
+      "description": "+35% 幽冥法强"
     },
     {
       "attribute": "minecraft:generic.max_absorption",
       "amount": 8.0,
-      "operation": "ADDITION",
-      "description": "被击触发骨甲吸收盾"
+      "operation": "ADD_VALUE",
+      "description": "骨甲吸收盾"
     },
     {
       "attribute": "irons_spellbooks:max_mana",
       "amount": 120.0,
-      "operation": "ADDITION",
+      "operation": "ADD_VALUE",
       "description": "+120 法力上限"
+    },
+    {
+      "attribute": "l2damagetracker:damage_absorption",
+      "amount": 4.0,
+      "operation": "ADD_VALUE",
+      "description": "+4 固定减伤"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 全抗"
     }
   ]
 }

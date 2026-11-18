@@ -1,0 +1,59 @@
+{
+  "id": "last_wish",
+  "name_en": "Last Wish",
+  "name_cn": "最后希望",
+  "sockets_required": 6,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/axes",
+    "#examplemod:base/blunt",
+    "#examplemod:base/swords",
+    "#examplemod:base/staves"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_31_jah",
+    "examplemod:runes/rune_23_mal",
+    "examplemod:runes/rune_31_jah",
+    "examplemod:runes/rune_29_sur",
+    "examplemod:runes/rune_31_jah",
+    "examplemod:runes/rune_30_ber"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 15.0,
+      "operation": "ADD_VALUE",
+      "description": "20级力量光环 +15 伤害"
+    },
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.14,
+      "operation": "ADD_VALUE",
+      "description": "65% 压碎打击"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.12,
+      "operation": "ADD_VALUE",
+      "description": "偷取生命触发"
+    },
+    {
+      "attribute": "examplemod:prevent_heal",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "防止怪物自疗"
+    },
+    {
+      "attribute": "examplemod:life_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回血"
+    },
+    {
+      "attribute": "minecraft:generic.luck",
+      "amount": 3.0,
+      "operation": "ADD_VALUE",
+      "description": "+3 幸运"
+    }
+  ]
+}

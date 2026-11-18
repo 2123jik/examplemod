@@ -1,0 +1,41 @@
+{
+  "id": "deception",
+  "name_en": "Deception",
+  "name_cn": "欺瞒",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/helmets"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_19_fal",
+    "examplemod:runes/rune_11_amn",
+    "examplemod:runes/rune_15_hel"
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:crit_damage",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 暴击伤害"
+    },
+    {
+      "attribute": "apothic_attributes:crit_chance",
+      "amount": 0.1,
+      "operation": "ADD_VALUE",
+      "description": "+10% 暴击率"
+    },
+    {
+      "attribute": "minecraft:generic.armor",
+      "amount": 5.0,
+      "operation": "ADD_VALUE",
+      "description": "+5 护甲"
+    },
+    {
+      "attribute": "minecraft:generic.max_health",
+      "amount": -4.0,
+      "operation": "ADD_VALUE",
+      "description": "-4 生命惩罚"
+    }
+  ]
+}

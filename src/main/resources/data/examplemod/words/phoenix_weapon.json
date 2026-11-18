@@ -1,0 +1,48 @@
+{
+  "id": "phoenix_weapon",
+  "name_en": "Phoenix (Weapon)",
+  "name_cn": "凤凰 (武器)",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/all_weapons"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_26_vex",
+    "examplemod:runes/rune_26_vex",
+    "examplemod:runes/rune_28_lo",
+    "examplemod:runes/rune_31_jah"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 14.0,
+      "operation": "ADD_VALUE",
+      "description": "+14 物理增伤"
+    },
+    {
+      "attribute": "examplemod:fire_penetration",
+      "amount": 28.0,
+      "operation": "ADD_VALUE",
+      "description": "-28% 敌人火抗"
+    },
+    {
+      "attribute": "examplemod:mana_steal",
+      "amount": 14.0,
+      "operation": "ADD_VALUE",
+      "description": "14% 击中偷蓝"
+    },
+    {
+      "attribute": "apothic_attributes:crit_chance",
+      "amount": 0.2,
+      "operation": "ADD_VALUE",
+      "description": "+20% 致命一击"
+    },
+    {
+      "attribute": "apothic_attributes:healing_received",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "救赎光环恢复"
+    }
+  ]
+}

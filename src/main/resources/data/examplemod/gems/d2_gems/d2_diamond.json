@@ -1,0 +1,50 @@
+{
+  "type": "apotheosis:gem",
+  "min_purity": "cracked",
+  "unique": false,
+  "weights": {
+    "haven":    { "weight": 25, "quality": 0.0 },
+    "frontier": { "weight": 25, "quality": 1.0 },
+    "ascent":   { "weight": 20, "quality": 2.0 },
+    "summit":   { "weight": 15, "quality": 3.5 },
+    "pinnacle": { "weight": 10, "quality": 5.0 }
+  },
+  "bonuses": [
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "weapons",
+        "types": [
+          "apotheosis:melee_weapon",
+          "apotheosis:trident",
+          "apotheosis:bow"
+        ]
+      },
+      "attribute": "irons_spellbooks:holy_spell_power",
+      "operation": "add_multiplied_base",
+      "values": { "cracked": 0.072, "chipped": 0.099, "flawed": 0.135, "normal": 0.180, "flawless": 0.225, "perfect": 0.270 }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "armor",
+        "types": [
+          "apotheosis:helmet",
+          "apotheosis:chestplate",
+          "apotheosis:leggings",
+          "apotheosis:boots"
+        ]
+      },
+      "attribute": "apothic_attributes:armor_pierce",
+      "operation": "add_value",
+      "values": { "cracked": 1.000, "chipped": 1.375, "flawed": 1.875, "normal": 2.500, "flawless": 3.125, "perfect": 3.750 }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": "apotheosis:shield",
+      "attribute": "irons_spellbooks:spell_resist",
+      "operation": "add_multiplied_base",
+      "values": { "cracked": 0.080, "chipped": 0.110, "flawed": 0.150, "normal": 0.200, "flawless": 0.250, "perfect": 0.300 }
+    }
+  ]
+}

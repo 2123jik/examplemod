@@ -1,0 +1,85 @@
+{
+    "type": "apotheosis:rarity",
+    "color": "#808080",
+    "invader_sound": "minecraft:intentionally_empty",
+    "material": "apotheosis:mysterious_scrap_metal",
+    "render_data": {
+        "beam_height": 0.0,
+        "beam_radius": 0.035,
+        "beam_texture": "apotheosis:textures/rarity/beam.png",
+        "glow_radius": 0.065,
+        "glow_texture": "apotheosis:textures/rarity/glow.png"
+    },
+    "rules": [
+        {
+            "type": "apotheosis:affix",
+            "affix_type": "stat"
+        },
+        {
+            "type": "apotheosis:chanced",
+            "chance": 0.5,
+            "rule": {
+                "type": "apotheosis:affix",
+                "affix_type": "stat"
+            }
+        },
+        {
+            "type": "apotheosis:chanced",
+            "chance": 0.25,
+            "rule": {
+                "type": "apotheosis:affix",
+                "affix_type": "stat"
+            }
+        },
+        {
+            "type": "apotheosis:select",
+            "chance": 0.5,
+            "if_true": {
+                "type": "apotheosis:socket",
+                "min": 2,
+                "max": 3
+            },
+            "if_false": {
+                "type": "apotheosis:select",
+                "chance": 0.5,
+                "if_true": {
+                    "type": "apotheosis:socket",
+                    "min": 4,
+                    "max": 4
+                },
+                "if_false": {
+                    "type": "apotheosis:select",
+                    "chance": 0.6,
+                    "if_true": {
+                        "type": "apotheosis:socket",
+                        "min": 5,
+                        "max": 5
+                    },
+                    "if_false": {
+                        "type": "apotheosis:socket",
+                        "min": 6,
+                        "max": 6
+                    }
+                }
+            }
+        }
+    ],
+    "sort_index": 300,
+    "weights": {
+        "haven": {
+            "weight": 550
+        },
+        "frontier": {
+            "weight": 260
+        },
+        "ascent": {
+            "weight": 140
+        },
+        "summit": {
+            "weight": 110
+        },
+        "pinnacle": {
+            "weight": 100
+        }
+    }
+}

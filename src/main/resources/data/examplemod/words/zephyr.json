@@ -3,24 +3,14 @@
   "name_en": "Zephyr",
   "name_cn": "和风",
   "sockets_required": 2,
+  "all_spell_levels": 0,
   "valid_base_tags": [
-    "#examplemod:base/bows"
+    "#examplemod:base/bows",
+    "#examplemod:base/polearms_spears"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 9,
-      "rune_name": "Ort (欧特)",
-      "pattern": "minecraft:bolt",
-      "material": "minecraft:copper_ingot"
-    },
-    {
-      "step": 2,
-      "rune_id": 5,
-      "rune_name": "Eth (爱斯)",
-      "pattern": "minecraft:flow",
-      "material": "minecraft:copper_ingot"
-    }
+    "examplemod:runes/rune_09_ort",
+    "examplemod:runes/rune_05_eth"
   ],
   "attributes": [
     {
@@ -33,13 +23,13 @@
       "attribute": "apothic_attributes:arrow_velocity",
       "amount": 0.3,
       "operation": "MULTIPLY_BASE",
-      "description": "+30% 箭矢初速"
+      "description": "+30% 箭矢速度"
     },
     {
       "attribute": "apothic_attributes:draw_speed",
       "amount": 0.25,
       "operation": "MULTIPLY_BASE",
-      "description": "+25% 拉弓速度"
+      "description": "+25% 攻速"
     }
   ]
 }

@@ -3,50 +3,39 @@
   "name_en": "Venom",
   "name_cn": "毒液",
   "sockets_required": 3,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/all_weapons"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 7,
-      "rune_name": "Tal (塔尔)",
-      "pattern": "minecraft:wild",
-      "material": "minecraft:emerald"
-    },
-    {
-      "step": 2,
-      "rune_id": 14,
-      "rune_name": "Dol (多尔)",
-      "pattern": "more_armor_trims:wraith",
-      "material": "minecraft:quartz"
-    },
-    {
-      "step": 3,
-      "rune_id": 23,
-      "rune_name": "Mal (马尔)",
-      "pattern": "minecraft:dune",
-      "material": "twilightforest:steeleaf_ingot"
-    }
+    "examplemod:runes/rune_07_tal",
+    "examplemod:runes/rune_14_dol",
+    "examplemod:runes/rune_23_mal"
   ],
   "attributes": [
     {
-      "attribute": "apothic_attributes:armor_shred",
-      "amount": 0.35,
-      "operation": "ADDITION",
-      "description": "毒爆无视35%防御"
-    },
-    {
       "attribute": "irons_spellbooks:nature_spell_power",
-      "amount": 0.4,
+      "amount": 0.45,
       "operation": "MULTIPLY_BASE",
-      "description": "+40% 剧毒伤害"
+      "description": "+45% 毒素法强"
     },
     {
-      "attribute": "apothic_attributes:current_hp_damage",
-      "amount": 0.05,
-      "operation": "ADDITION",
-      "description": "腐蚀毒创"
+      "attribute": "examplemod:poison_penetration",
+      "amount": 25.0,
+      "operation": "ADD_VALUE",
+      "description": "-25% 敌人毒抗"
+    },
+    {
+      "attribute": "examplemod:mana_steal",
+      "amount": 7.0,
+      "operation": "ADD_VALUE",
+      "description": "7% 击中偷蓝"
+    },
+    {
+      "attribute": "examplemod:prevent_heal",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "防止怪物自疗"
     }
   ]
 }

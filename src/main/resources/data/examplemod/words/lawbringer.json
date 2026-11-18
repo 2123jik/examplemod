@@ -3,50 +3,34 @@
   "name_en": "Lawbringer",
   "name_cn": "执法者",
   "sockets_required": 3,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/swords",
-    "#examplemod:base/staves"
+    "#examplemod:base/blunt",
+    "#examplemod:base/claws"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 11,
-      "rune_name": "Amn (安姆)",
-      "pattern": "more_armor_trims:ram",
-      "material": "minecraft:iron_ingot"
-    },
-    {
-      "step": 2,
-      "rune_id": 20,
-      "rune_name": "Lem (蓝姆)",
-      "pattern": "more_armor_trims:greed",
-      "material": "minecraft:gold_ingot"
-    },
-    {
-      "step": 3,
-      "rune_id": 18,
-      "rune_name": "Ko (科)",
-      "pattern": "minecraft:spire",
-      "material": "minecraft:emerald"
-    }
+    "examplemod:runes/rune_11_amn",
+    "examplemod:runes/rune_20_lem",
+    "examplemod:runes/rune_18_ko"
   ],
   "attributes": [
     {
       "attribute": "apothic_attributes:armor_shred",
       "amount": 0.45,
-      "operation": "ADDITION",
-      "description": "衰老破除45%护甲"
+      "operation": "ADD_VALUE",
+      "description": "衰老破甲45%"
     },
     {
       "attribute": "irons_spellbooks:holy_spell_power",
       "amount": 0.35,
       "operation": "MULTIPLY_BASE",
-      "description": "庇护所神圣增伤"
+      "description": "+35% 神圣威力"
     },
     {
       "attribute": "apothic_attributes:life_steal",
       "amount": 0.07,
-      "operation": "ADDITION",
+      "operation": "ADD_VALUE",
       "description": "7% 吸血"
     }
   ]

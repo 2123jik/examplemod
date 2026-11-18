@@ -1,0 +1,48 @@
+{
+  "id": "loyalty",
+  "name_en": "Loyalty",
+  "name_cn": "忠诚",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/polearms_spears",
+    "#examplemod:base/bows"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_21_pul",
+    "examplemod:runes/rune_03_tir",
+    "examplemod:runes/rune_14_dol"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:cast_time_reduction",
+      "amount": 0.5,
+      "operation": "MULTIPLY_BASE",
+      "description": "+50% 快速施法"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 7.0,
+      "operation": "ADD_VALUE",
+      "description": "+7 伤害"
+    },
+    {
+      "attribute": "examplemod:damage_to_demons",
+      "amount": 75.0,
+      "operation": "ADD_VALUE",
+      "description": "+75% 对恶魔伤害"
+    },
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.04,
+      "operation": "ADD_VALUE",
+      "description": "20% 压碎打击"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 4.0,
+      "operation": "ADD_VALUE",
+      "description": "+4 击杀回蓝(x4)"
+    }
+  ]
+}

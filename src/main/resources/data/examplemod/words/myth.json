@@ -3,50 +3,39 @@
   "name_en": "Myth",
   "name_cn": "神话",
   "sockets_required": 3,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/chestplates"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 15,
-      "rune_name": "Hel (海尔)",
-      "pattern": "more_armor_trims:origin",
-      "material": "minecraft:quartz"
-    },
-    {
-      "step": 2,
-      "rune_id": 11,
-      "rune_name": "Amn (安姆)",
-      "pattern": "more_armor_trims:ram",
-      "material": "minecraft:iron_ingot"
-    },
-    {
-      "step": 3,
-      "rune_id": 4,
-      "rune_name": "Nef (那夫)",
-      "pattern": "minecraft:shaper",
-      "material": "minecraft:copper_ingot"
-    }
+    "examplemod:runes/rune_15_hel",
+    "examplemod:runes/rune_11_amn",
+    "examplemod:runes/rune_04_nef"
   ],
   "attributes": [
     {
       "attribute": "minecraft:generic.attack_damage",
       "amount": 3.0,
-      "operation": "ADDITION",
+      "operation": "ADD_VALUE",
       "description": "+3 攻击力"
     },
     {
-      "attribute": "minecraft:generic.max_health",
-      "amount": 6.0,
-      "operation": "ADDITION",
-      "description": "+6 生命"
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 4.0,
+      "operation": "ADD_VALUE",
+      "description": "+4 击杀回蓝(x4)"
     },
     {
-      "attribute": "l2damagetracker:damage_reduction",
-      "amount": 0.05,
+      "attribute": "l2damagetracker:regen",
+      "amount": 0.2,
       "operation": "MULTIPLY_BASE",
-      "description": "+5% 减伤"
+      "description": "+20% 生命回复"
+    },
+    {
+      "attribute": "examplemod:thorns_damage",
+      "amount": 10.0,
+      "operation": "ADD_VALUE",
+      "description": "攻击者受到反伤"
     }
   ]
 }

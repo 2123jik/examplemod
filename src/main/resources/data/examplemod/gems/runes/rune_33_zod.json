@@ -1,0 +1,50 @@
+{
+  "type": "apotheosis:gem",
+  "min_purity": "cracked",
+  "unique": false,
+  "weights": {
+    "haven":    { "weight": 0, "quality": 0.0 },
+    "frontier": { "weight": 0, "quality": 1.0 },
+    "ascent":   { "weight": 4, "quality": 2.0 },
+    "summit":   { "weight": 8, "quality": 3.5 },
+    "pinnacle": { "weight": 10, "quality": 5.0 }
+  },
+  "bonuses": [
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "weapons",
+        "types": [
+          "apotheosis:melee_weapon",
+          "apotheosis:trident",
+          "apotheosis:bow"
+        ]
+      },
+      "attribute": "minecraft:generic.attack_damage",
+      "operation": "add_value",
+      "values": { "cracked": 2.600, "chipped": 3.575, "flawed": 4.875, "normal": 6.500, "flawless": 8.125, "perfect": 9.750 }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "armor",
+        "types": [
+          "apotheosis:helmet",
+          "apotheosis:chestplate",
+          "apotheosis:leggings",
+          "apotheosis:boots"
+        ]
+      },
+      "attribute": "minecraft:generic.armor",
+      "operation": "add_value",
+      "values": { "cracked": 2.400, "chipped": 3.300, "flawed": 4.500, "normal": 6.000, "flawless": 7.500, "perfect": 9.000 }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": "apotheosis:shield",
+      "attribute": "l2weaponry:shield_defense",
+      "operation": "add_value",
+      "values": { "cracked": 4.800, "chipped": 6.600, "flawed": 9.000, "normal": 12.000, "flawless": 15.000, "perfect": 18.000 }
+    }
+  ]
+}

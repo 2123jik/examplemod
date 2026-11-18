@@ -1,10 +1,12 @@
 {
   "replace": false,
   "values": [
-    "#c:armor/helmets",
-    "#irons_spellbooks:armors/helmets",
-    "#minecraft:head_armor",
-    "#minecraft:enchantable/head_armor",
-    "#iss_magicfromtheeast:armors/helmets"
+    "minecraft:leather_helmet",
+    "minecraft:chainmail_helmet",
+    "minecraft:iron_helmet",
+    "minecraft:golden_helmet",
+    "minecraft:diamond_helmet",
+    "minecraft:netherite_helmet",
+    "minecraft:turtle_helmet"
   ]
 }

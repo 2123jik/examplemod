@@ -1,0 +1,54 @@
+{
+  "id": "hand_of_justice",
+  "name_en": "Hand of Justice",
+  "name_cn": "正义之手",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/all_weapons"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_29_sur",
+    "examplemod:runes/rune_32_cham",
+    "examplemod:runes/rune_11_amn",
+    "examplemod:runes/rune_28_lo"
+  ],
+  "attributes": [
+    {
+      "attribute": "examplemod:holy_fire_aura",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "12级圣火光环"
+    },
+    {
+      "attribute": "examplemod:fire_penetration",
+      "amount": 20.0,
+      "operation": "ADD_VALUE",
+      "description": "-20% 敌人火抗"
+    },
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.33,
+      "operation": "MULTIPLY_BASE",
+      "description": "+33% 攻速"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.07,
+      "operation": "ADD_VALUE",
+      "description": "7% 吸血"
+    },
+    {
+      "attribute": "examplemod:life_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回血"
+    },
+    {
+      "attribute": "examplemod:freeze_target",
+      "amount": 3.0,
+      "operation": "ADD_VALUE",
+      "description": "冻结目标 +3"
+    }
+  ]
+}

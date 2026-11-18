@@ -1,0 +1,54 @@
+{
+  "id": "chains_of_honor",
+  "name_en": "Chains of Honor",
+  "name_cn": "荣耀之链",
+  "sockets_required": 4,
+  "all_spell_levels": 2,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_14_dol",
+    "examplemod:runes/rune_22_um",
+    "examplemod:runes/rune_30_ber",
+    "examplemod:runes/rune_24_ist"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.6,
+      "operation": "MULTIPLY_BASE",
+      "description": "+60% 极高全抗"
+    },
+    {
+      "attribute": "examplemod:damage_to_demons",
+      "amount": 200.0,
+      "operation": "ADD_VALUE",
+      "description": "+200% 对恶魔伤害"
+    },
+    {
+      "attribute": "examplemod:damage_to_undead",
+      "amount": 200.0,
+      "operation": "ADD_VALUE",
+      "description": "+200% 对不死伤害"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.1,
+      "operation": "ADD_VALUE",
+      "description": "10% 生命偷取"
+    },
+    {
+      "attribute": "l2damagetracker:damage_reduction",
+      "amount": 0.06,
+      "operation": "MULTIPLY_BASE",
+      "description": "+6% 减伤"
+    },
+    {
+      "attribute": "minecraft:generic.luck",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 幸运"
+    }
+  ]
+}

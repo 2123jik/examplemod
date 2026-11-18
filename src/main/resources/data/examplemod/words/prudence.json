@@ -3,30 +3,25 @@
   "name_en": "Prudence",
   "name_cn": "审慎",
   "sockets_required": 2,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/chestplates"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 23,
-      "rune_name": "Mal (马尔)",
-      "pattern": "minecraft:dune",
-      "material": "twilightforest:steeleaf_ingot"
-    },
-    {
-      "step": 2,
-      "rune_id": 3,
-      "rune_name": "Tir (特尔)",
-      "pattern": "minecraft:wayfinder",
-      "material": "minecraft:copper_ingot"
-    }
+    "examplemod:runes/rune_23_mal",
+    "examplemod:runes/rune_03_tir"
   ],
   "attributes": [
     {
+      "attribute": "irons_spellbooks:cast_time_reduction",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "+40% 快速施法"
+    },
+    {
       "attribute": "minecraft:generic.armor",
       "amount": 8.0,
-      "operation": "ADDITION",
+      "operation": "ADD_VALUE",
       "description": "+8 护甲"
     },
     {
@@ -36,10 +31,16 @@
       "description": "+35% 全抗"
     },
     {
-      "attribute": "l2damagetracker:damage_reduction",
-      "amount": 0.08,
-      "operation": "MULTIPLY_BASE",
-      "description": "+8% 纯减伤"
+      "attribute": "l2damagetracker:damage_absorption",
+      "amount": 6.0,
+      "operation": "ADD_VALUE",
+      "description": "+6 固定减伤"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
     }
   ]
 }

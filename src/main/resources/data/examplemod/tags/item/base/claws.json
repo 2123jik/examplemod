@@ -1,6 +1,24 @@
 {
   "replace": false,
   "values": [
-    "#l2weaponry:claw"
+    "twilightdelight:helmet_crab_claw",
+    "l2weaponry:ancient_metal_claw",
+    "l2weaponry:black_steel_claw",
+    "l2weaponry:cursium_claw",
+    "l2weaponry:diamond_claw",
+    "l2weaponry:eternium_claw",
+    "l2weaponry:fiery_claw",
+    "l2weaponry:gold_claw",
+    "l2weaponry:ignitium_claw",
+    "l2weaponry:iron_claw",
+    "l2weaponry:ironwood_claw",
+    "l2weaponry:knightmetal_claw",
+    "l2weaponry:netherite_claw",
+    "l2weaponry:poseidite_claw",
+    "l2weaponry:sculkium_claw",
+    "l2weaponry:shulkerate_claw",
+    "l2weaponry:steeleaf_claw",
+    "l2weaponry:totemic_gold_claw",
+    "l2weaponry:witherite_claw"
   ]
 }

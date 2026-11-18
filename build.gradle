@@ -129,8 +129,7 @@ def launcherModWhitelist = [
         'ldlib2',
         'irons_lib',
         'geckolib',
-        'patchouli',
-        'anvilib'
+        'patchouli'
 
 ]
 

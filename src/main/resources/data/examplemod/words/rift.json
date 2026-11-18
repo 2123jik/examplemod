@@ -3,58 +3,42 @@
   "name_en": "Rift",
   "name_cn": "裂隙",
   "sockets_required": 4,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/polearms_spears",
+    "#examplemod:base/swords",
     "#examplemod:base/staves"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 15,
-      "rune_name": "Hel (海尔)",
-      "pattern": "more_armor_trims:origin",
-      "material": "minecraft:quartz"
-    },
-    {
-      "step": 2,
-      "rune_id": 18,
-      "rune_name": "Ko (科)",
-      "pattern": "minecraft:spire",
-      "material": "minecraft:emerald"
-    },
-    {
-      "step": 3,
-      "rune_id": 20,
-      "rune_name": "Lem (蓝姆)",
-      "pattern": "more_armor_trims:greed",
-      "material": "minecraft:gold_ingot"
-    },
-    {
-      "step": 4,
-      "rune_id": 25,
-      "rune_name": "Gul (古尔)",
-      "pattern": "minecraft:tide",
-      "material": "minecraft:diamond"
-    }
+    "examplemod:runes/rune_15_hel",
+    "examplemod:runes/rune_18_ko",
+    "examplemod:runes/rune_20_lem",
+    "examplemod:runes/rune_25_gul"
   ],
   "attributes": [
     {
-      "attribute": "irons_spellbooks:ice_spell_power",
-      "amount": 0.35,
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.55,
       "operation": "MULTIPLY_BASE",
-      "description": "击中释放冰封球"
+      "description": "+55% 攻速"
+    },
+    {
+      "attribute": "irons_spellbooks:ice_spell_power",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "冰封球触发"
     },
     {
       "attribute": "irons_spellbooks:fire_spell_power",
       "amount": 0.35,
       "operation": "MULTIPLY_BASE",
-      "description": "+35% 火系法强"
+      "description": "+35% 火强"
     },
     {
-      "attribute": "apothic_attributes:crit_chance",
-      "amount": 0.2,
-      "operation": "ADDITION",
-      "description": "+20% 暴击率"
+      "attribute": "examplemod:damage_to_mana",
+      "amount": 38.0,
+      "operation": "ADD_VALUE",
+      "description": "38% 受损生命转法力"
     }
   ]
 }

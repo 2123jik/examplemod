@@ -3,50 +3,45 @@
   "name_en": "Peace",
   "name_cn": "和平",
   "sockets_required": 3,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/chestplates"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 13,
-      "rune_name": "Shael (夏勒)",
-      "pattern": "minecraft:flow",
-      "material": "minecraft:amethyst_shard"
-    },
-    {
-      "step": 2,
-      "rune_id": 10,
-      "rune_name": "Thul (书尔)",
-      "pattern": "minecraft:coast",
-      "material": "minecraft:lapis_lazuli"
-    },
-    {
-      "step": 3,
-      "rune_id": 11,
-      "rune_name": "Amn (安姆)",
-      "pattern": "more_armor_trims:ram",
-      "material": "minecraft:iron_ingot"
-    }
+    "examplemod:runes/rune_13_shael",
+    "examplemod:runes/rune_10_thul",
+    "examplemod:runes/rune_11_amn"
   ],
   "attributes": [
     {
       "attribute": "apothic_attributes:crit_chance",
       "amount": 0.15,
-      "operation": "ADDITION",
+      "operation": "ADD_VALUE",
       "description": "+15% 致命一击"
     },
     {
       "attribute": "irons_spellbooks:summon_damage",
-      "amount": 0.25,
+      "amount": 0.3,
       "operation": "MULTIPLY_BASE",
-      "description": "+25% 召唤伤害"
+      "description": "+30% 召唤物伤害"
     },
     {
-      "attribute": "minecraft:generic.armor",
-      "amount": 4.0,
-      "operation": "ADDITION",
-      "description": "+4 护甲"
+      "attribute": "twilightforest:minion_count",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "+1 最大召唤数"
+    },
+    {
+      "attribute": "irons_spellbooks:ice_magic_resist",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 冰抗"
+    },
+    {
+      "attribute": "examplemod:thorns_damage",
+      "amount": 8.0,
+      "operation": "ADD_VALUE",
+      "description": "攻击者受到反伤"
     }
   ]
 }

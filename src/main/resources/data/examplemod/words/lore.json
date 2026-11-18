@@ -3,31 +3,26 @@
   "name_en": "Lore",
   "name_cn": "学识",
   "sockets_required": 2,
+  "all_spell_levels": 1,
   "valid_base_tags": [
     "#examplemod:base/helmets"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 9,
-      "rune_name": "Ort (欧特)",
-      "pattern": "minecraft:bolt",
-      "material": "minecraft:copper_ingot"
-    },
-    {
-      "step": 2,
-      "rune_id": 12,
-      "rune_name": "Sol (索尔)",
-      "pattern": "minecraft:snout",
-      "material": "minecraft:gold_ingot"
-    }
+    "examplemod:runes/rune_09_ort",
+    "examplemod:runes/rune_12_sol"
   ],
   "attributes": [
     {
       "attribute": "irons_spellbooks:spell_power",
-      "amount": 0.12,
+      "amount": 0.1,
       "operation": "MULTIPLY_BASE",
-      "description": "全技能+1"
+      "description": "+10% 法强"
+    },
+    {
+      "attribute": "l2damagetracker:damage_absorption",
+      "amount": 4.0,
+      "operation": "ADD_VALUE",
+      "description": "+4 固定减伤"
     },
     {
       "attribute": "irons_spellbooks:lightning_magic_resist",
@@ -36,10 +31,10 @@
       "description": "+30% 雷抗"
     },
     {
-      "attribute": "irons_spellbooks:mana_regen",
-      "amount": 0.15,
-      "operation": "MULTIPLY_BASE",
-      "description": "+15% 回蓝"
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
     }
   ]
 }

@@ -3,57 +3,34 @@
   "name_en": "Memory",
   "name_cn": "回忆",
   "sockets_required": 4,
+  "all_spell_levels": 4,
   "valid_base_tags": [
     "#examplemod:base/staves"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 17,
-      "rune_name": "Lum (卢姆)",
-      "pattern": "minecraft:eye",
-      "material": "minecraft:lapis_lazuli"
-    },
-    {
-      "step": 2,
-      "rune_id": 16,
-      "rune_name": "Io (艾欧)",
-      "pattern": "more_armor_trims:horizon",
-      "material": "minecraft:amethyst_shard"
-    },
-    {
-      "step": 3,
-      "rune_id": 12,
-      "rune_name": "Sol (索尔)",
-      "pattern": "minecraft:snout",
-      "material": "minecraft:gold_ingot"
-    },
-    {
-      "step": 4,
-      "rune_id": 5,
-      "rune_name": "Eth (爱斯)",
-      "pattern": "minecraft:flow",
-      "material": "minecraft:copper_ingot"
-    }
+    "examplemod:runes/rune_17_lum",
+    "examplemod:runes/rune_16_io",
+    "examplemod:runes/rune_12_sol",
+    "examplemod:runes/rune_05_eth"
   ],
   "attributes": [
     {
-      "attribute": "irons_spellbooks:spell_power",
-      "amount": 0.25,
+      "attribute": "irons_spellbooks:cast_time_reduction",
+      "amount": 0.33,
       "operation": "MULTIPLY_BASE",
-      "description": "法师全技能+3"
+      "description": "+33% 快速施法"
     },
     {
       "attribute": "irons_spellbooks:max_mana",
-      "amount": 150.0,
-      "operation": "ADDITION",
-      "description": "+150 法力上限"
-    },
-    {
-      "attribute": "irons_spellbooks:cast_time_reduction",
       "amount": 0.3,
       "operation": "MULTIPLY_BASE",
-      "description": "+30% 快速施法"
+      "description": "+30% 法力上限"
+    },
+    {
+      "attribute": "minecraft:generic.max_absorption",
+      "amount": 6.0,
+      "operation": "ADD_VALUE",
+      "description": "能量护盾吸收"
     }
   ]
 }

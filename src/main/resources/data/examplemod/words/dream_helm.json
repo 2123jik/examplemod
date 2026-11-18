@@ -1,0 +1,53 @@
+{
+  "id": "dream_helm",
+  "name_en": "Dream (Helm)",
+  "name_cn": "梦境 (头盔)",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/helmets"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_16_io",
+    "examplemod:runes/rune_31_jah",
+    "examplemod:runes/rune_21_pul"
+  ],
+  "attributes": [
+    {
+      "attribute": "examplemod:holy_shock_aura",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "神圣冲击雷暴灵气"
+    },
+    {
+      "attribute": "irons_spellbooks:lightning_spell_power",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 闪电法强"
+    },
+    {
+      "attribute": "minecraft:generic.max_health",
+      "amount": 0.05,
+      "operation": "MULTIPLY_BASE",
+      "description": "+5% 生命上限"
+    },
+    {
+      "attribute": "irons_spellbooks:max_mana",
+      "amount": 60.0,
+      "operation": "ADD_VALUE",
+      "description": "+60 法力上限"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.2,
+      "operation": "MULTIPLY_BASE",
+      "description": "+20% 全抗"
+    },
+    {
+      "attribute": "minecraft:generic.luck",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 幸运"
+    }
+  ]
+}

@@ -3,26 +3,17 @@
   "name_en": "Steel",
   "name_cn": "钢铁",
   "sockets_required": 2,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/swords",
     "#examplemod:base/axes",
-    "#examplemod:base/blunt"
+    "#examplemod:base/blunt",
+    "#examplemod:base/claws",
+    "#examplemod:base/polearms_spears"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 3,
-      "rune_name": "Tir (特尔)",
-      "pattern": "minecraft:wayfinder",
-      "material": "minecraft:copper_ingot"
-    },
-    {
-      "step": 2,
-      "rune_id": 1,
-      "rune_name": "El (艾尔)",
-      "pattern": "minecraft:sentry",
-      "material": "minecraft:iron_ingot"
-    }
+    "examplemod:runes/rune_03_tir",
+    "examplemod:runes/rune_01_el"
   ],
   "attributes": [
     {
@@ -34,14 +25,20 @@
     {
       "attribute": "minecraft:generic.attack_damage",
       "amount": 2.0,
-      "operation": "ADDITION",
-      "description": "+2 物理点伤"
+      "operation": "ADD_VALUE",
+      "description": "+2 伤害"
     },
     {
-      "attribute": "apothic_attributes:armor_pierce",
-      "amount": 3.0,
-      "operation": "ADDITION",
-      "description": "撕裂流血"
+      "attribute": "examplemod:open_wounds",
+      "amount": 50.0,
+      "operation": "ADD_VALUE",
+      "description": "50% 撕开伤口"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
     }
   ]
 }

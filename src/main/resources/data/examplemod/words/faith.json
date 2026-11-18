@@ -1,0 +1,42 @@
+{
+  "id": "faith",
+  "name_en": "Faith",
+  "name_cn": "信心",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/bows"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_27_ohm",
+    "examplemod:runes/rune_31_jah",
+    "examplemod:runes/rune_20_lem",
+    "examplemod:runes/rune_02_eld"
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:draw_speed",
+      "amount": 0.45,
+      "operation": "MULTIPLY_BASE",
+      "description": "15级狂热光环弓速"
+    },
+    {
+      "attribute": "apothic_attributes:arrow_damage",
+      "amount": 0.65,
+      "operation": "MULTIPLY_BASE",
+      "description": "+65% 远程增伤"
+    },
+    {
+      "attribute": "examplemod:damage_to_undead",
+      "amount": 75.0,
+      "operation": "ADD_VALUE",
+      "description": "+75% 对不死伤害"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.15,
+      "operation": "MULTIPLY_BASE",
+      "description": "+15% 全抗"
+    }
+  ]
+}

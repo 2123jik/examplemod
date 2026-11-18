@@ -3,71 +3,61 @@
   "name_en": "Grief",
   "name_cn": "悔恨",
   "sockets_required": 5,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/swords",
-    "#examplemod:base/axes"
+    "#examplemod:base/axes",
+    "#examplemod:base/polearms_spears"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 5,
-      "rune_name": "Eth (爱斯)",
-      "pattern": "minecraft:flow",
-      "material": "minecraft:copper_ingot"
-    },
-    {
-      "step": 2,
-      "rune_id": 3,
-      "rune_name": "Tir (特尔)",
-      "pattern": "minecraft:wayfinder",
-      "material": "minecraft:copper_ingot"
-    },
-    {
-      "step": 3,
-      "rune_id": 28,
-      "rune_name": "Lo (罗)",
-      "pattern": "minecraft:bolt",
-      "material": "cataclysm:ignitium_ingot"
-    },
-    {
-      "step": 4,
-      "rune_id": 23,
-      "rune_name": "Mal (马尔)",
-      "pattern": "minecraft:dune",
-      "material": "twilightforest:steeleaf_ingot"
-    },
-    {
-      "step": 5,
-      "rune_id": 8,
-      "rune_name": "Ral (拉尔)",
-      "pattern": "more_armor_trims:fever",
-      "material": "minecraft:redstone"
-    }
+    "examplemod:runes/rune_05_eth",
+    "examplemod:runes/rune_03_tir",
+    "examplemod:runes/rune_28_lo",
+    "examplemod:runes/rune_23_mal",
+    "examplemod:runes/rune_08_ral"
   ],
   "attributes": [
     {
       "attribute": "minecraft:generic.attack_damage",
-      "amount": 18.0,
-      "operation": "ADDITION",
-      "description": "+400 点伤之王"
+      "amount": 17.0,
+      "operation": "ADD_VALUE",
+      "description": "+17 绝对点伤"
     },
     {
       "attribute": "minecraft:generic.attack_speed",
-      "amount": 0.4,
+      "amount": 0.35,
       "operation": "MULTIPLY_BASE",
-      "description": "+40% 狂暴攻速"
+      "description": "+35% 攻速"
     },
     {
-      "attribute": "apothic_attributes:armor_shred",
-      "amount": 0.4,
-      "operation": "ADDITION",
-      "description": "无视40%目标护甲"
+      "attribute": "examplemod:damage_to_demons",
+      "amount": 150.0,
+      "operation": "ADD_VALUE",
+      "description": "+150% 对恶魔伤害"
     },
     {
-      "attribute": "apothic_attributes:crit_chance",
-      "amount": 0.2,
-      "operation": "ADDITION",
-      "description": "+20% 致命一击"
+      "attribute": "examplemod:poison_penetration",
+      "amount": 18.0,
+      "operation": "ADD_VALUE",
+      "description": "-18% 敌人毒抗"
+    },
+    {
+      "attribute": "examplemod:prevent_heal",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "防止怪物自疗"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
+    },
+    {
+      "attribute": "examplemod:life_on_kill",
+      "amount": 3.0,
+      "operation": "ADD_VALUE",
+      "description": "+3 击杀回血"
     }
   ]
 }

@@ -1,0 +1,36 @@
+{
+  "id": "neophyte",
+  "name_en": "Neophyte",
+  "name_cn": "新秀",
+  "sockets_required": 2,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/staves",
+    "#examplemod:base/claws",
+    "#examplemod:base/blunt"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_10_thul",
+    "examplemod:runes/rune_03_tir"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:cast_time_reduction",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 快速施法"
+    },
+    {
+      "attribute": "apothic_attributes:cold_damage",
+      "amount": 3.0,
+      "operation": "ADD_VALUE",
+      "description": "+3 冰冷伤害"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
+    }
+  ]
+}

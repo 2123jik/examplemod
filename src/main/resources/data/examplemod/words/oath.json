@@ -3,59 +3,42 @@
   "name_en": "Oath",
   "name_cn": "誓约",
   "sockets_required": 4,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/swords",
     "#examplemod:base/axes",
     "#examplemod:base/blunt"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 13,
-      "rune_name": "Shael (夏勒)",
-      "pattern": "minecraft:flow",
-      "material": "minecraft:amethyst_shard"
-    },
-    {
-      "step": 2,
-      "rune_id": 21,
-      "rune_name": "Pul (普尔)",
-      "pattern": "minecraft:ward",
-      "material": "twilightforest:knightmetal_ingot"
-    },
-    {
-      "step": 3,
-      "rune_id": 23,
-      "rune_name": "Mal (马尔)",
-      "pattern": "minecraft:dune",
-      "material": "twilightforest:steeleaf_ingot"
-    },
-    {
-      "step": 4,
-      "rune_id": 17,
-      "rune_name": "Lum (卢姆)",
-      "pattern": "minecraft:eye",
-      "material": "minecraft:lapis_lazuli"
-    }
+    "examplemod:runes/rune_13_shael",
+    "examplemod:runes/rune_21_pul",
+    "examplemod:runes/rune_23_mal",
+    "examplemod:runes/rune_17_lum"
   ],
   "attributes": [
     {
       "attribute": "minecraft:generic.attack_speed",
-      "amount": 0.45,
+      "amount": 0.5,
       "operation": "MULTIPLY_BASE",
-      "description": "+50% 爆发攻速"
+      "description": "+50% 攻速"
     },
     {
       "attribute": "minecraft:generic.attack_damage",
-      "amount": 8.0,
-      "operation": "ADDITION",
-      "description": "+8 点伤"
+      "amount": 8.5,
+      "operation": "ADD_VALUE",
+      "description": "+8.5 伤害"
     },
     {
-      "attribute": "apothic_attributes:crit_damage",
-      "amount": 0.45,
-      "operation": "MULTIPLY_BASE",
-      "description": "+45% 暴击伤害"
+      "attribute": "examplemod:damage_to_demons",
+      "amount": 75.0,
+      "operation": "ADD_VALUE",
+      "description": "+75% 对恶魔伤害"
+    },
+    {
+      "attribute": "examplemod:prevent_heal",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "防止怪物自疗"
     }
   ]
 }

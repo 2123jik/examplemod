@@ -3,58 +3,48 @@
   "name_en": "Voice of Reason",
   "name_cn": "理性之声",
   "sockets_required": 4,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/swords",
-    "#examplemod:base/blunt"
+    "#examplemod:base/blunt",
+    "#examplemod:base/bows"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 20,
-      "rune_name": "Lem (蓝姆)",
-      "pattern": "more_armor_trims:greed",
-      "material": "minecraft:gold_ingot"
-    },
-    {
-      "step": 2,
-      "rune_id": 18,
-      "rune_name": "Ko (科)",
-      "pattern": "minecraft:spire",
-      "material": "minecraft:emerald"
-    },
-    {
-      "step": 3,
-      "rune_id": 1,
-      "rune_name": "El (艾尔)",
-      "pattern": "minecraft:sentry",
-      "material": "minecraft:iron_ingot"
-    },
-    {
-      "step": 4,
-      "rune_id": 2,
-      "rune_name": "Eld (艾德)",
-      "pattern": "minecraft:raiser",
-      "material": "minecraft:iron_ingot"
-    }
+    "examplemod:runes/rune_20_lem",
+    "examplemod:runes/rune_18_ko",
+    "examplemod:runes/rune_01_el",
+    "examplemod:runes/rune_02_eld"
   ],
   "attributes": [
     {
-      "attribute": "irons_spellbooks:ice_spell_power",
-      "amount": 0.35,
-      "operation": "MULTIPLY_BASE",
-      "description": "+35% 寒冰法强"
+      "attribute": "examplemod:ice_penetration",
+      "amount": 24.0,
+      "operation": "ADD_VALUE",
+      "description": "-24% 敌人冰抗"
     },
     {
-      "attribute": "apothic_attributes:crit_chance",
-      "amount": 0.15,
-      "operation": "ADDITION",
-      "description": "+15% 暴击"
+      "attribute": "apothic_attributes:cold_damage",
+      "amount": 8.0,
+      "operation": "ADD_VALUE",
+      "description": "+8 冰冷附加伤"
     },
     {
-      "attribute": "minecraft:generic.movement_speed",
-      "amount": 0.1,
-      "operation": "MULTIPLY_BASE",
-      "description": "绝对无法被冻结"
+      "attribute": "examplemod:damage_to_demons",
+      "amount": 270.0,
+      "operation": "ADD_VALUE",
+      "description": "+270% 对恶魔伤害"
+    },
+    {
+      "attribute": "examplemod:damage_to_undead",
+      "amount": 300.0,
+      "operation": "ADD_VALUE",
+      "description": "+300% 对不死伤害"
+    },
+    {
+      "attribute": "examplemod:cannot_be_frozen",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "无法冰冻"
     }
   ]
 }

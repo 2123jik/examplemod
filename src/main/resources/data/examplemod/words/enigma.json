@@ -3,68 +3,51 @@
   "name_en": "Enigma",
   "name_cn": "谜团",
   "sockets_required": 3,
+  "all_spell_levels": 2,
   "valid_base_tags": [
     "#examplemod:base/chestplates"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 31,
-      "rune_name": "Jah (乔)",
-      "pattern": "more_armor_trims:nihility",
-      "material": "l2complements:shulkerate_ingot"
-    },
-    {
-      "step": 2,
-      "rune_id": 6,
-      "rune_name": "Ith (伊司)",
-      "pattern": "minecraft:rib",
-      "material": "minecraft:iron_ingot"
-    },
-    {
-      "step": 3,
-      "rune_id": 30,
-      "rune_name": "Ber (贝)",
-      "pattern": "alexscaves:polarity",
-      "material": "cataclysm:witherite_ingot"
-    }
+    "examplemod:runes/rune_31_jah",
+    "examplemod:runes/rune_06_ith",
+    "examplemod:runes/rune_30_ber"
   ],
   "attributes": [
     {
       "attribute": "minecraft:generic.movement_speed",
-      "amount": 0.45,
-      "operation": "MULTIPLY_BASE",
-      "description": "+45% 跑速"
-    },
-    {
-      "attribute": "irons_spellbooks:spell_power",
       "amount": 0.25,
       "operation": "MULTIPLY_BASE",
-      "description": "全技能+2"
+      "description": "+25% 跑速"
+    },
+    {
+      "attribute": "irons_spellbooks:cooldown_reduction",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "闪烁冷却缩减"
     },
     {
       "attribute": "l2damagetracker:damage_reduction",
-      "amount": 0.08,
+      "amount": 0.06,
       "operation": "MULTIPLY_BASE",
-      "description": "8% 物理硬减伤"
+      "description": "+6% 物理硬减伤"
     },
     {
       "attribute": "minecraft:generic.max_health",
-      "amount": 12.0,
-      "operation": "ADDITION",
-      "description": "+12 巨额生命"
+      "amount": 0.05,
+      "operation": "MULTIPLY_BASE",
+      "description": "+5% 生命上限"
     },
     {
-      "attribute": "irons_spellbooks:mana_cost_reduction",
-      "amount": 0.15,
-      "operation": "MULTIPLY_BASE",
-      "description": "传送闪烁能耗降低"
+      "attribute": "examplemod:damage_to_mana",
+      "amount": 15.0,
+      "operation": "ADD_VALUE",
+      "description": "15% 受损生命转法力"
     },
     {
-      "attribute": "apothic_attributes:experience_gained",
-      "amount": 0.6,
-      "operation": "MULTIPLY_BASE",
-      "description": "+60% 极高寻宝增益"
+      "attribute": "minecraft:generic.luck",
+      "amount": 3.0,
+      "operation": "ADD_VALUE",
+      "description": "+3 幸运(MF)"
     }
   ]
 }

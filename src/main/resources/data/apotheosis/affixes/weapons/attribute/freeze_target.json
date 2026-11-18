@@ -1,0 +1,52 @@
+{
+  "type": "apotheosis:attribute",
+  "attribute": ":examplemod:freeze_target",
+  "categories": [
+    "apotheosis:helmet",
+    "apotheosis:chestplate",
+    "apotheosis:leggings",
+    "apotheosis:boots",
+    "apotheosis:shield",
+    "apotheosis:melee_weapon",
+    "apotheosis:bow",
+    "apotheosis:trident",
+    "irons_apothic:staff",
+    "irons_apothic:spellbook"
+  ],
+  "definition": {
+    "affix_type": "stat",
+    "exclusive_set": [],
+    "weights": {
+      "quality": 0.1,
+      "weight": 20
+    }
+  },
+  "operation": "add_value",
+  "values": {
+    "apotheosis:common": {
+      "min": 4,
+      "max": 5,
+      "step": 1
+    },
+    "apotheosis:uncommon": {
+      "min": 6,
+      "max": 7,
+      "step": 1
+    },
+    "apotheosis:rare": {
+      "min": 8,
+      "max": 9,
+      "step": 1
+    },
+    "apotheosis:epic": {
+      "min": 10,
+      "max": 11,
+      "step": 1
+    },
+    "apotheosis:mythic": {
+      "min": 12,
+      "max": 13,
+      "step":1
+    }
+  }
+}

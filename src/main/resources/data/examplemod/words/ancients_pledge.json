@@ -3,50 +3,33 @@
   "name_en": "Ancients' Pledge",
   "name_cn": "古代人的誓约",
   "sockets_required": 3,
+  "all_spell_levels": 0,
   "valid_base_tags": [
     "#examplemod:base/shields"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 8,
-      "rune_name": "Ral (拉尔)",
-      "pattern": "more_armor_trims:fever",
-      "material": "minecraft:redstone"
-    },
-    {
-      "step": 2,
-      "rune_id": 9,
-      "rune_name": "Ort (欧特)",
-      "pattern": "minecraft:bolt",
-      "material": "minecraft:copper_ingot"
-    },
-    {
-      "step": 3,
-      "rune_id": 7,
-      "rune_name": "Tal (塔尔)",
-      "pattern": "minecraft:wild",
-      "material": "minecraft:emerald"
-    }
+    "examplemod:runes/rune_08_ral",
+    "examplemod:runes/rune_09_ort",
+    "examplemod:runes/rune_07_tal"
   ],
   "attributes": [
     {
       "attribute": "irons_spellbooks:spell_resist",
       "amount": 0.45,
       "operation": "MULTIPLY_BASE",
-      "description": "+48% 全抗"
+      "description": "+45% 全抗"
     },
     {
       "attribute": "l2weaponry:shield_defense",
       "amount": 10.0,
-      "operation": "ADDITION",
+      "operation": "ADD_VALUE",
       "description": "+10 盾防"
     },
     {
-      "attribute": "minecraft:generic.armor",
-      "amount": 5.0,
-      "operation": "ADDITION",
-      "description": "+5 护甲"
+      "attribute": "examplemod:damage_to_mana",
+      "amount": 10.0,
+      "operation": "ADD_VALUE",
+      "description": "10% 受损生命转法力"
     }
   ]
 }

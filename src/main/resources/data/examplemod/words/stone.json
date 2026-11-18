@@ -3,57 +3,40 @@
   "name_en": "Stone",
   "name_cn": "石块",
   "sockets_required": 4,
+  "all_spell_levels": 1,
   "valid_base_tags": [
     "#examplemod:base/chestplates"
   ],
   "sequence": [
-    {
-      "step": 1,
-      "rune_id": 13,
-      "rune_name": "Shael (夏勒)",
-      "pattern": "minecraft:flow",
-      "material": "minecraft:amethyst_shard"
-    },
-    {
-      "step": 2,
-      "rune_id": 22,
-      "rune_name": "Um (乌姆)",
-      "pattern": "more_armor_trims:storm",
-      "material": "twilightforest:steeleaf_ingot"
-    },
-    {
-      "step": 3,
-      "rune_id": 21,
-      "rune_name": "Pul (普尔)",
-      "pattern": "minecraft:ward",
-      "material": "twilightforest:knightmetal_ingot"
-    },
-    {
-      "step": 4,
-      "rune_id": 17,
-      "rune_name": "Lum (卢姆)",
-      "pattern": "minecraft:eye",
-      "material": "minecraft:lapis_lazuli"
-    }
+    "examplemod:runes/rune_13_shael",
+    "examplemod:runes/rune_22_um",
+    "examplemod:runes/rune_21_pul",
+    "examplemod:runes/rune_17_lum"
   ],
   "attributes": [
     {
       "attribute": "minecraft:generic.armor",
       "amount": 14.0,
-      "operation": "ADDITION",
+      "operation": "ADD_VALUE",
       "description": "+14 钢铁重甲"
     },
     {
       "attribute": "minecraft:generic.armor_toughness",
       "amount": 8.0,
-      "operation": "ADDITION",
+      "operation": "ADD_VALUE",
       "description": "+8 盔甲韧性"
     },
     {
       "attribute": "minecraft:generic.knockback_resistance",
       "amount": 0.4,
-      "operation": "ADDITION",
-      "description": "+40% 防击退"
+      "operation": "ADD_VALUE",
+      "description": "+40% 防退"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.15,
+      "operation": "MULTIPLY_BASE",
+      "description": "+15% 全抗"
     }
   ]
 }

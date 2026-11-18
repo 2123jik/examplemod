@@ -1,0 +1,47 @@
+{
+  "id": "ferocity",
+  "name_en": "Ferocity",
+  "name_cn": "凶猛",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/helmets"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_33_zod",
+    "examplemod:runes/rune_32_cham",
+    "examplemod:runes/rune_13_shael"
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.12,
+      "operation": "ADD_VALUE",
+      "description": "12% 生命偷取"
+    },
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 攻击速度"
+    },
+    {
+      "attribute": "l2damagetracker:damage_absorption",
+      "amount": 6.0,
+      "operation": "ADD_VALUE",
+      "description": "+6 固定减伤"
+    },
+    {
+      "attribute": "examplemod:cannot_be_frozen",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "无法冰冻"
+    },
+    {
+      "attribute": "examplemod:thorns_damage",
+      "amount": 15.0,
+      "operation": "ADD_VALUE",
+      "description": "攻击者受到反伤"
+    }
+  ]
+}
