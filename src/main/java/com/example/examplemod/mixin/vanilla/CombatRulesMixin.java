@@ -1,6 +1,6 @@
 package com.example.examplemod.mixin.vanilla;
 
-import com.example.examplemod.util.DamageEngine;
+import com.example.examplemod.event.damage.DamageEngine;
 import net.minecraft.world.damagesource.CombatRules;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;

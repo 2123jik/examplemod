@@ -1,4 +1,4 @@
-package com.example.examplemod.util;
+package com.example.examplemod.event.damage;
 
 import com.example.examplemod.registry.ModAttributes;
 import dev.shadowsoffire.apothic_attributes.api.ALObjects;

@@ -1,4 +1,4 @@
-package com.example.examplemod.util;
+package com.example.examplemod.event.damage;
 
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import net.minecraft.world.damagesource.DamageSource;

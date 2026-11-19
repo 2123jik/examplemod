@@ -1,6 +1,6 @@
 package com.example.examplemod.mixin.ironsspellbooks;
 
-import com.example.examplemod.util.NativeSpellDamageContext;
+import com.example.examplemod.event.damage.NativeSpellDamageContext;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Share;

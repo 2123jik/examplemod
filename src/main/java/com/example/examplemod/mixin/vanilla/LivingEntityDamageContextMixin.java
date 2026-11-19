@@ -1,6 +1,6 @@
 package com.example.examplemod.mixin.vanilla;
 
-import com.example.examplemod.util.NativeSpellDamageContext;
+import com.example.examplemod.event.damage.NativeSpellDamageContext;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import net.minecraft.world.damagesource.DamageSource;

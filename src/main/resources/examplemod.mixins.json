@@ -49,6 +49,7 @@
     "vanilla.FoodDataMixin",
     "vanilla.HealOrHarmMobEffectMixin",
     "vanilla.LivingEntityDamageContextMixin",
+    "vanilla.LivingEntityDamageRemapMixin",
     "vanilla.LootTableMixin",
     "vanilla.MerchantMenuMixin",
     "vanilla.MixinEmptyMapItem",

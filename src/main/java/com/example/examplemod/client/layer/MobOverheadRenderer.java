@@ -111,8 +111,8 @@ public final class MobOverheadRenderer {
         VertexConsumer vc = buf.getBuffer(LevelRenderEngine.Pipelines.unlitColor(false, true, true));
 
         // 仅绘制整洁圆润的半透底板与边框（无血条槽）
-        LevelRenderEngine.VertexWriter.quadColor(vc, p, left - 4, cardTop, -0.02F, right + 4, cardTop, -0.02F, right + 4, cardBottom, -0.02F, left - 4, cardBottom, -0.02F, 0.05F, 0.07F, 0.09F, 0.55F);
-        LevelRenderEngine.VertexWriter.quadColor(vc, p, left - 3, cardTop + 1, -0.01F, right + 3, cardTop + 1, -0.01F, right + 3, cardBottom - 1, -0.01F, left - 3, cardBottom - 1, -0.01F, 0.12F, 0.16F, 0.20F, 0.7F);
+//        LevelRenderEngine.VertexWriter.quadColor(vc, p, left - 4, cardTop, -0.02F, right + 4, cardTop, -0.02F, right + 4, cardBottom, -0.02F, left - 4, cardBottom, -0.02F, 0.05F, 0.07F, 0.09F, 0.55F);
+//        LevelRenderEngine.VertexWriter.quadColor(vc, p, left - 3, cardTop + 1, -0.01F, right + 3, cardTop + 1, -0.01F, right + 3, cardBottom - 1, -0.01F, left - 3, cardBottom - 1, -0.01F, 0.12F, 0.16F, 0.20F, 0.7F);
 
         // 居中绘制村民名字/职业
         font.drawInBatch(title, -titleW * 0.5F, titleY, 0xFFE2E5E9, false, p, buf, Font.DisplayMode.SEE_THROUGH, 0, LightTexture.FULL_BRIGHT);
@@ -181,7 +181,7 @@ public final class MobOverheadRenderer {
         VertexConsumer vc = buf.getBuffer(LevelRenderEngine.Pipelines.unlitColor(false, true, true));
 
         // 底板
-        LevelRenderEngine.VertexWriter.quadColor(vc, p, left - 4, top, -0.02F, right + 4, top, -0.02F, right + 4, barH + 3, -0.02F, left - 4, barH + 3, -0.02F, 0.05F, 0.07F, 0.09F, 0.45F);
+//        LevelRenderEngine.VertexWriter.quadColor(vc, p, left - 4, top, -0.02F, right + 4, top, -0.02F, right + 4, barH + 3, -0.02F, left - 4, barH + 3, -0.02F, 0.05F, 0.07F, 0.09F, 0.45F);
         // 血条外框
         LevelRenderEngine.VertexWriter.quadColor(vc, p, left - border, -border, 0.0F, right + border, -border, 0.0F, right + border, barH + border, 0.0F, left - border, barH + border, 0.0F, 0.09F, 0.11F, 0.13F, 0.75F);
         // 血条槽底色

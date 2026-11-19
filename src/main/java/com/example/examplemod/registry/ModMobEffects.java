@@ -1,7 +1,7 @@
 package com.example.examplemod.registry;
 
 import com.example.examplemod.ExampleMod;
-import com.example.examplemod.event.spell.UnifiedSpellDamageBridge;
+import com.example.examplemod.event.damage.UnifiedSpellDamageBridge;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.SchoolType;
 import net.alshanex.tunes_n_tomes.registry.TSchoolRegistry;

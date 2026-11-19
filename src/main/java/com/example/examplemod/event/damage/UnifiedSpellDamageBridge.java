@@ -1,9 +1,8 @@
-package com.example.examplemod.event.spell;
+package com.example.examplemod.event.damage;
 
 import com.example.examplemod.ExampleMod;
 import com.example.examplemod.registry.ModAttributes;
 import com.example.examplemod.registry.ModMobEffects;
-import com.example.examplemod.util.DamageEngine;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.SchoolType;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
@@ -24,6 +23,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import net.warphan.iss_magicfromtheeast.registries.MFTESchoolRegistries;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,16 +53,29 @@ public class UnifiedSpellDamageBridge {
         SchoolType initialSchool = null;
         boolean isNativeSpell = false;
 
+        // 1. 原生铁魔法法术（走 SpellDamageSource）
         if (source instanceof SpellDamageSource spellSource) {
             initialSchool = spellSource.spell().getSchoolType();
             isNativeSpell = true;
         }
 
+        // 2. 标准学派 DamageType（直接承接 DamageTypeRemapper 改写后的 *_magic 类型）
+        if (initialSchool == null) {
+            for (SchoolType school : SchoolRegistry.REGISTRY) {
+                if (source.typeHolder().is(school.getDamageType())) {
+                    initialSchool = school;
+                    break;
+                }
+            }
+        }
+
+        // 3. 实体映射（处理仍使用通用 DamageType 如 arrow / mob_projectile 的外部实体）
         if (initialSchool == null && directEntity != null) {
             Supplier<SchoolType> s = Init.ENTITY_TO_SCHOOL.get(BuiltInRegistries.ENTITY_TYPE.getKey(directEntity.getType()));
             if (s != null) initialSchool = s.get();
         }
 
+        // 4. 其余保留的原版环境 / 未被 Remapper 改写为 *_magic 的 DamageType
         if (initialSchool == null) {
             ResourceKey<DamageType> key = source.typeHolder().unwrapKey().orElse(null);
             if (key != null) {
@@ -71,6 +84,7 @@ public class UnifiedSpellDamageBridge {
             }
         }
 
+        // 5. 原版元素标签兜底
         if (initialSchool == null) {
             if (source.is(DamageTypeTags.IS_FIRE)) initialSchool = SchoolRegistry.FIRE.get();
             else if (source.is(DamageTypeTags.IS_FREEZING)) initialSchool = SchoolRegistry.ICE.get();
@@ -81,7 +95,6 @@ public class UnifiedSpellDamageBridge {
                 ? initialSchool.getId().getPath()
                 : ModAttributes.PHYSICAL_ID;
 
-
         DamageEngine.SolveResult result =
                 DamageEngine.solveAndCalculate(
                         event.getAmount(),
@@ -90,7 +103,6 @@ public class UnifiedSpellDamageBridge {
                         target,
                         isNativeSpell
                 );
-
 
         if (initialSchool == null && result.activeFinalSchools().isEmpty()) {
             return;
@@ -170,38 +182,41 @@ public class UnifiedSpellDamageBridge {
                 && target.isInWaterOrRain()) {
             school = SchoolRegistry.LIGHTNING.get();
             flat = 0.40F;
-        }
-        else if (source.is(DamageTypes.DROWN) || (target.isUnderWater() && target.getAirSupply() <= 0)) {
+        } else if (source.is(DamageTypes.DROWN) || (target.isUnderWater() && target.getAirSupply() <= 0)) {
+            school = SchoolRegistry.NATURE.get();
             flat = 0.35f;
         } else if (source.is(DamageTypes.DRY_OUT)) {
+            school = SchoolRegistry.NATURE.get();
             flat = 0.40f;
         } else if (source.is(ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.parse("neoforge:poison")))
-                || (source.is(DamageTypes.MAGIC) && target.hasEffect(MobEffects.POISON))) {
+                || ((source.is(DamageTypes.MAGIC) || source.typeHolder().is(SchoolRegistry.NATURE.get().getDamageType()))
+                && target.hasEffect(MobEffects.POISON))) {
+            school = SchoolRegistry.NATURE.get();
             flat = 0.25f;
         } else if (source.is(DamageTypes.SWEET_BERRY_BUSH) || source.is(DamageTypes.CACTUS)) {
+            school = SchoolRegistry.NATURE.get();
             flat = 0.15f;
-        }
-        else if (source.is(DamageTypes.WITHER) || target.hasEffect(MobEffects.WITHER)) {
+        } else if (source.is(DamageTypes.WITHER) || target.hasEffect(MobEffects.WITHER)) {
+            school = MFTESchoolRegistries.SPIRIT.get();
             flat = 0.35f;
-        }
-        else if (source.is(DamageTypes.STARVE)) {
+        } else if (source.is(DamageTypes.STARVE)) {
+            school = SchoolRegistry.BLOOD.get();
             flat = 0.40f;
-        }
-        else if (source.is(DamageTypes.OUTSIDE_BORDER)) {
+        } else if (source.is(DamageTypes.OUTSIDE_BORDER)) {
+            school = SchoolRegistry.ENDER.get();
             flat = 0.50f;
             total = 0.20f;
         } else if (source.is(DamageTypes.DRAGON_BREATH)) {
+            school = SchoolRegistry.ENDER.get();
             flat = 0.25f;
-        }
-        else if (source.is(DamageTypes.FELL_OUT_OF_WORLD)) {
-            flat = 0.60f;
-            total = 0.30f;
         } else if (source.is(DamageTypes.SONIC_BOOM)) {
+            school = SchoolRegistry.ELDRITCH.get();
             total = 0.15f;
-        }
-        else if (source.is(DamageTypes.IN_WALL)) {
+        } else if (source.is(DamageTypes.IN_WALL)) {
+            school = MFTESchoolRegistries.DUNE.get();
             flat = 0.35f;
         } else if (source.is(DamageTypes.FALLING_BLOCK) || source.is(DamageTypes.FALLING_STALACTITE) || source.is(DamageTypes.STALAGMITE)) {
+            school = MFTESchoolRegistries.DUNE.get();
             flat = 0.25f;
         }
 

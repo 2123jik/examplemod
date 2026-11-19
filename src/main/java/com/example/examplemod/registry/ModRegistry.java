@@ -1,7 +1,6 @@
 package com.example.examplemod.registry;
 
 import com.example.examplemod.ExampleMod;
-import com.example.examplemod.client.particle.SpaceSlashParticle;
 import com.example.examplemod.entity.EquipmentCabinetBlock;
 import com.example.examplemod.entity.EquipmentCabinetBlockEntity;
 import com.example.examplemod.item.*;
@@ -85,11 +84,11 @@ public final class ModRegistry {
 
 
     // 在你的 ModRegistry.java 里：
-    public static final Val<SimpleParticleType> DAMAGE_SPARK = REG
-            .particle("damage_spark",
-                    () -> new SimpleParticleType(false),
-                    () -> L2Registrate.ParticleSupplier.provider(SpaceSlashParticle.Provider::new)
-            );
+//    public static final Val<SimpleParticleType> DAMAGE_SPARK = REG
+//            .particle("damage_spark",
+//                    () -> new SimpleParticleType(false),
+//                    () -> L2Registrate.ParticleSupplier.provider(SpaceSlashParticle.Provider::new)
+//            );
 
     // ==================== 配方序列化器 ====================
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS =

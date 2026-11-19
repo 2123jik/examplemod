@@ -3,7 +3,6 @@ package com.example.examplemod.client;
 import com.example.examplemod.ExampleMod;
 import com.example.examplemod.client.gui.PinnacleAdaptiveHud;
 import com.example.examplemod.client.layer.MobOverheadRenderer;
-import com.example.examplemod.client.render.ExampleShaders;
 import com.example.examplemod.skill.gui.SkillTreeFragment;
 import com.example.examplemod.util.SpellAffixGenerator;
 import com.mojang.blaze3d.platform.InputConstants;
@@ -57,7 +56,6 @@ public final class ExampleModClient {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
 
         // ==================== 1. Mod 总线注册 (初始化与资源注册阶段) ====================
-        modBus.addListener(this::onRegisterShaders);
         modBus.addListener(this::registerRenderers);
         modBus.addListener(this::registerKeys);
         modBus.addListener(this::onModifyBakingResult);
@@ -76,13 +74,6 @@ public final class ExampleModClient {
     // Mod 总线事件回调
     // -----------------------------------------------------------------------------------------
 
-    private void onRegisterShaders(RegisterShadersEvent event) {
-        try {
-            ExampleShaders.register(event);
-        } catch (Exception exception) {
-            throw new RuntimeException("Failed to register examplemod shaders", exception);
-        }
-    }
 
 
 
@@ -154,8 +145,6 @@ public final class ExampleModClient {
         if (event.getMode() != FogRenderer.FogMode.FOG_TERRAIN) {
             return;
         }
-
-        float renderDistance = minecraft.options.getEffectiveRenderDistance() * 16.0F;
 
         event.setCanceled(true);
     }
