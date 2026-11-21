@@ -1,0 +1,43 @@
+{
+  "id": "kings_grace",
+  "name_en": "King's Grace",
+  "name_cn": "国王的恩典",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/swords",
+    "#examplemod:base/claws",
+    "#examplemod:base/blunt"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_11_amn",
+    "examplemod:runes/rune_08_ral",
+    "examplemod:runes/rune_10_thul"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 4.5,
+      "operation": "ADD_VALUE",
+      "description": "+4.5 攻击伤害"
+    },
+    {
+      "attribute": "examplemod:damage_to_demons",
+      "amount": 100.0,
+      "operation": "ADD_VALUE",
+      "description": "+100% 对恶魔伤害"
+    },
+    {
+      "attribute": "examplemod:damage_to_undead",
+      "amount": 50.0,
+      "operation": "ADD_VALUE",
+      "description": "+50% 对不死伤害"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.07,
+      "operation": "ADD_VALUE",
+      "description": "7% 吸血"
+    }
+  ]
+}

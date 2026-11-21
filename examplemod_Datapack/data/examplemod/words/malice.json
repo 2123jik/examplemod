@@ -1,0 +1,35 @@
+{
+  "id": "malice",
+  "name_en": "Malice",
+  "name_cn": "怨恨",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/melee"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_06_ith",
+    "examplemod:runes/rune_01_el",
+    "examplemod:runes/rune_05_eth"
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:armor_shred",
+      "amount": 0.25,
+      "operation": "ADD_VALUE",
+      "description": "-25% 目标防御"
+    },
+    {
+      "attribute": "examplemod:open_wounds",
+      "amount": 100.0,
+      "operation": "ADD_VALUE",
+      "description": "100% 撕开伤口"
+    },
+    {
+      "attribute": "examplemod:prevent_heal",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "防止怪物自疗"
+    }
+  ]
+}

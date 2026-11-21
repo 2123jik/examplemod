@@ -1,0 +1,42 @@
+{
+  "id": "jealousy",
+  "name_en": "Jealousy",
+  "name_cn": "嫉妒",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/polearms_spears",
+    "#examplemod:base/daggers"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_28_lo",
+    "examplemod:runes/rune_25_gul",
+    "examplemod:runes/rune_10_thul"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 10.0,
+      "operation": "ADD_VALUE",
+      "description": "+10 伤害"
+    },
+    {
+      "attribute": "apothic_attributes:projectile_damage",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 投射分裂增伤"
+    },
+    {
+      "attribute": "apothic_attributes:crit_chance",
+      "amount": 0.2,
+      "operation": "ADD_VALUE",
+      "description": "+20% 致命一击"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.05,
+      "operation": "ADD_VALUE",
+      "description": "5% 吸血"
+    }
+  ]
+}

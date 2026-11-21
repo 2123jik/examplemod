@@ -1,0 +1,41 @@
+{
+  "id": "sanctuary",
+  "name_en": "Sanctuary",
+  "name_cn": "圣堂",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/shields"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_18_ko",
+    "examplemod:runes/rune_18_ko",
+    "examplemod:runes/rune_23_mal"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.45,
+      "operation": "MULTIPLY_BASE",
+      "description": "+45% 全抗"
+    },
+    {
+      "attribute": "l2weaponry:shield_defense",
+      "amount": 16.0,
+      "operation": "ADD_VALUE",
+      "description": "+16 盾防"
+    },
+    {
+      "attribute": "examplemod:cannot_be_frozen",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "无法冰冻"
+    },
+    {
+      "attribute": "l2damagetracker:damage_absorption",
+      "amount": 4.0,
+      "operation": "ADD_VALUE",
+      "description": "+4 固定减伤"
+    }
+  ]
+}

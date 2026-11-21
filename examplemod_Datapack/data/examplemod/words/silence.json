@@ -1,0 +1,56 @@
+{
+  "id": "silence",
+  "name_en": "Silence",
+  "name_cn": "寂静",
+  "sockets_required": 6,
+  "all_spell_levels": 2,
+  "valid_base_tags": [
+    "#examplemod:base/all_weapons"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_14_dol",
+    "examplemod:runes/rune_02_eld",
+    "examplemod:runes/rune_15_hel",
+    "examplemod:runes/rune_24_ist",
+    "examplemod:runes/rune_03_tir",
+    "examplemod:runes/rune_26_vex"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.5,
+      "operation": "MULTIPLY_BASE",
+      "description": "+50% 全抗"
+    },
+    {
+      "attribute": "examplemod:thorns_damage",
+      "amount": 24.0,
+      "operation": "ADD_VALUE",
+      "description": "24级荆棘灵气"
+    },
+    {
+      "attribute": "examplemod:damage_to_undead",
+      "amount": 75.0,
+      "operation": "ADD_VALUE",
+      "description": "+75% 对不死伤害"
+    },
+    {
+      "attribute": "examplemod:mana_steal",
+      "amount": 11.0,
+      "operation": "ADD_VALUE",
+      "description": "11% 击中偷蓝"
+    },
+    {
+      "attribute": "examplemod:hit_blind",
+      "amount": 33.0,
+      "operation": "ADD_VALUE",
+      "description": "击中致盲目标"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
+    }
+  ]
+}

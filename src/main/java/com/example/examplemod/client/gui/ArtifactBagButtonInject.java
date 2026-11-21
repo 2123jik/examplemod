@@ -1,5 +1,6 @@
 package com.example.examplemod.client.gui;
 
+import com.example.examplemod.ExampleMod;
 import com.example.examplemod.registry.ModPayloads;
 import dev.xkmc.l2artifacts.content.search.common.AbstractScrollerScreen;
 import net.minecraft.client.gui.components.Button;
@@ -10,16 +11,16 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-@EventBusSubscriber(value = Dist.CLIENT)
-public class ArtifactBagButtonInject {
+@EventBusSubscriber(modid = ExampleMod.MODID, value = Dist.CLIENT)
+public final class ArtifactBagButtonInject {
+
+    private ArtifactBagButtonInject() {}
 
     @SubscribeEvent
     public static void onScreenInit(ScreenEvent.Init.Post event) {
-        // 判断当前界面是否是遗物包滚动列表界面
         if (event.getScreen() instanceof AbstractScrollerScreen<?> screen) {
             int buttonWidth = 72;
             int buttonHeight = 16;
-            // 放置在遗物包 GUI 右上方
             int x = screen.getGuiLeft() + screen.getXSize() - buttonWidth - 8;
             int y = screen.getGuiTop() + 6;
 

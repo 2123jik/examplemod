@@ -1,0 +1,55 @@
+{
+  "id": "infinity",
+  "name_en": "Infinity",
+  "name_cn": "无限",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/polearms_spears",
+    "#examplemod:base/staves"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_30_ber",
+    "examplemod:runes/rune_23_mal",
+    "examplemod:runes/rune_30_ber",
+    "examplemod:runes/rune_24_ist"
+  ],
+  "attributes": [
+    {
+      "attribute": "examplemod:lightning_penetration",
+      "amount": 45.0,
+      "operation": "ADD_VALUE",
+      "description": "12级信念 -45%电抗"
+    },
+    {
+      "attribute": "examplemod:fire_penetration",
+      "amount": 35.0,
+      "operation": "ADD_VALUE",
+      "description": "12级信念 -35%火抗"
+    },
+    {
+      "attribute": "examplemod:ice_penetration",
+      "amount": 35.0,
+      "operation": "ADD_VALUE",
+      "description": "12级信念 -35%冰抗"
+    },
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.08,
+      "operation": "ADD_VALUE",
+      "description": "40% 压碎打击"
+    },
+    {
+      "attribute": "examplemod:prevent_heal",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "防止怪物自疗"
+    },
+    {
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 跑速"
+    }
+  ]
+}

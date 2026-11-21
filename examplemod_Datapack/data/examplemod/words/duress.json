@@ -1,0 +1,47 @@
+{
+  "id": "duress",
+  "name_en": "Duress",
+  "name_cn": "强制",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_13_shael",
+    "examplemod:runes/rune_22_um",
+    "examplemod:runes/rune_10_thul"
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.04,
+      "operation": "ADD_VALUE",
+      "description": "15% 压碎打击"
+    },
+    {
+      "attribute": "examplemod:open_wounds",
+      "amount": 33.0,
+      "operation": "ADD_VALUE",
+      "description": "33% 撕开伤口"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 3.5,
+      "operation": "ADD_VALUE",
+      "description": "+3.5 增强伤害"
+    },
+    {
+      "attribute": "minecraft:generic.armor",
+      "amount": 7.0,
+      "operation": "ADD_VALUE",
+      "description": "+7 护甲"
+    },
+    {
+      "attribute": "irons_spellbooks:ice_magic_resist",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 冰抗"
+    }
+  ]
+}

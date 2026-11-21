@@ -1,0 +1,57 @@
+{
+  "id": "destruction",
+  "name_en": "Destruction",
+  "name_cn": "毁灭",
+  "sockets_required": 5,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/swords",
+    "#examplemod:base/polearms_spears",
+    "#examplemod:base/staves"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_26_vex",
+    "examplemod:runes/rune_28_lo",
+    "examplemod:runes/rune_30_ber",
+    "examplemod:runes/rune_31_jah",
+    "examplemod:runes/rune_18_ko"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 攻速"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 11.0,
+      "operation": "ADD_VALUE",
+      "description": "+11 伤害"
+    },
+    {
+      "attribute": "l2damagetracker:explosion_damage",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "陨石/熔岩爆裂威力"
+    },
+    {
+      "attribute": "examplemod:mana_steal",
+      "amount": 7.0,
+      "operation": "ADD_VALUE",
+      "description": "7% 击中偷蓝"
+    },
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.04,
+      "operation": "ADD_VALUE",
+      "description": "20% 压碎打击"
+    },
+    {
+      "attribute": "apothic_attributes:crit_chance",
+      "amount": 0.2,
+      "operation": "ADD_VALUE",
+      "description": "+20% 暴击"
+    }
+  ]
+}

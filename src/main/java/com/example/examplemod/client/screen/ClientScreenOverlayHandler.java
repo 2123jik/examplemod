@@ -24,14 +24,13 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import java.util.Set;
 
 @EventBusSubscriber(modid = ExampleMod.MODID, value = Dist.CLIENT)
-public class ClientScreenOverlayHandler {
+public final class ClientScreenOverlayHandler {
 
     private static final int SLOT_SIZE = 18;
     private static final int PADDING = 4;
     private static final int DOLL_WIDTH = 46;
     private static final int DOLL_HEIGHT = 78;
 
-    // 面板尺寸计算：左侧槽位(18) + 中间娃娃(46) + 右侧槽位(18) + 间距与边距 = 94
     private static final int PANEL_WIDTH = PADDING * 2 + SLOT_SIZE * 2 + DOLL_WIDTH + 4;
     private static final int PANEL_HEIGHT = DOLL_HEIGHT + PADDING * 2;
 
@@ -41,25 +40,23 @@ public class ClientScreenOverlayHandler {
             EquipmentSlot.LEGS,
             EquipmentSlot.FEET
     };
+
     private static final Set<Class<? extends Screen>> WHITELIST_SCREENS = Set.of(
-            ContainerScreen.class,       // 单箱、大箱、末影箱
-            ShulkerBoxScreen.class       // 潜影盒
-            // 可根据需要增加：Barrel（木桶原版也是 ContainerScreen）
+            ContainerScreen.class,
+            ShulkerBoxScreen.class
     );
+
+    private ClientScreenOverlayHandler() {}
 
     private static boolean shouldDisplay(Screen screen, Player player) {
         if (player == null || !(screen instanceof AbstractContainerScreen<?> containerScreen)) {
             return false;
         }
-
-        // 仅在白名单容器中启用
         if (!WHITELIST_SCREENS.contains(screen.getClass())) {
             return false;
         }
-
         return containerScreen.getGuiLeft() >= PANEL_WIDTH + 6;
     }
-
 
     @SubscribeEvent
     public static void onScreenRenderPost(ScreenEvent.Render.Post event) {
@@ -77,29 +74,21 @@ public class ClientScreenOverlayHandler {
         int panelX = containerScreen.getGuiLeft() - PANEL_WIDTH - 4;
         int panelY = containerScreen.getGuiTop();
 
-        // 绘制整体面板深色半透明背景与外边框
         graphics.fill(panelX, panelY, panelX + PANEL_WIDTH, panelY + PANEL_HEIGHT, 0xC0101010);
         graphics.renderOutline(panelX, panelY, PANEL_WIDTH, PANEL_HEIGHT, 0xFF3C3C3C);
 
-        // 绘制 3D 玩家布娃娃
         int dollX1 = panelX + PADDING + SLOT_SIZE + 2;
         int dollY1 = panelY + PADDING;
         int dollX2 = dollX1 + DOLL_WIDTH;
         int dollY2 = dollY1 + DOLL_HEIGHT;
 
         InventoryScreen.renderEntityInInventoryFollowsMouse(
-                graphics,
-                dollX1, dollY1,
-                dollX2, dollY2,
-                32,
-                0.0625F,
-                (float) mouseX, (float) mouseY,
-                player
+                graphics, dollX1, dollY1, dollX2, dollY2,
+                32, 0.0625F, (float) mouseX, (float) mouseY, player
         );
 
         ItemStack hoveredStack = ItemStack.EMPTY;
 
-        // 绘制左侧 4 个盔甲槽位
         int armorX = panelX + PADDING;
         for (int i = 0; i < ARMOR_SLOTS.length; i++) {
             int slotY = panelY + PADDING + i * (SLOT_SIZE + 2);
@@ -109,7 +98,6 @@ public class ClientScreenOverlayHandler {
             }
         }
 
-        // 绘制右侧主手与副手槽位
         int rightX = dollX2 + 2;
         int mainHandY = panelY + PADDING;
         int offHandY = panelY + PADDING + SLOT_SIZE + 2;
@@ -121,13 +109,11 @@ public class ClientScreenOverlayHandler {
             hoveredStack = player.getOffhandItem();
         }
 
-        // 悬停提示 Tooltip（光标未拿取物品时展示）
         ItemStack carried = containerScreen.getMenu().getCarried();
         if (!hoveredStack.isEmpty() && carried.isEmpty()) {
             graphics.renderTooltip(mc.font, hoveredStack, mouseX, mouseY);
         }
 
-        // 光标持有物品且位于自定义面板上方时在 Post 重新绘制光标物品，防止被面板背景遮盖
         if (!carried.isEmpty() && isInside(mouseX, mouseY, panelX, panelY, PANEL_WIDTH, PANEL_HEIGHT)) {
             graphics.renderItem(carried, mouseX - 8, mouseY - 8);
             graphics.renderItemDecorations(mc.font, carried, mouseX - 8, mouseY - 8);
@@ -148,13 +134,10 @@ public class ClientScreenOverlayHandler {
         int panelX = containerScreen.getGuiLeft() - PANEL_WIDTH - 4;
         int panelY = containerScreen.getGuiTop();
 
-        // 1. 只要鼠标位于面板范围内，立刻拦截原版处理（防止触发界面外丢弃物品）
         if (isInside(mouseX, mouseY, panelX, panelY, PANEL_WIDTH, PANEL_HEIGHT)) {
             event.setCanceled(true);
 
-            // 2. 仅对鼠标左键 (0) 响应槽位装备交换
             if (event.getButton() == 0) {
-                // 检测左侧 4 个盔甲槽
                 int armorX = panelX + PADDING;
                 for (int i = 0; i < ARMOR_SLOTS.length; i++) {
                     int slotY = panelY + PADDING + i * (SLOT_SIZE + 2);
@@ -164,7 +147,6 @@ public class ClientScreenOverlayHandler {
                     }
                 }
 
-                // 检测右侧双手槽
                 int rightX = panelX + PADDING + SLOT_SIZE + 2 + DOLL_WIDTH + 2;
                 int mainHandY = panelY + PADDING;
                 int offHandY = panelY + PADDING + SLOT_SIZE + 2;
@@ -173,7 +155,6 @@ public class ClientScreenOverlayHandler {
                     sendClick(EquipmentSlot.MAINHAND);
                     return;
                 }
-
                 if (isInside(mouseX, mouseY, rightX, offHandY, SLOT_SIZE, SLOT_SIZE)) {
                     sendClick(EquipmentSlot.OFFHAND);
                 }
@@ -208,7 +189,8 @@ public class ClientScreenOverlayHandler {
         return mouseX >= x && mouseX < x + w && mouseY >= y && mouseY < y + h;
     }
 
-    private static boolean renderSlot(GuiGraphics graphics, Font font, ItemStack stack, int x, int y, int mouseX, int mouseY) {
+    private static boolean renderSlot(GuiGraphics graphics, Font font, ItemStack stack,
+                                      int x, int y, int mouseX, int mouseY) {
         graphics.fill(x, y, x + SLOT_SIZE, y + SLOT_SIZE, 0x60000000);
         graphics.renderOutline(x, y, SLOT_SIZE, SLOT_SIZE, 0xFF2B2B2B);
 

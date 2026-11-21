@@ -1,0 +1,47 @@
+{
+  "id": "radiance",
+  "name_en": "Radiance",
+  "name_cn": "光辉",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/helmets"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_04_nef",
+    "examplemod:runes/rune_12_sol",
+    "examplemod:runes/rune_06_ith"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 物理增伤"
+    },
+    {
+      "attribute": "minecraft:generic.armor",
+      "amount": 4.0,
+      "operation": "ADD_VALUE",
+      "description": "+4 护甲"
+    },
+    {
+      "attribute": "irons_spellbooks:max_mana",
+      "amount": 60.0,
+      "operation": "ADD_VALUE",
+      "description": "+60 法力上限"
+    },
+    {
+      "attribute": "examplemod:damage_to_mana",
+      "amount": 15.0,
+      "operation": "ADD_VALUE",
+      "description": "15% 受损生命转法力"
+    },
+    {
+      "attribute": "l2damagetracker:damage_absorption",
+      "amount": 4.0,
+      "operation": "ADD_VALUE",
+      "description": "+4 固定减伤"
+    }
+  ]
+}

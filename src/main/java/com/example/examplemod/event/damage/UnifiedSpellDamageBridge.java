@@ -3,6 +3,8 @@ package com.example.examplemod.event.damage;
 import com.example.examplemod.ExampleMod;
 import com.example.examplemod.registry.ModAttributes;
 import com.example.examplemod.registry.ModMobEffects;
+import com.example.examplemod.registry.PhysicalSchool;
+import com.example.examplemod.registry.attribute.PhysicalSchoolAttributes;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.SchoolType;
 import io.redspace.ironsspellbooks.damage.SpellDamageSource;
@@ -35,7 +37,11 @@ public class UnifiedSpellDamageBridge {
     private static final Map<ResourceLocation, Holder<Attribute>> ATTR_HOLDER_CACHE = new HashMap<>();
 
     public static Holder<Attribute> getResistanceAttributeFor(SchoolType school) {
+
         ResourceLocation schoolId = school.getId();
+        if (schoolId.equals(PhysicalSchool.PHYSICAL_ID)) {
+            return PhysicalSchoolAttributes.PHYSICAL_RESIST;
+        }
         ResourceLocation resistId = ResourceLocation.fromNamespaceAndPath(
                 schoolId.getNamespace(),
                 schoolId.getPath() + "_magic_resist"
@@ -90,10 +96,16 @@ public class UnifiedSpellDamageBridge {
             else if (source.is(DamageTypeTags.IS_FREEZING)) initialSchool = SchoolRegistry.ICE.get();
             else if (source.is(DamageTypeTags.IS_LIGHTNING)) initialSchool = SchoolRegistry.LIGHTNING.get();
         }
+        boolean isPhysical = (initialSchool == null) && isPhysicalDamage(source);
 
-        String initialSchoolId = (initialSchool != null)
-                ? initialSchool.getId().getPath()
-                : ModAttributes.PHYSICAL_ID;
+        if (initialSchool == null && !isPhysical) {
+            return;
+        }
+        if (initialSchool == null) {
+            return;
+        }
+
+        String initialSchoolId = initialSchool.getId().getPath();
 
         DamageEngine.SolveResult result =
                 DamageEngine.solveAndCalculate(
@@ -104,7 +116,7 @@ public class UnifiedSpellDamageBridge {
                         isNativeSpell
                 );
 
-        if (initialSchool == null && result.activeFinalSchools().isEmpty()) {
+        if (initialSchool == null && !isPhysical && result.activeFinalSchools().isEmpty()) {
             return;
         }
 
@@ -138,7 +150,16 @@ public class UnifiedSpellDamageBridge {
         }
         event.setAmount(result.totalDamage());
     }
-
+    private static boolean isPhysicalDamage(DamageSource source) {
+        return source.is(DamageTypes.MOB_ATTACK)
+                || source.is(DamageTypes.MOB_ATTACK_NO_AGGRO)
+                || source.is(DamageTypes.PLAYER_ATTACK)
+                || source.is(DamageTypes.ARROW)
+                || source.is(DamageTypes.TRIDENT)
+                || source.is(DamageTypes.MOB_PROJECTILE)
+                || source.is(DamageTypes.EXPLOSION)
+                || source.is(DamageTypes.PLAYER_EXPLOSION);
+    }
     private static void applyShredEffect(LivingEntity target, SchoolType school, ModMobEffects.ShredType type, float shredValue) {
         var effectHolder = ModMobEffects.getEffect(school, type);
         if (effectHolder == null) return;

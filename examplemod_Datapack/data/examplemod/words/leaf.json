@@ -1,0 +1,34 @@
+{
+  "id": "leaf",
+  "name_en": "Leaf",
+  "name_cn": "叶子",
+  "sockets_required": 2,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/staves"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_03_tir",
+    "examplemod:runes/rune_08_ral"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:fire_spell_power",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "+40% 火系法强"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
+    },
+    {
+      "attribute": "irons_spellbooks:ice_magic_resist",
+      "amount": 0.33,
+      "operation": "MULTIPLY_BASE",
+      "description": "+33% 冰抗"
+    }
+  ]
+}

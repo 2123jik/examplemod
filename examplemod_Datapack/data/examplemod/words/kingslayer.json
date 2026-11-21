@@ -1,0 +1,49 @@
+{
+  "id": "kingslayer",
+  "name_en": "Kingslayer",
+  "name_cn": "弑君者",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/swords",
+    "#examplemod:base/axes"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_23_mal",
+    "examplemod:runes/rune_22_um",
+    "examplemod:runes/rune_25_gul",
+    "examplemod:runes/rune_19_fal"
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.07,
+      "operation": "ADD_VALUE",
+      "description": "33% 压碎打击"
+    },
+    {
+      "attribute": "examplemod:open_wounds",
+      "amount": 10.0,
+      "operation": "ADD_VALUE",
+      "description": "10% 撕开伤口"
+    },
+    {
+      "attribute": "examplemod:prevent_heal",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "防止怪物自疗"
+    },
+    {
+      "attribute": "apothic_attributes:cold_damage",
+      "amount": 7.0,
+      "operation": "ADD_VALUE",
+      "description": "+7 冰伤"
+    },
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 攻速"
+    }
+  ]
+}

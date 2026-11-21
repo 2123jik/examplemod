@@ -10,9 +10,7 @@
   ],
   "definition": {
     "affix_type": "stat",
-    "exclusive_set": [
-      "examplemod:damage_conversion"
-    ],
+    "exclusive_set": [],
     "weights": {
       "quality": 0.12,
       "weight": 1

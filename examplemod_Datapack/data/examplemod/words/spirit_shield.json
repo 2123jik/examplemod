@@ -1,0 +1,42 @@
+{
+  "id": "spirit_shield",
+  "name_en": "Spirit (Shield)",
+  "name_cn": "精神 (盾牌)",
+  "sockets_required": 4,
+  "all_spell_levels": 1,
+  "valid_base_tags": [
+    "#examplemod:base/shields"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_07_tal",
+    "examplemod:runes/rune_10_thul",
+    "examplemod:runes/rune_09_ort",
+    "examplemod:runes/rune_11_amn"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:cast_time_reduction",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 快速施法"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 冰雷毒抗性"
+    },
+    {
+      "attribute": "irons_spellbooks:max_mana",
+      "amount": 75.0,
+      "operation": "ADD_VALUE",
+      "description": "+75 法力上限"
+    },
+    {
+      "attribute": "examplemod:thorns_damage",
+      "amount": 10.0,
+      "operation": "ADD_VALUE",
+      "description": "攻击者受到反伤"
+    }
+  ]
+}

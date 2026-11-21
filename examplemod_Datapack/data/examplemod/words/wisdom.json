@@ -1,0 +1,53 @@
+{
+  "id": "wisdom",
+  "name_en": "Wisdom",
+  "name_cn": "智慧",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/helmets"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_21_pul",
+    "examplemod:runes/rune_06_ith",
+    "examplemod:runes/rune_02_eld"
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:arrow_damage",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 箭矢伤害"
+    },
+    {
+      "attribute": "apothic_attributes:projectile_damage",
+      "amount": 0.2,
+      "operation": "MULTIPLY_BASE",
+      "description": "+20% 投射物穿透"
+    },
+    {
+      "attribute": "examplemod:mana_steal",
+      "amount": 6.0,
+      "operation": "ADD_VALUE",
+      "description": "6% 击中偷蓝"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 5.0,
+      "operation": "ADD_VALUE",
+      "description": "+5 击杀回蓝(x4)"
+    },
+    {
+      "attribute": "examplemod:damage_to_mana",
+      "amount": 15.0,
+      "operation": "ADD_VALUE",
+      "description": "15% 受损生命转法力"
+    },
+    {
+      "attribute": "examplemod:cannot_be_frozen",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "无法冰冻"
+    }
+  ]
+}

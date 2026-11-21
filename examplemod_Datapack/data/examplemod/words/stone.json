@@ -1,0 +1,42 @@
+{
+  "id": "stone",
+  "name_en": "Stone",
+  "name_cn": "石块",
+  "sockets_required": 4,
+  "all_spell_levels": 1,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_13_shael",
+    "examplemod:runes/rune_22_um",
+    "examplemod:runes/rune_21_pul",
+    "examplemod:runes/rune_17_lum"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.armor",
+      "amount": 14.0,
+      "operation": "ADD_VALUE",
+      "description": "+14 钢铁重甲"
+    },
+    {
+      "attribute": "minecraft:generic.armor_toughness",
+      "amount": 8.0,
+      "operation": "ADD_VALUE",
+      "description": "+8 盔甲韧性"
+    },
+    {
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 0.4,
+      "operation": "ADD_VALUE",
+      "description": "+40% 防退"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.15,
+      "operation": "MULTIPLY_BASE",
+      "description": "+15% 全抗"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "famine",
+  "name_en": "Famine",
+  "name_cn": "饥荒",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/axes",
+    "#examplemod:base/blunt",
+    "#examplemod:base/swords"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_19_fal",
+    "examplemod:runes/rune_27_ohm",
+    "examplemod:runes/rune_09_ort",
+    "examplemod:runes/rune_31_jah"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 12.0,
+      "operation": "ADD_VALUE",
+      "description": "+12 物理伤害"
+    },
+    {
+      "attribute": "examplemod:fire_penetration",
+      "amount": 15.0,
+      "operation": "ADD_VALUE",
+      "description": "-15% 敌人火抗"
+    },
+    {
+      "attribute": "examplemod:lightning_penetration",
+      "amount": 15.0,
+      "operation": "ADD_VALUE",
+      "description": "-15% 敌人电抗"
+    },
+    {
+      "attribute": "examplemod:ice_penetration",
+      "amount": 15.0,
+      "operation": "ADD_VALUE",
+      "description": "-15% 敌人冰抗"
+    },
+    {
+      "attribute": "apothic_attributes:fire_damage",
+      "amount": 6.0,
+      "operation": "ADD_VALUE",
+      "description": "+6 火焰伤害"
+    },
+    {
+      "attribute": "apothic_attributes:cold_damage",
+      "amount": 6.0,
+      "operation": "ADD_VALUE",
+      "description": "+6 冰冷伤害"
+    }
+  ]
+}

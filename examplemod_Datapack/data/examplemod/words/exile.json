@@ -1,0 +1,42 @@
+{
+  "id": "exile",
+  "name_en": "Exile",
+  "name_cn": "流亡",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/shields"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_26_vex",
+    "examplemod:runes/rune_27_ohm",
+    "examplemod:runes/rune_24_ist",
+    "examplemod:runes/rune_14_dol"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.armor",
+      "amount": 12.0,
+      "operation": "ADD_VALUE",
+      "description": "反抗光环 +12 护甲"
+    },
+    {
+      "attribute": "l2weaponry:shield_defense",
+      "amount": 22.0,
+      "operation": "ADD_VALUE",
+      "description": "+22 盾防"
+    },
+    {
+      "attribute": "examplemod:freeze_target",
+      "amount": 200.0,
+      "operation": "ADD_VALUE",
+      "description": "+200 冰冷值"
+    },
+    {
+      "attribute": "l2damagetracker:regen",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 生命回复"
+    }
+  ]
+}

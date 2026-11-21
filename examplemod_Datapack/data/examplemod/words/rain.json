@@ -1,0 +1,41 @@
+{
+  "id": "rain",
+  "name_en": "Rain",
+  "name_cn": "雨云",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_09_ort",
+    "examplemod:runes/rune_23_mal",
+    "examplemod:runes/rune_06_ith"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:nature_spell_power",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 自然法强"
+    },
+    {
+      "attribute": "irons_spellbooks:max_mana",
+      "amount": 130.0,
+      "operation": "ADD_VALUE",
+      "description": "+130 法力上限"
+    },
+    {
+      "attribute": "examplemod:damage_to_mana",
+      "amount": 15.0,
+      "operation": "ADD_VALUE",
+      "description": "15% 受损生命转法力"
+    },
+    {
+      "attribute": "irons_spellbooks:lightning_magic_resist",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 雷抗"
+    }
+  ]
+}

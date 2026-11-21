@@ -1,0 +1,63 @@
+{
+  "id": "grief",
+  "name_en": "Grief",
+  "name_cn": "悔恨",
+  "sockets_required": 5,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/swords",
+    "#examplemod:base/axes",
+    "#examplemod:base/polearms_spears"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_05_eth",
+    "examplemod:runes/rune_03_tir",
+    "examplemod:runes/rune_28_lo",
+    "examplemod:runes/rune_23_mal",
+    "examplemod:runes/rune_08_ral"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 17.0,
+      "operation": "ADD_VALUE",
+      "description": "+17 绝对点伤"
+    },
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 攻速"
+    },
+    {
+      "attribute": "examplemod:damage_to_demons",
+      "amount": 150.0,
+      "operation": "ADD_VALUE",
+      "description": "+150% 对恶魔伤害"
+    },
+    {
+      "attribute": "examplemod:poison_penetration",
+      "amount": 18.0,
+      "operation": "ADD_VALUE",
+      "description": "-18% 敌人毒抗"
+    },
+    {
+      "attribute": "examplemod:prevent_heal",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "防止怪物自疗"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
+    },
+    {
+      "attribute": "examplemod:life_on_kill",
+      "amount": 3.0,
+      "operation": "ADD_VALUE",
+      "description": "+3 击杀回血"
+    }
+  ]
+}

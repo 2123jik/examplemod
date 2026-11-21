@@ -1,0 +1,37 @@
+{
+  "id": "spirit_weapon",
+  "name_en": "Spirit (Weapon)",
+  "name_cn": "精神 (武器)",
+  "sockets_required": 4,
+  "all_spell_levels": 2,
+  "valid_base_tags": [
+    "#examplemod:base/swords",
+    "#examplemod:base/staves"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_07_tal",
+    "examplemod:runes/rune_10_thul",
+    "examplemod:runes/rune_09_ort",
+    "examplemod:runes/rune_11_amn"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:cast_time_reduction",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 快速施法"
+    },
+    {
+      "attribute": "irons_spellbooks:max_mana",
+      "amount": 80.0,
+      "operation": "ADD_VALUE",
+      "description": "+80 法力上限"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.07,
+      "operation": "ADD_VALUE",
+      "description": "7% 吸血"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "wind",
+  "name_en": "Wind",
+  "name_cn": "疾风",
+  "sockets_required": 2,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/melee",
+    "#examplemod:base/staves"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_29_sur",
+    "examplemod:runes/rune_01_el"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 跑速"
+    },
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "+40% 攻速"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 10.0,
+      "operation": "ADD_VALUE",
+      "description": "+10 伤害"
+    },
+    {
+      "attribute": "irons_spellbooks:evocation_spell_power",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "龙卷风法强"
+    },
+    {
+      "attribute": "examplemod:life_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回血"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "doom",
+  "name_en": "Doom",
+  "name_cn": "末日",
+  "sockets_required": 5,
+  "all_spell_levels": 2,
+  "valid_base_tags": [
+    "#examplemod:base/axes",
+    "#examplemod:base/blunt",
+    "#examplemod:base/polearms_spears",
+    "#examplemod:base/staves",
+    "#examplemod:base/swords"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_15_hel",
+    "examplemod:runes/rune_27_ohm",
+    "examplemod:runes/rune_22_um",
+    "examplemod:runes/rune_28_lo",
+    "examplemod:runes/rune_32_cham"
+  ],
+  "attributes": [
+    {
+      "attribute": "examplemod:holy_freeze_aura",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "16级神圣冰冻光环"
+    },
+    {
+      "attribute": "examplemod:ice_penetration",
+      "amount": 40.0,
+      "operation": "ADD_VALUE",
+      "description": "-40% 敌人冰抗"
+    },
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.45,
+      "operation": "MULTIPLY_BASE",
+      "description": "+45% 攻速"
+    },
+    {
+      "attribute": "examplemod:open_wounds",
+      "amount": 10.0,
+      "operation": "ADD_VALUE",
+      "description": "10% 撕开伤口"
+    },
+    {
+      "attribute": "examplemod:prevent_heal",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "防止怪物自疗"
+    },
+    {
+      "attribute": "examplemod:freeze_target",
+      "amount": 200.0,
+      "operation": "ADD_VALUE",
+      "description": "+200 冰冷值"
+    }
+  ]
+}

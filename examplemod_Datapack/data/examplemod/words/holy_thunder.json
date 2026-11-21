@@ -1,0 +1,37 @@
+{
+  "id": "holy_thunder",
+  "name_en": "Holy Thunder",
+  "name_cn": "神圣雷击",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/staves",
+    "#examplemod:base/blunt"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_05_eth",
+    "examplemod:runes/rune_08_ral",
+    "examplemod:runes/rune_09_ort",
+    "examplemod:runes/rune_07_tal"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:lightning_spell_power",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 闪电法强"
+    },
+    {
+      "attribute": "l2damagetracker:lightning_damage",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 闪电伤害"
+    },
+    {
+      "attribute": "irons_spellbooks:lightning_magic_resist",
+      "amount": 0.6,
+      "operation": "MULTIPLY_BASE",
+      "description": "+60% 雷抗"
+    }
+  ]
+}

@@ -928,6 +928,11 @@
   "affix.apotheosis:armor/attribute/melody_spell_power": "合鸣",
   "affix.apotheosis:armor/attribute/melody_spell_power.suffix": "华丽交响",
 
+  "affix.apotheosis:armor/attribute/physical_resist": "物防",
+  "affix.apotheosis:armor/attribute/physical_resist.suffix": "物防",
+  "affix.apotheosis:armor/attribute/physical_spell_power": "物法",
+  "affix.apotheosis:armor/attribute/physical_spell_power.suffix": "物法",
+
 
   "effect.examplemod.fire_shred_flat": "炽焰抗性碎裂",
   "effect.examplemod.fire_shred_flat.description": "使目标的炽焰抗性降低，以加算方式扣除，每级减少 1% 抗性。",
@@ -1276,6 +1281,10 @@
   "gui.examplemod.skill_tree.points": "可用点数: %s",
   "gui.examplemod.skill_tree.requires_parent": "需先解锁前置技能",
   "gui.examplemod.skill_tree.max_rank": "已达最大等级",
-  "gui.examplemod.skill_tree.upgrade": "点击升级技能"
+  "gui.examplemod.skill_tree.upgrade": "点击升级技能",
+
+  "attribute.examplemod.physical_resist": "物理抗性",
+  "attribute.examplemod.physical_spell_power": "物理伤害",
+  "school.examplemod.physical": "物理"
 
 }

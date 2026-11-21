@@ -1,0 +1,42 @@
+{
+  "id": "passion",
+  "name_en": "Passion",
+  "name_cn": "热情",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/all_weapons"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_14_dol",
+    "examplemod:runes/rune_09_ort",
+    "examplemod:runes/rune_02_eld",
+    "examplemod:runes/rune_20_lem"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 狂热攻速"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 6.0,
+      "operation": "ADD_VALUE",
+      "description": "+6 伤害"
+    },
+    {
+      "attribute": "examplemod:damage_to_undead",
+      "amount": 75.0,
+      "operation": "ADD_VALUE",
+      "description": "+75% 对不死伤害"
+    },
+    {
+      "attribute": "examplemod:hit_blind",
+      "amount": 25.0,
+      "operation": "ADD_VALUE",
+      "description": "击中致盲目标"
+    }
+  ]
+}

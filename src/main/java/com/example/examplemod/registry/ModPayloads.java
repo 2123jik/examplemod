@@ -8,10 +8,7 @@ import com.example.examplemod.deathrecap.client.ClientPayloadHandler;
 import com.example.examplemod.skill.PlayerSkillData;
 import com.example.examplemod.skill.SkillManager;
 import com.example.examplemod.util.ArtifactAutoUpgradeHandler;
-import com.example.examplemod.util.BackpackSortHelper;
-import com.example.examplemod.util.DeepBackpackFetcher;
 import com.mojang.datafixers.util.Pair;
-import com.viscriptshop.util.ViScriptShopServerUtil;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -83,41 +80,8 @@ public final class ModPayloads {
         }
     }
 
-    /** 2. 打开商店选择器 (空包) */
-    @ServerBound
-    public record OpenShopSelectorPayload() implements CustomPacketPayload {
-        public static final Type<OpenShopSelectorPayload> TYPE = createType("open_shop_selector");
-        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
 
-        public void handle(IPayloadContext ctx) {
-            if (ctx.player() instanceof ServerPlayer sp) ViScriptShopServerUtil.serverOpenShopSelector(sp);
-        }
-    }
 
-    /** 3. 睡觉按钮 (空包) */
-    @ServerBound
-    public record SleepButtonPayload() implements CustomPacketPayload {
-        public static final Type<SleepButtonPayload> TYPE = createType("sleep_button");
-        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
-
-        public void handle(IPayloadContext ctx) {
-            if (ctx.player() instanceof ServerPlayer player) handleSleepAction(player);
-        }
-    }
-
-    /** 4. 整理到背包 */
-    @ServerBound
-    public record SortToBackpackPayload(boolean fromContainerOnly) implements CustomPacketPayload {
-        public static final Type<SortToBackpackPayload> TYPE = createType("sort_to_backpack");
-        public static final StreamCodec<ByteBuf, SortToBackpackPayload> STREAM_CODEC =
-                ByteBufCodecs.BOOL.map(SortToBackpackPayload::new, SortToBackpackPayload::fromContainerOnly);
-
-        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
-
-        public void handle(IPayloadContext ctx) {
-            if (ctx.player() instanceof ServerPlayer sp) BackpackSortHelper.sortInventoryToBackpack(sp, fromContainerOnly);
-        }
-    }
 
     /** 5. 交换装备（将原 ServerPayloadHandler 逻辑直接收拢到此处，彻底自给自足） */
     @ServerBound
@@ -189,64 +153,6 @@ public final class ModPayloads {
         }
     }
 
-    /** 7. EMI 配方合成 */
-    @ServerBound
-    public record RequestEmiCraftingPayload(ResourceLocation recipeId, int requestedSets) implements CustomPacketPayload {
-        public static final Type<RequestEmiCraftingPayload> TYPE = createType("emi_craft");
-        public static final StreamCodec<RegistryFriendlyByteBuf, RequestEmiCraftingPayload> STREAM_CODEC = StreamCodec.composite(
-                ResourceLocation.STREAM_CODEC, RequestEmiCraftingPayload::recipeId,
-                ByteBufCodecs.VAR_INT, RequestEmiCraftingPayload::requestedSets,
-                RequestEmiCraftingPayload::new
-        );
-
-        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
-
-        public void handle(IPayloadContext ctx) {
-            if (!(ctx.player() instanceof ServerPlayer player)) return;
-            if (!(player.containerMenu instanceof CraftingMenu menu) || !menu.stillValid(player)) return;
-            int sets = Math.clamp(requestedSets, 1, 64);
-            DeepBackpackFetcher.fillRecipe(player, recipeId, sets);
-        }
-    }
-
-    /** 8. 抓取配方材料 */
-    @ServerBound
-    public record RequestFetchRecipeIngredientsPayload(List<SlotReq> items, boolean maxTransfer) implements CustomPacketPayload {
-        public record SlotReq(int slot, ItemStack stack) {
-            public static final StreamCodec<RegistryFriendlyByteBuf, SlotReq> STREAM_CODEC = StreamCodec.composite(
-                    ByteBufCodecs.VAR_INT, SlotReq::slot,
-                    ItemStack.STREAM_CODEC, SlotReq::stack,
-                    SlotReq::new
-            );
-        }
-
-        public static final Type<RequestFetchRecipeIngredientsPayload> TYPE = createType("fetch_recipe_ingredients");
-        public static final StreamCodec<RegistryFriendlyByteBuf, RequestFetchRecipeIngredientsPayload> STREAM_CODEC = StreamCodec.composite(
-                ByteBufCodecs.collection(ArrayList::new, SlotReq.STREAM_CODEC, 9), RequestFetchRecipeIngredientsPayload::items,
-                ByteBufCodecs.BOOL, RequestFetchRecipeIngredientsPayload::maxTransfer,
-                RequestFetchRecipeIngredientsPayload::new
-        );
-
-        @Override public Type<? extends CustomPacketPayload> type() { return TYPE; }
-
-        public void handle(IPayloadContext ctx) {
-            if (!(ctx.player() instanceof ServerPlayer player)) return;
-            if (!(player.containerMenu instanceof CraftingMenu menu) || !menu.stillValid(player)) return;
-            if (items.isEmpty() || items.size() > 9) return;
-
-            boolean[] visited = new boolean[10];
-            for (SlotReq req : items) {
-                int slot = req.slot();
-                ItemStack stack = req.stack();
-                if (slot < 1 || slot > 9 || visited[slot]) return;
-                visited[slot] = true;
-                if (stack.isEmpty() || stack.getCount() != 1) return;
-                if (!menu.getSlot(slot).mayPlace(stack) || menu.getSlot(slot).getMaxStackSize(stack) < 1) return;
-            }
-            // 内部直接将请求数据转换给通用 Fetcher
-            DeepBackpackFetcher.fillCraftingGrid(player, items, 1);
-        }
-    }
 
     // =========================================================================
     // 服务端 -> 客户端 (S2C)

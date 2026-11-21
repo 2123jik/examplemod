@@ -6,6 +6,7 @@ import com.example.examplemod.entity.ModernSlotView;
 import com.example.examplemod.menu.EquipmentCabinetMenu;
 import com.example.examplemod.util.EquipmentFilter;
 import com.example.examplemod.util.EquipmentIndex;
+import com.mojang.blaze3d.systems.RenderSystem;
 import dev.shadowsoffire.apotheosis.affix.salvaging.SalvagingMenu;
 import icyllis.modernui.core.Context;
 import icyllis.modernui.fragment.Fragment;
@@ -29,6 +30,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.item.ItemStack;
+import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL11;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,7 +45,7 @@ import static icyllis.modernui.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 public final class EquipmentCabinetFragment extends Fragment implements ScreenCallback {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EquipmentCabinetFragment.class);
-    private FrameLayout screenRoot;
+
     private static final int PAGE_SIZE_LIST = 16;
     private static final int SLOT_SIZE_DP = 42;
     private static final int SLOT_MARGIN_DP = 2;
@@ -67,9 +69,14 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
     private String activeSortKey = "rarity";
     private boolean sortAscending = false;
 
-    // 浮层与 Tooltip
+    private FrameLayout screenRoot;
     private MinecraftSurfaceView tooltipOverlay;
     private ItemStack hoveredStack = ItemStack.EMPTY;
+
+    // 悬停分解预览缓存，避免每帧重新扫描配方
+    private ItemStack lastTooltipStack = ItemStack.EMPTY;
+    private List<Component> cachedSalvageLines = List.of();
+    private boolean cachedHasSalvageRecipe = false;
 
     private boolean forceIndex = true;
     private boolean indexFailureLogged;
@@ -103,7 +110,6 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
     private ChoiceField durabilityChoice;
     private ChoiceField enchantedChoice;
     private ChoiceField sortChoice;
-
     private ChoiceField enchantmentChoice;
     private ChoiceField attributeChoice;
     private ChoiceField operationChoice;
@@ -122,7 +128,6 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
     private final AtomicBoolean refreshPending = new AtomicBoolean();
 
     private final Runnable refresh = this::requestSnapshot;
-
     private final Runnable filterChanged = () -> {
         page = 0;
         clearHoveredItem();
@@ -140,12 +145,10 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
 
     @Override
     public boolean isBackKey(int keyCode, KeyEvent event) {
-        if (keyCode == 256 && search != null && search.isFocused()) {
-            search.clearFocus();
-            return true;
-        }
-
-        if (keyCode == 256) {
+        if (keyCode == GLFW.GLFW_KEY_ESCAPE) {
+            if (search != null && search.isFocused()) {
+                search.clearFocus();
+            }
             return true;
         }
 
@@ -167,8 +170,10 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         salvageUnlocked = false;
         conditions.clear();
         allChoiceFields.clear();
+        lastTooltipStack = ItemStack.EMPTY;
+        cachedSalvageLines = List.of();
+        cachedHasSalvageRecipe = false;
 
-// 改为成员变量赋值
         this.screenRoot = new FrameLayout(context);
         root = column(context);
         root.setPadding(root.dp(12), root.dp(10), root.dp(12), root.dp(8));
@@ -209,10 +214,20 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         createTable(context, content);
         createBottomBar(context, content);
 
-        tooltipOverlay = new MinecraftSurfaceView(context);
-        tooltipOverlay.setClickable(false);
-        tooltipOverlay.setFocusable(false);
-        tooltipOverlay.setRenderer(new MinecraftSurfaceView.Renderer() {
+        tooltipOverlay = createTooltipOverlay(context);
+        screenRoot.addView(tooltipOverlay, new FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT));
+
+        refreshOptions();
+        renderRows();
+
+        return screenRoot;
+    }
+
+    private MinecraftSurfaceView createTooltipOverlay(Context context) {
+        MinecraftSurfaceView overlay = new MinecraftSurfaceView(context);
+        overlay.setClickable(false);
+        overlay.setFocusable(false);
+        overlay.setRenderer(new MinecraftSurfaceView.Renderer() {
             @Override
             public void onSurfaceChanged(int width, int height) {}
 
@@ -220,27 +235,17 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
             public void onDraw(GuiGraphics graphics, int mouseX, int mouseY, float partialTick, double guiScale, float alpha) {
                 if (hoveredStack.isEmpty()) return;
 
-                Font font = Minecraft.getInstance().font;
-                List<Component> tooltip = new ArrayList<>(Screen.getTooltipFromItem(Minecraft.getInstance(), hoveredStack));
+                Minecraft mc = Minecraft.getInstance();
+                Font font = mc.font;
+                List<Component> tooltip = new ArrayList<>(Screen.getTooltipFromItem(mc, hoveredStack));
 
-                var level = Minecraft.getInstance().level;
-                if (level != null) {
-                    var matches = SalvagingMenu.findMatch(level, hoveredStack);
-                    if (!matches.isEmpty()) {
-                        tooltip.add(Component.empty());
-                        tooltip.add(Component.literal("🔨 神化分解产物预估:").withStyle(ChatFormatting.GOLD));
-                        for (var recipe : matches) {
-                            for (var d : recipe.value().getOutputs()) {
-                                int[] counts = SalvagingMenu.getSalvageCounts(d, hoveredStack);
-                                tooltip.add(Component.literal(String.format("  • %d~%d × %s", counts[0], counts[1], d.stack().getHoverName().getString()))
-                                        .withStyle(ChatFormatting.YELLOW));
-                            }
-                        }
-                        if (salvageUnlocked) {
-                            tooltip.add(Component.literal("▶ 右键: 原地直接分解").withStyle(ChatFormatting.RED));
-                        } else {
-                            tooltip.add(Component.literal("🔒 右键分解已锁定 (需在顶部解锁)").withStyle(ChatFormatting.GRAY));
-                        }
+                updateSalvagePreviewCache(mc, hoveredStack);
+                if (cachedHasSalvageRecipe) {
+                    tooltip.addAll(cachedSalvageLines);
+                    if (salvageUnlocked) {
+                        tooltip.add(Component.literal("▶ 右键: 原地直接分解").withStyle(ChatFormatting.RED));
+                    } else {
+                        tooltip.add(Component.literal("🔒 右键分解已锁定 (需在顶部解锁)").withStyle(ChatFormatting.GRAY));
                     }
                 }
                 tooltip.add(Component.literal("▶ 左键: 快速转移").withStyle(ChatFormatting.AQUA));
@@ -252,11 +257,10 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
                     GL11.glDisable(GL11.GL_SCISSOR_TEST);
                 }
 
-                // 清空深度缓冲，保证 Tooltip 不受任何先前的图元阻挡
-                com.mojang.blaze3d.systems.RenderSystem.clearDepth(1.0);
-                com.mojang.blaze3d.systems.RenderSystem.clear(GL11.GL_DEPTH_BUFFER_BIT, Minecraft.ON_OSX);
-                com.mojang.blaze3d.systems.RenderSystem.enableDepthTest();
-                com.mojang.blaze3d.systems.RenderSystem.depthFunc(GL11.GL_LEQUAL);
+                RenderSystem.clearDepth(1.0);
+                RenderSystem.clear(GL11.GL_DEPTH_BUFFER_BIT, Minecraft.ON_OSX);
+                RenderSystem.enableDepthTest();
+                RenderSystem.depthFunc(GL11.GL_LEQUAL);
 
                 graphics.pose().pushPose();
                 try {
@@ -269,17 +273,47 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
                     if (scissorEnabled) {
                         GL11.glEnable(GL11.GL_SCISSOR_TEST);
                     }
-                    com.mojang.blaze3d.systems.RenderSystem.clear(GL11.GL_DEPTH_BUFFER_BIT, Minecraft.ON_OSX);
-                    com.mojang.blaze3d.systems.RenderSystem.disableDepthTest();
-                    com.mojang.blaze3d.systems.RenderSystem.defaultBlendFunc();
+                    RenderSystem.clear(GL11.GL_DEPTH_BUFFER_BIT, Minecraft.ON_OSX);
+                    RenderSystem.disableDepthTest();
+                    RenderSystem.defaultBlendFunc();
                 }
             }
         });
-        screenRoot.addView(tooltipOverlay, new FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT));
-        refreshOptions();
-        renderRows();
+        return overlay;
+    }
 
-        return screenRoot;
+    private void updateSalvagePreviewCache(Minecraft mc, ItemStack stack) {
+        if (ItemStack.matches(lastTooltipStack, stack)) {
+            return;
+        }
+        lastTooltipStack = stack.copy();
+        var level = mc.level;
+        if (level == null) {
+            cachedHasSalvageRecipe = false;
+            cachedSalvageLines = List.of();
+            return;
+        }
+
+        var matches = SalvagingMenu.findMatch(level, stack);
+        if (matches.isEmpty()) {
+            cachedHasSalvageRecipe = false;
+            cachedSalvageLines = List.of();
+            return;
+        }
+
+        List<Component> lines = new ArrayList<>();
+        lines.add(Component.empty());
+        lines.add(Component.literal("🔨 神化分解产物预估:").withStyle(ChatFormatting.GOLD));
+        for (var recipe : matches) {
+            for (var d : recipe.value().getOutputs()) {
+                int[] counts = SalvagingMenu.getSalvageCounts(d, stack);
+                lines.add(Component.literal(String.format("  • %d~%d × %s",
+                                counts[0], counts[1], d.stack().getHoverName().getString()))
+                        .withStyle(ChatFormatting.YELLOW));
+            }
+        }
+        cachedHasSalvageRecipe = true;
+        cachedSalvageLines = List.copyOf(lines);
     }
 
     private void setHoveredItem(ItemStack stack) {
@@ -297,16 +331,14 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
             }
         }
     }
-    /**
-     * 强迫 tooltipOverlay 的 DrawHandler 重新注册到 ViewRootImpl 的最末尾，
-     * 确保它永远在所有新创建的格子图标之后被绘制！
-     */
+
     private void ensureTooltipOnTop() {
         if (tooltipOverlay != null && screenRoot != null) {
             screenRoot.removeView(tooltipOverlay);
             screenRoot.addView(tooltipOverlay, new FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT));
         }
     }
+
     private void createToolbar(Context context) {
         LinearLayout toolbar = row(context);
         root.addView(toolbar, lp(MATCH_PARENT, WRAP_CONTENT));
@@ -353,7 +385,8 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
             salvageSafetyButton.setTextColor(salvageUnlocked ? WARNING : MUTED);
             updateSalvageFilteredButtonState();
             playUiClickSound();
-            showMessage(salvageUnlocked ? "已解除分解锁定，可直接右键或批量分解！" : "已恢复分解保护锁定。", salvageUnlocked ? WARNING : MUTED);
+            showMessage(salvageUnlocked ? "已解除分解锁定，可直接右键或批量分解！" : "已恢复分解保护锁定。",
+                    salvageUnlocked ? WARNING : MUTED);
         });
         toolbar.addView(salvageSafetyButton, lp(WRAP_CONTENT, WRAP_CONTENT));
 
@@ -575,10 +608,12 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
 
         if (playerInventory) {
             int playerMax = menu.slots.size() - EquipmentCabinetMenu.PLAYER_START;
-            capacityLabel.setText(String.format("背包栏: %d/%d (%.0f%%)", playerCount, playerMax, (playerCount * 100.0F / playerMax)));
+            capacityLabel.setText(String.format("背包栏: %d/%d (%.0f%%)",
+                    playerCount, playerMax, (playerCount * 100.0F / playerMax)));
         } else {
             int cabMax = EquipmentCabinetMenu.CABINET_SLOTS;
-            capacityLabel.setText(String.format("装备柜: %d/%d (%.0f%%)", cabinetCount, cabMax, (cabinetCount * 100.0F / cabMax)));
+            capacityLabel.setText(String.format("装备柜: %d/%d (%.0f%%)",
+                    cabinetCount, cabMax, (cabinetCount * 100.0F / cabMax)));
         }
     }
 
@@ -655,8 +690,7 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
 
     private void renderGrid(List<EquipmentIndex.Row> items) {
         Context context = requireContext();
-        final int columns = calculateDynamicColumns();
-
+        int columns = calculateDynamicColumns();
         LinearLayout currentRow = null;
 
         for (int i = 0; i < items.size(); i++) {
@@ -673,16 +707,14 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                     root.dp(SLOT_SIZE_DP), root.dp(SLOT_SIZE_DP)
             );
-            lp.setMargins(root.dp(SLOT_MARGIN_DP), root.dp(SLOT_MARGIN_DP), root.dp(SLOT_MARGIN_DP), root.dp(SLOT_MARGIN_DP));
+            lp.setMargins(root.dp(SLOT_MARGIN_DP), root.dp(SLOT_MARGIN_DP),
+                    root.dp(SLOT_MARGIN_DP), root.dp(SLOT_MARGIN_DP));
             slotView.setLayoutParams(lp);
 
             slotView.setOnHoverItemListener(
                     (view, itemData) -> {
                         setHoveredItem(cachedStacks.get(itemData.menuSlot()));
-                        // 确保鼠标在格子里微动时，顶层 Tooltip 始终被唤醒重绘
-                        if (tooltipOverlay != null) {
-                            tooltipOverlay.invalidate();
-                        }
+                        if (tooltipOverlay != null) tooltipOverlay.invalidate();
                     },
                     this::clearHoveredItem
             );
@@ -722,16 +754,16 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         }
 
         Minecraft.getInstance().execute(() -> {
-            Minecraft.getInstance().gameMode.handleInventoryButtonClick(menu.containerId, slotId);
-            playSalvageSound();
+            Minecraft mc = Minecraft.getInstance();
+            if (mc.gameMode != null) {
+                mc.gameMode.handleInventoryButtonClick(menu.containerId, slotId);
+                playSalvageSound();
+            }
         });
         clearHoveredItem();
         showMessage("已分解: " + stack.getHoverName().getString(), SUCCESS);
     }
 
-    /**
-     * 带背包空位上限保护的一键提取，防止发包溢出
-     */
     private void extractAllFiltered() {
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.gameMode == null || minecraft.player == null) return;
@@ -747,13 +779,10 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         }
 
         minecraft.execute(() -> {
-            // 计算玩家当前可用真实空槽数 (0..35)
             int freeSlots = 0;
             var inv = minecraft.player.getInventory();
             for (int i = 0; i < 36; i++) {
-                if (inv.getItem(i).isEmpty()) {
-                    freeSlots++;
-                }
+                if (inv.getItem(i).isEmpty()) freeSlots++;
             }
 
             if (freeSlots == 0) {
@@ -763,14 +792,13 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
 
             int count = 0;
             for (int slotId : cabinetSlots) {
-                if (count >= freeSlots) break; // 保护上限
-
+                if (count >= freeSlots) break;
                 minecraft.gameMode.handleInventoryMouseClick(
                         menu.containerId, slotId, 0, ClickType.QUICK_MOVE, minecraft.player
                 );
                 count++;
             }
-            final int finalCount = count;
+            int finalCount = count;
             playUiClickSound();
             if (root != null) {
                 root.post(() -> showMessage("已取出 " + finalCount + " 件装备到背包！", SUCCESS));
@@ -793,7 +821,7 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
                     count++;
                 }
             }
-            final int finalCount = count;
+            int finalCount = count;
             playUiClickSound();
             if (root != null) {
                 root.post(() -> showMessage("已存入 " + finalCount + " 件装备到装备柜！", SUCCESS));
@@ -825,10 +853,13 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         }
 
         Minecraft.getInstance().execute(() -> {
-            for (int slotId : targetSlots) {
-                Minecraft.getInstance().gameMode.handleInventoryButtonClick(menu.containerId, slotId);
+            Minecraft mc = Minecraft.getInstance();
+            if (mc.gameMode != null) {
+                for (int slotId : targetSlots) {
+                    mc.gameMode.handleInventoryButtonClick(menu.containerId, slotId);
+                }
+                playSalvageSound();
             }
-            playSalvageSound();
         });
 
         clearHoveredItem();
@@ -843,7 +874,6 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         TextView nameCell = addCell(line, data.name(), 3.0F, TEXT);
         nameCell.setTooltipText(data.name());
 
-        // 清单模式增强：悬浮名称时展示完整装备 Tooltip 与分解预估
         nameCell.setOnHoverListener((v, event) -> {
             int action = event.getActionMasked();
             if (action == MotionEvent.ACTION_HOVER_ENTER || action == MotionEvent.ACTION_HOVER_MOVE) {
@@ -856,19 +886,12 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
             return false;
         });
 
-        String materialName = EquipmentDisplay.materialName(data.materials());
-        addCell(line, materialName, 1.3F, MUTED);
-
+        addCell(line, EquipmentDisplay.materialName(data.materials()), 1.3F, MUTED);
         addCell(line, data.durabilityText(), 1.2F,
                 data.hasDurability() && data.durabilityPercent() < 20 ? ERROR : TEXT);
-
         addCell(line, data.enchantments().isEmpty() ? "无" : data.enchantments().size() + "项", 0.7F, TEXT);
-
-        String rarityName = EquipmentDisplay.friendly(data.rarityName(), "未知品质");
-        addCell(line, rarityName, 1.3F, data.rarityColor());
-
-        String categoryName = EquipmentDisplay.friendly(data.categoryName(), "其他装备");
-        addCell(line, categoryName, 1.3F, MUTED);
+        addCell(line, EquipmentDisplay.friendly(data.rarityName(), "未知品质"), 1.3F, data.rarityColor());
+        addCell(line, EquipmentDisplay.friendly(data.categoryName(), "其他装备"), 1.3F, MUTED);
 
         Button actionBtn = button(requireContext(), playerInventory ? "存入" : "取出");
         actionBtn.setTextColor(ACCENT);
@@ -883,8 +906,6 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         table.addView(line, lp(MATCH_PARENT, WRAP_CONTENT));
     }
 
-    // ==================== 智能全属性匹配引擎 ====================
-
     private boolean matchesAdvancedQuery(EquipmentIndex.Row data, String query) {
         if (query.isEmpty()) return true;
 
@@ -895,8 +916,7 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
             if (token.isEmpty()) continue;
 
             if (token.startsWith("!") && token.length() > 1) {
-                String exclude = token.substring(1);
-                if (containsMatch(data, stack, exclude)) return false;
+                if (containsMatch(data, stack, token.substring(1))) return false;
                 continue;
             }
 
@@ -915,9 +935,7 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
                 continue;
             }
 
-            if (!containsMatch(data, stack, token)) {
-                return false;
-            }
+            if (!containsMatch(data, stack, token)) return false;
         }
         return true;
     }
@@ -932,23 +950,17 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
             if (itemPath.contains(keyword)) return true;
         }
 
-        // 词缀名称
         for (String affix : data.affixes()) {
             if (affix.toLowerCase(Locale.ROOT).contains(keyword)) return true;
         }
-
-        // 附魔名称与 ID
         for (EquipmentIndex.EnchantmentValue enchantment : data.enchantments()) {
             if (enchantment.name().toLowerCase(Locale.ROOT).contains(keyword)) return true;
             if (enchantment.id().toLowerCase(Locale.ROOT).contains(keyword)) return true;
         }
-
-        // 【新增迭代修复】：匹配神化装备的具体属性词条（如“暴击伤害”、“攻击速度”、“护甲穿透”）
         for (EquipmentIndex.AttributeValue attr : data.attributes()) {
             if (attr.name().toLowerCase(Locale.ROOT).contains(keyword)) return true;
             if (attr.id().toLowerCase(Locale.ROOT).contains(keyword)) return true;
         }
-
         return false;
     }
 
@@ -1002,12 +1014,9 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         search.setHint("支持 @mod, #tag, !排除");
         search.setPadding(search.dp(5), search.dp(5), search.dp(5), search.dp(5));
         search.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { changed(); }
-            @Override
-            public void afterTextChanged(Editable s) {}
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) { changed(); }
+            @Override public void afterTextChanged(Editable s) {}
         });
         searchContainer.addView(search, new LinearLayout.LayoutParams(0, WRAP_CONTENT, 1));
 
@@ -1109,7 +1118,7 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
             return;
         }
 
-        final int threshold = minimum;
+        int threshold = minimum;
         String label = enchantmentChoice.label() + " ≥ " + threshold + "级";
         conditions.add(new NamedCondition(label, data -> data.enchantments().stream().anyMatch(value ->
                 value.id().equals(id) && value.level() >= threshold)));
@@ -1158,7 +1167,8 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         String label = attributeChoice.label() + " " + compSign + " " + input + (percentage ? "%" : "");
 
         conditions.add(new NamedCondition(label, data -> data.attributes().stream().anyMatch(value ->
-                value.id().equals(id) && value.operation() == operation && compare(value.amount(), threshold, comparison))));
+                value.id().equals(id) && value.operation() == operation
+                        && compare(value.amount(), threshold, comparison))));
         renderConditions();
         changed();
     }
@@ -1224,7 +1234,8 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
             String result = "操作完成。";
             try {
                 Minecraft minecraft = Minecraft.getInstance();
-                if (ticket != generation || minecraft.player == null || minecraft.gameMode == null || minecraft.player.containerMenu != menu) {
+                if (ticket != generation || minecraft.player == null || minecraft.gameMode == null
+                        || minecraft.player.containerMenu != menu) {
                     return;
                 }
 
@@ -1378,7 +1389,15 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
             root.removeCallbacks(refresh);
             root.removeCallbacks(filterChanged);
         }
+        cachedStacks.clear();
+        cachedRows.clear();
         allChoiceFields.clear();
+        lastTooltipStack = ItemStack.EMPTY;
+        cachedSalvageLines = List.of();
+        cachedHasSalvageRecipe = false;
+
+        screenRoot = null;
+        tooltipOverlay = null;
         root = null;
         table = null;
         tableScroll = null;
@@ -1396,6 +1415,18 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         previous = null;
         next = null;
         search = null;
+        enchantmentMinimum = null;
+        attributeMinimum = null;
+        materialChoice = null;
+        rarityChoice = null;
+        categoryChoice = null;
+        durabilityChoice = null;
+        enchantedChoice = null;
+        sortChoice = null;
+        enchantmentChoice = null;
+        attributeChoice = null;
+        operationChoice = null;
+        comparisonChoice = null;
         super.onDestroyView();
     }
 
@@ -1423,12 +1454,9 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         input.setPadding(input.dp(5), input.dp(5), input.dp(5), input.dp(5));
 
         input.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { onChanged.run(); }
-            @Override
-            public void afterTextChanged(Editable s) {}
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) { onChanged.run(); }
+            @Override public void afterTextChanged(Editable s) {}
         });
 
         parent.addView(input, lp(MATCH_PARENT, WRAP_CONTENT));
@@ -1486,8 +1514,6 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         line.addView(cell, new LinearLayout.LayoutParams(0, WRAP_CONTENT, weight));
         return cell;
     }
-
-    // ==================== 互斥展开的下拉筛选组件 ====================
 
     private final class ChoiceField {
         private static final int OPTION_PAGE_SIZE = 10;
@@ -1562,9 +1588,7 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
                 boolean willOpen = panel.getVisibility() != View.VISIBLE;
                 if (willOpen) {
                     for (ChoiceField other : allChoiceFields) {
-                        if (other != ChoiceField.this) {
-                            other.close();
-                        }
+                        if (other != ChoiceField.this) other.close();
                     }
                     panel.setVisibility(View.VISIBLE);
                     renderChoices();
@@ -1574,15 +1598,12 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
             });
 
             find.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
                     optionPage = 0;
                     renderChoices();
                 }
-                @Override
-                public void afterTextChanged(Editable s) {}
+                @Override public void afterTextChanged(Editable s) {}
             });
 
             renderChoices();
@@ -1613,13 +1634,16 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
         private void setChoices(List<Choice> newChoices) {
             choices = List.copyOf(newChoices);
             if (!selectedKey.isEmpty()) {
-                choices.stream().filter(c -> c.key().equals(selectedKey)).findFirst().ifPresent(c -> selectedLabel = c.label());
+                choices.stream().filter(c -> c.key().equals(selectedKey)).findFirst()
+                        .ifPresent(c -> selectedLabel = c.label());
             }
             updateButton();
             if (panel.getVisibility() == View.VISIBLE) renderChoices();
         }
 
-        private void updateButton() { selectedButton.setText(title + "：" + selectedLabel + " ▾"); }
+        private void updateButton() {
+            selectedButton.setText(title + "：" + selectedLabel + " ▾");
+        }
 
         private void choose(String key, String label) {
             selectedKey = key;
@@ -1637,7 +1661,9 @@ public final class EquipmentCabinetFragment extends Fragment implements ScreenCa
             choicesView.addView(any, lp(MATCH_PARENT, WRAP_CONTENT));
 
             String query = find.getText().toString().trim().toLowerCase(Locale.ROOT);
-            List<Choice> matching = choices.stream().filter(c -> c.label().toLowerCase(Locale.ROOT).contains(query)).toList();
+            List<Choice> matching = choices.stream()
+                    .filter(c -> c.label().toLowerCase(Locale.ROOT).contains(query))
+                    .toList();
 
             int pageCount = Math.max(1, (matching.size() + OPTION_PAGE_SIZE - 1) / OPTION_PAGE_SIZE);
             optionPage = Math.max(0, Math.min(optionPage, pageCount - 1));

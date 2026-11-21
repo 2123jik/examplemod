@@ -1,0 +1,37 @@
+{
+  "id": "lawbringer",
+  "name_en": "Lawbringer",
+  "name_cn": "执法者",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/swords",
+    "#examplemod:base/blunt",
+    "#examplemod:base/claws"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_11_amn",
+    "examplemod:runes/rune_20_lem",
+    "examplemod:runes/rune_18_ko"
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:armor_shred",
+      "amount": 0.45,
+      "operation": "ADD_VALUE",
+      "description": "衰老破甲45%"
+    },
+    {
+      "attribute": "irons_spellbooks:holy_spell_power",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 神圣威力"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.07,
+      "operation": "ADD_VALUE",
+      "description": "7% 吸血"
+    }
+  ]
+}

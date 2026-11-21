@@ -53,10 +53,10 @@ public class ModAttributes {
     private static final Map<String, DeferredHolder<Attribute, Attribute>> CONVERSION_ENTRIES = new HashMap<>();
 
     static {
+        ID_TO_SCHOOL.put(PHYSICAL_ID, PhysicalSchool.PHYSICAL); // <-- 补这一行
         for (var node : TOPOLOGICAL_SCHOOLS) {
             ID_TO_SCHOOL.put(node.id(), node.schoolSupplier());
         }
-
         List<String> allNodes = new ArrayList<>();
         allNodes.add(PHYSICAL_ID);
         for (var node : TOPOLOGICAL_SCHOOLS) {

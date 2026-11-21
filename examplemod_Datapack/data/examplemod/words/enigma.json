@@ -1,0 +1,53 @@
+{
+  "id": "enigma",
+  "name_en": "Enigma",
+  "name_cn": "谜团",
+  "sockets_required": 3,
+  "all_spell_levels": 2,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_31_jah",
+    "examplemod:runes/rune_06_ith",
+    "examplemod:runes/rune_30_ber"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 跑速"
+    },
+    {
+      "attribute": "irons_spellbooks:cooldown_reduction",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "闪烁冷却缩减"
+    },
+    {
+      "attribute": "l2damagetracker:damage_reduction",
+      "amount": 0.06,
+      "operation": "MULTIPLY_BASE",
+      "description": "+6% 物理硬减伤"
+    },
+    {
+      "attribute": "minecraft:generic.max_health",
+      "amount": 0.05,
+      "operation": "MULTIPLY_BASE",
+      "description": "+5% 生命上限"
+    },
+    {
+      "attribute": "examplemod:damage_to_mana",
+      "amount": 15.0,
+      "operation": "ADD_VALUE",
+      "description": "15% 受损生命转法力"
+    },
+    {
+      "attribute": "minecraft:generic.luck",
+      "amount": 3.0,
+      "operation": "ADD_VALUE",
+      "description": "+3 幸运(MF)"
+    }
+  ]
+}

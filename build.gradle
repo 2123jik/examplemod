@@ -101,11 +101,12 @@ def launcherModWhitelist = [
         'ApothicAttributes',
         'Apotheosis',
         'GatewaysToEternity',
+        'ApothicEnchanting',
+        'ApothicSpawners',
 
         // --- 2. L2 全家桶 ---
         'l2hostility',
         'l2artifacts',
-        'l2backpack',
         'modulargolems',
         'l2library',
         'l2complements',
@@ -119,17 +120,16 @@ def launcherModWhitelist = [
         'solcarrot',
         'tunes_n_tomes',
         'twilightforest',
-        'ViScriptShop',
         'curios',
-        'emi',
         'transmog',
 
         'lionfishapi',
         'player-animation-lib',
-        'ldlib2',
         'irons_lib',
         'geckolib',
-        'patchouli'
+        'patchouli',
+
+        'WindowedGuis'
 
 ]
 

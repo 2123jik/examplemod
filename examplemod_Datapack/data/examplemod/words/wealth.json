@@ -1,0 +1,41 @@
+{
+  "id": "wealth",
+  "name_en": "Wealth",
+  "name_cn": "财富",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_20_lem",
+    "examplemod:runes/rune_18_ko",
+    "examplemod:runes/rune_03_tir"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.luck",
+      "amount": 4.0,
+      "operation": "ADD_VALUE",
+      "description": "+4 极品寻宝幸运"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 4.0,
+      "operation": "ADD_VALUE",
+      "description": "+4 击杀回蓝(x4)"
+    },
+    {
+      "attribute": "apothic_attributes:experience_gained",
+      "amount": 0.8,
+      "operation": "MULTIPLY_BASE",
+      "description": "+80% 经验获取"
+    },
+    {
+      "attribute": "l2hostility:extra_difficulty",
+      "amount": 5.0,
+      "operation": "ADD_VALUE",
+      "description": "高难高爆率"
+    }
+  ]
+}

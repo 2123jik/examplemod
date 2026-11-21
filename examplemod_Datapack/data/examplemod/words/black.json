@@ -1,0 +1,36 @@
+{
+  "id": "black",
+  "name_en": "Black",
+  "name_cn": "黑色",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/blunt",
+    "#examplemod:base/claws"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_10_thul",
+    "examplemod:runes/rune_16_io",
+    "examplemod:runes/rune_04_nef"
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.08,
+      "operation": "ADD_VALUE",
+      "description": "40% 压碎打击"
+    },
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.15,
+      "operation": "MULTIPLY_BASE",
+      "description": "+15% 攻速"
+    },
+    {
+      "attribute": "minecraft:generic.attack_knockback",
+      "amount": 1.5,
+      "operation": "ADD_VALUE",
+      "description": "+1.5 击退"
+    }
+  ]
+}

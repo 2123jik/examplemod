@@ -1,5 +1,6 @@
 package com.example.examplemod.client.gui;
 
+import com.example.examplemod.ExampleMod;
 import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
@@ -49,24 +50,14 @@ import org.lwjgl.glfw.GLFW;
 import java.lang.reflect.Method;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Predicate;
 
-@EventBusSubscriber(modid = "examplemod", value = Dist.CLIENT)
-public class PauseMenuOverlay {
+@EventBusSubscriber(modid = ExampleMod.MODID, value = Dist.CLIENT)
+public final class PauseMenuOverlay {
 
     private static final DateTimeFormatter REAL_TIME_FMT = DateTimeFormatter.ofPattern("HH:mm");
 
-    // 原版 HUD 精灵图 (1.21.1)
     private static final ResourceLocation HEART_CONTAINER_SPRITE = ResourceLocation.withDefaultNamespace("hud/heart/container");
     private static final ResourceLocation HEART_FULL_SPRITE = ResourceLocation.withDefaultNamespace("hud/heart/full");
     private static final ResourceLocation HEART_HALF_SPRITE = ResourceLocation.withDefaultNamespace("hud/heart/half");
@@ -155,9 +146,7 @@ public class PauseMenuOverlay {
     private static int panelLeft, panelTop, panelRight, panelBottom;
     private static final List<ClickZone> clickZones = new ArrayList<>();
 
-    // ====================================================
-    // 事件监听
-    // ====================================================
+    private PauseMenuOverlay() {}
 
     @SubscribeEvent
     public static void onScreenInit(ScreenEvent.Init.Post event) {
@@ -168,8 +157,7 @@ public class PauseMenuOverlay {
 
     @SubscribeEvent
     public static void onMousePressed(ScreenEvent.MouseButtonPressed.Pre event) {
-        if (!(event.getScreen() instanceof PauseScreen)) return;
-        if (event.getButton() != 0) return;
+        if (!(event.getScreen() instanceof PauseScreen) || event.getButton() != 0) return;
 
         double mx = event.getMouseX();
         double my = event.getMouseY();
@@ -203,8 +191,7 @@ public class PauseMenuOverlay {
 
     @SubscribeEvent
     public static void onKeyPressed(ScreenEvent.KeyPressed.Pre event) {
-        if (!(event.getScreen() instanceof PauseScreen)) return;
-        if (totalPages <= 1) return;
+        if (!(event.getScreen() instanceof PauseScreen) || totalPages <= 1) return;
 
         int key = event.getKeyCode();
         if (key == GLFW.GLFW_KEY_LEFT || key == GLFW.GLFW_KEY_PAGE_UP) {
@@ -258,10 +245,6 @@ public class PauseMenuOverlay {
             renderAttributeTooltip(graphics, font, mc, hoveredEntry, screen.width, screen.height, mouseX, mouseY);
         }
     }
-
-    // ====================================================
-    // 左侧面板：原版 HUD 图标 + 筛选/排序 + 多列属性 + 翻页
-    // ====================================================
 
     private static AttributeEntry renderAttributesPanel(
             GuiGraphics graphics, Font font, LocalPlayer player,
@@ -329,14 +312,12 @@ public class PauseMenuOverlay {
 
         int curY = y + CARD_PADDING;
 
-        // 第1行：标题 + 原版 HUD 图标
         Component title = Component.literal("属性 (" + filtered.size() + ")")
                 .withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD);
         graphics.drawString(font, title, innerX, curY + 1, 0xFFFFFF, true);
         renderVanillaVitalBadges(graphics, font, player, innerX + font.width(title) + 6, curY, innerX + innerWidth);
         curY += 14;
 
-        // 第2行：筛选标签
         int tabX = innerX;
         for (FilterMode mode : FilterMode.values()) {
             int cnt = switch (mode) {
@@ -362,7 +343,6 @@ public class PauseMenuOverlay {
         }
         curY += 14;
 
-        // 第3行：排序按钮
         String sortLabel = "排序: " + currentSort.label + " ▾";
         int sortW = Math.min(innerWidth, font.width(sortLabel) + 10);
         boolean sortHover = mouseX >= innerX && mouseX < innerX + sortW && mouseY >= curY && mouseY < curY + 12;
@@ -376,7 +356,6 @@ public class PauseMenuOverlay {
         graphics.fill(innerX, curY, innerX + innerWidth, curY + 1, 0x33FFFFFF);
         curY += 4;
 
-        // 多列网格（每个格子只保留：属性名称 + 数值）
         AttributeEntry hoveredEntry = null;
         if (filtered.isEmpty()) {
             graphics.drawString(font, Component.literal("当前筛选条件下无属性").withStyle(ChatFormatting.GRAY),
@@ -392,9 +371,7 @@ public class PauseMenuOverlay {
 
                 AttributeEntry entry = filtered.get(i);
                 boolean hovered = mouseX >= cx && mouseX < cx + cellWidth && mouseY >= cy && mouseY < cy + CELL_HEIGHT;
-                if (hovered) {
-                    hoveredEntry = entry;
-                }
+                if (hovered) hoveredEntry = entry;
 
                 renderAttributeCell(graphics, font, entry, cx, cy, cellWidth, CELL_HEIGHT, hovered);
             }
@@ -448,10 +425,8 @@ public class PauseMenuOverlay {
         }
     }
 
-    private static void renderAttributeCell(
-            GuiGraphics graphics, Font font, AttributeEntry entry,
-            int x, int y, int width, int height, boolean hovered
-    ) {
+    private static void renderAttributeCell(GuiGraphics graphics, Font font, AttributeEntry entry,
+                                            int x, int y, int width, int height, boolean hovered) {
         int bg = hovered ? 0x44FFFFFF : (entry.isModified() ? 0x22FFFFFF : 0x14000000);
         graphics.fill(x, y, x + width, y + height, bg);
         if (entry.isModified()) {
@@ -475,10 +450,8 @@ public class PauseMenuOverlay {
         graphics.drawString(font, fitText(font, nameComp, nameMaxW), x + padLeft, y + 2, 0xFFFFFF, true);
     }
 
-    private static void renderPaginationBar(
-            GuiGraphics graphics, Font font,
-            int x, int y, int width, int mouseX, int mouseY
-    ) {
+    private static void renderPaginationBar(GuiGraphics graphics, Font font,
+                                            int x, int y, int width, int mouseX, int mouseY) {
         int btnW = 46;
         int btnH = 12;
 
@@ -502,20 +475,13 @@ public class PauseMenuOverlay {
         graphics.drawString(font, pageStr, x + (width - pw) / 2, y + 2, 0xFFD4D4D8, false);
     }
 
-    // ====================================================
-    // 紧凑悬停 Tooltip：默认按来源合并 + 一行三段公式；Shift 展开原始 ID
-    // ====================================================
-
-    private static void renderAttributeTooltip(
-            GuiGraphics graphics, Font font, Minecraft mc, AttributeEntry entry,
-            int screenWidth, int screenHeight, int mouseX, int mouseY
-    ) {
+    private static void renderAttributeTooltip(GuiGraphics graphics, Font font, Minecraft mc, AttributeEntry entry,
+                                               int screenWidth, int screenHeight, int mouseX, int mouseY) {
         boolean detailMode = Screen.hasShiftDown();
         int maxBoxWidth = Math.min(detailMode ? 310 : 250, screenWidth - 16);
         int innerMaxW = maxBoxWidth - 12;
         Attribute attr = entry.attribute();
 
-        // 统计三种 Operation 汇总
         double sumAdd = 0.0;
         double sumMultBase = 0.0;
         double prodMultTotal = 1.0;
@@ -539,20 +505,15 @@ public class PauseMenuOverlay {
             }
         }
 
-        double stage1D0 = entry.baseValue() + sumAdd;
-        double stage2D1 = stage1D0 * (1.0 + sumMultBase);
-        double stage3Raw = stage2D1 * prodMultTotal;
-
+        double stage3Raw = (entry.baseValue() + sumAdd) * (1.0 + sumMultBase) * prodMultTotal;
         List<TooltipRow> rows = new ArrayList<>();
 
-        // 1. 标题行（左：属性名，右：最终数值）
         Component titleComp = Component.translatable(attr.getDescriptionId())
                 .withStyle(ChatFormatting.GOLD, ChatFormatting.BOLD);
         Component finalValComp = Component.literal(formatNumber(entry.value()))
                 .withStyle(getValueStyle(entry), ChatFormatting.BOLD);
         rows.add(TooltipRow.header(titleComp, finalValComp));
 
-        // 2. 单行公式摘要（仅展示有数值参与的运算阶段）
         MutableComponent formula = Component.literal("基础 " + formatNumber(entry.baseValue()))
                 .withStyle(ChatFormatting.GRAY);
         if (hasAdd) {
@@ -578,23 +539,18 @@ public class PauseMenuOverlay {
                             .withStyle(ChatFormatting.YELLOW), innerMaxW)));
         }
 
-        // 3. 来源列表
         if (!entry.modifiers().isEmpty()) {
             rows.add(TooltipRow.divider());
 
             if (!detailMode) {
-                // 【默认精简模式】：同一装备/饰品/效果自动合并成 1 行
-                List<SourceSummary> groups = groupBySource(entry.modifiers());
-                for (SourceSummary g : groups) {
-                    Component left = Component.literal(g.source().compactLabel())
-                            .withStyle(ChatFormatting.WHITE);
+                for (SourceSummary g : groupBySource(entry.modifiers())) {
+                    Component left = Component.literal(g.source().compactLabel()).withStyle(ChatFormatting.WHITE);
                     Component right = g.buildRightSummary(attr);
                     rows.add(TooltipRow.sourceRow(g.source(), left, right, null));
                 }
                 rows.add(TooltipRow.text(Component.literal("按住 Shift 查看单条修饰符与 ID")
                         .withStyle(ChatFormatting.DARK_GRAY).getVisualOrderText()));
             } else {
-                // 【Shift 详细模式】：显示属性 Registry ID + 逐条修饰符运算与 ID
                 if (entry.id() != null) {
                     rows.add(TooltipRow.text(fitText(font,
                             Component.literal("属性ID: " + entry.id()).withStyle(ChatFormatting.DARK_GRAY), innerMaxW)));
@@ -621,7 +577,6 @@ public class PauseMenuOverlay {
             }
         }
 
-        // 计算弹窗尺寸
         int contentW = 0;
         int contentH = 0;
         for (TooltipRow r : rows) {
@@ -632,13 +587,9 @@ public class PauseMenuOverlay {
         int boxH = contentH + 10;
 
         int tx = mouseX + 12;
-        if (tx + boxW > screenWidth - 6) {
-            tx = Math.max(6, mouseX - boxW - 12);
-        }
+        if (tx + boxW > screenWidth - 6) tx = Math.max(6, mouseX - boxW - 12);
         int ty = mouseY - 12;
-        if (ty + boxH > screenHeight - 6) {
-            ty = Math.max(6, screenHeight - boxH - 6);
-        }
+        if (ty + boxH > screenHeight - 6) ty = Math.max(6, screenHeight - boxH - 6);
         if (ty < 6) ty = 6;
 
         graphics.pose().pushPose();
@@ -662,20 +613,13 @@ public class PauseMenuOverlay {
         Map<String, SourceSummary> map = new LinkedHashMap<>();
         for (ResolvedModifier rm : modifiers) {
             ModifierSource src = rm.source();
-            SourceSummary summary = map.computeIfAbsent(src.groupKey(), k -> new SourceSummary(src));
-            summary.accept(rm.modifier());
+            map.computeIfAbsent(src.groupKey(), k -> new SourceSummary(src)).accept(rm.modifier());
         }
         return List.copyOf(map.values());
     }
 
-    // ====================================================
-    // 右下角：世界与状态卡片（避开右上角小地图）
-    // ====================================================
-
-    private static void renderBottomRightStatusPanel(
-            GuiGraphics graphics, Font font, Minecraft mc,
-            int x, int width, int bottomY
-    ) {
+    private static void renderBottomRightStatusPanel(GuiGraphics graphics, Font font, Minecraft mc,
+                                                     int x, int width, int bottomY) {
         LocalPlayer player = mc.player;
         Level level = mc.level;
         if (player == null || level == null) return;
@@ -745,10 +689,6 @@ public class PauseMenuOverlay {
         }
     }
 
-    // ====================================================
-    // 来源收集：原版装备 + 附魔 + Curios饰品 + 药水效果
-    // ====================================================
-
     private static void collectVanillaSlotSources(LocalPlayer player, Map<ModifierKey, ModifierSource> map) {
         for (EquipmentSlot slot : EquipmentSlot.values()) {
             if (slot == EquipmentSlot.BODY) continue;
@@ -815,9 +755,7 @@ public class PauseMenuOverlay {
         Map<ResourceLocation, MobEffectInstance> map = new HashMap<>();
         for (MobEffectInstance eff : player.getActiveEffects()) {
             ResourceLocation key = BuiltInRegistries.MOB_EFFECT.getKey(eff.getEffect().value());
-            if (key != null) {
-                map.put(key, eff);
-            }
+            if (key != null) map.put(key, eff);
         }
         return map;
     }
@@ -876,17 +814,13 @@ public class PauseMenuOverlay {
             String effectName = path.substring("effect.".length());
             ResourceLocation guessId = ResourceLocation.fromNamespaceAndPath(mod.id().getNamespace(), effectName);
             MobEffectInstance eff = activeEffects.get(guessId);
-            if (eff != null) {
-                return ModifierSource.fromEffect(eff);
-            }
+            if (eff != null) return ModifierSource.fromEffect(eff);
         }
 
         EquipmentSlot guessedSlot = guessSlotFromModifierId(path);
         if (guessedSlot != null) {
             ItemStack equipped = player.getItemBySlot(guessedSlot);
-            if (!equipped.isEmpty()) {
-                return ModifierSource.fromEquipment(guessedSlot, equipped);
-            }
+            if (!equipped.isEmpty()) return ModifierSource.fromEquipment(guessedSlot, equipped);
         }
 
         if (!curioItemsBySlot.isEmpty()) {
@@ -943,10 +877,6 @@ public class PauseMenuOverlay {
         list.sort(comparator);
     }
 
-    // ====================================================
-    // 通用绘制与高对比颜色工具
-    // ====================================================
-
     private static void renderScaledItem(GuiGraphics graphics, ItemStack stack, int x, int y, int size) {
         if (stack.isEmpty()) return;
         graphics.pose().pushPose();
@@ -980,7 +910,6 @@ public class PauseMenuOverlay {
         graphics.fill(x, y, x + width, y + 1, topAccentColor);
     }
 
-    /** 将暗蓝映射为暗底高对比亮绿，红保持亮红，中性为青色 */
     private static ChatFormatting readableStyle(Attribute attr, boolean positiveDelta) {
         ChatFormatting vanilla = attr.getStyle(positiveDelta);
         if (vanilla == ChatFormatting.BLUE) return ChatFormatting.GREEN;
@@ -1123,9 +1052,8 @@ public class PauseMenuOverlay {
 
     private static FormattedCharSequence fitText(Font font, Component text, int maxWidth) {
         if (maxWidth <= 0) return FormattedCharSequence.EMPTY;
-        if (font.width(text) <= maxWidth) {
-            return text.getVisualOrderText();
-        }
+        if (font.width(text) <= maxWidth) return text.getVisualOrderText();
+
         int ellipsisWidth = font.width("...");
         if (maxWidth <= ellipsisWidth) {
             return Language.getInstance().getVisualOrder(font.substrByWidth(text, maxWidth));
@@ -1135,10 +1063,6 @@ public class PauseMenuOverlay {
                 FormattedText.composite(clipped, Component.literal("...").withStyle(ChatFormatting.GRAY))
         );
     }
-
-    // ====================================================
-    // Curios 反射软兼容
-    // ====================================================
 
     private static final class CuriosReflect {
         static boolean initialized = false;
@@ -1186,18 +1110,13 @@ public class PauseMenuOverlay {
         }
     }
 
-    // ====================================================
-    // 内部数据结构
-    // ====================================================
-
     private record ClickZone(int x, int y, int w, int h, Runnable action) {
         boolean contains(double mx, double my) {
             return mx >= x && mx < x + w && my >= y && my < y + h;
         }
     }
 
-    private record ModifierKey(Holder<Attribute> attribute, ResourceLocation modifierId) {
-    }
+    private record ModifierKey(Holder<Attribute> attribute, ResourceLocation modifierId) {}
 
     private record ModifierSource(
             String groupKey,
@@ -1227,9 +1146,7 @@ public class PauseMenuOverlay {
         }
 
         String compactLabel() {
-            if (!stack.isEmpty()) {
-                return slotLabel + " · " + stack.getHoverName().getString();
-            }
+            if (!stack.isEmpty()) return slotLabel + " · " + stack.getHoverName().getString();
             if (effect != null) {
                 String lvl = effect.getAmplifier() > 0 ? " " + (effect.getAmplifier() + 1) : "";
                 return "效果 · " + effect.getEffect().value().getDisplayName().getString() + lvl;
@@ -1238,14 +1155,11 @@ public class PauseMenuOverlay {
         }
     }
 
-    private record ResolvedModifier(AttributeModifier modifier, ModifierSource source) {
-    }
+    private record ResolvedModifier(AttributeModifier modifier, ModifierSource source) {}
 
     private static final class SourceSummary {
         private final ModifierSource source;
-        private boolean hasAdd;
-        private boolean hasMultBase;
-        private boolean hasMultTotal;
+        private boolean hasAdd, hasMultBase, hasMultTotal;
         private double sumAdd = 0.0;
         private double sumMultBase = 0.0;
         private double prodMultTotal = 1.0;
@@ -1318,13 +1232,10 @@ public class PauseMenuOverlay {
 
     private static final class TooltipRow {
         private final boolean divider;
-        private final Component headerLeft;
-        private final Component headerRight;
+        private final Component headerLeft, headerRight;
         private final FormattedCharSequence plainLine;
         private final ModifierSource source;
-        private final Component srcLeft;
-        private final Component srcRight;
-        private final Component subLine;
+        private final Component srcLeft, srcRight, subLine;
 
         private TooltipRow(boolean divider, Component headerLeft, Component headerRight,
                            FormattedCharSequence plainLine, ModifierSource source,
@@ -1357,9 +1268,7 @@ public class PauseMenuOverlay {
 
         int measureWidth(Font font) {
             if (divider) return 0;
-            if (headerLeft != null) {
-                return font.width(headerLeft) + 16 + font.width(headerRight);
-            }
+            if (headerLeft != null) return font.width(headerLeft) + 16 + font.width(headerRight);
             if (source != null) {
                 int topW = 15 + font.width(srcLeft) + 12 + font.width(srcRight);
                 int subW = subLine != null ? 15 + font.width(subLine) : 0;
@@ -1370,9 +1279,7 @@ public class PauseMenuOverlay {
 
         int height(Font font) {
             if (divider) return 5;
-            if (source != null) {
-                return subLine != null ? (font.lineHeight * 2 + 4) : 14;
-            }
+            if (source != null) return subLine != null ? (font.lineHeight * 2 + 4) : 14;
             return font.lineHeight + 2;
         }
 
@@ -1391,8 +1298,7 @@ public class PauseMenuOverlay {
                 if (!source.stack().isEmpty()) {
                     renderScaledItem(graphics, source.stack(), x, y + 1, 12);
                 } else if (source.effect() != null) {
-                    Holder<MobEffect> effHolder = source.effect().getEffect();
-                    TextureAtlasSprite sprite = mc.getMobEffectTextures().get(effHolder);
+                    TextureAtlasSprite sprite = mc.getMobEffectTextures().get(source.effect().getEffect());
                     graphics.blit(x, y + 1, 0, 12, 12, sprite);
                 } else {
                     graphics.drawString(font, "•", x + 3, y + 2, 0xFF71717A, false);

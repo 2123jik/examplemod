@@ -1,0 +1,36 @@
+{
+  "id": "memory",
+  "name_en": "Memory",
+  "name_cn": "回忆",
+  "sockets_required": 4,
+  "all_spell_levels": 4,
+  "valid_base_tags": [
+    "#examplemod:base/staves"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_17_lum",
+    "examplemod:runes/rune_16_io",
+    "examplemod:runes/rune_12_sol",
+    "examplemod:runes/rune_05_eth"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:cast_time_reduction",
+      "amount": 0.33,
+      "operation": "MULTIPLY_BASE",
+      "description": "+33% 快速施法"
+    },
+    {
+      "attribute": "irons_spellbooks:max_mana",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 法力上限"
+    },
+    {
+      "attribute": "minecraft:generic.max_absorption",
+      "amount": 6.0,
+      "operation": "ADD_VALUE",
+      "description": "能量护盾吸收"
+    }
+  ]
+}

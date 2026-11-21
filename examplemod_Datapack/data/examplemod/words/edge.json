@@ -1,0 +1,53 @@
+{
+  "id": "edge",
+  "name_en": "Edge",
+  "name_cn": "边缘",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/bows"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_03_tir",
+    "examplemod:runes/rune_07_tal",
+    "examplemod:runes/rune_11_amn"
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:draw_speed",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 拉弓提速"
+    },
+    {
+      "attribute": "examplemod:damage_to_demons",
+      "amount": 350.0,
+      "operation": "ADD_VALUE",
+      "description": "+350% 对恶魔伤害"
+    },
+    {
+      "attribute": "examplemod:damage_to_undead",
+      "amount": 280.0,
+      "operation": "ADD_VALUE",
+      "description": "+280% 对不死伤害"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.07,
+      "operation": "ADD_VALUE",
+      "description": "7% 吸血"
+    },
+    {
+      "attribute": "examplemod:prevent_heal",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "防止怪物自疗"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
+    }
+  ]
+}

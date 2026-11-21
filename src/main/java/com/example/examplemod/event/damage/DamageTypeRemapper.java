@@ -119,9 +119,6 @@ public class DamageTypeRemapper {
             Map.entry("twilightforest:yeeted", key("minecraft:fall")),
 
             // ================= 11. 虚空伤害 / 机制真伤 (out_of_world) =================
-            Map.entry("apotheosis:execute", key("minecraft:out_of_world")),
-            Map.entry("apothic_attributes:current_hp_damage", key("minecraft:out_of_world")),
-            Map.entry("apothic_enchanting:corrupted", key("minecraft:out_of_world")),
             Map.entry("bosses_of_mass_destruction:shield_piercing", key("minecraft:out_of_world")),
             Map.entry("incendium:sacrifice", key("minecraft:out_of_world")),
             Map.entry("l2complements:life_sync", key("minecraft:out_of_world")),

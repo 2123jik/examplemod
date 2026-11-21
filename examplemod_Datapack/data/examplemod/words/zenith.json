@@ -1,0 +1,58 @@
+{
+  "id": "zenith",
+  "name_en": "Zenith",
+  "name_cn": "巅峰",
+  "sockets_required": 5,
+  "all_spell_levels": 3,
+  "valid_base_tags": [
+    "#examplemod:base/polearms_spears",
+    "#examplemod:base/staves",
+    "#examplemod:base/bows",
+    "#examplemod:base/two_handed_swords"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_31_jah",
+    "examplemod:runes/rune_33_zod",
+    "examplemod:runes/rune_09_ort",
+    "examplemod:runes/rune_10_thul",
+    "examplemod:runes/rune_08_ral"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.65,
+      "operation": "MULTIPLY_BASE",
+      "description": "12级救助全抗光环"
+    },
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "+40% 攻速"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 13.0,
+      "operation": "ADD_VALUE",
+      "description": "+13 物理伤害"
+    },
+    {
+      "attribute": "apothic_attributes:fire_damage",
+      "amount": 8.0,
+      "operation": "ADD_VALUE",
+      "description": "+8 火焰伤害"
+    },
+    {
+      "attribute": "apothic_attributes:cold_damage",
+      "amount": 8.0,
+      "operation": "ADD_VALUE",
+      "description": "+8 寒冰伤害"
+    },
+    {
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.2,
+      "operation": "MULTIPLY_BASE",
+      "description": "+20% 跑速"
+    }
+  ]
+}

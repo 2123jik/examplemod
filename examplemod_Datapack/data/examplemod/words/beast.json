@@ -1,0 +1,57 @@
+{
+  "id": "beast",
+  "name_en": "Beast",
+  "name_cn": "狂暴",
+  "sockets_required": 5,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/axes",
+    "#examplemod:base/blunt",
+    "#examplemod:base/staves"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_30_ber",
+    "examplemod:runes/rune_03_tir",
+    "examplemod:runes/rune_22_um",
+    "examplemod:runes/rune_23_mal",
+    "examplemod:runes/rune_17_lum"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "狂热光环 +40% 攻速"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 9.0,
+      "operation": "ADD_VALUE",
+      "description": "+9 物理伤害"
+    },
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.04,
+      "operation": "ADD_VALUE",
+      "description": "20% 压碎打击"
+    },
+    {
+      "attribute": "examplemod:open_wounds",
+      "amount": 10.0,
+      "operation": "ADD_VALUE",
+      "description": "10% 撕开伤口"
+    },
+    {
+      "attribute": "examplemod:prevent_heal",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "防止怪物自疗"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
+    }
+  ]
+}

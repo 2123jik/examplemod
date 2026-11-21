@@ -1,0 +1,50 @@
+{
+  "type": "apotheosis:gem",
+  "min_purity": "cracked",
+  "unique": false,
+  "weights": {
+    "haven":    { "weight": 0, "quality": 0.0 },
+    "frontier": { "weight": 12, "quality": 1.0 },
+    "ascent":   { "weight": 16, "quality": 2.0 },
+    "summit":   { "weight": 14, "quality": 3.5 },
+    "pinnacle": { "weight": 10, "quality": 5.0 }
+  },
+  "bonuses": [
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "weapons",
+        "types": [
+          "apotheosis:melee_weapon",
+          "apotheosis:trident",
+          "apotheosis:bow"
+        ]
+      },
+      "attribute": "apothic_attributes:experience_gained",
+      "operation": "add_multiplied_base",
+      "values": { "cracked": 0.100, "chipped": 0.138, "flawed": 0.188, "normal": 0.250, "flawless": 0.313, "perfect": 0.375 }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": {
+        "key": "armor",
+        "types": [
+          "apotheosis:helmet",
+          "apotheosis:chestplate",
+          "apotheosis:leggings",
+          "apotheosis:boots"
+        ]
+      },
+      "attribute": "apothic_attributes:experience_gained",
+      "operation": "add_multiplied_base",
+      "values": { "cracked": 0.072, "chipped": 0.099, "flawed": 0.135, "normal": 0.180, "flawless": 0.225, "perfect": 0.270 }
+    },
+    {
+      "type": "apotheosis:attribute",
+      "gem_class": "apotheosis:shield",
+      "attribute": "apothic_attributes:experience_gained",
+      "operation": "add_multiplied_base",
+      "values": { "cracked": 0.072, "chipped": 0.099, "flawed": 0.135, "normal": 0.180, "flawless": 0.225, "perfect": 0.270 }
+    }
+  ]
+}

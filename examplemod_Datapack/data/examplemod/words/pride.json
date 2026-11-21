@@ -1,0 +1,49 @@
+{
+  "id": "pride",
+  "name_en": "Pride",
+  "name_cn": "骄傲",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/polearms_spears",
+    "#examplemod:base/staves"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_32_cham",
+    "examplemod:runes/rune_29_sur",
+    "examplemod:runes/rune_16_io",
+    "examplemod:runes/rune_28_lo"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 15.0,
+      "operation": "ADD_VALUE",
+      "description": "20级专注光环增伤"
+    },
+    {
+      "attribute": "apothic_attributes:crit_chance",
+      "amount": 0.2,
+      "operation": "ADD_VALUE",
+      "description": "+20% 致命一击"
+    },
+    {
+      "attribute": "examplemod:life_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回血"
+    },
+    {
+      "attribute": "examplemod:freeze_target",
+      "amount": 200.0,
+      "operation": "ADD_VALUE",
+      "description": "+200 冰冷值"
+    },
+    {
+      "attribute": "l2damagetracker:lightning_damage",
+      "amount": 0.2,
+      "operation": "MULTIPLY_BASE",
+      "description": "+20% 闪电附加"
+    }
+  ]
+}

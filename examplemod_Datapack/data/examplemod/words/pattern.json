@@ -1,0 +1,42 @@
+{
+  "id": "pattern",
+  "name_en": "Pattern",
+  "name_cn": "花样",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/claws",
+    "#examplemod:base/daggers"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_07_tal",
+    "examplemod:runes/rune_09_ort",
+    "examplemod:runes/rune_10_thul"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 4.0,
+      "operation": "ADD_VALUE",
+      "description": "+4 增强伤害"
+    },
+    {
+      "attribute": "apothic_attributes:crit_chance",
+      "amount": 0.12,
+      "operation": "ADD_VALUE",
+      "description": "+12% 暴击"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.15,
+      "operation": "MULTIPLY_BASE",
+      "description": "+15% 全抗"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
+    }
+  ]
+}

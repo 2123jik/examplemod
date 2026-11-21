@@ -1,0 +1,43 @@
+{
+  "id": "mist",
+  "name_en": "Mist",
+  "name_cn": "迷雾",
+  "sockets_required": 5,
+  "all_spell_levels": 2,
+  "valid_base_tags": [
+    "#examplemod:base/bows"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_32_cham",
+    "examplemod:runes/rune_13_shael",
+    "examplemod:runes/rune_25_gul",
+    "examplemod:runes/rune_10_thul",
+    "examplemod:runes/rune_06_ith"
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:arrow_damage",
+      "amount": 0.65,
+      "operation": "MULTIPLY_BASE",
+      "description": "专注光环远程增伤"
+    },
+    {
+      "attribute": "apothic_attributes:projectile_damage",
+      "amount": 0.45,
+      "operation": "MULTIPLY_BASE",
+      "description": "100% 穿透箭"
+    },
+    {
+      "attribute": "examplemod:freeze_target",
+      "amount": 200.0,
+      "operation": "ADD_VALUE",
+      "description": "+200 冰冷值"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "+40% 全抗"
+    }
+  ]
+}

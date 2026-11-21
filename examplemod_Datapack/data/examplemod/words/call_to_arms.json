@@ -1,0 +1,49 @@
+{
+  "id": "call_to_arms",
+  "name_en": "Call to Arms",
+  "name_cn": "战争召唤",
+  "sockets_required": 5,
+  "all_spell_levels": 1,
+  "valid_base_tags": [
+    "#examplemod:base/melee"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_11_amn",
+    "examplemod:runes/rune_08_ral",
+    "examplemod:runes/rune_23_mal",
+    "examplemod:runes/rune_24_ist",
+    "examplemod:runes/rune_27_ohm"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.max_health",
+      "amount": 12.0,
+      "operation": "ADD_VALUE",
+      "description": "战斗体制 +12 生命"
+    },
+    {
+      "attribute": "irons_spellbooks:max_mana",
+      "amount": 120.0,
+      "operation": "ADD_VALUE",
+      "description": "+120 最大法力"
+    },
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "+40% 攻速"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.07,
+      "operation": "ADD_VALUE",
+      "description": "7% 吸血"
+    },
+    {
+      "attribute": "examplemod:prevent_heal",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "防止怪物自疗"
+    }
+  ]
+}

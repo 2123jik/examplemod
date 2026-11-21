@@ -21,10 +21,12 @@ import net.minecraft.world.entity.TraceableEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.server.ServerStoppingEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
@@ -49,7 +51,34 @@ public class DamagePopupServer {
     private static final Map<UUID, PlayerFilterState> PLAYER_FILTERS = new ConcurrentHashMap<>();
     private static final Map<Class<?>, Optional<Method>> OWNER_METHOD_CACHE = new ConcurrentHashMap<>();
     private static final Method ISS_SUMMON_GET_OWNER = findIssSummonGetOwner();
+    private record PreDamageSnapshot(long gameTime, float poolBefore) {}
+    private static final Map<Integer, PreDamageSnapshot> PRE_DAMAGE_POOLS = new ConcurrentHashMap<>();
 
+    @SubscribeEvent
+    public static void onServerStopping(ServerStoppingEvent event) {
+        PLAYER_FILTERS.clear();
+        PRE_DAMAGE_POOLS.clear();
+    }
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void onLivingDamagePre(LivingDamageEvent.Pre event) {
+        LivingEntity victim = event.getEntity();
+        if (!(victim.level() instanceof ServerLevel serverLevel)) {
+            return;
+        }
+        if (event.getNewDamage() <= 0.0F) {
+            PRE_DAMAGE_POOLS.remove(victim.getId());
+            return;
+        }
+        if (PRE_DAMAGE_POOLS.size() > 512) {
+            long now = serverLevel.getGameTime();
+            PRE_DAMAGE_POOLS.entrySet().removeIf(e -> now - e.getValue().gameTime() > 20L);
+        }
+        PRE_DAMAGE_POOLS.put(
+                victim.getId(),
+                new PreDamageSnapshot(serverLevel.getGameTime(), victim.getHealth() + victim.getAbsorptionAmount())
+        );
+    }
     private static Method findIssSummonGetOwner() {
         try {
             Class<?> clazz = Class.forName("io.redspace.ironsspellbooks.capabilities.magic.SummonManager");
@@ -66,12 +95,14 @@ public class DamagePopupServer {
         }
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onLivingDamagePost(LivingDamageEvent.Post event) {
         LivingEntity victim = event.getEntity();
         if (!(victim.level() instanceof ServerLevel serverLevel)) {
             return;
         }
+
+        PreDamageSnapshot pre = PRE_DAMAGE_POOLS.remove(victim.getId());
 
         int serverPopupMask = DamagePopupConfig.getServerPopupMask();
         int serverChatMask = DamagePopupConfig.getServerChatMask();
@@ -82,6 +113,18 @@ public class DamagePopupServer {
         float damage = event.getNewDamage();
         if (damage <= 0.0F) {
             return;
+        }
+
+        // 核对真实血量+吸收值变化，拦截只触发了事件但未实际造成扣血的“假伤害”
+        if (pre != null && pre.gameTime() == serverLevel.getGameTime()) {
+            float poolAfter = victim.getHealth() + victim.getAbsorptionAmount();
+            float actualLost = pre.poolBefore() - poolAfter;
+            if (actualLost <= 1.0E-4F && !victim.isDeadOrDying()) {
+                return;
+            }
+            if (!victim.isDeadOrDying() && actualLost < damage) {
+                damage = actualLost;
+            }
         }
 
         DamageSource source = event.getSource();

@@ -1,0 +1,47 @@
+{
+  "id": "dominion",
+  "name_en": "Dominion",
+  "name_cn": "支配",
+  "sockets_required": 2,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/staves",
+    "#examplemod:base/daggers"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_32_cham",
+    "examplemod:runes/rune_27_ohm"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:eldritch_spell_power",
+      "amount": 0.45,
+      "operation": "MULTIPLY_BASE",
+      "description": "+45% 幽冥/魔像精通"
+    },
+    {
+      "attribute": "twilightforest:minion_count",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "+1 最大魔像"
+    },
+    {
+      "attribute": "examplemod:freeze_target",
+      "amount": 200.0,
+      "operation": "ADD_VALUE",
+      "description": "+200 冰冷值"
+    },
+    {
+      "attribute": "examplemod:damage_to_undead",
+      "amount": 50.0,
+      "operation": "ADD_VALUE",
+      "description": "+50% 对不死伤害"
+    },
+    {
+      "attribute": "irons_spellbooks:cast_time_reduction",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 快速施法"
+    }
+  ]
+}

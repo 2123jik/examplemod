@@ -1,5 +1,6 @@
 package com.example.examplemod.event.damage;
 
+import com.example.examplemod.registry.PhysicalSchool;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.SchoolType;
 import net.alshanex.tunes_n_tomes.registry.TSchoolRegistry;
@@ -225,6 +226,15 @@ public class Init {
         registerEntity("tunes_n_tomes:hope_burst", TSchoolRegistry.MELODY);
         registerEntity("tunes_n_tomes:harp_explosion", TSchoolRegistry.MELODY);
         registerEntity("tunes_n_tomes:fortissimo_release", TSchoolRegistry.MELODY);
+
+        registerDamage("minecraft:mob_attack", PhysicalSchool.PHYSICAL);
+        registerDamage("minecraft:mob_attack_no_aggro", PhysicalSchool.PHYSICAL);
+        registerDamage("minecraft:player_attack", PhysicalSchool.PHYSICAL);
+        registerDamage("minecraft:arrow", PhysicalSchool.PHYSICAL);
+        registerDamage("minecraft:trident", PhysicalSchool.PHYSICAL);
+        registerDamage("minecraft:mob_projectile", PhysicalSchool.PHYSICAL);
+        registerDamage("minecraft:explosion", PhysicalSchool.PHYSICAL);
+        registerDamage("minecraft:player_explosion", PhysicalSchool.PHYSICAL);
     }
 
     private static void registerEntity(String id, Supplier<SchoolType> school) {

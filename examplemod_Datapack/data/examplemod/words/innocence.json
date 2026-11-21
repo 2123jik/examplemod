@@ -1,0 +1,48 @@
+{
+  "id": "innocence",
+  "name_en": "Innocence",
+  "name_cn": "纯真",
+  "sockets_required": 4,
+  "all_spell_levels": 2,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_25_gul",
+    "examplemod:runes/rune_20_lem",
+    "examplemod:runes/rune_33_zod",
+    "examplemod:runes/rune_15_hel"
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.06,
+      "operation": "ADD_VALUE",
+      "description": "+20% 压碎打击"
+    },
+    {
+      "attribute": "minecraft:player.sweeping_damage_ratio",
+      "amount": 0.5,
+      "operation": "ADD_VALUE",
+      "description": "刃之盾群体切割"
+    },
+    {
+      "attribute": "examplemod:thorns_damage",
+      "amount": 30.0,
+      "operation": "ADD_VALUE",
+      "description": "高额反伤"
+    },
+    {
+      "attribute": "minecraft:generic.armor",
+      "amount": 12.0,
+      "operation": "ADD_VALUE",
+      "description": "+12 护甲"
+    },
+    {
+      "attribute": "irons_spellbooks:nature_magic_resist",
+      "amount": 0.45,
+      "operation": "MULTIPLY_BASE",
+      "description": "+45% 毒抗"
+    }
+  ]
+}

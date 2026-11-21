@@ -1,0 +1,48 @@
+{
+  "id": "shattered_wall",
+  "name_en": "Shattered Wall",
+  "name_cn": "碎裂之墙",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/shields"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_33_zod",
+    "examplemod:runes/rune_31_jah",
+    "examplemod:runes/rune_08_ral",
+    "examplemod:runes/rune_32_cham"
+  ],
+  "attributes": [
+    {
+      "attribute": "examplemod:holy_freeze_aura",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "神圣冰冻灵气"
+    },
+    {
+      "attribute": "l2damagetracker:freezing_damage",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 冰冻伤害"
+    },
+    {
+      "attribute": "l2weaponry:shield_defense",
+      "amount": 25.0,
+      "operation": "ADD_VALUE",
+      "description": "+25 绝对盾防"
+    },
+    {
+      "attribute": "examplemod:cannot_be_frozen",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "无法冰冻"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 5.0,
+      "operation": "ADD_VALUE",
+      "description": "+5 击杀回蓝(x4)"
+    }
+  ]
+}

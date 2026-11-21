@@ -1,0 +1,54 @@
+{
+  "id": "wrath",
+  "name_en": "Wrath",
+  "name_cn": "愤怒",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/bows"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_21_pul",
+    "examplemod:runes/rune_17_lum",
+    "examplemod:runes/rune_30_ber",
+    "examplemod:runes/rune_23_mal"
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:draw_speed",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "+40% 拉弓提速"
+    },
+    {
+      "attribute": "examplemod:damage_to_demons",
+      "amount": 375.0,
+      "operation": "ADD_VALUE",
+      "description": "+375% 对恶魔伤害"
+    },
+    {
+      "attribute": "examplemod:damage_to_undead",
+      "amount": 275.0,
+      "operation": "ADD_VALUE",
+      "description": "+275% 对不死伤害"
+    },
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.04,
+      "operation": "ADD_VALUE",
+      "description": "20% 压碎打击"
+    },
+    {
+      "attribute": "examplemod:prevent_heal",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "防止怪物自疗"
+    },
+    {
+      "attribute": "examplemod:cannot_be_frozen",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "无法冰冻"
+    }
+  ]
+}

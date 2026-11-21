@@ -1,0 +1,48 @@
+{
+  "id": "bramble",
+  "name_en": "Bramble",
+  "name_cn": "荆棘",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_08_ral",
+    "examplemod:runes/rune_27_ohm",
+    "examplemod:runes/rune_29_sur",
+    "examplemod:runes/rune_05_eth"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:nature_spell_power",
+      "amount": 0.5,
+      "operation": "MULTIPLY_BASE",
+      "description": "+50% 毒素/自然法强"
+    },
+    {
+      "attribute": "examplemod:thorns_damage",
+      "amount": 18.0,
+      "operation": "ADD_VALUE",
+      "description": "荆棘灵气反伤"
+    },
+    {
+      "attribute": "examplemod:life_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回血"
+    },
+    {
+      "attribute": "irons_spellbooks:max_mana",
+      "amount": 0.05,
+      "operation": "MULTIPLY_BASE",
+      "description": "+5% 法力上限"
+    },
+    {
+      "attribute": "irons_spellbooks:nature_magic_resist",
+      "amount": 0.7,
+      "operation": "MULTIPLY_BASE",
+      "description": "+70% 毒抗"
+    }
+  ]
+}

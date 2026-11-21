@@ -1,0 +1,41 @@
+{
+  "id": "chaos",
+  "name_en": "Chaos",
+  "name_cn": "混沌",
+  "sockets_required": 3,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/claws"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_19_fal",
+    "examplemod:runes/rune_27_ohm",
+    "examplemod:runes/rune_22_um"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:player.sweeping_damage_ratio",
+      "amount": 0.65,
+      "operation": "ADD_VALUE",
+      "description": "剑刃之舞旋风斩"
+    },
+    {
+      "attribute": "l2damagetracker:magic_damage",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 魔法附加伤"
+    },
+    {
+      "attribute": "examplemod:open_wounds",
+      "amount": 10.0,
+      "operation": "ADD_VALUE",
+      "description": "10% 撕开伤口"
+    },
+    {
+      "attribute": "examplemod:life_on_kill",
+      "amount": 3.0,
+      "operation": "ADD_VALUE",
+      "description": "+3 击杀回血"
+    }
+  ]
+}

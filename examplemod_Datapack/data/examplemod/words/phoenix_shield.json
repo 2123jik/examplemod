@@ -1,0 +1,42 @@
+{
+  "id": "phoenix_shield",
+  "name_en": "Phoenix (Shield)",
+  "name_cn": "凤凰 (盾牌)",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/shields"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_26_vex",
+    "examplemod:runes/rune_26_vex",
+    "examplemod:runes/rune_28_lo",
+    "examplemod:runes/rune_31_jah"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 10.0,
+      "operation": "ADD_VALUE",
+      "description": "+10 物理增伤"
+    },
+    {
+      "attribute": "examplemod:fire_penetration",
+      "amount": 28.0,
+      "operation": "ADD_VALUE",
+      "description": "-28% 敌人火抗"
+    },
+    {
+      "attribute": "apothic_attributes:healing_received",
+      "amount": 0.4,
+      "operation": "MULTIPLY_BASE",
+      "description": "救赎光环回复"
+    },
+    {
+      "attribute": "minecraft:generic.max_health",
+      "amount": 10.0,
+      "operation": "ADD_VALUE",
+      "description": "+10 生命"
+    }
+  ]
+}

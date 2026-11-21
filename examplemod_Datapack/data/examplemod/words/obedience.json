@@ -1,0 +1,44 @@
+{
+  "id": "obedience",
+  "name_en": "Obedience",
+  "name_cn": "顺从",
+  "sockets_required": 5,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/polearms_spears",
+    "#examplemod:base/blunt"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_15_hel",
+    "examplemod:runes/rune_18_ko",
+    "examplemod:runes/rune_10_thul",
+    "examplemod:runes/rune_05_eth",
+    "examplemod:runes/rune_19_fal"
+  ],
+  "attributes": [
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.08,
+      "operation": "ADD_VALUE",
+      "description": "40% 压碎打击"
+    },
+    {
+      "attribute": "examplemod:fire_penetration",
+      "amount": 25.0,
+      "operation": "ADD_VALUE",
+      "description": "-25% 敌人火抗"
+    },
+    {
+      "attribute": "apothic_attributes:armor_shred",
+      "amount": 0.25,
+      "operation": "ADD_VALUE",
+      "description": "25% 破甲"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 全抗"
+    }
+  ]
+}

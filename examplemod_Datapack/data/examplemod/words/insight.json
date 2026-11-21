@@ -1,0 +1,43 @@
+{
+  "id": "insight",
+  "name_en": "Insight",
+  "name_cn": "眼光",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/polearms_spears",
+    "#examplemod:base/staves"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_08_ral",
+    "examplemod:runes/rune_03_tir",
+    "examplemod:runes/rune_07_tal",
+    "examplemod:runes/rune_12_sol"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:mana_regen",
+      "amount": 0.85,
+      "operation": "MULTIPLY_BASE",
+      "description": "+85% 冥思回蓝"
+    },
+    {
+      "attribute": "irons_spellbooks:cast_time_reduction",
+      "amount": 0.35,
+      "operation": "MULTIPLY_BASE",
+      "description": "+35% 快速施法"
+    },
+    {
+      "attribute": "apothic_attributes:crit_chance",
+      "amount": 0.2,
+      "operation": "ADD_VALUE",
+      "description": "+20% 暴击率"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
+    }
+  ]
+}

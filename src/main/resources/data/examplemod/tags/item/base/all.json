@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#examplemod:base/all_weapons",
-    "#examplemod:base/helmets",
-    "#examplemod:base/chestplates",
-    "#examplemod:base/shields"
-  ]
-}

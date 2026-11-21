@@ -1,0 +1,55 @@
+{
+  "id": "eternity",
+  "name_en": "Eternity",
+  "name_cn": "永恒",
+  "sockets_required": 5,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/melee"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_11_amn",
+    "examplemod:runes/rune_30_ber",
+    "examplemod:runes/rune_24_ist",
+    "examplemod:runes/rune_12_sol",
+    "examplemod:runes/rune_29_sur"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 10.0,
+      "operation": "ADD_VALUE",
+      "description": "+10 伤害"
+    },
+    {
+      "attribute": "twilightforest:minion_count",
+      "amount": 6.0,
+      "operation": "ADD_VALUE",
+      "description": "+6 重生仆从上限"
+    },
+    {
+      "attribute": "apothic_attributes:current_hp_damage",
+      "amount": 0.04,
+      "operation": "ADD_VALUE",
+      "description": "20% 压碎打击"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.07,
+      "operation": "ADD_VALUE",
+      "description": "7% 吸血"
+    },
+    {
+      "attribute": "examplemod:life_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回血"
+    },
+    {
+      "attribute": "examplemod:cannot_be_frozen",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "无法冰冻"
+    }
+  ]
+}

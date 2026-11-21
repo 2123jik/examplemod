@@ -1,6 +1,7 @@
 package com.example.examplemod.event.damage;
 
 import com.example.examplemod.registry.ModAttributes;
+import com.example.examplemod.registry.attribute.PhysicalSchoolAttributes;
 import dev.shadowsoffire.apothic_attributes.api.ALObjects;
 import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import io.redspace.ironsspellbooks.api.spells.SchoolType;
@@ -88,7 +89,11 @@ public final class DamageEngine {
             SchoolType school = getSchool(initialSchoolId);
 
             if (school == null) {
-                return new SolveResult(baseDamage, Set.of());
+                // 物理伤害无转化时，同样走同一套物理抗性收敛公式
+                float out = initialSchoolId.equals(ModAttributes.PHYSICAL_ID)
+                        ? baseDamage * getPhysicalResistanceMultiplier(target)
+                        : baseDamage;
+                return new SolveResult(out, Set.of());
             }
 
             if (isNativeSpell) {
@@ -466,7 +471,9 @@ public final class DamageEngine {
         double powered = unresisted * (1.0 + extraPowerBonus);
 
         if (finalSchool == null) {
-            return powered;
+            return slice.current().equals(ModAttributes.PHYSICAL_ID)
+                    ? slice.baseAmount() * getPhysicalResistanceMultiplier(target)
+                    : slice.baseAmount();
         }
 
         return powered * getResistanceMultiplier(
@@ -743,5 +750,15 @@ public final class DamageEngine {
         AttributeInstance instance = entity.getAttribute(attribute);
 
         return instance == null ? fallback : instance.getValue();
+    }
+    private static float getPhysicalResistanceMultiplier(LivingEntity target) {
+
+        double physResist = getAttributeValue(
+                target,
+                PhysicalSchoolAttributes.PHYSICAL_RESIST,
+                1.0
+        );
+        float multiplier = 2.0F - (float) softCapFormula(physResist);
+        return Mth.clamp(multiplier, MIN_RESIST_MULTIPLIER, MAX_RESIST_MULTIPLIER);
     }
 }

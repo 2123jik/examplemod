@@ -1,0 +1,42 @@
+{
+  "id": "madness",
+  "name_en": "Madness",
+  "name_cn": "疯狂",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/all_weapons"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_29_sur",
+    "examplemod:runes/rune_23_mal",
+    "examplemod:runes/rune_26_vex",
+    "examplemod:runes/rune_13_shael"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.45,
+      "operation": "MULTIPLY_BASE",
+      "description": "+45% 攻速"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 11.0,
+      "operation": "ADD_VALUE",
+      "description": "+11 伤害"
+    },
+    {
+      "attribute": "apothic_attributes:prot_shred",
+      "amount": 0.35,
+      "operation": "ADD_VALUE",
+      "description": "降低抗性诅咒"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 全抗"
+    }
+  ]
+}

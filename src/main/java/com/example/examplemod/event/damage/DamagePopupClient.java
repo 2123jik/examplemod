@@ -49,7 +49,8 @@ public class DamagePopupClient {
     private static final int MAX_POPUPS = 120;
 
     @SubscribeEvent
-    public static void onConstructMod(FMLConstructModEvent event) {
+    public static void onConstructMod(FMLConstructModEvent event)
+    {
         event.enqueueWork(() -> ModList.get().getModContainerById(ExampleMod.MODID).ifPresent(container ->
                 container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new)
         ));

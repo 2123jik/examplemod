@@ -1,0 +1,50 @@
+{
+  "id": "voice_of_reason",
+  "name_en": "Voice of Reason",
+  "name_cn": "理性之声",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/swords",
+    "#examplemod:base/blunt",
+    "#examplemod:base/bows"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_20_lem",
+    "examplemod:runes/rune_18_ko",
+    "examplemod:runes/rune_01_el",
+    "examplemod:runes/rune_02_eld"
+  ],
+  "attributes": [
+    {
+      "attribute": "examplemod:ice_penetration",
+      "amount": 24.0,
+      "operation": "ADD_VALUE",
+      "description": "-24% 敌人冰抗"
+    },
+    {
+      "attribute": "apothic_attributes:cold_damage",
+      "amount": 8.0,
+      "operation": "ADD_VALUE",
+      "description": "+8 冰冷附加伤"
+    },
+    {
+      "attribute": "examplemod:damage_to_demons",
+      "amount": 270.0,
+      "operation": "ADD_VALUE",
+      "description": "+270% 对恶魔伤害"
+    },
+    {
+      "attribute": "examplemod:damage_to_undead",
+      "amount": 300.0,
+      "operation": "ADD_VALUE",
+      "description": "+300% 对不死伤害"
+    },
+    {
+      "attribute": "examplemod:cannot_be_frozen",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "无法冰冻"
+    }
+  ]
+}

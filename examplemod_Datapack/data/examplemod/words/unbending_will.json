@@ -1,0 +1,51 @@
+{
+  "id": "unbending_will",
+  "name_en": "Unbending Will",
+  "name_cn": "不屈意志",
+  "sockets_required": 6,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/swords",
+    "#examplemod:base/two_handed_swords"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_19_fal",
+    "examplemod:runes/rune_16_io",
+    "examplemod:runes/rune_06_ith",
+    "examplemod:runes/rune_02_eld",
+    "examplemod:runes/rune_01_el",
+    "examplemod:runes/rune_15_hel"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 8.0,
+      "operation": "ADD_VALUE",
+      "description": "+8 伤害"
+    },
+    {
+      "attribute": "examplemod:damage_to_undead",
+      "amount": 75.0,
+      "operation": "ADD_VALUE",
+      "description": "+75% 对不死伤害"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.1,
+      "operation": "ADD_VALUE",
+      "description": "10% 吸血"
+    },
+    {
+      "attribute": "l2damagetracker:damage_absorption",
+      "amount": 5.0,
+      "operation": "ADD_VALUE",
+      "description": "+5 固定减伤"
+    },
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 攻速"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "harmony",
+  "name_en": "Harmony",
+  "name_cn": "和谐",
+  "sockets_required": 4,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/bows"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_03_tir",
+    "examplemod:runes/rune_06_ith",
+    "examplemod:runes/rune_12_sol",
+    "examplemod:runes/rune_18_ko"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "10级活力光环跑速"
+    },
+    {
+      "attribute": "apothic_attributes:arrow_damage",
+      "amount": 0.45,
+      "operation": "MULTIPLY_BASE",
+      "description": "+45% 箭矢增伤"
+    },
+    {
+      "attribute": "irons_spellbooks:mana_regen",
+      "amount": 0.2,
+      "operation": "MULTIPLY_BASE",
+      "description": "+20% 回蓝"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
+    }
+  ]
+}

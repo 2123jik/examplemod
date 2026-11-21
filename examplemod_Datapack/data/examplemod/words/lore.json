@@ -1,0 +1,40 @@
+{
+  "id": "lore",
+  "name_en": "Lore",
+  "name_cn": "学识",
+  "sockets_required": 2,
+  "all_spell_levels": 1,
+  "valid_base_tags": [
+    "#examplemod:base/helmets"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_09_ort",
+    "examplemod:runes/rune_12_sol"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:spell_power",
+      "amount": 0.1,
+      "operation": "MULTIPLY_BASE",
+      "description": "+10% 法强"
+    },
+    {
+      "attribute": "l2damagetracker:damage_absorption",
+      "amount": 4.0,
+      "operation": "ADD_VALUE",
+      "description": "+4 固定减伤"
+    },
+    {
+      "attribute": "irons_spellbooks:lightning_magic_resist",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 雷抗"
+    },
+    {
+      "attribute": "examplemod:mana_on_kill",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 击杀回蓝(x4)"
+    }
+  ]
+}

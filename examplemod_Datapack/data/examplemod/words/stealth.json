@@ -1,0 +1,46 @@
+{
+  "id": "stealth",
+  "name_en": "Stealth",
+  "name_cn": "隐秘",
+  "sockets_required": 2,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/chestplates"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_07_tal",
+    "examplemod:runes/rune_05_eth"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.12,
+      "operation": "MULTIPLY_BASE",
+      "description": "+12% 跑速"
+    },
+    {
+      "attribute": "irons_spellbooks:cast_time_reduction",
+      "amount": 0.2,
+      "operation": "MULTIPLY_BASE",
+      "description": "+20% 快速施法"
+    },
+    {
+      "attribute": "irons_spellbooks:mana_regen",
+      "amount": 0.15,
+      "operation": "MULTIPLY_BASE",
+      "description": "+15% 回蓝"
+    },
+    {
+      "attribute": "irons_spellbooks:nature_magic_resist",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 毒抗"
+    },
+    {
+      "attribute": "l2damagetracker:damage_absorption",
+      "amount": 2.0,
+      "operation": "ADD_VALUE",
+      "description": "+2 固定减伤"
+    }
+  ]
+}

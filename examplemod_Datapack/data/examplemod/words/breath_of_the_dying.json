@@ -1,0 +1,56 @@
+{
+  "id": "breath_of_the_dying",
+  "name_en": "Breath of the Dying",
+  "name_cn": "死亡呼吸",
+  "sockets_required": 6,
+  "all_spell_levels": 0,
+  "valid_base_tags": [
+    "#examplemod:base/all_weapons"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_26_vex",
+    "examplemod:runes/rune_15_hel",
+    "examplemod:runes/rune_01_el",
+    "examplemod:runes/rune_02_eld",
+    "examplemod:runes/rune_33_zod",
+    "examplemod:runes/rune_05_eth"
+  ],
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.attack_speed",
+      "amount": 0.6,
+      "operation": "MULTIPLY_BASE",
+      "description": "+60% 巅峰攻速"
+    },
+    {
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 16.0,
+      "operation": "ADD_VALUE",
+      "description": "+16 物理伤害"
+    },
+    {
+      "attribute": "examplemod:damage_to_undead",
+      "amount": 200.0,
+      "operation": "ADD_VALUE",
+      "description": "+200% 对不死伤害"
+    },
+    {
+      "attribute": "examplemod:mana_steal",
+      "amount": 7.0,
+      "operation": "ADD_VALUE",
+      "description": "7% 击中偷蓝"
+    },
+    {
+      "attribute": "apothic_attributes:life_steal",
+      "amount": 0.12,
+      "operation": "ADD_VALUE",
+      "description": "12% 生命偷取"
+    },
+    {
+      "attribute": "examplemod:prevent_heal",
+      "amount": 1.0,
+      "operation": "ADD_VALUE",
+      "description": "防止怪物自疗"
+    }
+  ]
+}

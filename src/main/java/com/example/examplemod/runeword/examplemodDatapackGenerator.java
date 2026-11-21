@@ -142,51 +142,91 @@ public class examplemodDatapackGenerator {
 
         // ==================== 1. 暗金品质 (Unique / 独特) ====================
         writeTag(new File(qDir, "unique.json"), List.of(
-                // Simply Swords 专属暗金神器 (40+把)
+                // Simply Swords 专属暗金神器 (补全 harbinger, sunfire, tempest)
                 "simplyswords:arcanethyst", "simplyswords:awakened_lichblade", "simplyswords:slumbering_lichblade", "simplyswords:waking_lichblade",
                 "simplyswords:bloodwake", "simplyswords:bramblethorn", "simplyswords:brimstone_claymore", "simplyswords:caelestis", "simplyswords:chompolotl", "simplyswords:dawnquiver",
                 "simplyswords:dreadwhisper", "simplyswords:emberblade", "simplyswords:emberlash", "simplyswords:enigma", "simplyswords:flamewind", "simplyswords:frostfall", "simplyswords:gloampiercer",
-                "simplyswords:hearthflame", "simplyswords:hiveheart", "simplyswords:icewhisper", "simplyswords:ionbound_stormscale", "simplyswords:livyatan", "simplyswords:magiblade",
+                "simplyswords:harbinger", "simplyswords:hearthflame", "simplyswords:hiveheart", "simplyswords:icewhisper", "simplyswords:ionbound_stormscale", "simplyswords:livyatan", "simplyswords:magiblade",
                 "simplyswords:magiscythe", "simplyswords:magispear", "simplyswords:mjolnir", "simplyswords:molten_edge", "simplyswords:ribboncleaver", "simplyswords:riftmane", "simplyswords:shadowsting",
                 "simplyswords:soulkeeper", "simplyswords:soulpyre", "simplyswords:soulrender", "simplyswords:soulstalker", "simplyswords:soulstealer", "simplyswords:stars_edge", "simplyswords:stormbringer",
-                "simplyswords:storms_edge", "simplyswords:stormscale", "simplyswords:the_devourer", "simplyswords:thunderbrand", "simplyswords:toxic_longsword", "simplyswords:twisted_blade",
-                "simplyswords:watcher_claymore", "simplyswords:watching_warglaive", "simplyswords:waxweaver", "simplyswords:whisperwind", "simplyswords:wickpiercer", "simplyswords:wraithfang", "simplyswords:wraithmaw",
-                // Cataclysm 灾变 BOSS 掉落神器
+                "simplyswords:storms_edge", "simplyswords:stormscale", "simplyswords:sunfire", "simplyswords:tempest", "simplyswords:the_devourer", "simplyswords:thunderbrand", "simplyswords:toxic_longsword",
+                "simplyswords:twisted_blade", "simplyswords:watcher_claymore", "simplyswords:watching_warglaive", "simplyswords:waxweaver", "simplyswords:whisperwind", "simplyswords:wickpiercer",
+                "simplyswords:wraithfang", "simplyswords:wraithmaw",
+                // Cataclysm 灾变 BOSS 掉落神器 & 独立暗金防具
                 "cataclysm:the_incinerator", "cataclysm:the_annihilator", "cataclysm:the_immolator", "cataclysm:ceraunus", "cataclysm:brontes", "cataclysm:soul_render", "cataclysm:meat_shredder",
                 "cataclysm:infernal_forge", "cataclysm:void_forge", "cataclysm:tidal_claws", "cataclysm:astrape", "cataclysm:ancient_spear", "cataclysm:cursed_bow", "cataclysm:gauntlet_of_bulwark",
                 "cataclysm:gauntlet_of_guard", "cataclysm:gauntlet_of_maelstrom", "cataclysm:athame",
+                "cataclysm:bloom_stone_pauldrons", "cataclysm:monstrous_helm",
                 // L2Weaponry 独立机制暗金
                 "l2weaponry:death_scythe", "l2weaponry:abyss_echo", "l2weaponry:abyss_resonance", "l2weaponry:abyss_shock", "l2weaponry:abyss_terror", "l2weaponry:barbaric_hallow", "l2weaponry:blade_of_illusion",
                 "l2weaponry:claw_of_determination", "l2weaponry:hammer_of_incarceration", "l2weaponry:haunting_demon_of_the_end", "l2weaponry:shadow_hunter", "l2weaponry:shadow_shredder", "l2weaponry:dogmatic_punishment",
                 "l2weaponry:dogmatic_standoff", "l2weaponry:poseidon_madness", "l2weaponry:axe_of_cursed_flame", "l2weaponry:soul_harvester", "l2weaponry:ancient_traveller", "l2weaponry:vampire_desire", "l2weaponry:void_escape", "l2weaponry:spear_of_winter_storm",
-                // Mowzie's Mobs 神器
+                // Mowzie's Mobs 武器与独特头盔
                 "mowziesmobs:wrought_axe", "mowziesmobs:earthrend_gauntlet", "mowziesmobs:naga_fang_dagger", "mowziesmobs:sculptor_staff", "mowziesmobs:blowgun",
-                // Iron's Spells & 东方魔法注入神器
+                "mowziesmobs:sol_visage", "mowziesmobs:wrought_helmet",
+                // Iron's Spells & 东方魔法 & Tunes 'n Tomes 神器与独特防具
                 "irons_spellbooks:hellrazor", "irons_spellbooks:boreal_blade", "irons_spellbooks:amethyst_rapier", "irons_spellbooks:misery", "irons_spellbooks:spellbreaker", "irons_spellbooks:twilight_gale",
+                "irons_spellbooks:infernal_sorcerer_chestplate", "irons_spellbooks:paladin_chestplate", "irons_spellbooks:speed_boots",
                 "iss_magicfromtheeast:jade_guandao", "iss_magicfromtheeast:muramasa", "iss_magicfromtheeast:soul_breaker", "iss_magicfromtheeast:soul_katana", "iss_magicfromtheeast:spirit_crusher", "iss_magicfromtheeast:soulpiercer",
-                // 其他独立神器
-                "bosses_of_mass_destruction:earthdive_spear", "endermanoverhaul:corrupted_blade", "twilightforest:giant_sword", "twilightforest:glass_sword", "twilightdelight:teardrop_sword"
+                "iss_magicfromtheeast:elemental_commander_chestplate", "iss_magicfromtheeast:mist_boots",
+                "tunes_n_tomes:bard_harp",
+                // 其他独立神器与独特装备
+                "bosses_of_mass_destruction:earthdive_spear", "endermanoverhaul:corrupted_blade", "endermanoverhaul:corrupted_shield",
+                "twilightforest:giant_sword", "twilightforest:glass_sword", "twilightforest:mystic_crown", "twilightdelight:teardrop_sword",
+                "minecraft:elytra"
         ));
 
         // ==================== 2. 绿色品质 (Set / 套装) ====================
         writeTag(new File(qDir, "set.json"), List.of(
-                // 暮色森林四大套装剑斧盾 (铁木、钢叶、骑士金属、炽铁)
+                // 暮色森林套装武器与防具 (铁木、钢叶、骑士金属、炽铁、极地、雪怪、娜迦、幻影)
                 "twilightforest:ironwood_sword", "twilightforest:ironwood_axe",
                 "twilightforest:steeleaf_sword", "twilightforest:steeleaf_axe",
                 "twilightforest:knightmetal_sword", "twilightforest:knightmetal_axe", "twilightforest:knightmetal_shield",
                 "twilightforest:fiery_sword",
+                "twilightforest:ironwood_helmet", "twilightforest:ironwood_chestplate", "twilightforest:ironwood_leggings", "twilightforest:ironwood_boots",
+                "twilightforest:steeleaf_helmet", "twilightforest:steeleaf_chestplate", "twilightforest:steeleaf_leggings", "twilightforest:steeleaf_boots",
+                "twilightforest:knightmetal_helmet", "twilightforest:knightmetal_chestplate", "twilightforest:knightmetal_leggings", "twilightforest:knightmetal_boots",
+                "twilightforest:fiery_helmet", "twilightforest:fiery_chestplate", "twilightforest:fiery_leggings", "twilightforest:fiery_boots",
+                "twilightforest:arctic_helmet", "twilightforest:arctic_chestplate", "twilightforest:arctic_leggings", "twilightforest:arctic_boots",
+                "twilightforest:yeti_helmet", "twilightforest:yeti_chestplate", "twilightforest:yeti_leggings", "twilightforest:yeti_boots",
+                "twilightforest:naga_chestplate", "twilightforest:naga_leggings",
+                "twilightforest:phantom_helmet", "twilightforest:phantom_chestplate",
                 // KnavesNeeds 暮色 4 材质全套冷兵器
                 "knavesneeds:twilightforest/ironwood/chakram", "knavesneeds:twilightforest/ironwood/claymore", "knavesneeds:twilightforest/ironwood/cutlass", "knavesneeds:twilightforest/ironwood/glaive", "knavesneeds:twilightforest/ironwood/greataxe", "knavesneeds:twilightforest/ironwood/greathammer", "knavesneeds:twilightforest/ironwood/halberd", "knavesneeds:twilightforest/ironwood/katana", "knavesneeds:twilightforest/ironwood/longsword", "knavesneeds:twilightforest/ironwood/rapier", "knavesneeds:twilightforest/ironwood/sai", "knavesneeds:twilightforest/ironwood/scythe", "knavesneeds:twilightforest/ironwood/spear", "knavesneeds:twilightforest/ironwood/twinblade", "knavesneeds:twilightforest/ironwood/warglaive",
                 "knavesneeds:twilightforest/steeleaf/chakram", "knavesneeds:twilightforest/steeleaf/claymore", "knavesneeds:twilightforest/steeleaf/cutlass", "knavesneeds:twilightforest/steeleaf/glaive", "knavesneeds:twilightforest/steeleaf/greataxe", "knavesneeds:twilightforest/steeleaf/greathammer", "knavesneeds:twilightforest/steeleaf/halberd", "knavesneeds:twilightforest/steeleaf/katana", "knavesneeds:twilightforest/steeleaf/longsword", "knavesneeds:twilightforest/steeleaf/rapier", "knavesneeds:twilightforest/steeleaf/sai", "knavesneeds:twilightforest/steeleaf/scythe", "knavesneeds:twilightforest/steeleaf/spear", "knavesneeds:twilightforest/steeleaf/twinblade", "knavesneeds:twilightforest/steeleaf/warglaive",
                 "knavesneeds:twilightforest/knightmetal/chakram", "knavesneeds:twilightforest/knightmetal/claymore", "knavesneeds:twilightforest/knightmetal/cutlass", "knavesneeds:twilightforest/knightmetal/glaive", "knavesneeds:twilightforest/knightmetal/greataxe", "knavesneeds:twilightforest/knightmetal/greathammer", "knavesneeds:twilightforest/knightmetal/halberd", "knavesneeds:twilightforest/knightmetal/katana", "knavesneeds:twilightforest/knightmetal/longsword", "knavesneeds:twilightforest/knightmetal/rapier", "knavesneeds:twilightforest/knightmetal/sai", "knavesneeds:twilightforest/knightmetal/scythe", "knavesneeds:twilightforest/knightmetal/spear", "knavesneeds:twilightforest/knightmetal/twinblade", "knavesneeds:twilightforest/knightmetal/warglaive",
                 "knavesneeds:twilightforest/fiery/chakram", "knavesneeds:twilightforest/fiery/claymore", "knavesneeds:twilightforest/fiery/cutlass", "knavesneeds:twilightforest/fiery/glaive", "knavesneeds:twilightforest/fiery/greataxe", "knavesneeds:twilightforest/fiery/greathammer", "knavesneeds:twilightforest/fiery/halberd", "knavesneeds:twilightforest/fiery/katana", "knavesneeds:twilightforest/fiery/longsword", "knavesneeds:twilightforest/fiery/rapier", "knavesneeds:twilightforest/fiery/sai", "knavesneeds:twilightforest/fiery/scythe", "knavesneeds:twilightforest/fiery/spear", "knavesneeds:twilightforest/fiery/twinblade", "knavesneeds:twilightforest/fiery/warglaive",
-                // L2Weaponry 暮色 4 材质全套冷兵器
-                "l2weaponry:ironwood_battle_axe", "l2weaponry:ironwood_claw", "l2weaponry:ironwood_dagger", "l2weaponry:ironwood_hammer", "l2weaponry:ironwood_javelin", "l2weaponry:ironwood_machete", "l2weaponry:ironwood_nunchaku", "l2weaponry:ironwood_plate_shield", "l2weaponry:ironwood_scythe", "l2weaponry:ironwood_spear", "l2weaponry:ironwood_throwing_axe",
-                "l2weaponry:steeleaf_battle_axe", "l2weaponry:steeleaf_claw", "l2weaponry:steeleaf_dagger", "l2weaponry:steeleaf_hammer", "l2weaponry:steeleaf_javelin", "l2weaponry:steeleaf_machete", "l2weaponry:steeleaf_nunchaku", "l2weaponry:steeleaf_plate_shield", "l2weaponry:steeleaf_scythe", "l2weaponry:steeleaf_spear", "l2weaponry:steeleaf_throwing_axe",
-                "l2weaponry:knightmetal_battle_axe", "l2weaponry:knightmetal_claw", "l2weaponry:knightmetal_dagger", "l2weaponry:knightmetal_hammer", "l2weaponry:knightmetal_javelin", "l2weaponry:knightmetal_machete", "l2weaponry:knightmetal_nunchaku", "l2weaponry:knightmetal_plate_shield", "l2weaponry:knightmetal_scythe", "l2weaponry:knightmetal_spear", "l2weaponry:knightmetal_throwing_axe",
-                "l2weaponry:fiery_battle_axe", "l2weaponry:fiery_claw", "l2weaponry:fiery_dagger", "l2weaponry:fiery_hammer", "l2weaponry:fiery_javelin", "l2weaponry:fiery_machete", "l2weaponry:fiery_nunchaku", "l2weaponry:fiery_plate_shield", "l2weaponry:fiery_scythe", "l2weaponry:fiery_spear", "l2weaponry:fiery_throwing_axe",
-                // 铁魔法套装大剑
-                "irons_spellbooks:keeper_flamberge", "irons_spellbooks:legionnaire_flamberge"
+                // L2Weaponry 暮色 4 材质全套冷兵器 + 圆盾
+                "l2weaponry:ironwood_battle_axe", "l2weaponry:ironwood_claw", "l2weaponry:ironwood_dagger", "l2weaponry:ironwood_hammer", "l2weaponry:ironwood_javelin", "l2weaponry:ironwood_machete", "l2weaponry:ironwood_nunchaku", "l2weaponry:ironwood_plate_shield", "l2weaponry:ironwood_round_shield", "l2weaponry:ironwood_scythe", "l2weaponry:ironwood_spear", "l2weaponry:ironwood_throwing_axe",
+                "l2weaponry:steeleaf_battle_axe", "l2weaponry:steeleaf_claw", "l2weaponry:steeleaf_dagger", "l2weaponry:steeleaf_hammer", "l2weaponry:steeleaf_javelin", "l2weaponry:steeleaf_machete", "l2weaponry:steeleaf_nunchaku", "l2weaponry:steeleaf_plate_shield", "l2weaponry:steeleaf_round_shield", "l2weaponry:steeleaf_scythe", "l2weaponry:steeleaf_spear", "l2weaponry:steeleaf_throwing_axe",
+                "l2weaponry:knightmetal_battle_axe", "l2weaponry:knightmetal_claw", "l2weaponry:knightmetal_dagger", "l2weaponry:knightmetal_hammer", "l2weaponry:knightmetal_javelin", "l2weaponry:knightmetal_machete", "l2weaponry:knightmetal_nunchaku", "l2weaponry:knightmetal_plate_shield", "l2weaponry:knightmetal_round_shield", "l2weaponry:knightmetal_scythe", "l2weaponry:knightmetal_spear", "l2weaponry:knightmetal_throwing_axe",
+                "l2weaponry:fiery_battle_axe", "l2weaponry:fiery_claw", "l2weaponry:fiery_dagger", "l2weaponry:fiery_hammer", "l2weaponry:fiery_javelin", "l2weaponry:fiery_machete", "l2weaponry:fiery_nunchaku", "l2weaponry:fiery_plate_shield", "l2weaponry:fiery_round_shield", "l2weaponry:fiery_scythe", "l2weaponry:fiery_spear", "l2weaponry:fiery_throwing_axe",
+                // Cataclysm 灾变防具套装 (咒魂、腾炎、骸龙)
+                "cataclysm:cursium_helmet", "cataclysm:cursium_chestplate", "cataclysm:cursium_leggings", "cataclysm:cursium_boots",
+                "cataclysm:ignitium_helmet", "cataclysm:ignitium_chestplate", "cataclysm:ignitium_elytra_chestplate", "cataclysm:ignitium_leggings", "cataclysm:ignitium_boots",
+                "cataclysm:bone_reptile_helmet", "cataclysm:bone_reptile_chestplate",
+                // Dungeon Now Loading 刷怪笼套装
+                "dungeonnowloading:spawner_helmet", "dungeonnowloading:spawner_chestplate", "dungeonnowloading:spawner_leggings", "dungeonnowloading:spawner_boots",
+                // Iron's Spells 套装大剑 & 流派法师法袍套装
+                "irons_spellbooks:keeper_flamberge", "irons_spellbooks:legionnaire_flamberge",
+                "irons_spellbooks:archevoker_helmet", "irons_spellbooks:archevoker_chestplate", "irons_spellbooks:archevoker_leggings", "irons_spellbooks:archevoker_boots",
+                "irons_spellbooks:cryomancer_helmet", "irons_spellbooks:cryomancer_chestplate", "irons_spellbooks:cryomancer_leggings", "irons_spellbooks:cryomancer_boots",
+                "irons_spellbooks:cultist_helmet", "irons_spellbooks:cultist_chestplate", "irons_spellbooks:cultist_leggings", "irons_spellbooks:cultist_boots",
+                "irons_spellbooks:electromancer_helmet", "irons_spellbooks:electromancer_chestplate", "irons_spellbooks:electromancer_leggings", "irons_spellbooks:electromancer_boots",
+                "irons_spellbooks:plagued_helmet", "irons_spellbooks:plagued_chestplate", "irons_spellbooks:plagued_leggings", "irons_spellbooks:plagued_boots",
+                "irons_spellbooks:priest_helmet", "irons_spellbooks:priest_chestplate", "irons_spellbooks:priest_leggings", "irons_spellbooks:priest_boots",
+                "irons_spellbooks:pyromancer_helmet", "irons_spellbooks:pyromancer_chestplate", "irons_spellbooks:pyromancer_leggings", "irons_spellbooks:pyromancer_boots",
+                "irons_spellbooks:shadowwalker_helmet", "irons_spellbooks:shadowwalker_chestplate", "irons_spellbooks:shadowwalker_leggings", "irons_spellbooks:shadowwalker_boots",
+                "irons_spellbooks:wizard_hat", "irons_spellbooks:wizard_helmet", "irons_spellbooks:wizard_chestplate", "irons_spellbooks:wizard_leggings", "irons_spellbooks:wizard_boots",
+                // ISS 东方魔法套装
+                "iss_magicfromtheeast:jade_pagoda_helmet", "iss_magicfromtheeast:jade_pagoda_chestplate", "iss_magicfromtheeast:jade_pagoda_leggings", "iss_magicfromtheeast:jade_pagoda_boots",
+                "iss_magicfromtheeast:onmyoji_helmet", "iss_magicfromtheeast:onmyoji_chestplate", "iss_magicfromtheeast:onmyoji_leggings", "iss_magicfromtheeast:onmyoji_boots",
+                "iss_magicfromtheeast:taoist_helmet", "iss_magicfromtheeast:taoist_chestplate", "iss_magicfromtheeast:taoist_leggings", "iss_magicfromtheeast:taoist_boots",
+                // Tunes 'n Tomes 吟游诗人套装
+                "tunes_n_tomes:bard_helmet", "tunes_n_tomes:bard_chestplate", "tunes_n_tomes:bard_leggings", "tunes_n_tomes:bard_boots",
+                "tunes_n_tomes:melodic_mastery_helmet", "tunes_n_tomes:melodic_mastery_chestplate", "tunes_n_tomes:melodic_mastery_leggings", "tunes_n_tomes:melodic_mastery_boots",
+                // Mowzie's Mobs 地卜师套装
+                "mowziesmobs:geomancer_beads", "mowziesmobs:geomancer_robe", "mowziesmobs:geomancer_belt", "mowziesmobs:geomancer_sandals"
         ));
 
         // ==================== 3. 黄色品质 (Rare / 稀有) ====================
@@ -195,43 +235,61 @@ public class examplemodDatapackGenerator {
                 "l2weaponry:cursium_battle_axe", "l2weaponry:cursium_claw", "l2weaponry:cursium_dagger", "l2weaponry:cursium_javelin", "l2weaponry:cursium_machete", "l2weaponry:cursium_nunchaku", "l2weaponry:cursium_scythe", "l2weaponry:cursium_spear", "l2weaponry:cursium_throwing_axe",
                 "l2weaponry:ignitium_battle_axe", "l2weaponry:ignitium_claw", "l2weaponry:ignitium_dagger", "l2weaponry:ignitium_javelin", "l2weaponry:ignitium_machete", "l2weaponry:ignitium_nunchaku", "l2weaponry:ignitium_scythe", "l2weaponry:ignitium_spear", "l2weaponry:ignitium_throwing_axe",
                 "l2weaponry:witherite_battle_axe", "l2weaponry:witherite_claw", "l2weaponry:witherite_dagger", "l2weaponry:witherite_javelin", "l2weaponry:witherite_machete", "l2weaponry:witherite_nunchaku", "l2weaponry:witherite_scythe", "l2weaponry:witherite_spear", "l2weaponry:witherite_throwing_axe",
-                "l2weaponry:sculkium_battle_axe", "l2weaponry:sculkium_claw", "l2weaponry:sculkium_dagger", "l2weaponry:sculkium_hammer", "l2weaponry:sculkium_javelin", "l2weaponry:sculkium_machete", "l2weaponry:sculkium_nunchaku", "l2weaponry:sculkium_plate_shield", "l2weaponry:sculkium_scythe", "l2weaponry:sculkium_spear", "l2weaponry:sculkium_throwing_axe",
-                "l2weaponry:shulkerate_battle_axe", "l2weaponry:shulkerate_claw", "l2weaponry:shulkerate_dagger", "l2weaponry:shulkerate_hammer", "l2weaponry:shulkerate_javelin", "l2weaponry:shulkerate_machete", "l2weaponry:shulkerate_nunchaku", "l2weaponry:shulkerate_plate_shield", "l2weaponry:shulkerate_scythe", "l2weaponry:shulkerate_spear", "l2weaponry:shulkerate_throwing_axe",
-                "l2weaponry:eternium_battle_axe", "l2weaponry:eternium_claw", "l2weaponry:eternium_dagger", "l2weaponry:eternium_hammer", "l2weaponry:eternium_javelin", "l2weaponry:eternium_machete", "l2weaponry:eternium_nunchaku", "l2weaponry:eternium_plate_shield", "l2weaponry:eternium_scythe", "l2weaponry:eternium_spear", "l2weaponry:eternium_throwing_axe",
-                // L2Complements 高阶合金
+                "l2weaponry:sculkium_battle_axe", "l2weaponry:sculkium_claw", "l2weaponry:sculkium_dagger", "l2weaponry:sculkium_hammer", "l2weaponry:sculkium_javelin", "l2weaponry:sculkium_machete", "l2weaponry:sculkium_nunchaku", "l2weaponry:sculkium_plate_shield", "l2weaponry:sculkium_round_shield", "l2weaponry:sculkium_scythe", "l2weaponry:sculkium_spear", "l2weaponry:sculkium_throwing_axe",
+                "l2weaponry:shulkerate_battle_axe", "l2weaponry:shulkerate_claw", "l2weaponry:shulkerate_dagger", "l2weaponry:shulkerate_hammer", "l2weaponry:shulkerate_javelin", "l2weaponry:shulkerate_machete", "l2weaponry:shulkerate_nunchaku", "l2weaponry:shulkerate_plate_shield", "l2weaponry:shulkerate_round_shield", "l2weaponry:shulkerate_scythe", "l2weaponry:shulkerate_spear", "l2weaponry:shulkerate_throwing_axe",
+                "l2weaponry:eternium_battle_axe", "l2weaponry:eternium_claw", "l2weaponry:eternium_dagger", "l2weaponry:eternium_hammer", "l2weaponry:eternium_javelin", "l2weaponry:eternium_machete", "l2weaponry:eternium_nunchaku", "l2weaponry:eternium_plate_shield", "l2weaponry:eternium_round_shield", "l2weaponry:eternium_scythe", "l2weaponry:eternium_spear", "l2weaponry:eternium_throwing_axe",
+                // L2Complements 高阶合金武器与防具
                 "l2complements:sculkium_sword", "l2complements:sculkium_axe", "l2complements:shulkerate_sword", "l2complements:shulkerate_axe",
+                "l2complements:sculkium_helmet", "l2complements:sculkium_chestplate", "l2complements:sculkium_leggings", "l2complements:sculkium_boots",
+                "l2complements:shulkerate_helmet", "l2complements:shulkerate_chestplate", "l2complements:shulkerate_leggings", "l2complements:shulkerate_boots",
                 // L2Archery 终极神弓
                 "l2archery:eagle_bow", "l2archery:earth_bow", "l2archery:ender_aim_bow", "l2archery:explosion_bow", "l2archery:flame_bow", "l2archery:froze_bow", "l2archery:gaia_bow", "l2archery:magnify_bow", "l2archery:storm_bow", "l2archery:sun_bow", "l2archery:turtle_bow", "l2archery:winter_bow",
                 // Simply Swords 遗物系列
                 "simplyswords:decaying_relic", "simplyswords:dormant_relic", "simplyswords:righteous_relic", "simplyswords:tainted_relic",
-                // 灾变精良武器与地牢稀有物
-                "cataclysm:black_steel_sword", "cataclysm:black_steel_axe", "cataclysm:coral_bardiche", "cataclysm:coral_spear", "cataclysm:khopesh",
+                // 灾变精良武器/盾牌与地牢稀有物
+                "cataclysm:black_steel_sword", "cataclysm:black_steel_axe", "cataclysm:black_steel_targe", "cataclysm:azure_sea_shield", "cataclysm:coral_bardiche", "cataclysm:coral_spear", "cataclysm:khopesh",
                 "dungeonnowloading:spawner_sword", "dungeonnowloading:life_stealer", "dungeonnowloading:vertex_bow",
+                // 铁魔法下界合金战法袍 & 黯淡皇冠
+                "irons_spellbooks:netherite_mage_helmet", "irons_spellbooks:netherite_mage_chestplate", "irons_spellbooks:netherite_mage_leggings", "irons_spellbooks:netherite_mage_boots",
+                "irons_spellbooks:tarnished_helmet",
                 // 暮色稀有弓与特种斧
-                "twilightforest:ice_sword", "twilightforest:ice_bow", "twilightforest:ender_bow", "twilightforest:seeker_bow", "twilightforest:triple_bow", "twilightforest:diamond_minotaur_axe", "twilightforest:gold_minotaur_axe"
+                "twilightforest:ice_sword", "twilightforest:ice_bow", "twilightforest:ender_bow", "twilightforest:seeker_bow", "twilightforest:triple_bow", "twilightforest:diamond_minotaur_axe", "twilightforest:gold_minotaur_axe",
+                // 原版稀有武器 (不需要可删)
+                "minecraft:trident", "minecraft:mace"
         ));
 
         // ==================== 4. 蓝色品质 (Magic / 魔法) ====================
         writeTag(new File(qDir, "magic.json"), List.of(
-                // 农夫乐事与暮色乐事附魔刀具
-                "farmersdelight:flint_knife", "farmersdelight:iron_knife", "farmersdelight:golden_knife", "farmersdelight:diamond_knife", "farmersdelight:netherite_knife",
+                // 农夫乐事与暮色乐事刀具/煎锅/战斧牛排
+                "farmersdelight:flint_knife", "farmersdelight:iron_knife", "farmersdelight:golden_knife", "farmersdelight:diamond_knife", "farmersdelight:netherite_knife", "farmersdelight:skillet",
                 "twilightdelight:ironwood_knife", "twilightdelight:knightmetal_knife", "twilightdelight:steeleaf_knife", "twilightdelight:fiery_knife", "twilightdelight:ice_knife", "twilightdelight:helmet_crab_claw", "twilightdelight:wrought_iron_sword",
-                // 铁魔法基础法杖与武器
+                "twilightdelight:raw_tomahawk_smeaxe", "twilightdelight:cooked_tomahawk_smeaxe",
+                // 铁魔法基础法杖、武器与入门法袍
                 "irons_spellbooks:graybeard_staff", "irons_spellbooks:artificer_cane", "irons_spellbooks:ice_staff", "irons_spellbooks:lightning_rod", "irons_spellbooks:blood_staff", "irons_spellbooks:pyrium_staff",
-                "irons_spellbooks:autoloader_crossbow", "irons_spellbooks:magehunter",
-                // L2Complements 基础进阶
+                "irons_spellbooks:autoloader_crossbow", "irons_spellbooks:magehunter", "irons_spellbooks:decrepit_scythe",
+                "irons_spellbooks:wandering_magician_helmet", "irons_spellbooks:wandering_magician_chestplate", "irons_spellbooks:wandering_magician_leggings", "irons_spellbooks:wandering_magician_boots",
+                "irons_spellbooks:pumpkin_helmet", "irons_spellbooks:pumpkin_chestplate", "irons_spellbooks:pumpkin_leggings", "irons_spellbooks:pumpkin_boots",
+                // L2Complements 基础进阶武器与防具
                 "l2complements:eternium_sword", "l2complements:eternium_axe", "l2complements:poseidite_sword", "l2complements:poseidite_axe", "l2complements:totemic_gold_sword", "l2complements:totemic_gold_axe",
+                "l2complements:eternium_helmet", "l2complements:eternium_chestplate", "l2complements:eternium_leggings", "l2complements:eternium_boots",
+                "l2complements:poseidite_helmet", "l2complements:poseidite_chestplate", "l2complements:poseidite_leggings", "l2complements:poseidite_boots",
+                "l2complements:totemic_gold_helmet", "l2complements:totemic_gold_chestplate", "l2complements:totemic_gold_leggings", "l2complements:totemic_gold_boots",
                 // L2Weaponry 入门进阶金属 (远古金属、黑钢、海神、生命黄金)
                 "l2weaponry:ancient_metal_battle_axe", "l2weaponry:ancient_metal_claw", "l2weaponry:ancient_metal_dagger", "l2weaponry:ancient_metal_javelin", "l2weaponry:ancient_metal_machete", "l2weaponry:ancient_metal_nunchaku", "l2weaponry:ancient_metal_scythe", "l2weaponry:ancient_metal_spear", "l2weaponry:ancient_metal_throwing_axe",
                 "l2weaponry:black_steel_battle_axe", "l2weaponry:black_steel_claw", "l2weaponry:black_steel_dagger", "l2weaponry:black_steel_javelin", "l2weaponry:black_steel_machete", "l2weaponry:black_steel_nunchaku", "l2weaponry:black_steel_scythe", "l2weaponry:black_steel_spear", "l2weaponry:black_steel_throwing_axe",
-                "l2weaponry:poseidite_battle_axe", "l2weaponry:poseidite_claw", "l2weaponry:poseidite_dagger", "l2weaponry:poseidite_hammer", "l2weaponry:poseidite_javelin", "l2weaponry:poseidite_machete", "l2weaponry:poseidite_nunchaku", "l2weaponry:poseidite_plate_shield", "l2weaponry:poseidite_scythe", "l2weaponry:poseidite_spear", "l2weaponry:poseidite_throwing_axe",
-                "l2weaponry:totemic_gold_battle_axe", "l2weaponry:totemic_gold_claw", "l2weaponry:totemic_gold_dagger", "l2weaponry:totemic_gold_hammer", "l2weaponry:totemic_gold_javelin", "l2weaponry:totemic_gold_machete", "l2weaponry:totemic_gold_nunchaku", "l2weaponry:totemic_gold_plate_shield", "l2weaponry:totemic_gold_scythe", "l2weaponry:totemic_gold_spear", "l2weaponry:totemic_gold_throwing_axe",
-                // Simply Swords 符文武器
+                "l2weaponry:poseidite_battle_axe", "l2weaponry:poseidite_claw", "l2weaponry:poseidite_dagger", "l2weaponry:poseidite_hammer", "l2weaponry:poseidite_javelin", "l2weaponry:poseidite_machete", "l2weaponry:poseidite_nunchaku", "l2weaponry:poseidite_plate_shield", "l2weaponry:poseidite_round_shield", "l2weaponry:poseidite_scythe", "l2weaponry:poseidite_spear", "l2weaponry:poseidite_throwing_axe",
+                "l2weaponry:totemic_gold_battle_axe", "l2weaponry:totemic_gold_claw", "l2weaponry:totemic_gold_dagger", "l2weaponry:totemic_gold_hammer", "l2weaponry:totemic_gold_javelin", "l2weaponry:totemic_gold_machete", "l2weaponry:totemic_gold_nunchaku", "l2weaponry:totemic_gold_plate_shield", "l2weaponry:totemic_gold_round_shield", "l2weaponry:totemic_gold_scythe", "l2weaponry:totemic_gold_spear", "l2weaponry:totemic_gold_throwing_axe",
+                // Simply Swords 符文武器 & 棍剑
                 "simplyswords:runic_chakram", "simplyswords:runic_claymore", "simplyswords:runic_cutlass", "simplyswords:runic_glaive", "simplyswords:runic_greataxe", "simplyswords:runic_greathammer", "simplyswords:runic_halberd", "simplyswords:runic_katana", "simplyswords:runic_longsword", "simplyswords:runic_rapier", "simplyswords:runic_sai", "simplyswords:runic_scythe", "simplyswords:runic_spear", "simplyswords:runic_twinblade", "simplyswords:runic_warglaive",
+                "simplyswords:sword_on_a_stick",
                 // L2Archery 进阶弓
                 "l2archery:iron_bow", "l2archery:master_bow", "l2archery:glow_aim_bow", "l2archery:slow_bow", "l2archery:wind_bow",
-                // 莫西长矛与东方魔法
-                "mowziesmobs:spear", "iss_magicfromtheeast:repeating_crossbow", "iss_magicfromtheeast:taiji_sword", "twilightdelight:antler_bow"
+                // 暮色旅行者防具 & 莫西长矛/面具 & 东方魔法 & 末影兜帽
+                "twilightforest:travellers_goggles", "twilightforest:travellers_vest", "twilightforest:travellers_wings", "twilightforest:travellers_boots",
+                "mowziesmobs:spear", "mowziesmobs:umvuthana_mask_bliss", "mowziesmobs:umvuthana_mask_faith", "mowziesmobs:umvuthana_mask_fear", "mowziesmobs:umvuthana_mask_fury", "mowziesmobs:umvuthana_mask_misery", "mowziesmobs:umvuthana_mask_rage",
+                "iss_magicfromtheeast:repeating_crossbow", "iss_magicfromtheeast:taiji_sword", "iss_magicfromtheeast:jiangshi_hat",
+                "endermanoverhaul:badlands_hood", "endermanoverhaul:savanna_hood", "endermanoverhaul:snowy_hood",
+                "twilightdelight:antler_bow", "examplemod:turtle_shield"
         ));
 
         System.out.println(">>> 成功生成 4 种衍生品质 Tags (Unique, Set, Rare, Magic)，白色底材直接沿用 base/all！");
@@ -513,39 +571,22 @@ public class examplemodDatapackGenerator {
         // 1. 单手剑 / 武士刀 / 细剑 / 弯刀 (Swords)
         writeTag(new File(tagDir, "swords.json"), List.of(
                 // Minecraft 原版
-                "minecraft:wooden_sword",
-                "minecraft:stone_sword",
-                "minecraft:iron_sword",
-                "minecraft:golden_sword",
-                "minecraft:diamond_sword",
-                "minecraft:netherite_sword",
+                "minecraft:wooden_sword", "minecraft:stone_sword", "minecraft:iron_sword",
+                "minecraft:golden_sword", "minecraft:diamond_sword", "minecraft:netherite_sword",
                 // Cataclysm 基础剑
-                "cataclysm:black_steel_sword",
+                "cataclysm:black_steel_sword", "cataclysm:khopesh",
+                // Dungeon Now Loading
+                "dungeonnowloading:spawner_sword", "dungeonnowloading:life_stealer",
                 // L2Complements
-                "l2complements:eternium_sword",
-                "l2complements:poseidite_sword",
-                "l2complements:sculkium_sword",
-                "l2complements:shulkerate_sword",
-                "l2complements:totemic_gold_sword",
+                "l2complements:eternium_sword", "l2complements:poseidite_sword", "l2complements:sculkium_sword",
+                "l2complements:shulkerate_sword", "l2complements:totemic_gold_sword",
                 // L2Weaponry 弯刀系列
-                "l2weaponry:ancient_metal_machete",
-                "l2weaponry:black_steel_machete",
-                "l2weaponry:cursium_machete",
-                "l2weaponry:diamond_machete",
-                "l2weaponry:eternium_machete",
-                "l2weaponry:fiery_machete",
-                "l2weaponry:gold_machete",
-                "l2weaponry:ignitium_machete",
-                "l2weaponry:iron_machete",
-                "l2weaponry:ironwood_machete",
-                "l2weaponry:knightmetal_machete",
-                "l2weaponry:netherite_machete",
-                "l2weaponry:poseidite_machete",
-                "l2weaponry:sculkium_machete",
-                "l2weaponry:shulkerate_machete",
-                "l2weaponry:steeleaf_machete",
-                "l2weaponry:totemic_gold_machete",
-                "l2weaponry:witherite_machete",
+                "l2weaponry:ancient_metal_machete", "l2weaponry:black_steel_machete", "l2weaponry:cursium_machete",
+                "l2weaponry:diamond_machete", "l2weaponry:eternium_machete", "l2weaponry:fiery_machete",
+                "l2weaponry:gold_machete", "l2weaponry:ignitium_machete", "l2weaponry:iron_machete",
+                "l2weaponry:ironwood_machete", "l2weaponry:knightmetal_machete", "l2weaponry:netherite_machete",
+                "l2weaponry:poseidite_machete", "l2weaponry:sculkium_machete", "l2weaponry:shulkerate_machete",
+                "l2weaponry:steeleaf_machete", "l2weaponry:totemic_gold_machete", "l2weaponry:witherite_machete",
                 // Simply Swords (铁/金/钻/下界合金/符文: 弯刀、长剑、细剑、武士刀、双头剑、战刃、环刃)
                 "simplyswords:iron_cutlass", "simplyswords:iron_longsword", "simplyswords:iron_rapier", "simplyswords:iron_katana", "simplyswords:iron_twinblade", "simplyswords:iron_warglaive", "simplyswords:iron_chakram",
                 "simplyswords:gold_cutlass", "simplyswords:gold_longsword", "simplyswords:gold_rapier", "simplyswords:gold_katana", "simplyswords:gold_twinblade", "simplyswords:gold_warglaive", "simplyswords:gold_chakram",
@@ -558,223 +599,110 @@ public class examplemodDatapackGenerator {
                 "knavesneeds:twilightforest/knightmetal/cutlass", "knavesneeds:twilightforest/knightmetal/longsword", "knavesneeds:twilightforest/knightmetal/rapier", "knavesneeds:twilightforest/knightmetal/katana", "knavesneeds:twilightforest/knightmetal/twinblade", "knavesneeds:twilightforest/knightmetal/warglaive", "knavesneeds:twilightforest/knightmetal/chakram",
                 "knavesneeds:twilightforest/fiery/cutlass", "knavesneeds:twilightforest/fiery/longsword", "knavesneeds:twilightforest/fiery/rapier", "knavesneeds:twilightforest/fiery/katana", "knavesneeds:twilightforest/fiery/twinblade", "knavesneeds:twilightforest/fiery/warglaive", "knavesneeds:twilightforest/fiery/chakram",
                 // 暮色森林 原版剑
-                "twilightforest:ironwood_sword",
-                "twilightforest:knightmetal_sword",
-                "twilightforest:steeleaf_sword",
-                "twilightforest:fiery_sword",
-                "twilightforest:ice_sword",
-                // 其他基础模组单手剑
-                "twilightdelight:wrought_iron_sword",
-                "irons_spellbooks:magehunter",
-                "iss_magicfromtheeast:taiji_sword"
+                "twilightforest:ironwood_sword", "twilightforest:knightmetal_sword", "twilightforest:steeleaf_sword",
+                "twilightforest:fiery_sword", "twilightforest:ice_sword",
+                // 其他模组单手剑
+                "twilightdelight:wrought_iron_sword", "irons_spellbooks:magehunter", "iss_magicfromtheeast:taiji_sword"
         ));
 
         // 2. 双手巨剑 (Two-Handed Swords / Claymores)
         writeTag(new File(tagDir, "two_handed_swords.json"), List.of(
-                "irons_spellbooks:claymore",
-                "irons_spellbooks:keeper_flamberge",
-                "irons_spellbooks:legionnaire_flamberge",
-                "simplyswords:iron_claymore",
-                "simplyswords:gold_claymore",
-                "simplyswords:diamond_claymore",
-                "simplyswords:netherite_claymore",
-                "simplyswords:runic_claymore",
-                "simplyswords:sword_on_a_stick",
-                "knavesneeds:twilightforest/ironwood/claymore",
-                "knavesneeds:twilightforest/steeleaf/claymore",
-                "knavesneeds:twilightforest/knightmetal/claymore",
-                "knavesneeds:twilightforest/fiery/claymore"
+                "irons_spellbooks:claymore", "irons_spellbooks:keeper_flamberge", "irons_spellbooks:legionnaire_flamberge",
+                "simplyswords:iron_claymore", "simplyswords:gold_claymore", "simplyswords:diamond_claymore",
+                "simplyswords:netherite_claymore", "simplyswords:runic_claymore", "simplyswords:sword_on_a_stick",
+                "simplyswords:decaying_relic", "simplyswords:dormant_relic", "simplyswords:righteous_relic", "simplyswords:tainted_relic",
+                "knavesneeds:twilightforest/ironwood/claymore", "knavesneeds:twilightforest/steeleaf/claymore",
+                "knavesneeds:twilightforest/knightmetal/claymore", "knavesneeds:twilightforest/fiery/claymore"
         ));
 
         // 3. 斧类 (Axes / Battle Axes)
         writeTag(new File(tagDir, "axes.json"), List.of(
                 // Minecraft 原版斧
-                "minecraft:wooden_axe",
-                "minecraft:stone_axe",
-                "minecraft:iron_axe",
-                "minecraft:golden_axe",
-                "minecraft:diamond_axe",
-                "minecraft:netherite_axe",
+                "minecraft:wooden_axe", "minecraft:stone_axe", "minecraft:iron_axe",
+                "minecraft:golden_axe", "minecraft:diamond_axe", "minecraft:netherite_axe",
                 // Cataclysm 基础斧
                 "cataclysm:black_steel_axe",
+                // Twilight Delight 战斧牛排
+                "twilightdelight:raw_tomahawk_smeaxe", "twilightdelight:cooked_tomahawk_smeaxe",
                 // L2Complements
-                "l2complements:eternium_axe",
-                "l2complements:poseidite_axe",
-                "l2complements:sculkium_axe",
-                "l2complements:shulkerate_axe",
-                "l2complements:totemic_gold_axe",
+                "l2complements:eternium_axe", "l2complements:poseidite_axe", "l2complements:sculkium_axe",
+                "l2complements:shulkerate_axe", "l2complements:totemic_gold_axe",
                 // L2Weaponry 战斧
-                "l2weaponry:ancient_metal_battle_axe",
-                "l2weaponry:black_steel_battle_axe",
-                "l2weaponry:cursium_battle_axe",
-                "l2weaponry:diamond_battle_axe",
-                "l2weaponry:eternium_battle_axe",
-                "l2weaponry:fiery_battle_axe",
-                "l2weaponry:gold_battle_axe",
-                "l2weaponry:ignitium_battle_axe",
-                "l2weaponry:iron_battle_axe",
-                "l2weaponry:ironwood_battle_axe",
-                "l2weaponry:knightmetal_battle_axe",
-                "l2weaponry:netherite_battle_axe",
-                "l2weaponry:poseidite_battle_axe",
-                "l2weaponry:sculkium_battle_axe",
-                "l2weaponry:shulkerate_battle_axe",
-                "l2weaponry:steeleaf_battle_axe",
-                "l2weaponry:totemic_gold_battle_axe",
-                "l2weaponry:witherite_battle_axe",
+                "l2weaponry:ancient_metal_battle_axe", "l2weaponry:black_steel_battle_axe", "l2weaponry:cursium_battle_axe",
+                "l2weaponry:diamond_battle_axe", "l2weaponry:eternium_battle_axe", "l2weaponry:fiery_battle_axe",
+                "l2weaponry:gold_battle_axe", "l2weaponry:ignitium_battle_axe", "l2weaponry:iron_battle_axe",
+                "l2weaponry:ironwood_battle_axe", "l2weaponry:knightmetal_battle_axe", "l2weaponry:netherite_battle_axe",
+                "l2weaponry:poseidite_battle_axe", "l2weaponry:sculkium_battle_axe", "l2weaponry:shulkerate_battle_axe",
+                "l2weaponry:steeleaf_battle_axe", "l2weaponry:totemic_gold_battle_axe", "l2weaponry:witherite_battle_axe",
                 // L2Weaponry 短柄飞斧
-                "l2weaponry:ancient_metal_throwing_axe",
-                "l2weaponry:black_steel_throwing_axe",
-                "l2weaponry:cursium_throwing_axe",
-                "l2weaponry:diamond_throwing_axe",
-                "l2weaponry:eternium_throwing_axe",
-                "l2weaponry:fiery_throwing_axe",
-                "l2weaponry:gold_throwing_axe",
-                "l2weaponry:ignitium_throwing_axe",
-                "l2weaponry:iron_throwing_axe",
-                "l2weaponry:ironwood_throwing_axe",
-                "l2weaponry:knightmetal_throwing_axe",
-                "l2weaponry:netherite_throwing_axe",
-                "l2weaponry:poseidite_throwing_axe",
-                "l2weaponry:sculkium_throwing_axe",
-                "l2weaponry:shulkerate_throwing_axe",
-                "l2weaponry:steeleaf_throwing_axe",
-                "l2weaponry:totemic_gold_throwing_axe",
-                "l2weaponry:witherite_throwing_axe",
+                "l2weaponry:ancient_metal_throwing_axe", "l2weaponry:black_steel_throwing_axe", "l2weaponry:cursium_throwing_axe",
+                "l2weaponry:diamond_throwing_axe", "l2weaponry:eternium_throwing_axe", "l2weaponry:fiery_throwing_axe",
+                "l2weaponry:gold_throwing_axe", "l2weaponry:ignitium_throwing_axe", "l2weaponry:iron_throwing_axe",
+                "l2weaponry:ironwood_throwing_axe", "l2weaponry:knightmetal_throwing_axe", "l2weaponry:netherite_throwing_axe",
+                "l2weaponry:poseidite_throwing_axe", "l2weaponry:sculkium_throwing_axe", "l2weaponry:shulkerate_throwing_axe",
+                "l2weaponry:steeleaf_throwing_axe", "l2weaponry:totemic_gold_throwing_axe", "l2weaponry:witherite_throwing_axe",
                 // Simply Swords 巨斧
-                "simplyswords:iron_greataxe",
-                "simplyswords:gold_greataxe",
-                "simplyswords:diamond_greataxe",
-                "simplyswords:netherite_greataxe",
-                "simplyswords:runic_greataxe",
+                "simplyswords:iron_greataxe", "simplyswords:gold_greataxe", "simplyswords:diamond_greataxe",
+                "simplyswords:netherite_greataxe", "simplyswords:runic_greataxe",
                 // KnavesNeeds 巨斧
-                "knavesneeds:twilightforest/ironwood/greataxe",
-                "knavesneeds:twilightforest/steeleaf/greataxe",
-                "knavesneeds:twilightforest/knightmetal/greataxe",
-                "knavesneeds:twilightforest/fiery/greataxe",
+                "knavesneeds:twilightforest/ironwood/greataxe", "knavesneeds:twilightforest/steeleaf/greataxe",
+                "knavesneeds:twilightforest/knightmetal/greataxe", "knavesneeds:twilightforest/fiery/greataxe",
                 // 暮色森林 斧
-                "twilightforest:ironwood_axe",
-                "twilightforest:knightmetal_axe",
-                "twilightforest:steeleaf_axe",
-                "twilightforest:diamond_minotaur_axe",
-                "twilightforest:gold_minotaur_axe"
+                "twilightforest:ironwood_axe", "twilightforest:knightmetal_axe", "twilightforest:steeleaf_axe",
+                "twilightforest:diamond_minotaur_axe", "twilightforest:gold_minotaur_axe"
         ));
 
-        // 4. 钝击武器 / 战锤 (Blunt / Hammers / Maces)
+        // 4. 钝击武器 / 战锤 / 煎锅 (Blunt / Hammers / Maces)
         writeTag(new File(tagDir, "blunt.json"), List.of(
-                // 原版
-                "minecraft:mace",
+                // 原版 & 农夫乐事
+                "minecraft:mace", "farmersdelight:skillet",
                 // L2Weaponry 战锤
-                "l2weaponry:iron_hammer",
-                "l2weaponry:gold_hammer",
-                "l2weaponry:diamond_hammer",
-                "l2weaponry:netherite_hammer",
-                "l2weaponry:ironwood_hammer",
-                "l2weaponry:knightmetal_hammer",
-                "l2weaponry:steeleaf_hammer",
-                "l2weaponry:fiery_hammer",
-                "l2weaponry:totemic_gold_hammer",
-                "l2weaponry:eternium_hammer",
-                "l2weaponry:poseidite_hammer",
-                "l2weaponry:sculkium_hammer",
+                "l2weaponry:iron_hammer", "l2weaponry:gold_hammer", "l2weaponry:diamond_hammer",
+                "l2weaponry:netherite_hammer", "l2weaponry:ironwood_hammer", "l2weaponry:knightmetal_hammer",
+                "l2weaponry:steeleaf_hammer", "l2weaponry:fiery_hammer", "l2weaponry:totemic_gold_hammer",
+                "l2weaponry:eternium_hammer", "l2weaponry:poseidite_hammer", "l2weaponry:sculkium_hammer",
                 "l2weaponry:shulkerate_hammer",
                 // L2Weaponry 双节棍
-                "l2weaponry:ancient_metal_nunchaku",
-                "l2weaponry:black_steel_nunchaku",
-                "l2weaponry:cursium_nunchaku",
-                "l2weaponry:diamond_nunchaku",
-                "l2weaponry:eternium_nunchaku",
-                "l2weaponry:fiery_nunchaku",
-                "l2weaponry:gold_nunchaku",
-                "l2weaponry:ignitium_nunchaku",
-                "l2weaponry:iron_nunchaku",
-                "l2weaponry:ironwood_nunchaku",
-                "l2weaponry:knightmetal_nunchaku",
-                "l2weaponry:netherite_nunchaku",
-                "l2weaponry:poseidite_nunchaku",
-                "l2weaponry:sculkium_nunchaku",
-                "l2weaponry:shulkerate_nunchaku",
-                "l2weaponry:steeleaf_nunchaku",
-                "l2weaponry:totemic_gold_nunchaku",
-                "l2weaponry:witherite_nunchaku",
+                "l2weaponry:ancient_metal_nunchaku", "l2weaponry:black_steel_nunchaku", "l2weaponry:cursium_nunchaku",
+                "l2weaponry:diamond_nunchaku", "l2weaponry:eternium_nunchaku", "l2weaponry:fiery_nunchaku",
+                "l2weaponry:gold_nunchaku", "l2weaponry:ignitium_nunchaku", "l2weaponry:iron_nunchaku",
+                "l2weaponry:ironwood_nunchaku", "l2weaponry:knightmetal_nunchaku", "l2weaponry:netherite_nunchaku",
+                "l2weaponry:poseidite_nunchaku", "l2weaponry:sculkium_nunchaku", "l2weaponry:shulkerate_nunchaku",
+                "l2weaponry:steeleaf_nunchaku", "l2weaponry:totemic_gold_nunchaku", "l2weaponry:witherite_nunchaku",
                 // Simply Swords 巨锤
-                "simplyswords:iron_greathammer",
-                "simplyswords:gold_greathammer",
-                "simplyswords:diamond_greathammer",
-                "simplyswords:netherite_greathammer",
-                "simplyswords:runic_greathammer",
+                "simplyswords:iron_greathammer", "simplyswords:gold_greathammer", "simplyswords:diamond_greathammer",
+                "simplyswords:netherite_greathammer", "simplyswords:runic_greathammer",
                 // KnavesNeeds 巨锤
-                "knavesneeds:twilightforest/ironwood/greathammer",
-                "knavesneeds:twilightforest/steeleaf/greathammer",
-                "knavesneeds:twilightforest/knightmetal/greathammer",
-                "knavesneeds:twilightforest/fiery/greathammer"
+                "knavesneeds:twilightforest/ironwood/greathammer", "knavesneeds:twilightforest/steeleaf/greathammer",
+                "knavesneeds:twilightforest/knightmetal/greathammer", "knavesneeds:twilightforest/fiery/greathammer"
         ));
 
         // 5. 长柄 / 长枪 / 标枪 / 戟 / 镰刀 (Polearms & Spears & Scythes & Javelins)
         writeTag(new File(tagDir, "polearms_spears.json"), List.of(
-                // 原版
-                "minecraft:trident",
-                // Mowzie's Mobs
-                "mowziesmobs:spear",
-                // Iron's Spells 'n Spellbooks 战镰
-                "irons_spellbooks:decrepit_scythe",
+                // 原版 & 莫西 & 铁魔法 & 灾变
+                "minecraft:trident", "mowziesmobs:spear", "irons_spellbooks:decrepit_scythe",
+                "cataclysm:coral_bardiche", "cataclysm:coral_spear",
                 // L2Weaponry 标枪 (Javelins)
-                "l2weaponry:ancient_metal_javelin",
-                "l2weaponry:black_steel_javelin",
-                "l2weaponry:cursium_javelin",
-                "l2weaponry:diamond_javelin",
-                "l2weaponry:eternium_javelin",
-                "l2weaponry:fiery_javelin",
-                "l2weaponry:gold_javelin",
-                "l2weaponry:ignitium_javelin",
-                "l2weaponry:iron_javelin",
-                "l2weaponry:ironwood_javelin",
-                "l2weaponry:knightmetal_javelin",
-                "l2weaponry:netherite_javelin",
-                "l2weaponry:poseidite_javelin",
-                "l2weaponry:sculkium_javelin",
-                "l2weaponry:shulkerate_javelin",
-                "l2weaponry:steeleaf_javelin",
-                "l2weaponry:totemic_gold_javelin",
-                "l2weaponry:witherite_javelin",
+                "l2weaponry:ancient_metal_javelin", "l2weaponry:black_steel_javelin", "l2weaponry:cursium_javelin",
+                "l2weaponry:diamond_javelin", "l2weaponry:eternium_javelin", "l2weaponry:fiery_javelin",
+                "l2weaponry:gold_javelin", "l2weaponry:ignitium_javelin", "l2weaponry:iron_javelin",
+                "l2weaponry:ironwood_javelin", "l2weaponry:knightmetal_javelin", "l2weaponry:netherite_javelin",
+                "l2weaponry:poseidite_javelin", "l2weaponry:sculkium_javelin", "l2weaponry:shulkerate_javelin",
+                "l2weaponry:steeleaf_javelin", "l2weaponry:totemic_gold_javelin", "l2weaponry:witherite_javelin",
                 // L2Weaponry 长枪 (Spears)
-                "l2weaponry:ancient_metal_spear",
-                "l2weaponry:black_steel_spear",
-                "l2weaponry:cursium_spear",
-                "l2weaponry:diamond_spear",
-                "l2weaponry:eternium_spear",
-                "l2weaponry:fiery_spear",
-                "l2weaponry:gold_spear",
-                "l2weaponry:ignitium_spear",
-                "l2weaponry:iron_spear",
-                "l2weaponry:ironwood_spear",
-                "l2weaponry:knightmetal_spear",
-                "l2weaponry:netherite_spear",
-                "l2weaponry:poseidite_spear",
-                "l2weaponry:sculkium_spear",
-                "l2weaponry:shulkerate_spear",
-                "l2weaponry:steeleaf_spear",
-                "l2weaponry:totemic_gold_spear",
-                "l2weaponry:witherite_spear",
+                "l2weaponry:ancient_metal_spear", "l2weaponry:black_steel_spear", "l2weaponry:cursium_spear",
+                "l2weaponry:diamond_spear", "l2weaponry:eternium_spear", "l2weaponry:fiery_spear",
+                "l2weaponry:gold_spear", "l2weaponry:ignitium_spear", "l2weaponry:iron_spear",
+                "l2weaponry:ironwood_spear", "l2weaponry:knightmetal_spear", "l2weaponry:netherite_spear",
+                "l2weaponry:poseidite_spear", "l2weaponry:sculkium_spear", "l2weaponry:shulkerate_spear",
+                "l2weaponry:steeleaf_spear", "l2weaponry:totemic_gold_spear", "l2weaponry:witherite_spear",
                 // L2Weaponry 战镰 (Scythes)
-                "l2weaponry:ancient_metal_scythe",
-                "l2weaponry:black_steel_scythe",
-                "l2weaponry:cursium_scythe",
-                "l2weaponry:diamond_scythe",
-                "l2weaponry:eternium_scythe",
-                "l2weaponry:fiery_scythe",
-                "l2weaponry:gold_scythe",
-                "l2weaponry:ignitium_scythe",
-                "l2weaponry:iron_scythe",
-                "l2weaponry:ironwood_scythe",
-                "l2weaponry:knightmetal_scythe",
-                "l2weaponry:netherite_scythe",
-                "l2weaponry:poseidite_scythe",
-                "l2weaponry:sculkium_scythe",
-                "l2weaponry:shulkerate_scythe",
-                "l2weaponry:steeleaf_scythe",
-                "l2weaponry:totemic_gold_scythe",
-                "l2weaponry:witherite_scythe",
+                "l2weaponry:ancient_metal_scythe", "l2weaponry:black_steel_scythe", "l2weaponry:cursium_scythe",
+                "l2weaponry:diamond_scythe", "l2weaponry:eternium_scythe", "l2weaponry:fiery_scythe",
+                "l2weaponry:gold_scythe", "l2weaponry:ignitium_scythe", "l2weaponry:iron_scythe",
+                "l2weaponry:ironwood_scythe", "l2weaponry:knightmetal_scythe", "l2weaponry:netherite_scythe",
+                "l2weaponry:poseidite_scythe", "l2weaponry:sculkium_scythe", "l2weaponry:shulkerate_scythe",
+                "l2weaponry:steeleaf_scythe", "l2weaponry:totemic_gold_scythe", "l2weaponry:witherite_scythe",
                 // Simply Swords (长矛、长柄刀、戟、镰刀)
                 "simplyswords:iron_spear", "simplyswords:iron_glaive", "simplyswords:iron_halberd", "simplyswords:iron_scythe",
                 "simplyswords:gold_spear", "simplyswords:gold_glaive", "simplyswords:gold_halberd", "simplyswords:gold_scythe",
@@ -791,148 +719,159 @@ public class examplemodDatapackGenerator {
         // 6. 匕首 / 刀具 / 刺 (Daggers & Knives & Sais)
         writeTag(new File(tagDir, "daggers.json"), List.of(
                 // Farmer's Delight 刀具
-                "farmersdelight:flint_knife",
-                "farmersdelight:iron_knife",
-                "farmersdelight:golden_knife",
-                "farmersdelight:diamond_knife",
-                "farmersdelight:netherite_knife",
+                "farmersdelight:flint_knife", "farmersdelight:iron_knife", "farmersdelight:golden_knife",
+                "farmersdelight:diamond_knife", "farmersdelight:netherite_knife",
                 // Twilight Delight 刀具
-                "twilightdelight:ironwood_knife",
-                "twilightdelight:knightmetal_knife",
-                "twilightdelight:steeleaf_knife",
-                "twilightdelight:fiery_knife",
-                "twilightdelight:ice_knife",
+                "twilightdelight:ironwood_knife", "twilightdelight:knightmetal_knife", "twilightdelight:steeleaf_knife",
+                "twilightdelight:fiery_knife", "twilightdelight:ice_knife",
                 // L2Weaponry 匕首
-                "l2weaponry:ancient_metal_dagger",
-                "l2weaponry:black_steel_dagger",
-                "l2weaponry:cursium_dagger",
-                "l2weaponry:diamond_dagger",
-                "l2weaponry:eternium_dagger",
-                "l2weaponry:fiery_dagger",
-                "l2weaponry:gold_dagger",
-                "l2weaponry:ignitium_dagger",
-                "l2weaponry:iron_dagger",
-                "l2weaponry:ironwood_dagger",
-                "l2weaponry:knightmetal_dagger",
-                "l2weaponry:netherite_dagger",
-                "l2weaponry:poseidite_dagger",
-                "l2weaponry:sculkium_dagger",
-                "l2weaponry:shulkerate_dagger",
-                "l2weaponry:steeleaf_dagger",
-                "l2weaponry:totemic_gold_dagger",
-                "l2weaponry:witherite_dagger",
+                "l2weaponry:ancient_metal_dagger", "l2weaponry:black_steel_dagger", "l2weaponry:cursium_dagger",
+                "l2weaponry:diamond_dagger", "l2weaponry:eternium_dagger", "l2weaponry:fiery_dagger",
+                "l2weaponry:gold_dagger", "l2weaponry:ignitium_dagger", "l2weaponry:iron_dagger",
+                "l2weaponry:ironwood_dagger", "l2weaponry:knightmetal_dagger", "l2weaponry:netherite_dagger",
+                "l2weaponry:poseidite_dagger", "l2weaponry:sculkium_dagger", "l2weaponry:shulkerate_dagger",
+                "l2weaponry:steeleaf_dagger", "l2weaponry:totemic_gold_dagger", "l2weaponry:witherite_dagger",
                 // Simply Swords 三叉刺
-                "simplyswords:iron_sai",
-                "simplyswords:gold_sai",
-                "simplyswords:diamond_sai",
-                "simplyswords:netherite_sai",
-                "simplyswords:runic_sai",
+                "simplyswords:iron_sai", "simplyswords:gold_sai", "simplyswords:diamond_sai",
+                "simplyswords:netherite_sai", "simplyswords:runic_sai",
                 // KnavesNeeds 三叉刺
-                "knavesneeds:twilightforest/ironwood/sai",
-                "knavesneeds:twilightforest/steeleaf/sai",
-                "knavesneeds:twilightforest/knightmetal/sai",
-                "knavesneeds:twilightforest/fiery/sai"
+                "knavesneeds:twilightforest/ironwood/sai", "knavesneeds:twilightforest/steeleaf/sai",
+                "knavesneeds:twilightforest/knightmetal/sai", "knavesneeds:twilightforest/fiery/sai"
         ));
 
         // 7. 刃爪类 (Claws)
         writeTag(new File(tagDir, "claws.json"), List.of(
                 "twilightdelight:helmet_crab_claw",
-                "l2weaponry:ancient_metal_claw",
-                "l2weaponry:black_steel_claw",
-                "l2weaponry:cursium_claw",
-                "l2weaponry:diamond_claw",
-                "l2weaponry:eternium_claw",
-                "l2weaponry:fiery_claw",
-                "l2weaponry:gold_claw",
-                "l2weaponry:ignitium_claw",
-                "l2weaponry:iron_claw",
-                "l2weaponry:ironwood_claw",
-                "l2weaponry:knightmetal_claw",
-                "l2weaponry:netherite_claw",
-                "l2weaponry:poseidite_claw",
-                "l2weaponry:sculkium_claw",
-                "l2weaponry:shulkerate_claw",
-                "l2weaponry:steeleaf_claw",
-                "l2weaponry:totemic_gold_claw",
-                "l2weaponry:witherite_claw"
+                "l2weaponry:ancient_metal_claw", "l2weaponry:black_steel_claw", "l2weaponry:cursium_claw",
+                "l2weaponry:diamond_claw", "l2weaponry:eternium_claw", "l2weaponry:fiery_claw",
+                "l2weaponry:gold_claw", "l2weaponry:ignitium_claw", "l2weaponry:iron_claw",
+                "l2weaponry:ironwood_claw", "l2weaponry:knightmetal_claw", "l2weaponry:netherite_claw",
+                "l2weaponry:poseidite_claw", "l2weaponry:sculkium_claw", "l2weaponry:shulkerate_claw",
+                "l2weaponry:steeleaf_claw", "l2weaponry:totemic_gold_claw", "l2weaponry:witherite_claw"
         ));
 
         // 8. 法杖类 (Staves)
         writeTag(new File(tagDir, "staves.json"), List.of(
-                "irons_spellbooks:graybeard_staff",
-                "irons_spellbooks:artificer_cane",
-                "irons_spellbooks:ice_staff",
-                "irons_spellbooks:lightning_rod",
-                "irons_spellbooks:blood_staff",
-                "irons_spellbooks:pyrium_staff"
+                "irons_spellbooks:graybeard_staff", "irons_spellbooks:artificer_cane", "irons_spellbooks:ice_staff",
+                "irons_spellbooks:lightning_rod", "irons_spellbooks:blood_staff", "irons_spellbooks:pyrium_staff"
         ));
 
         // 9. 弓弩类 (Bows & Crossbows)
         writeTag(new File(tagDir, "bows.json"), List.of(
-                // 原版
-                "minecraft:bow",
-                "minecraft:crossbow",
-                // Iron's Spells 'n Spellbooks
-                "irons_spellbooks:autoloader_crossbow",
-                // ISS: Magic From The East
-                "iss_magicfromtheeast:repeating_crossbow",
-                "iss_magicfromtheeast:soulpiercer",
-                // 暮色森林
-                "twilightforest:ice_bow",
-                "twilightforest:ender_bow",
-                "twilightforest:seeker_bow",
-                "twilightforest:triple_bow",
-                "twilightdelight:antler_bow",
+                // 原版 & 地牢
+                "minecraft:bow", "minecraft:crossbow", "dungeonnowloading:vertex_bow",
+                // Iron's Spells & 东方魔法
+                "irons_spellbooks:autoloader_crossbow", "iss_magicfromtheeast:repeating_crossbow",
+                // 暮色森林 & 暮色乐事
+                "twilightforest:ice_bow", "twilightforest:ender_bow", "twilightforest:seeker_bow",
+                "twilightforest:triple_bow", "twilightdelight:antler_bow",
                 // L2Archery 弓箭体系
-                "l2archery:starter_bow",
-                "l2archery:iron_bow",
-                "l2archery:master_bow",
-                "l2archery:eagle_bow",
-                "l2archery:earth_bow",
-                "l2archery:ender_aim_bow",
-                "l2archery:explosion_bow",
-                "l2archery:flame_bow",
-                "l2archery:froze_bow",
-                "l2archery:gaia_bow",
-                "l2archery:glow_aim_bow",
-                "l2archery:magnify_bow",
-                "l2archery:slow_bow",
-                "l2archery:storm_bow",
-                "l2archery:sun_bow",
-                "l2archery:turtle_bow",
-                "l2archery:wind_bow",
-                "l2archery:winter_bow"
+                "l2archery:starter_bow", "l2archery:iron_bow", "l2archery:master_bow",
+                "l2archery:eagle_bow", "l2archery:earth_bow", "l2archery:ender_aim_bow",
+                "l2archery:explosion_bow", "l2archery:flame_bow", "l2archery:froze_bow",
+                "l2archery:gaia_bow", "l2archery:glow_aim_bow", "l2archery:magnify_bow",
+                "l2archery:slow_bow", "l2archery:storm_bow", "l2archery:sun_bow",
+                "l2archery:turtle_bow", "l2archery:wind_bow", "l2archery:winter_bow"
         ));
 
-        // 10. 盾牌 (Shields)
+        // 10. 盾牌 (Shields - 补全全部 L2Weaponry 圆盾 + Cataclysm + ExampleMod)
         writeTag(new File(tagDir, "shields.json"), List.of(
                 "minecraft:shield",
+                "examplemod:turtle_shield",
                 "twilightforest:knightmetal_shield",
-                "l2weaponry:iron_plate_shield",
-                "l2weaponry:gold_plate_shield",
-                "l2weaponry:diamond_plate_shield",
-                "l2weaponry:netherite_plate_shield",
-                "l2weaponry:ironwood_plate_shield",
-                "l2weaponry:knightmetal_plate_shield",
-                "l2weaponry:steeleaf_plate_shield",
-                "l2weaponry:fiery_plate_shield",
-                "l2weaponry:totemic_gold_plate_shield",
-                "l2weaponry:eternium_plate_shield",
-                "l2weaponry:poseidite_plate_shield",
-                "l2weaponry:sculkium_plate_shield",
-                "l2weaponry:shulkerate_plate_shield"
+                "cataclysm:azure_sea_shield", "cataclysm:black_steel_targe",
+                // L2Weaponry 重盾
+                "l2weaponry:iron_plate_shield", "l2weaponry:gold_plate_shield", "l2weaponry:diamond_plate_shield", "l2weaponry:netherite_plate_shield",
+                "l2weaponry:ironwood_plate_shield", "l2weaponry:knightmetal_plate_shield", "l2weaponry:steeleaf_plate_shield", "l2weaponry:fiery_plate_shield",
+                "l2weaponry:totemic_gold_plate_shield", "l2weaponry:eternium_plate_shield", "l2weaponry:poseidite_plate_shield", "l2weaponry:sculkium_plate_shield",
+                "l2weaponry:shulkerate_plate_shield",
+                // L2Weaponry 圆盾
+                "l2weaponry:iron_round_shield", "l2weaponry:gold_round_shield", "l2weaponry:diamond_round_shield", "l2weaponry:netherite_round_shield",
+                "l2weaponry:ironwood_round_shield", "l2weaponry:knightmetal_round_shield", "l2weaponry:steeleaf_round_shield", "l2weaponry:fiery_round_shield",
+                "l2weaponry:totemic_gold_round_shield", "l2weaponry:eternium_round_shield", "l2weaponry:poseidite_round_shield", "l2weaponry:sculkium_round_shield",
+                "l2weaponry:shulkerate_round_shield"
         ));
 
-        // 11. 防具（头盔 / 胸甲）
+        // 11. 防具（头盔 / 胸甲 / 护腿 / 靴子）
         writeTag(new File(tagDir, "helmets.json"), List.of(
                 "minecraft:leather_helmet", "minecraft:chainmail_helmet", "minecraft:iron_helmet",
-                "minecraft:golden_helmet", "minecraft:diamond_helmet", "minecraft:netherite_helmet",
-                "minecraft:turtle_helmet"
+                "minecraft:golden_helmet", "minecraft:diamond_helmet", "minecraft:netherite_helmet", "minecraft:turtle_helmet",
+                "cataclysm:bone_reptile_helmet", "cataclysm:cursium_helmet", "cataclysm:ignitium_helmet",
+                "dungeonnowloading:spawner_helmet",
+                "endermanoverhaul:badlands_hood", "endermanoverhaul:savanna_hood", "endermanoverhaul:snowy_hood",
+                "irons_spellbooks:archevoker_helmet", "irons_spellbooks:cryomancer_helmet", "irons_spellbooks:cultist_helmet",
+                "irons_spellbooks:electromancer_helmet", "irons_spellbooks:netherite_mage_helmet", "irons_spellbooks:plagued_helmet",
+                "irons_spellbooks:priest_helmet", "irons_spellbooks:pumpkin_helmet", "irons_spellbooks:pyromancer_helmet",
+                "irons_spellbooks:shadowwalker_helmet", "irons_spellbooks:tarnished_helmet", "irons_spellbooks:wandering_magician_helmet",
+                "irons_spellbooks:wizard_hat", "irons_spellbooks:wizard_helmet",
+                "iss_magicfromtheeast:jade_pagoda_helmet", "iss_magicfromtheeast:jiangshi_hat",
+                "iss_magicfromtheeast:onmyoji_helmet", "iss_magicfromtheeast:taoist_helmet",
+                "l2complements:eternium_helmet", "l2complements:poseidite_helmet", "l2complements:sculkium_helmet",
+                "l2complements:shulkerate_helmet", "l2complements:totemic_gold_helmet",
+                "mowziesmobs:geomancer_beads", "mowziesmobs:umvuthana_mask_bliss", "mowziesmobs:umvuthana_mask_faith",
+                "mowziesmobs:umvuthana_mask_fear", "mowziesmobs:umvuthana_mask_fury", "mowziesmobs:umvuthana_mask_misery", "mowziesmobs:umvuthana_mask_rage",
+                "tunes_n_tomes:bard_helmet", "tunes_n_tomes:melodic_mastery_helmet",
+                "twilightforest:arctic_helmet", "twilightforest:fiery_helmet", "twilightforest:ironwood_helmet",
+                "twilightforest:knightmetal_helmet", "twilightforest:phantom_helmet", "twilightforest:steeleaf_helmet",
+                "twilightforest:travellers_goggles", "twilightforest:yeti_helmet"
         ));
 
         writeTag(new File(tagDir, "chestplates.json"), List.of(
                 "minecraft:leather_chestplate", "minecraft:chainmail_chestplate", "minecraft:iron_chestplate",
-                "minecraft:golden_chestplate", "minecraft:diamond_chestplate", "minecraft:netherite_chestplate"
+                "minecraft:golden_chestplate", "minecraft:diamond_chestplate", "minecraft:netherite_chestplate",
+                "cataclysm:bone_reptile_chestplate", "cataclysm:cursium_chestplate",
+                "cataclysm:ignitium_chestplate", "cataclysm:ignitium_elytra_chestplate",
+                "dungeonnowloading:spawner_chestplate",
+                "irons_spellbooks:archevoker_chestplate", "irons_spellbooks:cryomancer_chestplate", "irons_spellbooks:cultist_chestplate",
+                "irons_spellbooks:electromancer_chestplate", "irons_spellbooks:netherite_mage_chestplate", "irons_spellbooks:plagued_chestplate",
+                "irons_spellbooks:priest_chestplate", "irons_spellbooks:pumpkin_chestplate", "irons_spellbooks:pyromancer_chestplate",
+                "irons_spellbooks:shadowwalker_chestplate", "irons_spellbooks:wandering_magician_chestplate", "irons_spellbooks:wizard_chestplate",
+                "iss_magicfromtheeast:jade_pagoda_chestplate", "iss_magicfromtheeast:onmyoji_chestplate", "iss_magicfromtheeast:taoist_chestplate",
+                "l2complements:eternium_chestplate", "l2complements:poseidite_chestplate", "l2complements:sculkium_chestplate",
+                "l2complements:shulkerate_chestplate", "l2complements:totemic_gold_chestplate",
+                "mowziesmobs:geomancer_robe",
+                "tunes_n_tomes:bard_chestplate", "tunes_n_tomes:melodic_mastery_chestplate",
+                "twilightforest:arctic_chestplate", "twilightforest:fiery_chestplate", "twilightforest:ironwood_chestplate",
+                "twilightforest:knightmetal_chestplate", "twilightforest:naga_chestplate", "twilightforest:phantom_chestplate",
+                "twilightforest:steeleaf_chestplate", "twilightforest:travellers_vest", "twilightforest:yeti_chestplate"
+        ));
+
+        writeTag(new File(tagDir, "leggings.json"), List.of(
+                "minecraft:leather_leggings", "minecraft:chainmail_leggings", "minecraft:iron_leggings",
+                "minecraft:golden_leggings", "minecraft:diamond_leggings", "minecraft:netherite_leggings",
+                "cataclysm:cursium_leggings", "cataclysm:ignitium_leggings",
+                "dungeonnowloading:spawner_leggings",
+                "irons_spellbooks:archevoker_leggings", "irons_spellbooks:cryomancer_leggings", "irons_spellbooks:cultist_leggings",
+                "irons_spellbooks:electromancer_leggings", "irons_spellbooks:netherite_mage_leggings", "irons_spellbooks:plagued_leggings",
+                "irons_spellbooks:priest_leggings", "irons_spellbooks:pumpkin_leggings", "irons_spellbooks:pyromancer_leggings",
+                "irons_spellbooks:shadowwalker_leggings", "irons_spellbooks:wandering_magician_leggings", "irons_spellbooks:wizard_leggings",
+                "iss_magicfromtheeast:jade_pagoda_leggings", "iss_magicfromtheeast:onmyoji_leggings", "iss_magicfromtheeast:taoist_leggings",
+                "l2complements:eternium_leggings", "l2complements:poseidite_leggings", "l2complements:sculkium_leggings",
+                "l2complements:shulkerate_leggings", "l2complements:totemic_gold_leggings",
+                "mowziesmobs:geomancer_belt",
+                "tunes_n_tomes:bard_leggings", "tunes_n_tomes:melodic_mastery_leggings",
+                "twilightforest:arctic_leggings", "twilightforest:fiery_leggings", "twilightforest:ironwood_leggings",
+                "twilightforest:knightmetal_leggings", "twilightforest:naga_leggings", "twilightforest:steeleaf_leggings",
+                "twilightforest:travellers_wings", "twilightforest:yeti_leggings"
+        ));
+
+        writeTag(new File(tagDir, "boots.json"), List.of(
+                "minecraft:leather_boots", "minecraft:chainmail_boots", "minecraft:iron_boots",
+                "minecraft:golden_boots", "minecraft:diamond_boots", "minecraft:netherite_boots",
+                "cataclysm:cursium_boots", "cataclysm:ignitium_boots",
+                "dungeonnowloading:spawner_boots",
+                "irons_spellbooks:archevoker_boots", "irons_spellbooks:cryomancer_boots", "irons_spellbooks:cultist_boots",
+                "irons_spellbooks:electromancer_boots", "irons_spellbooks:netherite_mage_boots", "irons_spellbooks:plagued_boots",
+                "irons_spellbooks:priest_boots", "irons_spellbooks:pumpkin_boots", "irons_spellbooks:pyromancer_boots",
+                "irons_spellbooks:shadowwalker_boots", "irons_spellbooks:wandering_magician_boots", "irons_spellbooks:wizard_boots",
+                "iss_magicfromtheeast:jade_pagoda_boots", "iss_magicfromtheeast:onmyoji_boots", "iss_magicfromtheeast:taoist_boots",
+                "l2complements:eternium_boots", "l2complements:poseidite_boots", "l2complements:sculkium_boots",
+                "l2complements:shulkerate_boots", "l2complements:totemic_gold_boots",
+                "mowziesmobs:geomancer_sandals",
+                "tunes_n_tomes:bard_boots", "tunes_n_tomes:melodic_mastery_boots",
+                "twilightforest:arctic_boots", "twilightforest:fiery_boots", "twilightforest:ironwood_boots",
+                "twilightforest:knightmetal_boots", "twilightforest:steeleaf_boots",
+                "twilightforest:travellers_boots", "twilightforest:yeti_boots"
         ));
 
         // 12. 聚合标签 (Melee / All Weapons / All)
@@ -956,10 +895,11 @@ public class examplemodDatapackGenerator {
                 "#examplemod:base/all_weapons",
                 "#examplemod:base/helmets",
                 "#examplemod:base/chestplates",
+                "#examplemod:base/leggings",
+                "#examplemod:base/boots",
                 "#examplemod:base/shields"
         ));
     }
-
     private static void writeTag(File file, List<String> entries) {
         StringBuilder sb = new StringBuilder("{\n  \"replace\": false,\n  \"values\": [\n");
         for (int i = 0; i < entries.size(); i++) {

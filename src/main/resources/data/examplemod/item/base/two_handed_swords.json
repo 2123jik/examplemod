@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "irons_spellbooks:claymore",
+    "irons_spellbooks:keeper_flamberge",
+    "irons_spellbooks:legionnaire_flamberge",
+    "simplyswords:iron_claymore",
+    "simplyswords:gold_claymore",
+    "simplyswords:diamond_claymore",
+    "simplyswords:netherite_claymore",
+    "simplyswords:runic_claymore",
+    "simplyswords:sword_on_a_stick",
+    "simplyswords:decaying_relic",
+    "simplyswords:dormant_relic",
+    "simplyswords:righteous_relic",
+    "simplyswords:tainted_relic",
+    "knavesneeds:twilightforest/ironwood/claymore",
+    "knavesneeds:twilightforest/steeleaf/claymore",
+    "knavesneeds:twilightforest/knightmetal/claymore",
+    "knavesneeds:twilightforest/fiery/claymore"
+  ]
+}

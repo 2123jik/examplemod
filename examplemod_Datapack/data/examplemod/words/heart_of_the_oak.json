@@ -1,0 +1,49 @@
+{
+  "id": "heart_of_the_oak",
+  "name_en": "Heart of the Oak",
+  "name_cn": "橡树之心",
+  "sockets_required": 4,
+  "all_spell_levels": 3,
+  "valid_base_tags": [
+    "#examplemod:base/staves",
+    "#examplemod:base/blunt"
+  ],
+  "sequence": [
+    "examplemod:runes/rune_18_ko",
+    "examplemod:runes/rune_26_vex",
+    "examplemod:runes/rune_21_pul",
+    "examplemod:runes/rune_10_thul"
+  ],
+  "attributes": [
+    {
+      "attribute": "irons_spellbooks:cast_time_reduction",
+      "amount": 0.3,
+      "operation": "MULTIPLY_BASE",
+      "description": "+30% 快速施法"
+    },
+    {
+      "attribute": "examplemod:damage_to_demons",
+      "amount": 75.0,
+      "operation": "ADD_VALUE",
+      "description": "+75% 对恶魔伤害"
+    },
+    {
+      "attribute": "examplemod:mana_steal",
+      "amount": 7.0,
+      "operation": "ADD_VALUE",
+      "description": "7% 击中偷蓝"
+    },
+    {
+      "attribute": "irons_spellbooks:max_mana",
+      "amount": 0.15,
+      "operation": "MULTIPLY_BASE",
+      "description": "+15% 法力上限"
+    },
+    {
+      "attribute": "irons_spellbooks:spell_resist",
+      "amount": 0.25,
+      "operation": "MULTIPLY_BASE",
+      "description": "+25% 全抗"
+    }
+  ]
+}

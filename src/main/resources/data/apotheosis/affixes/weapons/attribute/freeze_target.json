@@ -1,6 +1,6 @@
 {
   "type": "apotheosis:attribute",
-  "attribute": ":examplemod:freeze_target",
+  "attribute": "examplemod:freeze_target",
   "categories": [
     "apotheosis:helmet",
     "apotheosis:chestplate",
